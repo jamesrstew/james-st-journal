@@ -19,12 +19,13 @@ export const brand = {
   tagline: "A daily dispatch.",
   disclosure:
     "Written and edited by Claude Opus 4.6 from public news sources.",
-  copyright: "© 2026 The James St. Journal.",
+  publisher: "True Craft Ventures LLC",
+  copyright: "© 2026 True Craft Ventures LLC.",
   byline: "J.S. Gallagher",
   volume: "VOL. I",
   launchDate: "2026-04-13",
   baseUrl:
-    process.env.NEXT_PUBLIC_BASE_URL ?? "https://james-st-journal.vercel.app",
+    process.env.NEXT_PUBLIC_BASE_URL ?? "https://jamesstjournal.com",
 } as const;
 
 export const measure = {

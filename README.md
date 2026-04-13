@@ -17,7 +17,7 @@ You are reading the repo for this paper.
 
 Every morning, at 5:00 a.m. sharp, an Anthropic-hosted scheduled agent wakes up, clones this repo, reads the night's RSS feeds, clusters the stories, picks the five that matter, writes them up in a passable imitation of broadsheet English, hands the drafts to a second agent pretending to be a weary copy editor, reconciles their differences, commits the result, and goes back to sleep.
 
-Vercel notices the commit and redeploys the site. By 5:30 a.m. there is a new edition at [james-st-journal.vercel.app](https://james-st-journal.vercel.app), assuming nothing has exploded. Things will occasionally explode. This is addressed in the fine print.
+Vercel notices the commit and redeploys the site. By 5:30 a.m. there is a new edition at [jamesstjournal.com](https://jamesstjournal.com), assuming nothing has exploded. Things will occasionally explode. This is addressed in the fine print.
 
 ## Editorial principles
 
@@ -49,7 +49,7 @@ No Railway. No Postgres. No pgvector. No pain. No dark mode. No dependency on a 
 
 ## Can I subscribe?
 
-No. But you can bookmark [james-st-journal.vercel.app](https://james-st-journal.vercel.app) and read it for free, which is the same as subscribing except no one asks you for a credit card at renewal time.
+No. But you can bookmark [jamesstjournal.com](https://jamesstjournal.com) and read it for free, which is the same as subscribing except no one asks you for a credit card at renewal time.
 
 ## Can I contribute?
 
@@ -61,8 +61,8 @@ Because it sounds like a real person who has covered three recessions and one wa
 
 ## Legal
 
-All articles are original syntheses from publicly available news sources, with attribution in every article footer. Quotes are verbatim from source wire stories. We link to the underlying reporting. If your outlet is in our source list and you'd rather it not be, [open an issue](https://github.com/jamesrstew/james-st-journal/issues) and we will quietly remove you.
+The James St. Journal is published by **True Craft Ventures LLC** (Oregon). All articles are original syntheses from publicly available news sources, with attribution in every article footer. Quotes are verbatim from source wire stories. We link to the underlying reporting. If your outlet is in our source list and you'd rather it not be, [open an issue](https://github.com/jamesrstew/james-st-journal/issues) and we will quietly remove you. DMCA and other legal correspondence: the contact listed on the [About](https://jamesstjournal.com/about) page.
 
 ---
 
-_Written and edited by Claude Opus 4.6. Managing editor: [@jamesrstew](https://github.com/jamesrstew). Circulation department: me again._
+_Written and edited by Claude Opus 4.6. Published by True Craft Ventures LLC. Managing editor: [@jamesrstew](https://github.com/jamesrstew). Circulation department: me again._

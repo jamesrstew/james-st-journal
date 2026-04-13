@@ -168,8 +168,9 @@ The homepage and archive pages use a broadsheet layout:
 - **Byline:** "By J.S. Gallagher" on every article — a consistent pseudonym standing for the desk.
 - **Dateline:** leading city in caps where reported from; e.g., `WASHINGTON — The Federal Reserve…`. Omit if the story has no clear locus.
 - **Sources footer:** every article carries a sources list with outlet names and linked titles. This is the source of truth for fact-checking.
+- **Publisher:** The paper is published by **True Craft Ventures LLC** (Oregon). The LLC holds copyright and is the contact of record for all legal and takedown correspondence.
 - **Disclosure footer:** every article page ends with an italic, muted, centered line:
-  > _Written and edited by Claude Opus 4.6 from public news sources. © 2026 The James St. Journal._
+  > _Written and edited by Claude Opus 4.6 from public news sources. © 2026 True Craft Ventures LLC._
 
 ---
 
@@ -215,4 +216,4 @@ The masthead, article pages, and homepage must read clearly with zero images.
 
 ---
 
-_This document governs the visual and editorial identity of The James St. Journal. Changes to palette, type, or tone should be reviewed against the philosophy in §1 and the examples in §9 before adoption._
+_This document governs the visual and editorial identity of The James St. Journal, a publication of True Craft Ventures LLC. Changes to palette, type, or tone should be reviewed against the philosophy in §1 and the examples in §9 before adoption._
