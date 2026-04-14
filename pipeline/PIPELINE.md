@@ -19,9 +19,9 @@ Run every step in order. Do not skip. If any step fails, write a partial run log
 - `content/articles/YYYY-MM-DD/*.md` — published editions (read last 7 for dedupe)
 - `pipeline/runs/YYYY-MM-DD.json` — run logs, one per day
 
-## Secrets
+## Git access
 
-`$GITHUB_TOKEN` is available as an env var (fine-grained PAT, `contents: write` on this repo only). Never echo it. Never include it in a commit message, run log, article body, or any file written to disk.
+The trigger runs with `allow_unrestricted_git_push: true` on the repo source, so the clone already has push credentials wired into git. You do NOT need a `GITHUB_TOKEN` and should not try to set one. `git push origin main` just works.
 
 ---
 
@@ -115,7 +115,22 @@ Write the selection to `/tmp/jsj-$DATE/selection.json`.
 For each selected cluster (slot 1–N):
 
 1. Pick 3–5 of its body-tier items with the highest authority.
-2. `WebFetch` each item's URL; extract plain text (strip HTML; keep paragraphs).
+2. Fetch each item's URL and extract plain text (strip HTML, keep paragraphs). Use the cascade below:
+   1. `WebFetch` first. Check the returned body length; anything under ~200 chars is almost certainly a paywall page, bot wall, or truncated shell.
+   2. **If `WebFetch` fails or returns <200 chars of body:** fall back to curl + a small parser. Many outlets block Anthropic's fetcher but respond fine to a browser UA. Example:
+      ```bash
+      curl -sS -L --max-time 15 \
+        -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" \
+        -H "Accept: text/html,application/xhtml+xml" \
+        -o "/tmp/jsj-$DATE/raw-<slot>-<n>.html" \
+        "<url>"
+      ```
+      Then extract paragraphs with a per-outlet Python regex. Minimal patterns that worked in testing:
+      - **BBC** (`bbc.com/news/...`): pull `<article>...</article>`, then all `<p>...</p>` tags inside.
+      - **NPR** (`npr.org/...`): pull `<div id="storytext">...</div>`, then all `<p>...</p>`.
+      - **Guardian / Reuters / AP / PBS**: `<article>` + `<p>` usually works; otherwise try the `<meta name="description">` body-chunked JSON-LD `articleBody` field.
+      - **JS-rendered pages** (Axios, some tech sites): the HTML shell is often empty. Skip — drop this source.
+   3. **If both fail**, drop that source and pick another body-tier source from the same cluster.
 3. Build a dossier and write to `/tmp/jsj-$DATE/dossier-<slot>.json`:
    ```json
    {
@@ -130,8 +145,9 @@ For each selected cluster (slot 1–N):
      "recent_headlines": <recent.json contents>
    }
    ```
+4. **Hard minimum:** every dossier must carry at least 2 body-tier sources with bodies ≥ 600 chars each, otherwise the slot is dropped and you refill from the next-ranked cluster. A thin dossier produces a hallucinated article.
 
-If any `WebFetch` fails or returns a paywall page for a body-tier source, drop that source and pick another. Do NOT substitute a headline-tier source — those are signal only.
+Do NOT substitute a headline-tier source for a failed body-tier fetch — those are signal only. If an outlet has consistently blocked you for multiple runs, log it in the run log so we can adjust `sources.json` later.
 
 ## Step 8 — draft (parallel sub-agents)
 

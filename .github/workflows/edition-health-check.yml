@@ -1,0 +1,64 @@
+name: Edition health check
+
+# Fails (and emails the repo owner via GitHub's default workflow-failure notification)
+# if the 5 AM PT scheduled trigger didn't land today's edition by 7 AM PT.
+# Scoped narrowly: this is an alarm clock, not an executor.
+
+on:
+  schedule:
+    # 14:05 UTC = 7:05 AM PDT / 6:05 AM PST. DST drifts by one hour twice a year; acceptable.
+    - cron: "5 14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # We just need the current main, no history
+          fetch-depth: 1
+
+      - name: Verify today's run log exists and succeeded
+        run: |
+          set -eo pipefail
+          DATE=$(TZ=America/Los_Angeles date +%Y-%m-%d)
+          RUN="pipeline/runs/${DATE}.json"
+
+          echo "Checking for ${RUN}"
+
+          if [ ! -f "${RUN}" ]; then
+            echo "::error title=Missing edition::No pipeline run log for ${DATE}. The 5 AM PT trigger did not land an edition."
+            exit 1
+          fi
+
+          STATUS=$(jq -r '.status' "${RUN}")
+          echo "Run status: ${STATUS}"
+
+          case "${STATUS}" in
+            success)
+              echo "Edition ${DATE} published successfully."
+              ;;
+            partial)
+              ARTICLES=$(jq -r '.articles_published // (.articles | length)' "${RUN}")
+              echo "::warning title=Partial edition::${DATE} published ${ARTICLES} articles (of 5 target). Not a failure, but worth a look."
+              ;;
+            failed|*)
+              echo "::error title=Pipeline failed::${DATE} run reports status=${STATUS}. See ${RUN} for details."
+              exit 1
+              ;;
+          esac
+
+      - name: Verify homepage responds
+        run: |
+          set -eo pipefail
+          URL="https://jamesstjournal.com"
+          CODE=$(curl -sS -o /dev/null -w "%{http_code}" --max-time 15 "${URL}")
+          echo "Homepage ${URL} → HTTP ${CODE}"
+          if [ "${CODE}" != "200" ]; then
+            echo "::error title=Homepage down::${URL} returned ${CODE}"
+            exit 1
+          fi
