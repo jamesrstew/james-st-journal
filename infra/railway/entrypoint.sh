@@ -4,20 +4,21 @@ set -euo pipefail
 : "${CLAUDE_CREDENTIALS_JSON:?required: paste from local Keychain extract; see infra/railway/README.md}"
 : "${GITHUB_PAT:?required: fine-grained PAT, contents:write on jamesrstew/james-st-journal}"
 
-mkdir -p /root/.claude
-printf '%s' "$CLAUDE_CREDENTIALS_JSON" > /root/.claude/.credentials.json
-chmod 600 /root/.claude/.credentials.json
+mkdir -p "$HOME/.claude"
+printf '%s' "$CLAUDE_CREDENTIALS_JSON" > "$HOME/.claude/.credentials.json"
+chmod 600 "$HOME/.claude/.credentials.json"
 
-mkdir -p /root/git
-printf 'https://x-access-token:%s@github.com\n' "$GITHUB_PAT" > /root/git/credentials
-chmod 600 /root/git/credentials
-git config --global credential.helper "store --file=/root/git/credentials"
+mkdir -p "$HOME/git"
+printf 'https://x-access-token:%s@github.com\n' "$GITHUB_PAT" > "$HOME/git/credentials"
+chmod 600 "$HOME/git/credentials"
+git config --global credential.helper "store --file=$HOME/git/credentials"
 git config --global user.name "J.S. Gallagher"
 git config --global user.email "editor@jamesstjournal.com"
 
-rm -rf /work
-git clone https://github.com/jamesrstew/james-st-journal.git /work
-cd /work
+WORK="$HOME/work"
+rm -rf "$WORK"
+git clone https://github.com/jamesrstew/james-st-journal.git "$WORK"
+cd "$WORK"
 
 pnpm install --frozen-lockfile --offline
 

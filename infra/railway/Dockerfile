@@ -6,14 +6,22 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN npm install -g pnpm@10 @anthropic-ai/claude-code
 
-# Prime the pnpm store at image build time so the runtime install is offline-fast.
-# We copy only the lockfile + manifest from the repo so a code change doesn't bust this layer.
-WORKDIR /tmp/prefetch
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-RUN pnpm fetch --frozen-lockfile && rm -rf /tmp/prefetch
+# Claude Code CLI refuses --permission-mode bypassPermissions as root,
+# so the pipeline runs as an unprivileged user.
+RUN useradd -m -s /bin/bash jsj
+USER jsj
+WORKDIR /home/jsj
 
-WORKDIR /
+# Prime the pnpm store at image build time so runtime install is offline-fast.
+# Runs as jsj so the store lands at /home/jsj/.local/share/pnpm/store where
+# the runtime install will look.
+COPY --chown=jsj:jsj package.json pnpm-lock.yaml pnpm-workspace.yaml /home/jsj/prefetch/
+RUN cd /home/jsj/prefetch && pnpm fetch --frozen-lockfile && cd /home/jsj && rm -rf prefetch
+
+USER root
 COPY infra/railway/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
+USER jsj
+WORKDIR /home/jsj
 CMD ["/entrypoint.sh"]
