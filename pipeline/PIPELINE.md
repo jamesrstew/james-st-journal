@@ -105,18 +105,36 @@ For each cluster compute:
 - `dedupe_penalty`: 0.0–0.5. Compare cluster summary + items against `recent.json`. If a near-duplicate story ran in the last 2 days, penalty = 0.5; 3–4 days, 0.3; 5–7 days, 0.15; no overlap, 0.0. Use judgment, not string matching.
 - `lean_mix`: the set of distinct `lean` values across all items in the cluster (both tiers), bucketed `{left, center, right}` (lean-left→left, lean-right→right, center→center). 2+ buckets is **diverse**; 1 bucket is **mono-perspective**.
 - `balance_multiplier`: 1.0 if diverse, 0.75 if mono-perspective. This disfavors stories only one ideological side is reporting — not because they're wrong, but because WSJ's news desk selects for stories that cross the aisle.
-- `raw_score = source_count * authority * recency * (1 - dedupe_penalty) * balance_multiplier`
+- `mandate_count`: number of distinct sources in the cluster whose `sources.json` entry has `"mandate": true`. These are the money/power-desk outlets (WSJ, FT, Bloomberg, Economist, NYT Business) whose coverage signals "this is a WSJ-style top story."
+- `signal_boost`: bucketed from `mandate_count`:
+  - 0 → 1.0
+  - 1 → 1.35
+  - 2 → 1.7
+  - 3+ → 2.0
+- `category_weight`: looked up from `CATEGORY_WEIGHT` in `pipeline/categories.ts`:
+  - Markets, Business, Politics, Tech → 1.0
+  - World → 0.85
+  - Science, Health → 0.7
+  - Culture, Sports, Opinion → 0.5
+- `raw_score = source_count * authority * recency * (1 - dedupe_penalty) * balance_multiplier * signal_boost * category_weight`
 
-Classify each cluster into exactly one category (pick the best fit from `CATEGORIES`).
+Classify each cluster into exactly one category (pick the best fit from `CATEGORIES`). `CORE_BEATS` is the tuple `["Markets","Business","Politics","Tech"]` — it governs lead-slot eligibility and the composition floor in Step 6.
 
 ## Step 6 — select 5
 
-- **Slot 1 (the day's lead):** highest `raw_score`.
-- **Slots 2–5:** greedy with category overlap penalty. For each remaining cluster, compute `adjusted = raw_score * (1 - 0.4 * overlap)` where `overlap` is the count of already-selected clusters sharing its category, divided by 4. Pick the highest. Repeat until 5 slots are filled.
+The aim is a WSJ-style front page: core-beat (Markets / Business / Politics / Tech) stories dominate, with World / Science / Culture only when the mandate feeds say it's genuinely top news.
 
-If fewer than 5 clusters qualify (every category-diverse pick has `raw_score < 2.0`), publish what you have. The edition will render with a visible "N/5 stories" banner and a gap note in the run log.
+- **Slot 1 (the day's lead):** highest `raw_score` among clusters that EITHER belong to `CORE_BEATS` OR have `mandate_count >= 2`. The mandate escape hatch lets a legitimately huge World event (war, major geopolitical rupture) lead when WSJ / FT / Bloomberg are all treating it as top news. A viral human-interest or crime story with zero mandate coverage is **not** eligible to lead no matter how many wires picked it up.
+- **Slots 2–5:** greedy fill with a retuned category-overlap penalty. For each remaining cluster, compute `adjusted = raw_score * (1 - penalty * overlap)` where:
+  - `penalty = 0.0` if the cluster's category is in `CORE_BEATS` (a WSJ front page routinely carries multiple Markets / Business / Politics pieces — do not diversify away from them)
+  - `penalty = 0.2` otherwise
+  - `overlap = count of already-selected clusters sharing this category / 4`
+  Pick the highest `adjusted`. Repeat until 5 slots are filled.
+- **Composition floor:** at least **3 of the 5** final slots must be in `CORE_BEATS`. Enforce during greedy fill — once 4 slots are placed, if the core-beat count is still `< 3`, restrict the Slot-5 candidate pool to core-beat clusters only. If no core-beat cluster remains with `raw_score >= 1.0`, publish with fewer than 5 slots and log the gap.
 
-Write the selection to `/tmp/jsj-$DATE/selection.json`.
+If fewer than 5 clusters qualify (every pick has `raw_score < 2.0`), publish what you have. The edition will render with a visible "N/5 stories" banner and a gap note in the run log.
+
+Write the selection to `/tmp/jsj-$DATE/selection.json`. Include `mandate_count`, `signal_boost`, and `category_weight` on every entry so the run log can explain why each cluster placed where it did.
 
 ## Step 7 — research
 
@@ -232,7 +250,7 @@ Write `pipeline/runs/$DATE.json` (include in the commit above):
   "stages": {
     "ingest":   { "items": 312, "feeds_ok": 22, "feeds_fail": 1, "duration_sec": 14 },
     "cluster":  { "clusters": 38, "body_tier_clusters": 27, "duration_sec": 3 },
-    "select":   { "chosen": [ { "slot":1, "cluster":"...", "category":"Markets", "score":3.2 }, ... ] },
+    "select":   { "chosen": [ { "slot":1, "cluster":"...", "category":"Markets", "score":3.2, "mandate_count":3, "signal_boost":2.0, "category_weight":1.0 }, ... ], "core_beat_count":4 },
     "research": { "dossiers_built": 5, "sources_fetched": 23, "sources_failed": 2, "duration_sec": 62 },
     "draft":    { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
     "edit":     { "editors_spawned": 5, "approved_first_pass": 3, "revised": 2, "held": 0 },

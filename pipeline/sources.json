@@ -1,5 +1,5 @@
 {
-  "_comment": "Two tiers. body-fetchable = free/wire; fetch full text, write from. headline-only = paywalled; use headlines/deks as newsworthiness signal only, NEVER fetch bodies, NEVER quote. 'authority' weights the cluster score. 'lean' is an AllSides-informed bias label (left | lean-left | center | lean-right | right) used downstream to anchor framing in wires and to balance partisan sources. AP and Reuters are accessed via Google News site-filter RSS because their native RSS is unreliable; the item link redirects to the real apnews.com / reuters.com article, which WebFetch can follow.",
+  "_comment": "Two tiers. body-fetchable = free/wire; fetch full text, write from. headline-only = paywalled; use headlines/deks as newsworthiness signal only, NEVER fetch bodies, NEVER quote. 'authority' weights the cluster score. 'lean' is an AllSides-informed bias label (left | lean-left | center | lean-right | right) used downstream to anchor framing in wires and to balance partisan sources. 'mandate: true' marks outlets whose coverage is treated as editorial vote for 'is this a WSJ-style top story' — coverage in mandate outlets drives the signal_boost factor in scoring (see PIPELINE.md Step 5). Only set mandate on desks that are tightly money/power focused; avoid general-interest desks that run human-interest. AP and Reuters are accessed via Google News site-filter RSS because their native RSS is unreliable; the item link redirects to the real apnews.com / reuters.com article, which WebFetch can follow.",
   "body_fetchable": [
     { "name": "Reuters (GN)",          "rss": "https://news.google.com/rss/search?q=when:1d+site:reuters.com&hl=en-US&gl=US&ceid=US:en", "authority": 1.0, "lean": "center" },
     { "name": "AP News (GN)",          "rss": "https://news.google.com/rss/search?q=when:1d+site:apnews.com&hl=en-US&gl=US&ceid=US:en", "authority": 1.0, "lean": "center" },
@@ -28,15 +28,15 @@
     { "name": "Guardian Biz",          "rss": "https://www.theguardian.com/us/business/rss",             "authority": 0.8, "lean": "left" }
   ],
   "headline_only": [
-    { "name": "WSJ World",     "rss": "https://feeds.a.dj.com/rss/RSSWorldNews.xml",                                               "authority": 1.0, "lean": "lean-right" },
-    { "name": "WSJ Business",  "rss": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",                                           "authority": 1.0, "lean": "lean-right" },
-    { "name": "WSJ Markets",   "rss": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",                                             "authority": 1.0, "lean": "lean-right" },
-    { "name": "FT Home",       "rss": "https://www.ft.com/rss/home",                                                               "authority": 1.0, "lean": "center" },
-    { "name": "Bloomberg (GN)","rss": "https://news.google.com/rss/search?q=when:1d+site:bloomberg.com&hl=en-US&gl=US&ceid=US:en", "authority": 1.0, "lean": "center" },
-    { "name": "Economist (GN)","rss": "https://news.google.com/rss/search?q=when:1d+site:economist.com&hl=en-US&gl=US&ceid=US:en","authority": 1.0, "lean": "center" },
+    { "name": "WSJ World",     "rss": "https://feeds.a.dj.com/rss/RSSWorldNews.xml",                                               "authority": 1.0, "lean": "lean-right", "mandate": true },
+    { "name": "WSJ Business",  "rss": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",                                           "authority": 1.0, "lean": "lean-right", "mandate": true },
+    { "name": "WSJ Markets",   "rss": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",                                             "authority": 1.0, "lean": "lean-right", "mandate": true },
+    { "name": "FT Home",       "rss": "https://www.ft.com/rss/home",                                                               "authority": 1.0, "lean": "center",     "mandate": true },
+    { "name": "Bloomberg (GN)","rss": "https://news.google.com/rss/search?q=when:1d+site:bloomberg.com&hl=en-US&gl=US&ceid=US:en", "authority": 1.0, "lean": "center",     "mandate": true },
+    { "name": "Economist (GN)","rss": "https://news.google.com/rss/search?q=when:1d+site:economist.com&hl=en-US&gl=US&ceid=US:en","authority": 1.0, "lean": "center",     "mandate": true },
     { "name": "NYT World",     "rss": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",                                    "authority": 1.0, "lean": "lean-left" },
     { "name": "NYT US",        "rss": "https://rss.nytimes.com/services/xml/rss/nyt/US.xml",                                       "authority": 1.0, "lean": "lean-left" },
-    { "name": "NYT Business",  "rss": "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml",                                 "authority": 1.0, "lean": "lean-left" },
+    { "name": "NYT Business",  "rss": "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml",                                 "authority": 1.0, "lean": "lean-left",  "mandate": true },
     { "name": "NYT Tech",      "rss": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",                               "authority": 1.0, "lean": "lean-left" }
   ]
 }
