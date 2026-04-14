@@ -69,37 +69,43 @@ export function Ticker() {
   const quotes = data?.quotes ?? [];
   const visible = quotes.filter(q => q.price != null);
   if (visible.length === 0) {
-    // Render a thin loading strip to reserve space without flashing empty
     return (
       <div className="border-b border-rule bg-ink text-[0.7rem] text-paper/60">
-        <div className="mx-auto flex max-w-[1400px] items-center gap-6 overflow-x-auto whitespace-nowrap px-4 py-1.5 small-caps tracking-wider">
+        <div className="flex items-center px-4 py-1.5 small-caps tracking-wider">
           <span>Markets loading…</span>
         </div>
       </div>
     );
   }
 
+  const renderItem = (q: Quote, idx: number) => {
+    const up = (q.change ?? 0) > 0;
+    const down = (q.change ?? 0) < 0;
+    const colorClass = up ? "text-[#4ED58A]" : down ? "text-[#E07276]" : "text-paper/70";
+    const arrow = up ? "▲" : down ? "▼" : "·";
+    return (
+      <span key={`${q.symbol}-${idx}`} className="flex items-center gap-1.5">
+        <span className="small-caps tracking-wider text-paper/85">{q.label}</span>
+        <span className="tabular-nums font-semibold text-paper">{formatPrice(q)}</span>
+        <span className={`tabular-nums ${colorClass}`}>{formatPct(q.changePct)}</span>
+        <span className={`text-[0.6rem] ${colorClass}`} aria-hidden="true">{arrow}</span>
+      </span>
+    );
+  };
+
   return (
-    <div className="border-b border-rule bg-ink text-paper">
-      <div
-        className="mx-auto flex max-w-[1400px] items-center gap-6 overflow-x-auto whitespace-nowrap px-4 py-1.5 text-[0.72rem]"
-        role="marquee"
-        aria-label="Market ticker"
-      >
-        {visible.map(q => {
-          const up = (q.change ?? 0) > 0;
-          const down = (q.change ?? 0) < 0;
-          const colorClass = up ? "text-[#4ED58A]" : down ? "text-[#E07276]" : "text-paper/70";
-          const arrow = up ? "▲" : down ? "▼" : "·";
-          return (
-            <span key={q.symbol} className="flex items-center gap-1.5">
-              <span className="small-caps tracking-wider text-paper/85">{q.label}</span>
-              <span className="tabular-nums font-semibold text-paper">{formatPrice(q)}</span>
-              <span className={`tabular-nums ${colorClass}`}>{formatPct(q.changePct)}</span>
-              <span className={`text-[0.6rem] ${colorClass}`} aria-hidden="true">{arrow}</span>
-            </span>
-          );
-        })}
+    <div
+      className="ticker-wrapper border-b border-rule bg-ink text-paper"
+      aria-label="Market ticker"
+      role="marquee"
+    >
+      <div className="ticker-track py-1.5 text-[0.72rem]">
+        <div className="ticker-lane" aria-hidden="false">
+          {visible.map((q, i) => renderItem(q, i))}
+        </div>
+        <div className="ticker-lane" aria-hidden="true">
+          {visible.map((q, i) => renderItem(q, i + visible.length))}
+        </div>
       </div>
     </div>
   );
