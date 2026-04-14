@@ -159,20 +159,6 @@ hr {
 .ticker-wrapper {
   overflow: hidden;
   position: relative;
-  mask-image: linear-gradient(
-    to right,
-    transparent 0,
-    black 32px,
-    black calc(100% - 32px),
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0,
-    black 32px,
-    black calc(100% - 32px),
-    transparent 100%
-  );
 }
 
 .ticker-track {
