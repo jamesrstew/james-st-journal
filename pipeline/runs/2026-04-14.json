@@ -39,7 +39,7 @@
       ]
     },
     "stage": { "articles_written": 5, "validator_ok": true },
-    "commit": { "sha": null, "pushed": false, "note": "Push skipped pending — push credentials not wired into the clone in this run; see errors[]." }
+    "commit": { "sha": "f7c7f63c9e3f6b86fdf5303137016b1363d1a7d4", "pushed": false, "note": "Commit exists locally; push blocked by missing credentials in this environment — see errors[]." }
   },
   "articles": [
     { "slot": 1, "slug": "bahamas-police-release-michigan-husband-in-wife-s-disappearance-at-sea", "category": "World", "needs_review": false, "word_count": 845, "sources": 2 },
