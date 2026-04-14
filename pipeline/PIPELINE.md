@@ -31,6 +31,7 @@ The trigger runs with `allow_unrestricted_git_push: true` on the repo source, so
 2. Read `pipeline/sources.json`, `pipeline/prompts/writer.md`, `pipeline/prompts/editor.md`, `pipeline/categories.ts`, and this file.
 3. Verify `content/articles/` exists; create `content/articles/$DATE/` if it doesn't.
 4. `mkdir -p /tmp/jsj-$DATE` for staging dossiers and intermediate files.
+5. **Write an early breadcrumb run log** so silent failures still leave a trace. Immediately commit a stub `pipeline/runs/$DATE.json` with `{"date":"$DATE","status":"in_progress","started_at":"<ISO-8601 UTC>","stages":{}}` and push it. If you reach Step 13, you will overwrite this file with the final run log in a separate commit. (If a previous in-progress log for `$DATE` already exists, treat the prior run as failed: leave it for inspection, but proceed with this run anyway — never delete it.)
 
 ## Step 2 — dedupe signal from last 7 editions
 
@@ -213,11 +214,11 @@ For each slot in order (1, 2, 3, 4, 5):
    ```
    edition: $DATE — <lead headline> — N/5 stories
    ```
-5. Push to `origin main` using the token:
+5. Push to `origin main`:
    ```bash
-   git push "https://x-access-token:${GITHUB_TOKEN}@github.com/jamesrstew/james-st-journal.git" main
+   git push origin main
    ```
-   The token must not appear in any log output. Redirect with `2>&1 | sed 's/x-access-token:[^@]*@/x-access-token:***@/g'` if needed.
+   Push credentials are pre-wired into the clone via `allow_unrestricted_git_push: true` (see Step 0 — Git access). Do NOT construct an `https://x-access-token:...` URL or reference `$GITHUB_TOKEN`; that env var is unset and will produce an auth failure.
 6. After push succeeds, Vercel auto-deploys. Verify by hitting the deployment URL in a minute or two (optional; the run log is the source of truth).
 
 ## Step 13 — run log
