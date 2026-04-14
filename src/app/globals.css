@@ -1,12 +1,36 @@
 @import "tailwindcss";
 
-:root {
-  --paper: #F7F1E8;
+:root,
+:root[data-theme="light"] {
+  --paper: #FAFAF7;
   --ink: #1A1A1A;
-  --rule: #C9BFAE;
-  --muted: #6B5E4F;
+  --rule: #D7D3CB;
+  --muted: #5E5A53;
   --accent-red: #A4161A;
   --link: #1C4A73;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --paper: #14120F;
+  --ink: #ECE6D7;
+  --rule: #2E2B26;
+  --muted: #94897A;
+  --accent-red: #E07276;
+  --link: #8BB9E0;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --paper: #14120F;
+    --ink: #ECE6D7;
+    --rule: #2E2B26;
+    --muted: #94897A;
+    --accent-red: #E07276;
+    --link: #8BB9E0;
+    color-scheme: dark;
+  }
 }
 
 @theme inline {
@@ -34,15 +58,30 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
 a {
   color: var(--link);
   text-decoration: none;
+  transition: color 120ms ease-out, opacity 120ms ease-out;
 }
 
 a:hover {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 1px;
+  text-decoration: none;
+  opacity: 0.72;
+}
+
+.article-body a,
+.sources-list a {
+  border-bottom: 1px solid currentColor;
+}
+
+.article-body a:hover,
+.sources-list a:hover {
+  border-bottom-color: transparent;
 }
 
 hr {
@@ -53,6 +92,12 @@ hr {
 
 .rule-double {
   border-top: 3px double var(--ink);
+}
+
+@media (prefers-color-scheme: dark) {
+  .rule-double {
+    border-top-color: var(--rule);
+  }
 }
 
 .rule-thin {

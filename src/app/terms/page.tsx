@@ -12,7 +12,7 @@ export default function Terms() {
   return (
     <>
       <Masthead />
-      <main className="mx-auto max-w-[680px] px-6 py-16">
+      <main className="mx-auto max-w-[680px] px-4 sm:px-6 py-12 sm:py-16">
         <p className="small-caps text-muted">Terms of Use</p>
         <h1 className="headline mt-2 text-4xl">Terms.</h1>
         <p className="mt-2 text-sm text-muted">Last updated: April 13, 2026.</p>

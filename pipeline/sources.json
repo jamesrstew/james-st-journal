@@ -1,0 +1,30 @@
+{
+  "_comment": "Two tiers. body-fetchable = free/wire; fetch full text, write from. headline-only = paywalled; use headlines/deks as newsworthiness signal only, NEVER fetch bodies, NEVER quote. Authority weights are used in cluster scoring.",
+  "body_fetchable": [
+    { "name": "BBC World",      "rss": "https://feeds.bbci.co.uk/news/world/rss.xml",         "authority": 0.9 },
+    { "name": "BBC Business",   "rss": "https://feeds.bbci.co.uk/news/business/rss.xml",      "authority": 0.9 },
+    { "name": "NPR Top",        "rss": "https://feeds.npr.org/1001/rss.xml",                  "authority": 0.9 },
+    { "name": "NPR Business",   "rss": "https://feeds.npr.org/1006/rss.xml",                  "authority": 0.9 },
+    { "name": "NPR Tech",       "rss": "https://feeds.npr.org/1019/rss.xml",                  "authority": 0.9 },
+    { "name": "NPR World",      "rss": "https://feeds.npr.org/1004/rss.xml",                  "authority": 0.9 },
+    { "name": "Guardian US",    "rss": "https://www.theguardian.com/us-news/rss",             "authority": 0.8 },
+    { "name": "Guardian World", "rss": "https://www.theguardian.com/world/rss",               "authority": 0.8 },
+    { "name": "Guardian Biz",   "rss": "https://www.theguardian.com/us/business/rss",         "authority": 0.8 },
+    { "name": "Al Jazeera",     "rss": "https://www.aljazeera.com/xml/rss/all.xml",           "authority": 0.8 },
+    { "name": "CNBC Top",       "rss": "https://www.cnbc.com/id/100003114/device/rss/rss.html","authority": 0.7 },
+    { "name": "CNBC Markets",   "rss": "https://www.cnbc.com/id/15839069/device/rss/rss.html","authority": 0.7 },
+    { "name": "Politico",       "rss": "https://rss.politico.com/politics-news.xml",          "authority": 0.8 },
+    { "name": "Axios",          "rss": "https://api.axios.com/feed/",                         "authority": 0.8 },
+    { "name": "The Verge",      "rss": "https://www.theverge.com/rss/index.xml",              "authority": 0.7 },
+    { "name": "Ars Technica",   "rss": "https://feeds.arstechnica.com/arstechnica/index",     "authority": 0.7 },
+    { "name": "Wired",          "rss": "https://www.wired.com/feed/rss",                      "authority": 0.7 },
+    { "name": "PBS NewsHour",   "rss": "https://www.pbs.org/newshour/feeds/rss/headlines",    "authority": 0.9 }
+  ],
+  "headline_only": [
+    { "name": "NYT World",   "rss": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",    "authority": 1.0 },
+    { "name": "NYT US",      "rss": "https://rss.nytimes.com/services/xml/rss/nyt/US.xml",       "authority": 1.0 },
+    { "name": "NYT Business","rss": "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml", "authority": 1.0 },
+    { "name": "NYT Tech",    "rss": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml","authority": 1.0 },
+    { "name": "FT Home",     "rss": "https://www.ft.com/rss/home",                               "authority": 1.0 }
+  ]
+}

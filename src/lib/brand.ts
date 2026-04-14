@@ -1,8 +1,8 @@
 export const colors = {
-  paper: "#F7F1E8",
+  paper: "#FAFAF7",
   ink: "#1A1A1A",
-  rule: "#C9BFAE",
-  muted: "#6B5E4F",
+  rule: "#D7D3CB",
+  muted: "#5E5A53",
   accentRed: "#A4161A",
   link: "#1C4A73",
 } as const;

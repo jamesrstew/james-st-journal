@@ -12,7 +12,7 @@ export default function About() {
   return (
     <>
       <Masthead />
-      <main className="mx-auto max-w-[680px] px-6 py-16">
+      <main className="mx-auto max-w-[680px] px-4 sm:px-6 py-12 sm:py-16">
         <p className="small-caps text-muted">Colophon</p>
         <h1 className="headline mt-2 text-4xl">About this paper.</h1>
 
