@@ -1,0 +1,52 @@
+{
+  "date": "2026-04-13",
+  "status": "success",
+  "articles_published": 5,
+  "articles_target": 5,
+  "lead_headline": "U.S. Navy Blockades Iranian Ports at Strait of Hormuz",
+  "executor": "local (seed run)",
+  "model": "claude-opus-4-6",
+  "notes": "First real edition, replacing the hand-written samples. Pipeline executed by the local orchestrator before the 5am PT cron takes over tomorrow.",
+  "slots": [
+    {
+      "slot": 1,
+      "slug": "us-navy-blockades-iranian-ports-at-strait-of-hormuz",
+      "category": "World",
+      "editor_status": "approved",
+      "draft_iterations": 1,
+      "word_count": 861
+    },
+    {
+      "slot": 2,
+      "slug": "trump-attacks-pope-leo-over-iran-war-meloni-breaks-with-ally",
+      "category": "Politics",
+      "editor_status": "revise-then-accepted",
+      "draft_iterations": 2,
+      "word_count": 689
+    },
+    {
+      "slot": 3,
+      "slug": "magyar-routs-orban-pledges-eu-pivot",
+      "category": "World",
+      "editor_status": "approved",
+      "draft_iterations": 1,
+      "word_count": 669
+    },
+    {
+      "slot": 4,
+      "slug": "two-house-members-exit-in-single-day-over-misconduct-scandals",
+      "category": "Politics",
+      "editor_status": "approved",
+      "draft_iterations": 1,
+      "word_count": 531
+    },
+    {
+      "slot": 5,
+      "slug": "march-cpi-jumps-to-3-3-percent-as-gasoline-drives-two-thirds-of-monthly-gain",
+      "category": "Markets",
+      "editor_status": "approved",
+      "draft_iterations": 1,
+      "word_count": 549
+    }
+  ]
+}
