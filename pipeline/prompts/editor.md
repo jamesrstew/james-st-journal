@@ -65,6 +65,17 @@ Not polish. Just the bright-line violations:
 
 If this cluster appears in `recent_headlines`, the lede must lead with what is new vs. prior coverage, not with the recurring premise. If it doesn't, flag for revision.
 
+### 6. Ideological balance
+
+Check the draft's framing against the dossier's `lean_mix` and `sources[].lean`:
+
+- **If `lean_mix` spans multiple buckets** (e.g. has both a left/lean-left source and a right/lean-right source), the counterpoint graf must surface the substantive opposing-bucket objection. A generic "critics say" or "risks remain" caveat is not enough. Revise if the opposing view is absent.
+- **If the draft only cites sources from one bucket** when the dossier offered more, revise with a note pointing to the uncited cross-bucket source.
+- **Loaded vocabulary check.** Scan for words that appear only in partisan sources: "crackdown", "woke", "far-right", "radical", "extremist", "regime" (used of US allies), "slashed", "gutted", "ripped". If the word is used by the reporter (not in a direct quote) and is not in a center/wire source, revise toward the plainer verb.
+- **Mono-perspective disclosure.** If `lean_mix` is a single bucket, the draft must acknowledge the missing side somewhere ("Administration officials had not publicly responded" / "Opposition leaders were not reached for comment by press time" / equivalent). If it doesn't, revise.
+
+This is not a hunt for false balance — a factual event (a plane crash, a jobs number) doesn't need an opposing view. The check applies to contested stories: policy, politics, labor, regulation, conflict.
+
 ## Output
 
 Return exactly one JSON object, no prose, no fences.

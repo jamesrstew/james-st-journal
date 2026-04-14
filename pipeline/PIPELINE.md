@@ -52,15 +52,20 @@ For each entry in `sources.json` (both tiers):
 2. Parse items from the last 36 hours (generous — some feeds are slow).
 3. For each item collect: `title`, `link`, `published`, `summary` (if present), `source` (the feed's `name`), `tier` (`body` or `headline`), `authority`.
 
-Parse RSS with a small Node one-liner if needed:
+Parse RSS **and Atom** with a small Node one-liner (The Verge uses Atom `<entry>`; most others use RSS `<item>`):
 ```bash
 node -e '
   const parser = new (require("xml2js").Parser)({explicitArray:false});
   parser.parseString(require("fs").readFileSync(0, "utf8"), (e, r) => {
-    const items = r?.rss?.channel?.item ?? [];
-    console.log(JSON.stringify(items.map(i => ({
-      title: i.title, link: i.link, pubDate: i.pubDate, description: i.description,
-    }))));
+    const rssItems = r?.rss?.channel?.item ?? [];
+    const atomEntries = r?.feed?.entry ?? [];
+    const items = [].concat(rssItems, atomEntries).map(i => ({
+      title: typeof i.title === "object" ? i.title._ ?? i.title.$t ?? "" : i.title,
+      link:  typeof i.link  === "object" ? (i.link.$?.href ?? i.link.href ?? "") : i.link,
+      pubDate: i.pubDate ?? i.updated ?? i.published,
+      description: i.description ?? i.summary ?? i.content,
+    }));
+    console.log(JSON.stringify(items));
   });
 '
 ```
@@ -97,7 +102,9 @@ For each cluster compute:
 - `authority`: weighted average of `authority` across all items (use each source's authority from `sources.json`)
 - `recency`: 1.0 if first item is from the last 12 hours, 0.7 if 12–24, 0.4 if 24–36
 - `dedupe_penalty`: 0.0–0.5. Compare cluster summary + items against `recent.json`. If a near-duplicate story ran in the last 2 days, penalty = 0.5; 3–4 days, 0.3; 5–7 days, 0.15; no overlap, 0.0. Use judgment, not string matching.
-- `raw_score = source_count * authority * recency * (1 - dedupe_penalty)`
+- `lean_mix`: the set of distinct `lean` values across all items in the cluster (both tiers), bucketed `{left, center, right}` (lean-left→left, lean-right→right, center→center). 2+ buckets is **diverse**; 1 bucket is **mono-perspective**.
+- `balance_multiplier`: 1.0 if diverse, 0.75 if mono-perspective. This disfavors stories only one ideological side is reporting — not because they're wrong, but because WSJ's news desk selects for stories that cross the aisle.
+- `raw_score = source_count * authority * recency * (1 - dedupe_penalty) * balance_multiplier`
 
 Classify each cluster into exactly one category (pick the best fit from `CATEGORIES`).
 
@@ -139,9 +146,10 @@ For each selected cluster (slot 1–N):
      "slot": <N>,
      "today": "$DATE",
      "sources": [
-       { "title": "...", "source": "...", "url": "...", "body": "<full text>" },
+       { "title": "...", "source": "...", "url": "...", "lean": "<left|lean-left|center|lean-right|right>", "body": "<full text>" },
        ...
      ],
+     "lean_mix": ["center", "lean-right"],
      "recent_headlines": <recent.json contents>
    }
    ```
