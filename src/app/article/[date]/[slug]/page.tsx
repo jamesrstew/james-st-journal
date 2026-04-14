@@ -98,7 +98,7 @@ export default async function ArticlePage({
           ) : null}
         </div>
 
-        <hr className="my-8 rule-thin" />
+        <hr className="mt-8 mb-12 sm:mb-14 rule-thin" />
 
         <ArticleBody markdown={article.body} />
 

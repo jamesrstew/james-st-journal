@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Source_Serif_4, Inter } from "next/font/google";
 import "./globals.css";
 import { brand } from "@/lib/brand";
+import { Ticker } from "@/components/Ticker";
 
 const playfair = Playfair_Display({
   variable: "--font-headline",
@@ -81,9 +82,6 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 export const viewport: Viewport = {
@@ -114,7 +112,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: themeInitScript }}
         />
       </head>
-      <body className="min-h-screen bg-paper text-ink">{children}</body>
+      <body className="min-h-screen bg-paper text-ink">
+        <Ticker />
+        {children}
+      </body>
     </html>
   );
 }
