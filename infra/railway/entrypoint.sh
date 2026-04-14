@@ -24,13 +24,24 @@ pnpm install --frozen-lockfile --offline
 DATE=$(TZ=America/Los_Angeles date +%Y-%m-%d)
 echo "── James St. Journal — Railway run for $DATE"
 
-set +e
-claude -p "$(cat pipeline/bootstrap.md)" \
-  --permission-mode bypassPermissions \
-  --model opus \
-  --max-turns 200
-EXIT=$?
-set -e
+if [ "${DRY_RUN:-}" = "1" ]; then
+  echo "── DRY_RUN=1: smoke-testing auth + Agent tool, skipping full pipeline"
+  set +e
+  claude -p "Use the Agent tool to spawn a sub-agent whose entire job is to return the literal string 'sub-agent ok'. Then print 'smoke test passed' and exit." \
+    --permission-mode bypassPermissions \
+    --model sonnet \
+    --max-turns 5
+  EXIT=$?
+  set -e
+else
+  set +e
+  claude -p "$(cat pipeline/bootstrap.md)" \
+    --permission-mode bypassPermissions \
+    --model opus \
+    --max-turns 200
+  EXIT=$?
+  set -e
+fi
 
 echo "── claude exited with code $EXIT"
 exit $EXIT
