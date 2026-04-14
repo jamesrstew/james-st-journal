@@ -15,7 +15,7 @@ You are reading the repo for this paper.
 
 ## What it does
 
-Every morning, at 5:00 a.m. sharp, an Anthropic-hosted scheduled agent wakes up, clones this repo, reads the night's RSS feeds, clusters the stories, picks the five that matter, writes them up in a passable imitation of broadsheet English, hands the drafts to a second agent pretending to be a weary copy editor, reconciles their differences, commits the result, and goes back to sleep.
+Every morning, at 5:00 a.m. sharp, a Railway cron job wakes up the Claude CLI running on my Max subscription. It clones this repo, reads the night's RSS feeds, clusters the stories, picks the five that matter (weighted toward the beats a money-and-power daily would actually lead with — markets, business, politics, tech), writes them up in a passable imitation of broadsheet English, hands the drafts to a second agent pretending to be a weary copy editor, reconciles their differences, commits the result, and goes back to sleep.
 
 Vercel notices the commit and redeploys the site. By 5:30 a.m. there is a new edition at [jamesstjournal.com](https://jamesstjournal.com), assuming nothing has exploded. Things will occasionally explode. This is addressed in the fine print.
 
@@ -32,6 +32,7 @@ Vercel notices the commit and redeploys the site. By 5:30 a.m. there is a new ed
 content/articles/YYYY-MM-DD/   each morning's edition, as markdown files
 docs/brand/                    the brand guidelines that this repo takes very seriously
 pipeline/                      the master prompt the scheduled agent runs
+infra/railway/                 Dockerfile and entrypoint for the Railway cron
 src/                           the Next.js app that renders all of the above
 .github/workflows/             a health check that emails me when 5 a.m. goes wrong
 ```
@@ -42,10 +43,10 @@ src/                           the Next.js app that renders all of the above
 - **Tailwind v4** with CSS variables for the brand tokens
 - **Playfair Display**, **Source Serif 4**, **Inter** via `next/font/google`
 - **Markdown + frontmatter** in the repo itself — git is the database
-- **Claude Code `/schedule`** for the cron (covered by my Max sub; this is the whole point)
-- **GitHub Actions** as a fallback if `/schedule` decides to take the morning off
+- **Railway cron** runs the Claude CLI against my Max subscription (routing around Anthropic's own scheduler after it repeatedly failed to fire — see `infra/railway/`). The Max sub is the whole point; no separate API bill
+- **GitHub Actions** as an alarm clock — a 7 a.m. PT health check fails loudly if the edition didn't land
 
-No Railway. No Postgres. No pgvector. No pain. No dark mode. No dependency on a separate API bill. You will notice the stark absence of these things. This is on purpose.
+No Postgres. No pgvector. No pain. No dark mode. No dependency on a separate API bill. You will notice the stark absence of these things. This is on purpose.
 
 ## Can I subscribe?
 
