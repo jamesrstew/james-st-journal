@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { brand } from "@/lib/brand";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Footer() {
   return (
@@ -14,6 +15,9 @@ export function Footer() {
           <Link href="/terms">Terms</Link>
           <Link href="/privacy">Privacy</Link>
         </nav>
+        <div className="mt-5 flex justify-center">
+          <ThemeToggle />
+        </div>
       </div>
     </footer>
   );
