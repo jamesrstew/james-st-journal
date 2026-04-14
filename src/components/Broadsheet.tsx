@@ -42,7 +42,7 @@ export function Broadsheet({ edition }: BroadsheetProps) {
 
         {secondaries.length > 2 && (
           <>
-            <hr className="my-20 sm:my-24 rule-double" />
+            <hr className="my-12 sm:my-16 rule-double" />
             <div className="grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2 divide-y divide-rule md:divide-y-0 [&>*:not(:first-child)]:pt-10 md:[&>*:not(:first-child)]:pt-0">
               {secondaries.slice(2).map((a) => (
                 <ArticleCard key={a.slug} article={a} variant="column" />
