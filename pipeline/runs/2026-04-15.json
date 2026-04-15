@@ -1,1 +1,144 @@
-{"date":"2026-04-15","status":"in_progress","started_at":"2026-04-15T13:54:25Z","stages":{}}
+{
+  "date": "2026-04-15",
+  "status": "success",
+  "stages": {
+    "ingest": {
+      "items": 984,
+      "feeds_ok": 31,
+      "feeds_fail": 4,
+      "duration_sec": 45
+    },
+    "cluster": {
+      "clusters": 16,
+      "body_tier_clusters": 16,
+      "duration_sec": 5
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "US-Iran Hormuz blockade enters first full day as ceasefire talks near resumption",
+          "category": "Politics",
+          "score": 19.83,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "Tax Day: 53M filers used Trump exemptions but refunds disappoint, IRS shrinks under cuts",
+          "category": "Politics",
+          "score": 17.6,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "Trump threatens to fire Fed Chair Powell if he does not resign, Yellen calls it 'banana republic'",
+          "category": "Markets",
+          "score": 13.92,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Hungary's election winner Magyar targets mid-May cabinet, calls on president to resign",
+          "category": "World",
+          "score": 11.18,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 5,
+          "cluster": "Amazon to buy satellite company Globalstar for $11.6B in push to compete with Starlink",
+          "category": "Business",
+          "score": 9.18,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 14,
+      "sources_failed": 6,
+      "duration_sec": 280
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "commit": {
+      "sha": "09cfd5c8de71d739cf558d908a73cfafe45fc84d",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "us-blockade-halts-iran-sea-trade-as-trump-signals-talks-may-resume",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 867,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "tax-day-refunds-disappoint-irs-shrinks",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 683,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "trump-threatens-to-fire-powell-yellen-warns-banana-republic",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 689,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "magyar-meets-hungarian-president-pushes-may-cabinet",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 512,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "amazon-to-buy-globalstar-for-11-billion-in-starlink-challenge",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 440,
+      "sources": 3
+    }
+  ],
+  "errors": [
+    "Axios RSS feed XML parse error",
+    "WSJ World/Business/Markets feeds returned empty or blocked",
+    "AP News articles blocked by JS rendering",
+    "The Hill blocked by PerimeterX captcha"
+  ]
+}
