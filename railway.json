@@ -5,7 +5,7 @@
     "dockerfilePath": "infra/railway/Dockerfile"
   },
   "deploy": {
-    "cronSchedule": "52 13 * * *",
+    "cronSchedule": "3 12 * * *",
     "restartPolicyType": "NEVER"
   }
 }
