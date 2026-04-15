@@ -24,6 +24,7 @@ pnpm install --frozen-lockfile --offline
 
 DATE=$(TZ=America/Los_Angeles date +%Y-%m-%d)
 echo "── James St. Journal — Railway run for $DATE"
+echo "── env probe: $(env | grep -iE '^(dry_run|claude_credentials_json|github_pat)=' | sed -E 's/=(.{0,8}).*/=\1<redacted>/' | tr '\n' ' ')"
 
 if [ "${DRY_RUN:-}" = "1" ]; then
   echo "── DRY_RUN=1: smoke-testing auth + Agent tool, skipping full pipeline"
