@@ -64,7 +64,7 @@ jobs:
         run: |
           set -eo pipefail
           URL="https://jamesstjournal.com"
-          CODE=$(curl -sS -o /dev/null -w "%{http_code}" --max-time 15 "${URL}")
+          CODE=$(curl -sS -L -o /dev/null -w "%{http_code}" --max-time 15 "${URL}")
           echo "Homepage ${URL} → HTTP ${CODE}"
           if [ "${CODE}" != "200" ]; then
             echo "::error title=Homepage down::${URL} returned ${CODE}"
