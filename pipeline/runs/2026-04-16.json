@@ -94,8 +94,8 @@
       "validator_ok": true
     },
     "commit": {
-      "sha": null,
-      "pushed": false
+      "sha": "c6fdb84",
+      "pushed": true
     }
   },
   "articles": [
