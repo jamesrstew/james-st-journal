@@ -23,6 +23,9 @@ jobs:
           fetch-depth: 1
 
       - name: Verify today's run log exists and succeeded
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           set -eo pipefail
           DATE=$(TZ=America/Los_Angeles date +%Y-%m-%d)
@@ -45,6 +48,11 @@ jobs:
             partial)
               ARTICLES=$(jq -r '.articles_published // (.articles | length)' "${RUN}")
               echo "::warning title=Partial edition::${DATE} published ${ARTICLES} articles (of 5 target). Not a failure, but worth a look."
+              MSG="JSJ edition ${DATE}: PARTIAL — ${ARTICLES}/5 articles. Run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+              curl -sS --max-time 10 \
+                "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+                -d "chat_id=${TELEGRAM_CHAT_ID}" \
+                --data-urlencode "text=${MSG}" >/dev/null || true
               ;;
             failed|*)
               echo "::error title=Pipeline failed::${DATE} run reports status=${STATUS}. See ${RUN} for details."
@@ -62,3 +70,17 @@ jobs:
             echo "::error title=Homepage down::${URL} returned ${CODE}"
             exit 1
           fi
+
+      - name: Alert via Telegram on failure
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          DATE=$(TZ=America/Los_Angeles date +%Y-%m-%d)
+          URL="https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          MSG="JSJ edition health check FAILED for ${DATE}. Run: ${URL}"
+          curl -sS --max-time 10 \
+            "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=${MSG}" >/dev/null || true
