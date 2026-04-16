@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Source_Serif_4, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { brand } from "@/lib/brand";
 import { Ticker } from "@/components/Ticker";
@@ -115,6 +116,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-paper text-ink">
         <Ticker />
         {children}
+        <Analytics />
       </body>
     </html>
   );
