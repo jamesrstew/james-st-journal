@@ -1,6 +1,148 @@
 {
   "date": "2026-04-16",
-  "status": "in_progress",
-  "started_at": "2026-04-16T13:14:20Z",
-  "stages": {}
+  "status": "success",
+  "stages": {
+    "ingest": {
+      "items": 1005,
+      "feeds_ok": 34,
+      "feeds_fail": 1,
+      "duration_sec": 6
+    },
+    "cluster": {
+      "clusters": 14,
+      "body_tier_clusters": 14,
+      "duration_sec": 4
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Live Nation / Ticketmaster antitrust jury verdict",
+          "category": "Business",
+          "score": 17.95,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "US-Iran ceasefire extension talks with Pakistani mediation",
+          "category": "Politics",
+          "score": 18.0,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "Allbirds rebrands as AI company, shares surge",
+          "category": "Business",
+          "score": 7.59,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Ford EV and software chief Doug Field departs",
+          "category": "Business",
+          "score": 4.34,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Russia launches largest air attack on Ukraine this year",
+          "category": "World",
+          "score": 6.05,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        }
+      ],
+      "core_beat_count": 4,
+      "editorial_notes": [
+        "Iran cluster mechanically top-scored (raw=18.0) but placed at Slot 2 after editorial tie-break with Live Nation (17.95) to avoid a third consecutive Iran lead (Apr 13, Apr 15).",
+        "TSMC Q1 earnings and S&P 500 record high were strong Markets candidates but dropped due to insufficient direct-URL body coverage (Reuters/AP via Google News redirect failed to resolve).",
+        "China Q1 GDP beat had only one direct-URL body outlet. Dropped for same fetchability reason."
+      ]
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 20,
+      "sources_failed": 3,
+      "duration_sec": 95
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "jury-finds-live-nation-ticketmaster-illegal-monopoly",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 840,
+      "sources": 5
+    },
+    {
+      "slot": 2,
+      "slug": "pakistan-shuttle-tehran-ceasefire-extension-weighed",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 631,
+      "sources": 5
+    },
+    {
+      "slot": 3,
+      "slug": "allbirds-rebrands-newbird-ai-shares-surge",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 626,
+      "sources": 5
+    },
+    {
+      "slot": 4,
+      "slug": "ford-ev-chief-doug-field-to-depart-next-month-as-farley-folds-unit-into-operations",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 492,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "russia-launches-700-drone-barrage-on-ukraine-killing-at-least-16",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 540,
+      "sources": 3
+    }
+  ],
+  "errors": [
+    "Axios RSS feed XML parse error",
+    "The Hill blocked curl fetches (3 URLs across slots 1 and 2)",
+    "Google News redirect URLs (Reuters/AP/Bloomberg/WSJ) returned consent gates; dropped from body-tier eligibility"
+  ]
 }
