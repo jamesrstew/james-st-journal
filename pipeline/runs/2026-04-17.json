@@ -1,6 +1,92 @@
 {
   "date": "2026-04-17",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-04-17T14:16:03Z",
-  "stages": {}
+  "completed_at": "2026-04-17T14:55:00Z",
+  "stages": {
+    "ingest": {
+      "feeds_attempted": 35,
+      "feeds_ok": 34,
+      "feeds_failed": ["Axios"],
+      "feed_failure_notes": "Axios returned an XML entity parse error; non-blocking with 34 other feeds.",
+      "items_total": 989,
+      "stale_feeds_noted": ["WSJ Markets", "WSJ Business", "WSJ World", "WSJ Tech"]
+    },
+    "cluster": {
+      "raw_clusters": 37,
+      "refined_clusters": 46,
+      "notes": "Iran/Hormuz mega-cluster (124 items) was keyword-split into 10 sub-clusters covering Hormuz, Israel-Lebanon, jet fuel, CDC, FEMA, RFK, etc."
+    },
+    "select": {
+      "selection": [
+        { "slot": 1, "cluster_id": "hormuz-reopens-2026-04-17", "category": "World", "is_lead": true,
+          "rationale": "Highest raw_score and 2 mandate outlets (FT/Bloomberg via GN). Today's reopening + 10% oil drop is a fresh turning point in a recurring story; dedupe_penalty=0.3."},
+        { "slot": 2, "cluster_id": "anthropic-mythos-white-house-2026-04-17", "category": "Tech",
+          "rationale": "Core-beat (Tech) with strong mandate signal; new beat on White House access policy."},
+        { "slot": 3, "cluster_id": "israel-lebanon-10day-ceasefire-2026-04-17", "category": "World",
+          "rationale": "Distinct from Hormuz cluster; major US-brokered ceasefire announcement."},
+        { "slot": 4, "cluster_id": "netflix-hastings-exits-2026-04-17", "category": "Business",
+          "rationale": "Core-beat Business; surprise corporate-governance shift with stock impact."},
+        { "slot": 5, "cluster_id": "europe-jet-fuel-shortage-2026-04-17", "category": "Business",
+          "rationale": "Core-beat Business; distinct second-order consequence of the Iran war (jet fuel) with IATA on-record warning."}
+      ],
+      "composition_check": "3/5 core-beat (Tech, Business, Business) — meets ≥3/5 floor."
+    },
+    "research": {
+      "dossier_summary": [
+        { "slot": 1, "body_tier_sources": 4, "lean_mix": ["center", "left", "lean-left"] },
+        { "slot": 2, "body_tier_sources": 3, "lean_mix": ["center"] },
+        { "slot": 3, "body_tier_sources": 4, "lean_mix": ["center", "lean-left", "left"] },
+        { "slot": 4, "body_tier_sources": 3, "lean_mix": ["center", "left"] },
+        { "slot": 5, "body_tier_sources": 3, "lean_mix": ["center", "lean-left"] }
+      ],
+      "fetch_failures": [
+        "Google News redirect URLs (Reuters GN, AP News GN) returned 0 chars; used as headline-signal only.",
+        "Wired Anthropic-London piece 404'd; The Hill jet-fuel URL was PX-blocked. Both dropped without dropping below the 2-source floor."
+      ]
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "writers_completed": 5,
+      "model": "claude-opus-4-7"
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "editors_completed": 5,
+      "first_pass_results": {
+        "approved": [2, 3, 4],
+        "needs_revision": [1, 5]
+      },
+      "revision_round": {
+        "writers_spawned": 2,
+        "re_editors_spawned": 2,
+        "second_pass_results": {
+          "approved": [1],
+          "hold": [5]
+        },
+        "notes": [
+          "Slot 1 (Hormuz) revised to remove a misattributed CENTCOM 36-hour clause and a fabricated April 22 ceasefire expiry; re-editor approved.",
+          "Slot 5 (jet fuel) revised; editor reverted writer's 'Even with the strait reopening announced Friday' to 'Even if the strait reopens in the near future' and held with needs_review:true."
+        ]
+      }
+    },
+    "stage": {
+      "files_written": 5,
+      "out_dir": "content/articles/2026-04-17"
+    },
+    "validate": {
+      "result": "ok",
+      "articles": 5
+    },
+    "commit": {
+      "message": "edition: 2026-04-17 — Iran Declares Strait of Hormuz Fully Open — 5/5 stories"
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "iran-declares-hormuz-open-oil-plunges", "category": "World", "headline": "Iran Declares Strait of Hormuz Fully Open; Oil Plunges 10 Percent as U.S. Blockade Stays", "word_count": 823, "sources": 4, "draft_iterations": 2, "needs_review": false },
+    { "slot": 2, "slug": "mythos-finance-ministers-concerns", "category": "Tech", "headline": "Finance Ministers Press Anthropic Over Mythos AI as Treasury Pushes Banks to Test Defenses", "word_count": 682, "sources": 3, "draft_iterations": 1, "needs_review": false },
+    { "slot": 3, "slug": "israel-lebanon-ten-day-ceasefire", "category": "World", "headline": "Israel and Lebanon Begin 10-Day U.S.-Brokered Ceasefire After Six Weeks of Fighting", "word_count": 695, "sources": 4, "draft_iterations": 1, "needs_review": false },
+    { "slot": 4, "slug": "hastings-exits-netflix-board", "category": "Business", "headline": "Reed Hastings to Exit Netflix Board in June as Shares Slide 9% on Earnings", "word_count": 536, "sources": 3, "draft_iterations": 1, "needs_review": false },
+    { "slot": 5, "slug": "europe-six-weeks-jet-fuel", "category": "Business", "headline": "Europe Has Six Weeks of Jet Fuel Left, IEA Warns, Threatening Summer Flights", "word_count": 551, "sources": 3, "draft_iterations": 2, "needs_review": true }
+  ]
 }
