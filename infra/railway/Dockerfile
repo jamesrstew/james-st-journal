@@ -12,7 +12,9 @@ RUN useradd -m -s /bin/bash jsj
 USER jsj
 WORKDIR /home/jsj
 
-# Prime the pnpm store at image build time so runtime install is offline-fast.
+# Prime the pnpm store at image build time so the common-case runtime install
+# is near-instant. Runtime install is not --offline, so a lockfile that adds
+# a package after the image was built still resolves via the npm registry.
 # Runs as jsj so the store lands at /home/jsj/.local/share/pnpm/store where
 # the runtime install will look.
 COPY --chown=jsj:jsj package.json pnpm-lock.yaml pnpm-workspace.yaml /home/jsj/prefetch/

@@ -20,7 +20,7 @@ rm -rf "$WORK"
 git clone https://github.com/jamesrstew/james-st-journal.git "$WORK"
 cd "$WORK"
 
-pnpm install --frozen-lockfile --offline
+pnpm install --frozen-lockfile
 
 DATE=$(TZ=America/Los_Angeles date +%Y-%m-%d)
 echo "── James St. Journal — Railway run for $DATE"
