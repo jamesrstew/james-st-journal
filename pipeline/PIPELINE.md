@@ -223,11 +223,15 @@ For each slot in order (1, 2, 3, 4, 5):
 3. Verify slug uniqueness within the edition. On collision, append `-2`, `-3`.
 4. Run the validator: `pnpm exec tsx pipeline/validate.ts $DATE`. If it exits non-zero, do NOT commit. Save the validator output to the run log and exit.
 
+## Step 11.5 — keep the public model name in sync
+
+Before staging the commit, read `src/lib/brand.ts` and check the `modelName` constant. It must match the Claude model you are running as (identified in your session system context, e.g. "Opus 4.7"). Use the format `"Claude <Family> <Major>.<Minor>"` — e.g. `"Claude Opus 4.7"`. If the constant is stale, update the file in place and include the change in the Step 12 commit. The site's public disclosure line, metadata descriptions, about page, terms page, and llms.txt all derive from this constant, so keeping it accurate is part of the pipeline's truthfulness guarantee.
+
 ## Step 12 — commit + push
 
 1. `git config user.name "J.S. Gallagher"` (local config, do not write global)
 2. `git config user.email "editor@jamesstjournal.com"`
-3. `git add content/articles/$DATE/ pipeline/runs/$DATE.json`
+3. `git add content/articles/$DATE/ pipeline/runs/$DATE.json src/lib/brand.ts`
 4. Commit message:
    ```
    edition: $DATE — <lead headline> — N/5 stories

@@ -13,12 +13,14 @@ export const fonts = {
   ui: "var(--font-ui)",
 } as const;
 
+export const modelName = "Claude Opus 4.7";
+
 export const brand = {
   name: "The James St. Journal",
   shortName: "James St. Journal",
   tagline: "A daily dispatch.",
-  disclosure:
-    "Written and edited by Claude Opus 4.6 from public news sources.",
+  modelName,
+  disclosure: `Written and edited by ${modelName} from public news sources.`,
   publisher: "True Craft Ventures LLC",
   copyright: "© 2026 True Craft Ventures LLC.",
   byline: "J.S. Gallagher",

@@ -19,7 +19,7 @@ export function GET() {
 
   const body = `# ${brand.name}
 
-> ${brand.tagline} A daily dispatch of five original news stories, written and edited overnight by Claude Opus 4.6 from the public record. New edition every morning at 5 a.m. Pacific.
+> ${brand.tagline} A daily dispatch of five original news stories, written and edited overnight by ${brand.modelName} from the public record. New edition every morning at 5 a.m. Pacific.
 
 Published by ${brand.publisher}. Each article is synthesized from multiple freely-available sources, lists those sources, and carries an AI-authorship disclosure. The site is static Markdown; articles do not change once published.
 

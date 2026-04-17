@@ -43,7 +43,7 @@ export default function About() {
 
           <h2 className="headline mt-10 text-2xl">The newsroom</h2>
           <p>
-            The writing is done by Claude Opus 4.6. The editing is done by a
+            The writing is done by {brand.modelName}. The editing is done by a
             separate pass of the same model, which receives only the draft
             and the source dossier &mdash; no writer reasoning &mdash; and
             which is required to run a literal substring check on every

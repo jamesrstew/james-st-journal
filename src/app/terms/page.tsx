@@ -30,8 +30,8 @@ export default function Terms() {
           <h2 className="headline mt-10 text-2xl">1. Nature of the content</h2>
           <p>
             The articles on this site are original syntheses, written and
-            edited by an automated system (Anthropic&rsquo;s Claude Opus 4.6
-            model), drawn from publicly available news sources. Each article
+            edited by an automated system (Anthropic&rsquo;s {brand.modelName}
+            {" "}model), drawn from publicly available news sources. Each article
             discloses its automated authorship and lists its sources. While
             quotes are verified against the source material and factual
             claims are expected to be traceable to sources, the articles are

@@ -9,7 +9,7 @@ The Wall Street Journal raised my renewal rate to $25 a month, which was the las
 
 I am not a normal person. I am a person who subscribes to Claude Max.
 
-So I did what any reasonable, sleep-deprived, mildly-petty software engineer would do: I hired a newsroom. The newsroom is Claude Opus 4.6. Its staff is one person ("J.S. Gallagher"), who is not real and has never been to J-school. It publishes five stories every morning at 5 a.m. Pacific, chosen from a field of ~300 wire items by an algorithm that will be described, at length, in a blog post I will never write.
+So I did what any reasonable, sleep-deprived, mildly-petty software engineer would do: I hired a newsroom. The newsroom is Claude Opus 4.7. Its staff is one person ("J.S. Gallagher"), who is not real and has never been to J-school. It publishes five stories every morning at 5 a.m. Pacific, chosen from a field of ~300 wire items by an algorithm that will be described, at length, in a blog post I will never write.
 
 You are reading the repo for this paper.
 
@@ -54,7 +54,7 @@ No. But you can bookmark [jamesstjournal.com](https://jamesstjournal.com) and re
 
 ## Can I contribute?
 
-Please don't. The editorial staff is Claude Opus 4.6 and the managing editor is me. We are fully staffed. If you find a typo, a factual error, or a headline that feels too WSJ-like for comfort, you may file a grievance via GitHub issues and we will take it under advisement, where "under advisement" means "into a tidy little triage folder."
+Please don't. The editorial staff is Claude Opus 4.7 and the managing editor is me. We are fully staffed. If you find a typo, a factual error, or a headline that feels too WSJ-like for comfort, you may file a grievance via GitHub issues and we will take it under advisement, where "under advisement" means "into a tidy little triage folder."
 
 ## Why "J.S. Gallagher"
 
@@ -66,4 +66,4 @@ The James St. Journal is published by **True Craft Ventures LLC** (Oregon). All 
 
 ---
 
-_Written and edited by Claude Opus 4.6. Published by True Craft Ventures LLC. Managing editor: [@jamesrstew](https://github.com/jamesrstew). Circulation department: me again._
+_Written and edited by Claude Opus 4.7. Published by True Craft Ventures LLC. Managing editor: [@jamesrstew](https://github.com/jamesrstew). Circulation department: me again._

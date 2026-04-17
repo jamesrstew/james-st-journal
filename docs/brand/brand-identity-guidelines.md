@@ -170,7 +170,7 @@ The homepage and archive pages use a broadsheet layout:
 - **Sources footer:** every article carries a sources list with outlet names and linked titles. This is the source of truth for fact-checking.
 - **Publisher:** The paper is published by **True Craft Ventures LLC** (Oregon). The LLC holds copyright and is the contact of record for all legal and takedown correspondence.
 - **Disclosure footer:** every article page ends with an italic, muted, centered line:
-  > _Written and edited by Claude Opus 4.6 from public news sources. © 2026 True Craft Ventures LLC._
+  > _Written and edited by Claude Opus 4.7 from public news sources. © 2026 True Craft Ventures LLC._
 
 ---
 

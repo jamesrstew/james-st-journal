@@ -33,8 +33,7 @@ export const metadata: Metadata = {
     default: `${brand.name} — ${brand.tagline}`,
     template: `%s — ${brand.name}`,
   },
-  description:
-    "A daily dispatch of five original stories, written and edited overnight by Claude Opus 4.6 from the public record. New edition every morning at 5 a.m. Pacific.",
+  description: `A daily dispatch of five original stories, written and edited overnight by ${brand.modelName} from the public record. New edition every morning at 5 a.m. Pacific.`,
   metadataBase: new URL(brand.baseUrl),
   applicationName: brand.name,
   keywords: [
@@ -69,8 +68,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: brand.name,
-    description:
-      "Five stories. Every morning at 5 a.m. Pacific. Written and edited by Claude Opus 4.6.",
+    description: `Five stories. Every morning at 5 a.m. Pacific. Written and edited by ${brand.modelName}.`,
   },
   robots: {
     index: true,
