@@ -225,7 +225,12 @@ For each slot in order (1, 2, 3, 4, 5):
 
 ## Step 11.5 — keep the public model name in sync
 
-Before staging the commit, read `src/lib/brand.ts` and check the `modelName` constant. It must match the Claude model you are running as (identified in your session system context, e.g. "Opus 4.7"). Use the format `"Claude <Family> <Major>.<Minor>"` — e.g. `"Claude Opus 4.7"`. If the constant is stale, update the file in place and include the change in the Step 12 commit. The site's public disclosure line, metadata descriptions, about page, terms page, and llms.txt all derive from this constant, so keeping it accurate is part of the pipeline's truthfulness guarantee.
+Before staging the commit, check two files against the model you are running as (identified in your session system context):
+
+1. **`src/lib/brand.ts`** — the `modelName` constant must read `"Claude <Family> <Major>.<Minor>"` (e.g. `"Claude Opus 4.7"`). The site's public disclosure line, metadata descriptions, about page, terms page, and llms.txt all derive from this constant.
+2. **`pipeline/prompts/writer.md`** — the example `"model": "..."` line must show your API model ID (e.g. `claude-opus-4-7`). The writer sub-agents use this as a template and can copy it verbatim if it doesn't match reality, which silently mislabels article frontmatter.
+
+If either is stale, update it in place and include the change in the Step 12 commit. Keeping both accurate is part of the pipeline's truthfulness guarantee.
 
 ## Step 12 — commit + push
 

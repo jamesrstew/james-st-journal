@@ -33,7 +33,7 @@ A single JSON object with exactly two keys:
     "sources": [
       { "title": "...", "url": "...", "source": "...", "tier": "body" }
     ],
-    "model": "claude-opus-4-6",
+    "model": "claude-opus-4-7",
     "draft_iterations": 1,
     "needs_review": false,
     "is_sample": false
@@ -43,6 +43,8 @@ A single JSON object with exactly two keys:
 ```
 
 No other keys. No prose before or after the JSON.
+
+The `model` field must reflect **your actual running model identity**, formatted as the API model ID (e.g. `claude-opus-4-7`, `claude-sonnet-4-6`). Do not copy the example above verbatim — write the real value. If you are unsure of your model ID, your session system prompt identifies it.
 
 ## Tone
 
