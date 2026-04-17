@@ -1,6 +1,91 @@
 {
   "date": "2026-04-17",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-04-17T14:38:10Z",
-  "stages": {}
+  "completed_at": "2026-04-17T15:55:00Z",
+  "shadow": true,
+  "branch": "claude/shadow-edition-2026-04-17",
+  "stages": {
+    "ingest": {
+      "items": 757,
+      "feeds_ok": 26,
+      "feeds_fail": 9,
+      "feeds_fail_names": ["Ars Technica", "Wired", "Guardian US", "Guardian World", "Guardian Biz", "NYT World", "NYT US", "NYT Business", "NYT Tech"]
+    },
+    "cluster": {
+      "clusters": 14,
+      "body_tier_clusters": 14
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster_id": "hormuz-reopens-oil-plunges-2026-04-17", "category": "Markets", "raw_score": 21.919, "signal_boost": 2.0, "category_weight": 1.0 },
+        { "slot": 2, "cluster_id": "pope-leo-trump-feud-cameroon-2026-04-17", "category": "World", "raw_score": 4.088, "signal_boost": 1.0, "category_weight": 0.85, "note": "refilled after anthropic-mythos dossier failed the 2-source minimum" },
+        { "slot": 3, "cluster_id": "europe-jet-fuel-shortage-2026-04-17", "category": "Business", "raw_score": 5.600, "signal_boost": 1.0, "category_weight": 1.0 },
+        { "slot": 4, "cluster_id": "netflix-hastings-exits-2026-04-17", "category": "Business", "raw_score": 5.400, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 5, "cluster_id": "rfk-jr-testimony-schwartz-cdc-2026-04-17", "category": "Politics", "raw_score": 4.892, "signal_boost": 1.0, "category_weight": 1.0 }
+      ],
+      "core_beat_count": 4,
+      "dropped_refilled": [
+        { "dropped": "anthropic-mythos-white-house-2026-04-17", "reason": "all body-tier sources returned 403 (BBC egress-blocked, Axios/Hill/Washington Examiner HTTP 403, Google News Reuters redirects were JS-based); could not build a dossier with ≥2 on-topic body sources ≥600 chars after multiple fetch strategies" }
+      ]
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_by_slot": { "1": 4, "2": 4, "3": 2, "4": 2, "5": 3 },
+      "lean_mix_by_slot": {
+        "1": ["center", "lean-left"],
+        "2": ["center", "lean-left", "lean-right"],
+        "3": ["center", "lean-left"],
+        "4": ["center"],
+        "5": ["center"]
+      },
+      "total_sources": 15,
+      "notes": [
+        "Slot 1: removed off-topic Fox News Kathy Ireland source that had been clustered by mistake.",
+        "Slot 4: removed off-topic Verge vertical-video piece; two CNBC sources remain — mono-source disclosure per editor.md.",
+        "Slot 5: PBS/CNBC only — mono-bucket center disclosure per editor.md."
+      ]
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0,
+      "revision_reasons": {
+        "2": [
+          "unsourced direct quote ('disagree') attributed to Trump",
+          "unsourced factual claim ('Trump told reporters he had no plans to meet the pope')",
+          "fabricated Economist/YouGov polling specifics",
+          "one-word subhead violated 2–4 word rule",
+          "stadium spelling mismatch with Al Jazeera source"
+        ]
+      }
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1,
+      "held_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true,
+      "files": [
+        "01-oil-plunges-11-percent-as-iran-opens-hormuz-stocks-hit-record.md",
+        "02-pope-leo-cameroon-mass-tyrants-trump-rift.md",
+        "03-europe-six-weeks-of-jet-fuel-iea-warns-of-summer-cancellations.md",
+        "04-netflix-hastings-exits-board-as-stock-sinks.md",
+        "05-rfk-budget-hearing-schwartz-cdc-nomination.md"
+      ]
+    },
+    "commit": {
+      "sha": "<pending>",
+      "pushed": false,
+      "branch": "claude/shadow-edition-2026-04-17"
+    }
+  }
 }
