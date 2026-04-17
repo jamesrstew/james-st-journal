@@ -10,7 +10,17 @@
       "items": 757,
       "feeds_ok": 26,
       "feeds_fail": 9,
-      "feeds_fail_names": ["Ars Technica", "Wired", "Guardian US", "Guardian World", "Guardian Biz", "NYT World", "NYT US", "NYT Business", "NYT Tech"]
+      "feeds_fail_names": [
+        "Ars Technica",
+        "Wired",
+        "Guardian US",
+        "Guardian World",
+        "Guardian Biz",
+        "NYT World",
+        "NYT US",
+        "NYT Business",
+        "NYT Tech"
+      ]
     },
     "cluster": {
       "clusters": 14,
@@ -18,26 +28,85 @@
     },
     "select": {
       "chosen": [
-        { "slot": 1, "cluster_id": "hormuz-reopens-oil-plunges-2026-04-17", "category": "Markets", "raw_score": 21.919, "signal_boost": 2.0, "category_weight": 1.0 },
-        { "slot": 2, "cluster_id": "pope-leo-trump-feud-cameroon-2026-04-17", "category": "World", "raw_score": 4.088, "signal_boost": 1.0, "category_weight": 0.85, "note": "refilled after anthropic-mythos dossier failed the 2-source minimum" },
-        { "slot": 3, "cluster_id": "europe-jet-fuel-shortage-2026-04-17", "category": "Business", "raw_score": 5.600, "signal_boost": 1.0, "category_weight": 1.0 },
-        { "slot": 4, "cluster_id": "netflix-hastings-exits-2026-04-17", "category": "Business", "raw_score": 5.400, "signal_boost": 1.35, "category_weight": 1.0 },
-        { "slot": 5, "cluster_id": "rfk-jr-testimony-schwartz-cdc-2026-04-17", "category": "Politics", "raw_score": 4.892, "signal_boost": 1.0, "category_weight": 1.0 }
+        {
+          "slot": 1,
+          "cluster_id": "hormuz-reopens-oil-plunges-2026-04-17",
+          "category": "Markets",
+          "raw_score": 21.919,
+          "signal_boost": 2,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster_id": "pope-leo-trump-feud-cameroon-2026-04-17",
+          "category": "World",
+          "raw_score": 4.088,
+          "signal_boost": 1,
+          "category_weight": 0.85,
+          "note": "refilled after anthropic-mythos dossier failed the 2-source minimum"
+        },
+        {
+          "slot": 3,
+          "cluster_id": "europe-jet-fuel-shortage-2026-04-17",
+          "category": "Business",
+          "raw_score": 5.6,
+          "signal_boost": 1,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster_id": "netflix-hastings-exits-2026-04-17",
+          "category": "Business",
+          "raw_score": 5.4,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster_id": "rfk-jr-testimony-schwartz-cdc-2026-04-17",
+          "category": "Politics",
+          "raw_score": 4.892,
+          "signal_boost": 1,
+          "category_weight": 1
+        }
       ],
       "core_beat_count": 4,
       "dropped_refilled": [
-        { "dropped": "anthropic-mythos-white-house-2026-04-17", "reason": "all body-tier sources returned 403 (BBC egress-blocked, Axios/Hill/Washington Examiner HTTP 403, Google News Reuters redirects were JS-based); could not build a dossier with ≥2 on-topic body sources ≥600 chars after multiple fetch strategies" }
+        {
+          "dropped": "anthropic-mythos-white-house-2026-04-17",
+          "reason": "all body-tier sources returned 403 (BBC egress-blocked, Axios/Hill/Washington Examiner HTTP 403, Google News Reuters redirects were JS-based); could not build a dossier with ≥2 on-topic body sources ≥600 chars after multiple fetch strategies"
+        }
       ]
     },
     "research": {
       "dossiers_built": 5,
-      "sources_by_slot": { "1": 4, "2": 4, "3": 2, "4": 2, "5": 3 },
+      "sources_by_slot": {
+        "1": 4,
+        "2": 4,
+        "3": 2,
+        "4": 2,
+        "5": 3
+      },
       "lean_mix_by_slot": {
-        "1": ["center", "lean-left"],
-        "2": ["center", "lean-left", "lean-right"],
-        "3": ["center", "lean-left"],
-        "4": ["center"],
-        "5": ["center"]
+        "1": [
+          "center",
+          "lean-left"
+        ],
+        "2": [
+          "center",
+          "lean-left",
+          "lean-right"
+        ],
+        "3": [
+          "center",
+          "lean-left"
+        ],
+        "4": [
+          "center"
+        ],
+        "5": [
+          "center"
+        ]
       },
       "total_sources": 15,
       "notes": [
@@ -83,8 +152,8 @@
       ]
     },
     "commit": {
-      "sha": "<pending>",
-      "pushed": false,
+      "sha": "b0e4017ee4d1bdf3c99d7a8d651e88d4ffc47cac",
+      "pushed": true,
       "branch": "claude/shadow-edition-2026-04-17"
     }
   }
