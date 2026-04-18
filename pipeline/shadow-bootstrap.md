@@ -16,9 +16,11 @@ This is the shadow runner used by the `jsj-edition-shadow` Routine. It produces 
    git config user.name "J.S. Gallagher"
    git config user.email "editor@jamesstjournal.com"
    ```
-6. Create and switch to the shadow branch (off whatever the clone defaulted to):
+6. Create and switch to the shadow branch. Include a UTC fire-time suffix so every run gets its own branch — the routine can fire multiple times against the same `$DATE` (manual test fires on the same day as the scheduled fire, DST edges, etc.), and a collision with an existing remote branch will reject the push as non-fast-forward.
    ```bash
-   git checkout -b "claude/shadow-edition-$DATE"
+   export FIRE_TS=$(date -u +T%H%MZ)
+   export SHADOW_BRANCH="claude/shadow-edition-$DATE-$FIRE_TS"
+   git checkout -b "$SHADOW_BRANCH"
    ```
 
 ## Overrides to PIPELINE.md
@@ -42,4 +44,5 @@ All other steps (ingest, cluster, score, select, research, draft, edit, revise, 
 - Do NOT merge the shadow branch.
 - Do NOT modify the non-shadow `pipeline/runs/$DATE.json` if it exists (it's Railway's artifact).
 - Do NOT delete existing shadow branches.
+- Do NOT reuse a branch name from a prior fire. If the suffix-timestamp collides (same UTC minute, extremely rare), bail early with a run-log error — do not `--force` push.
 - Do NOT echo credentials. Routines provides auth via the connected GitHub identity; there is no `$GITHUB_TOKEN` to reference.
