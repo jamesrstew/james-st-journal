@@ -81,13 +81,13 @@ export function Ticker() {
   const renderItem = (q: Quote, idx: number) => {
     const up = (q.change ?? 0) > 0;
     const down = (q.change ?? 0) < 0;
-    const colorClass = up ? "text-[#4ED58A]" : down ? "text-[#E07276]" : "text-paper/70";
+    const colorClass = up ? "text-ticker-up" : down ? "text-ticker-down" : "text-paper/70";
     const arrow = up ? "▲" : down ? "▼" : "·";
     return (
       <span key={`${q.symbol}-${idx}`} className="flex items-center gap-1.5">
         <span className="small-caps tracking-wider text-paper/85">{q.label}</span>
         <span className="tabular-nums font-semibold text-paper">{formatPrice(q)}</span>
-        <span className={`tabular-nums ${colorClass}`}>{formatPct(q.changePct)}</span>
+        <span className={`tabular-nums font-semibold ${colorClass}`}>{formatPct(q.changePct)}</span>
         <span className={`text-[0.6rem] ${colorClass}`} aria-hidden="true">{arrow}</span>
       </span>
     );

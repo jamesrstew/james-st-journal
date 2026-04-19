@@ -8,6 +8,9 @@
   --muted: #5E5A53;
   --accent-red: #A4161A;
   --link: #1C4A73;
+  /* Ticker sits on bg-ink (#1A1A1A near-black) in light mode */
+  --ticker-up: #4ED58A;
+  --ticker-down: #FF6B70;
   color-scheme: light;
 }
 
@@ -18,6 +21,9 @@
   --muted: #94897A;
   --accent-red: #E07276;
   --link: #8BB9E0;
+  /* Ticker sits on bg-ink (#ECE6D7 cream) in dark mode — needs dark fg */
+  --ticker-up: #066E3B;
+  --ticker-down: #A4161A;
   color-scheme: dark;
 }
 
@@ -29,6 +35,8 @@
     --muted: #94897A;
     --accent-red: #E07276;
     --link: #8BB9E0;
+    --ticker-up: #066E3B;
+    --ticker-down: #A4161A;
     color-scheme: dark;
   }
 }
@@ -40,6 +48,8 @@
   --color-muted: var(--muted);
   --color-accent-red: var(--accent-red);
   --color-link: var(--link);
+  --color-ticker-up: var(--ticker-up);
+  --color-ticker-down: var(--ticker-down);
   --font-headline: var(--font-headline);
   --font-body: var(--font-body);
   --font-ui: var(--font-ui);
