@@ -37,7 +37,7 @@ jobs:
           echo "Checking for ${RUN}"
 
           if [ ! -f "${RUN}" ]; then
-            echo "::error title=Missing edition::No pipeline run log for ${DATE}. The 5 AM PT trigger did not land an edition."
+            echo "::error title=Missing edition::No pipeline run log for ${DATE}. The 6:03 AM PT trigger did not land an edition."
             exit 1
           fi
 
