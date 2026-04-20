@@ -1,1 +1,112 @@
-{"date":"2026-04-20","status":"in_progress","started_at":"2026-04-20T13:12:34Z","stages":{}}
+{
+  "date": "2026-04-20",
+  "status": "partial",
+  "started_at": "2026-04-20T13:12:34Z",
+  "completed_at": "2026-04-20T14:40:00Z",
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "iran-casts-doubt-islamabad-talks-ceasefire-nears-expiry",
+      "category": "Politics",
+      "headline": "Iran Says It Has No Plans for Islamabad Talks as Ceasefire Nears Wednesday Expiry",
+      "word_count": 898,
+      "reading_time_min": 4,
+      "sources": 4,
+      "draft_iterations": 1,
+      "needs_review": false
+    },
+    {
+      "slot": 2,
+      "slug": "cape-tariff-refund-portal-opens-166-billion-importers",
+      "category": "Business",
+      "headline": "U.S. Customs Opens $166 Billion Tariff Refund Portal to Importers",
+      "word_count": 657,
+      "reading_time_min": 3,
+      "sources": 2,
+      "draft_iterations": 1,
+      "needs_review": false
+    },
+    {
+      "slot": 3,
+      "slug": "ukraine-hits-russian-warships-crimea-drone-factory-taganrog",
+      "category": "World",
+      "headline": "Ukraine Hits Russian Warships in Crimea and a Drone Factory Deep Inside Russia",
+      "word_count": 700,
+      "reading_time_min": 3,
+      "sources": 2,
+      "draft_iterations": 1,
+      "needs_review": false
+    },
+    {
+      "slot": 4,
+      "slug": "honor-humanoid-robot-wins-beijing-half-marathon",
+      "category": "Tech",
+      "headline": "Humanoid Robot Wins Beijing Half-Marathon Faster Than the Human World Record Pace",
+      "word_count": 474,
+      "reading_time_min": 2,
+      "sources": 2,
+      "draft_iterations": 1,
+      "needs_review": false
+    }
+  ],
+  "stages": {
+    "ingest": {
+      "feeds_configured": 35,
+      "feeds_ok": 17,
+      "items_collected": 250,
+      "notes": "Network sandbox blocked ~half of feeds (Reuters, BBC, Axios, The Hill, WSJ among them). Sufficient coverage across NPR, PBS, AP via PBS, Al Jazeera, Fox News, CNBC, Politico, Bloomberg, WaPo, Guardian to cluster 5 candidates."
+    },
+    "select": {
+      "candidates": [
+        { "slot": 1, "category": "Politics", "headline_theme": "Iran-US ceasefire at brink; Touska seizure; Islamabad talks doubt", "sources_count": 4 },
+        { "slot": 2, "category": "Business", "headline_theme": "CAPE tariff refund portal opens to importers", "sources_count": 2 },
+        { "slot": 3, "category": "World", "headline_theme": "Ukraine strikes Black Sea fleet and Taganrog drone plant", "sources_count": 2 },
+        { "slot": 4, "category": "Tech", "headline_theme": "Honor humanoid robot wins Beijing half-marathon", "sources_count": 2 },
+        { "slot": 5, "category": "Politics", "headline_theme": "Pope-Trump feud over Iran sermons", "sources_count": 0, "dropped": true, "drop_reason": "All candidate URLs (BBC, Axios, The Hill, CNBC backup Kash Patel cluster) returned blocked or zero-body fetches; insufficient ≥2 body-tier sources to meet editor gate." }
+      ],
+      "composition_check": {
+        "core_beats_required_min": 3,
+        "core_beats_present": 3,
+        "core_beats_list": ["Politics", "Business", "Tech"],
+        "pass": true
+      }
+    },
+    "research": {
+      "dossier_summary": [
+        { "slot": 1, "body_sources": 4, "lean_mix": ["lean-left", "center", "lean-right"], "min_body_chars": 3100 },
+        { "slot": 2, "body_sources": 2, "lean_mix": ["lean-left", "lean-right"], "min_body_chars": 2400 },
+        { "slot": 3, "body_sources": 2, "lean_mix": ["lean-left", "center"], "min_body_chars": 2800 },
+        { "slot": 4, "body_sources": 2, "lean_mix": ["lean-left"], "min_body_chars": 2200 }
+      ]
+    },
+    "draft": {
+      "mode": "self-draft",
+      "note": "Task/sub-agent tool not available in this session. Writer.md applied directly as system prompt; JSON-only outputs persisted to /tmp/jsj-2026-04-20/draft-{slot}.json.",
+      "iterations_per_slot": [1, 1, 1, 1]
+    },
+    "edit": {
+      "mode": "self-edit",
+      "note": "Editor.md applied directly. Quote substring check performed with Unicode normalization (U+2018/U+2019->' , U+201C/U+201D->\" , U+2014->-- , U+2013->- , U+00A0->space , U+2026->...) against concatenated dossier bodies.",
+      "quotes_verified": 23,
+      "quotes_failed": 0,
+      "punctuation_outside_quote_style": true,
+      "ideological_balance_pass": true,
+      "ap_numbers_style_pass": true
+    },
+    "stage": {
+      "files_written": 4,
+      "output_dir": "content/articles/2026-04-20/"
+    },
+    "validate": {
+      "result": "ok",
+      "articles": 4,
+      "command": "pnpm exec tsx pipeline/validate.ts"
+    },
+    "commit": {
+      "message": "edition: 2026-04-20 -- Iran Says It Has No Plans for Islamabad Talks as Ceasefire Nears Expiry -- 4/5 stories",
+      "author": "J.S. Gallagher <editor@jamesstjournal.com>"
+    }
+  },
+  "gap_note": "Published 4 of 5 slots per PIPELINE.md permission. Slot 5 (Pope-Trump Iran feud) dropped after the primary BBC/Axios/The Hill cluster and a CNBC/Hill backup (Kash Patel) cluster both failed to yield ≥2 body-tier sources because all candidate URLs were blocked by the network sandbox. Status set to 'partial' rather than 'success' to reflect the gap.",
+  "model": "claude-opus-4-7"
+}
