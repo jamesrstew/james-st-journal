@@ -1,7 +1,7 @@
 name: Edition health check
 
 # Fails (and emails the repo owner via GitHub's default workflow-failure notification)
-# if the 6:03 AM PT scheduled trigger didn't land today's edition by 8 AM PT.
+# if the 5:03 AM PT scheduled trigger didn't land today's edition by 8 AM PT.
 # Scoped narrowly: this is an alarm clock, not an executor.
 
 on:
@@ -37,7 +37,7 @@ jobs:
           echo "Checking for ${RUN}"
 
           if [ ! -f "${RUN}" ]; then
-            echo "::error title=Missing edition::No pipeline run log for ${DATE}. The 6:03 AM PT trigger did not land an edition."
+            echo "::error title=Missing edition::No pipeline run log for ${DATE}. The 5:03 AM PT trigger did not land an edition."
             exit 1
           fi
 
