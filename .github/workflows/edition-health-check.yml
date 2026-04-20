@@ -1,13 +1,16 @@
 name: Edition health check
 
 # Fails (and emails the repo owner via GitHub's default workflow-failure notification)
-# if the 5 AM PT scheduled trigger didn't land today's edition by 7 AM PT.
+# if the 6:03 AM PT scheduled trigger didn't land today's edition by 8 AM PT.
 # Scoped narrowly: this is an alarm clock, not an executor.
 
 on:
   schedule:
-    # 14:05 UTC = 7:05 AM PDT / 6:05 AM PST. DST drifts by one hour twice a year; acceptable.
-    - cron: "5 14 * * *"
+    # 15:05 UTC = 8:05 AM PDT / 7:05 AM PST. DST drifts by one hour twice a year; acceptable.
+    # Moved from 14:05 → 15:05 after cutover to Routines (2026-04-20): Routines runs
+    # longer than Railway (~60–90 min vs 25 min) and was still finishing when the old
+    # check fired, producing false-positive failures.
+    - cron: "5 15 * * *"
   workflow_dispatch:
 
 permissions:

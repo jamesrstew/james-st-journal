@@ -25,7 +25,12 @@
     { "name": "Al Jazeera",            "rss": "https://www.aljazeera.com/xml/rss/all.xml",               "authority": 0.8, "lean": "lean-left" },
     { "name": "Guardian US",           "rss": "https://www.theguardian.com/us-news/rss",                 "authority": 0.8, "lean": "left" },
     { "name": "Guardian World",        "rss": "https://www.theguardian.com/world/rss",                   "authority": 0.8, "lean": "left" },
-    { "name": "Guardian Biz",          "rss": "https://www.theguardian.com/us/business/rss",             "authority": 0.8, "lean": "left" }
+    { "name": "Guardian Biz",          "rss": "https://www.theguardian.com/us/business/rss",             "authority": 0.8, "lean": "left" },
+    { "name": "CBS News",              "rss": "https://www.cbsnews.com/latest/rss/main",                                                    "authority": 0.8, "lean": "lean-left" },
+    { "name": "NBC News",              "rss": "https://feeds.nbcnews.com/nbcnews/public/news",                                              "authority": 0.8, "lean": "lean-left" },
+    { "name": "ProPublica",            "rss": "https://www.propublica.org/feeds/propublica/main",                                           "authority": 0.8, "lean": "lean-left" },
+    { "name": "Deutsche Welle (GN)",   "rss": "https://news.google.com/rss/search?q=when:1d+site:dw.com&hl=en-US&gl=US&ceid=US:en",         "authority": 0.8, "lean": "center" },
+    { "name": "Semafor (GN)",          "rss": "https://news.google.com/rss/search?q=when:1d+site:semafor.com&hl=en-US&gl=US&ceid=US:en",    "authority": 0.7, "lean": "center" }
   ],
   "headline_only": [
     { "name": "WSJ World",     "rss": "https://feeds.a.dj.com/rss/RSSWorldNews.xml",                                               "authority": 1.0, "lean": "lean-right", "mandate": true },
