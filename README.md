@@ -1,6 +1,6 @@
 # The James St. Journal
 
-> A personal daily paper. Five stories. Every morning at 5 a.m. Pacific.
+> A personal daily paper. Five stories. Every morning at 5:03 a.m. Pacific.
 > Circulation: one.
 
 ## Origin story
@@ -9,15 +9,15 @@ The Wall Street Journal raised my renewal rate to $25 a month, which was the las
 
 I am not a normal person. I am a person who subscribes to Claude Max.
 
-So I did what any reasonable, sleep-deprived, mildly-petty software engineer would do: I hired a newsroom. The newsroom is Claude Opus 4.7. Its staff is one person ("J.S. Gallagher"), who is not real and has never been to J-school. It publishes five stories every morning at 5 a.m. Pacific, chosen from a field of ~300 wire items by an algorithm that will be described, at length, in a blog post I will never write.
+So I did what any reasonable, sleep-deprived, mildly-petty software engineer would do: I hired a newsroom. The newsroom is Claude Opus 4.7. Its staff is one person ("J.S. Gallagher"), who is not real and has never been to J-school. It publishes five stories every morning at 5:03 a.m. Pacific, chosen from a field of ~300 wire items by an algorithm that will be described, at length, in a blog post I will never write.
 
 You are reading the repo for this paper.
 
 ## What it does
 
-Every morning, at 5:00 a.m. sharp, a Railway cron job wakes up the Claude CLI running on my Max subscription. It clones this repo, reads the night's RSS feeds, clusters the stories, picks the five that matter (weighted toward the beats a money-and-power daily would actually lead with — markets, business, politics, tech), writes them up in a passable imitation of broadsheet English, hands the drafts to a second agent pretending to be a weary copy editor, reconciles their differences, commits the result, and goes back to sleep.
+Every morning, at 5:03 a.m. sharp, an Anthropic Routines trigger wakes up Claude on my Max subscription. It clones this repo, reads the night's RSS feeds, clusters the stories, picks the five that matter (weighted toward the beats a money-and-power daily would actually lead with — markets, business, politics, tech), writes them up in a passable imitation of broadsheet English, hands the drafts to a second agent pretending to be a weary copy editor, reconciles their differences, commits the result, and goes back to sleep.
 
-Vercel notices the commit and redeploys the site. By 5:30 a.m. there is a new edition at [jamesstjournal.com](https://jamesstjournal.com), assuming nothing has exploded. Things will occasionally explode. This is addressed in the fine print.
+Vercel notices the commit and redeploys the site. By 6:30 a.m. there is a new edition at [jamesstjournal.com](https://jamesstjournal.com), assuming nothing has exploded. Things will occasionally explode. This is addressed in the fine print.
 
 ## Editorial principles
 
@@ -32,9 +32,8 @@ Vercel notices the commit and redeploys the site. By 5:30 a.m. there is a new ed
 content/articles/YYYY-MM-DD/   each morning's edition, as markdown files
 docs/brand/                    the brand guidelines that this repo takes very seriously
 pipeline/                      the master prompt the scheduled agent runs
-infra/railway/                 Dockerfile and entrypoint for the Railway cron
 src/                           the Next.js app that renders all of the above
-.github/workflows/             a health check that emails me when 5 a.m. goes wrong
+.github/workflows/             a health check that pages me when 5 a.m. goes wrong
 ```
 
 ## Stack
@@ -43,8 +42,8 @@ src/                           the Next.js app that renders all of the above
 - **Tailwind v4** with CSS variables for the brand tokens
 - **Playfair Display**, **Source Serif 4**, **Inter** via `next/font/google`
 - **Markdown + frontmatter** in the repo itself — git is the database
-- **Railway cron** runs the Claude CLI against my Max subscription (routing around Anthropic's own scheduler after it repeatedly failed to fire — see `infra/railway/`). The Max sub is the whole point; no separate API bill
-- **GitHub Actions** as an alarm clock — a 7 a.m. PT health check fails loudly if the edition didn't land
+- **Anthropic Routines** fires the Claude CLI against my Max subscription on a 5:03 a.m. PT cron. The Max sub is the whole point; no separate API bill
+- **GitHub Actions** as an alarm clock — an 8 a.m. PT health check pages loudly if the edition didn't land
 
 No Postgres. No pgvector. No pain. No dark mode. No dependency on a separate API bill. You will notice the stark absence of these things. This is on purpose.
 
