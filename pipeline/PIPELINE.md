@@ -245,7 +245,7 @@ If either is stale, update it in place and include the change in the Step 12 com
    ```bash
    git push origin main
    ```
-   Push credentials are pre-wired into the clone via `allow_unrestricted_git_push: true` (see Step 0 — Git access). Do NOT construct an `https://x-access-token:...` URL or reference `$GITHUB_TOKEN`; that env var is unset and will produce an auth failure.
+   Push credentials are pre-wired into the clone via the trigger's connected GitHub identity with `allow_unrestricted_git_push: true` (see the Git access section above). Do NOT construct an `https://x-access-token:...` URL or reference `$GITHUB_TOKEN` — there is no such env var; rely on the ambient git config the trigger set up for you.
 6. After push succeeds, Vercel auto-deploys. Verify by hitting the deployment URL in a minute or two (optional; the run log is the source of truth).
 
 ## Step 13 — run log
