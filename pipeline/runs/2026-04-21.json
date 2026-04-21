@@ -1,6 +1,69 @@
 {
   "date": "2026-04-21",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-04-21T12:13:20Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 778,
+      "feeds_ok": 18,
+      "feeds_fail": 4,
+      "notes": "Node fetch returned 403/503 on several feeds under load; curl + browser UA fallback recovered most. Google News redirects are opaque, so body fetches ran only against direct-URL items."
+    },
+    "cluster": {
+      "clusters": 32,
+      "body_tier_clusters": 21
+    },
+    "select": {
+      "chosen": [
+        {"slot": 1, "cluster": "Apple's Tim Cook to step down in September, hardware chief John Ternus named CEO", "category": "Business", "raw_score": 14.88, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0},
+        {"slot": 2, "cluster": "Kevin Warsh faces Senate Banking hearing as Fed chair nominee; Tillis blocking, Trump's Powell feud", "category": "Markets", "raw_score": 8.9, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0},
+        {"slot": 3, "cluster": "Labor Secretary Chavez-DeRemer resigns amid abuse-of-power investigation", "category": "Politics", "raw_score": 7.48, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0},
+        {"slot": 4, "cluster": "Trump says 'highly unlikely' to extend Iran ceasefire as Wednesday expiry looms; Vance delegation timing unclear", "category": "Politics", "raw_score": 8.1, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0},
+        {"slot": 5, "cluster": "Japan scraps most curbs on lethal weapons exports, largest shift in pacifist policy since WWII", "category": "World", "raw_score": 4.55, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85}
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 16,
+      "sources_failed": 17,
+      "notes": "BBC blocked at network egress for all slots; The Hill served PerimeterX captcha on every path; AP/Reuters/Politico/Semafor Google News redirects were JS-driven and unresolvable. CNBC, Fox, NPR (direct URLs), Al Jazeera, Washington Examiner fetched cleanly via curl + browser UA. Slot 1 carried only two CNBC sources because non-CNBC outlets on that cluster were all blocked; lean_mix in the cluster remained diverse, but accessible bodies were mono-perspective — disclosed in the counterpoint graf."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 2,
+      "revised": 3,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 3,
+      "approved_after_revise": 3
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "commit": {
+      "pushed": true,
+      "branch": "main"
+    }
+  },
+  "articles": [
+    {"slot": 1, "slug": "apple-names-ternus-ceo-cook-exits-sept-1", "category": "Business", "needs_review": false, "word_count": 897, "sources": 2},
+    {"slot": 2, "slug": "warsh-faces-senate-banking-grilling-as-tillis-block-trump-powell-feud-collide", "category": "Markets", "needs_review": false, "word_count": 686, "sources": 4},
+    {"slot": 3, "slug": "labor-secretary-chavez-deremer-resigns-amid-misconduct-probe", "category": "Politics", "needs_review": false, "word_count": 679, "sources": 2},
+    {"slot": 4, "slug": "trump-says-highly-unlikely-to-extend-iran-ceasefire-as-wednesday-expiry-nears", "category": "Politics", "needs_review": false, "word_count": 525, "sources": 4},
+    {"slot": 5, "slug": "japan-scraps-lethal-weapons-export-ban", "category": "World", "needs_review": false, "word_count": 507, "sources": 2}
+  ],
+  "errors": [
+    "feed fetch: BBC blocked by network egress policy",
+    "feed fetch: The Hill served PerimeterX captcha on every body fetch",
+    "body fetch: AP News / Reuters / Politico / Semafor Google News redirects were JS-rendered and could not be resolved to canonical URLs with curl",
+    "outlet-blocked: if BBC and The Hill remain blocked across multiple runs, consider adjusting sources.json (e.g., replace BBC World with direct BBC feeds behind a permissive CDN, or swap The Hill for Politico Playbook when accessible)"
+  ]
 }
