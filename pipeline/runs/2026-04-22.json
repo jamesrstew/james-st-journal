@@ -1,6 +1,40 @@
 {
   "date": "2026-04-22",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-04-22T12:13:24Z",
-  "stages": {}
+  "note": "Morning routine run failed mid-research with a stream idle timeout (last action was WebFetch on Hill/BBC/RCP). Sandbox artifacts were lost. Recovered in a local session from the user's workstation, re-ran the full pipeline, and shipped the edition.",
+  "stages": {
+    "ingest":   { "items": 1161, "feeds_ok": 29, "feeds_fail": 0, "note": "WSJ World/Business/Markets returned RSS but with items dated outside the 36h window — counted as ok with 0 usable items. All other feeds returned content." },
+    "cluster":  { "clusters": 5, "body_tier_clusters": 5 },
+    "select":   {
+      "chosen": [
+        { "slot": 1, "cluster": "iran-hormuz-ceasefire-2026-04-22",    "category": "World",    "score_estimate": 8.6, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 0.85, "note": "Mandate escape hatch — leads despite World category (not a core beat)" },
+        { "slot": 2, "cluster": "warsh-fed-hearing-2026-04-22",        "category": "Politics", "score_estimate": 8.1, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "ukraine-eu-loan-druzhba-2026-04-22",  "category": "World",    "score_estimate": 6.5, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85 },
+        { "slot": 4, "cluster": "anthropic-mythos-access-2026-04-22",  "category": "Tech",     "score_estimate": 6.4, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0 },
+        { "slot": 5, "cluster": "spacex-cursor-60b-2026-04-22",        "category": "Business", "score_estimate": 4.1, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0 }
+      ],
+      "core_beat_count": 3,
+      "composition_check": "ok: 3/5 in core-beats (Politics, Tech, Business)"
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched_ok": 13,
+      "sources_failed": 10,
+      "note": "Google News redirect URLs served interstitial shells rather than resolving to the underlying Reuters/AP/DW article; WebFetch also failed to follow those. Axios returned 403 to curl and WebFetch. Recovered all slots to the 2-source minimum using direct BBC/Guardian/Fox/CNBC/NPR/The Verge/Ars Technica/Al Jazeera fetches. Follow-up: improve GN URL decoding before Reuters/AP appear in future runs."
+    },
+    "draft":    { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit":     { "editors_spawned": 5, "approved_first_pass": 5, "revised": 0, "held": 0 },
+    "revise":   { "revisions_spawned": 0, "approved_after_revise": 0 },
+    "stage":    { "articles_written": 5, "validator_ok": true },
+    "commit":   { "pushed": true }
+  },
+  "articles": [
+    { "slot": 1, "slug": "trump-extends-iran-ceasefire-as-irgc-seizes-two-ships-in-hormuz",               "category": "World",    "needs_review": false, "word_count": 884, "sources": 3, "lean_mix": ["center","left","right"] },
+    { "slot": 2, "slug": "warsh-denies-sock-puppet-claim-as-tillis-holds-out-on-fed-confirmation",         "category": "Politics", "needs_review": false, "word_count": 685, "sources": 3, "lean_mix": ["center","right"] },
+    { "slot": 3, "slug": "eu-unblocks-90-billion-euro-ukraine-loan-as-hungary-drops-veto",                  "category": "World",    "needs_review": false, "word_count": 649, "sources": 3, "lean_mix": ["center","left"] },
+    { "slot": 4, "slug": "anthropic-says-unauthorized-users-accessed-mythos-through-third-party-vendor",    "category": "Tech",     "needs_review": false, "word_count": 492, "sources": 2, "lean_mix": ["center"] },
+    { "slot": 5, "slug": "spacex-options-60-billion-cursor-buy-or-10-billion-breakup-fee",                  "category": "Business", "needs_review": false, "word_count": 548, "sources": 2, "lean_mix": ["center"] }
+  ],
+  "errors": []
 }
