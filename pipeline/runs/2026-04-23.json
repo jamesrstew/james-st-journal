@@ -1,6 +1,86 @@
 {
   "date": "2026-04-23",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-04-23T12:14:33Z",
-  "stages": {}
+  "finished_at": "2026-04-23T12:45:19Z",
+  "stages": {
+    "ingest": {
+      "items": 893,
+      "feeds_ok": 29,
+      "feeds_fail": 11,
+      "failed_feeds": [
+        "Ars Technica",
+        "Wired",
+        "Guardian US",
+        "Guardian World",
+        "Guardian Biz",
+        "CBS News",
+        "FT Home",
+        "NYT World",
+        "NYT US",
+        "NYT Business",
+        "NYT Tech"
+      ],
+      "duration_sec": 42
+    },
+    "cluster": {
+      "clusters": 700,
+      "body_tier_clusters": 37,
+      "method": "single-link Jaccard (title+summary) with 0.30 threshold; qualitative selection of top clusters",
+      "duration_sec": 5
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "US intercepts three Iranian oil tankers in Asian waters; IRGC seizes two foreign container ships in Hormuz", "category": "World", "score": 6.0, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85 },
+        { "slot": 2, "cluster": "Hegseth fires Navy Secretary John Phelan effective immediately", "category": "Politics", "score": 5.2, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "Lufthansa cuts 20,000 flights as Iran-war jet fuel shock spreads to European carriers; Spirit Airlines in doubt", "category": "Business", "score": 4.8, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 },
+        { "slot": 4, "cluster": "Trump Media replaces Devin Nunes as CEO after DJT stock plunge erases $6 billion", "category": "Business", "score": 3.5, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 5, "cluster": "Kalshi suspends and fines three congressional candidates for wagering on their own elections", "category": "Markets", "score": 2.6, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 }
+      ],
+      "core_beat_count": 4,
+      "composition_floor_met": true,
+      "notes": "Iran/Hormuz story cleared lead eligibility via mandate escape hatch (mandate_count>=2: Bloomberg + Economist). Slate skews to core beats (Politics, Business, Business, Markets). Trump Media dossier relied on PBS + Fox Business since Reuters/AP/Bloomberg/NYT/WSJ publisher fetches are blocked in this environment."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 14,
+      "sources_failed": 6,
+      "notes": "Reuters, AP News, apnews.com, reuters.com, BBC (www.bbc.com), CNBC and several other primary publishers returned 403/503 to both curl and WebFetch. Ingest went through Google News RSS wrappers that could not be JS-resolved. Successful body fetches came from Al Jazeera, PBS NewsHour, NPR, Fox Business, CBS Austin, Grand Junction Sentinel, and KSAT. Every dossier carries at least 2 body-tier sources with bodies >=600 chars.",
+      "blocked_domains": ["reuters.com", "apnews.com", "bbc.com", "cnbc.com", "thehill.com", "cnn.com", "nbcnews.com", "news.kalshi.com"],
+      "duration_sec": 240
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 2,
+      "revised": 3,
+      "held": 0,
+      "first_pass_status": { "1": "approved", "2": "revise", "3": "revise", "4": "approved", "5": "revise" }
+    },
+    "revise": {
+      "revisions_spawned": 3,
+      "approved_after_revise": 3,
+      "held_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "commit": {
+      "branch": "main",
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "us-seizes-three-iranian-tankers-in-asia-as-irgc-captures-two-ships-in-hormuz", "category": "World", "needs_review": false, "word_count": 875, "sources": 4, "draft_iterations": 1 },
+    { "slot": 2, "slug": "hegseth-fires-navy-secretary-phelan", "category": "Politics", "needs_review": false, "word_count": 577, "sources": 3, "draft_iterations": 2 },
+    { "slot": 3, "slug": "lufthansa-cancels-20000-flights-as-jet-fuel-shock-tests-carriers", "category": "Business", "needs_review": false, "word_count": 647, "sources": 3, "draft_iterations": 2 },
+    { "slot": 4, "slug": "trump-media-ousts-nunes-as-ceo-after-stock-erases-6-billion", "category": "Business", "needs_review": false, "word_count": 448, "sources": 2, "draft_iterations": 1 },
+    { "slot": 5, "slug": "kalshi-fines-three-congressional-candidates-for-betting-on-themselves", "category": "Markets", "needs_review": false, "word_count": 463, "sources": 3, "draft_iterations": 2 }
+  ],
+  "errors": []
 }
