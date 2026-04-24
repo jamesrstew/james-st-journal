@@ -1,10 +1,9 @@
 name: Edition health check
 
 # Fails (and emails the repo owner via GitHub's default workflow-failure notification)
-# if the 5:03 AM PT scheduled trigger and the 7:15 AM PT retry didn't land today's edition
-# by 8:05 AM PT.
-# Scoped narrowly: this is an alarm clock, not an executor. A second retry (jsj-edition-retry-b)
-# fires at 9:30 AM PT and may still rescue the day after this check runs.
+# if the 5:03 AM PT scheduled trigger didn't land today's edition by 8:05 AM PT.
+# Scoped narrowly: this is an alarm clock, not an executor. No automatic retries —
+# recovery is manual (fire jsj-edition via RemoteTrigger, or run locally).
 
 on:
   schedule:
@@ -41,7 +40,7 @@ jobs:
           echo "Checking for ${RUN}"
 
           if [ ! -f "${RUN}" ]; then
-            echo "::error title=Missing edition::No pipeline run log for ${DATE}. The 5:03 AM PT trigger and 7:15 AM PT retry both failed to land a breadcrumb."
+            echo "::error title=Missing edition::No pipeline run log for ${DATE}. The 5:03 AM PT trigger failed to land a breadcrumb."
             echo "status=missing" >> "$GITHUB_OUTPUT"
             exit 1
           fi
@@ -98,7 +97,7 @@ jobs:
             BODY="JSJ ${DATE} — NO BREADCRUMB
 trigger never started, or died pre-Step-1
 last edition: \"${LAST_COMMIT_SHORT}\" (${LAST_COMMIT_WHEN})
-retry-b fires 9:30 PT
+manual fire: RemoteTrigger run jsj-edition
 run: ${URL}"
           else
             STATUS=$(jq -r '.status // "unknown"' "${RUN}")
@@ -126,7 +125,7 @@ sources failed: ${SOURCES_FAILED}"
 err: ${FIRST_ERROR}"
             BODY="${BODY}
 last edition: \"${LAST_COMMIT_SHORT}\" (${LAST_COMMIT_WHEN})
-retry-b fires 9:30 PT
+manual fire: RemoteTrigger run jsj-edition
 run: ${URL}"
           fi
 

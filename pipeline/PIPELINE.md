@@ -248,7 +248,7 @@ For each staged article under `content/articles/$DATE/*.md`, generate a pen-sket
 
 **Illustration failures are non-fatal.** If any slot fails, log the stderr and continue — the article ships without an illustration. The frontend's `Illustration` component hides itself when `has_illustration` is false, and the article renders text-only with no broken-image icon. This matches the existing graceful-degradation pattern used for N/5 stories.
 
-**Retries:** since illustration failures do not flip the run status to `partial` or `failed`, the 7:15/9:30 retry Routines will not re-run to regenerate images. Accept the miss for the day; the next edition starts fresh.
+**Day-level retries:** none. The pipeline runs once at 5:03 AM PT; there is no retry fire. A missing illustration stays missing for that day. Tomorrow's edition starts fresh.
 
 ## Step 12 — commit + push
 
