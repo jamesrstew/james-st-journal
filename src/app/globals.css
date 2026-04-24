@@ -206,3 +206,31 @@ a:hover {
     animation: none;
   }
 }
+
+/* ---- article illustrations ---- */
+
+.illustration-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.illustration {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.illustration-dark { display: none; }
+
+:root[data-theme="dark"] .illustration-light { display: none; }
+:root[data-theme="dark"] .illustration-dark  { display: block; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .illustration-light { display: none; }
+  :root:not([data-theme]) .illustration-dark  { display: block; }
+}

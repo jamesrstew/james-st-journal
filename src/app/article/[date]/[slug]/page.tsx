@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { ArticleBody } from "@/components/ArticleBody";
 import { SourceList } from "@/components/SourceList";
 import { JsonLd } from "@/components/JsonLd";
+import { Illustration } from "@/components/Illustration";
 import { getAllEditions, getArticle } from "@/lib/articles";
 import { formatDateline } from "@/lib/date";
 import { brand } from "@/lib/brand";
@@ -98,7 +99,13 @@ export default async function ArticlePage({
           ) : null}
         </div>
 
-        <hr className="mt-8 mb-12 sm:mb-14 rule-thin" />
+        {article.has_illustration ? (
+          <div className="mt-8 mb-8">
+            <Illustration article={article} eager />
+          </div>
+        ) : (
+          <hr className="mt-8 mb-12 sm:mb-14 rule-thin" />
+        )}
 
         <ArticleBody markdown={article.body} />
 

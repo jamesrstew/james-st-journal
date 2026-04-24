@@ -9,6 +9,8 @@ interface BroadsheetProps {
 export function Broadsheet({ edition }: BroadsheetProps) {
   const [lead, ...rest] = edition.articles;
   const secondaries = rest.slice(0, 4);
+  const sidebar = secondaries.slice(0, 3);
+  const belowFold = secondaries.slice(3);
 
   if (!lead) {
     return (
@@ -34,17 +36,17 @@ export function Broadsheet({ edition }: BroadsheetProps) {
             <ArticleCard article={lead} variant="lead" />
           </div>
           <aside className="md:col-span-12 lg:col-span-4 space-y-8 divide-y divide-rule [&>*:not(:first-child)]:pt-8">
-            {secondaries.slice(0, 2).map((a) => (
+            {sidebar.map((a) => (
               <ArticleCard key={a.slug} article={a} variant="column" />
             ))}
           </aside>
         </div>
 
-        {secondaries.length > 2 && (
+        {belowFold.length > 0 && (
           <>
             <hr className="my-12 sm:my-16 rule-double" />
-            <div className="grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2 divide-y divide-rule md:divide-y-0 [&>*:not(:first-child)]:pt-10 md:[&>*:not(:first-child)]:pt-0">
-              {secondaries.slice(2).map((a) => (
+            <div className="mx-auto max-w-[720px]">
+              {belowFold.map((a) => (
                 <ArticleCard key={a.slug} article={a} variant="column" />
               ))}
             </div>

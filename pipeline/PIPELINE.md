@@ -232,6 +232,24 @@ Before staging the commit, check two files against the model you are running as 
 
 If either is stale, update it in place and include the change in the Step 12 commit. Keeping both accurate is part of the pipeline's truthfulness guarantee.
 
+## Step 11.7 — illustrate
+
+For each staged article under `content/articles/$DATE/*.md`, generate a pen-sketch PNG illustration via `gpt-image-2` at `quality=low`, `size=1536x1024`. Cost is roughly $0.016 per article ($2.40/mo at 5 stories/day). One API call yields both the light- and dark-mode PNG via local ink-density recomposite — no second generation.
+
+1. For each slot, read the staged article's frontmatter `headline`, `dek`, and the first paragraph of `body_md`.
+2. Draft a **single sentence** describing one physical real-world object or scene that represents the article. No style notes, no compound scenes, no abstract concepts — the style prompt is baked into `illustrate.py`. Example: `"An oil tanker ship at sea, side profile view, with a long hull low in the water, bridge tower and smokestack at the stern, and small waves beneath the hull."`
+3. Spawn all N invocations in parallel in a single bash command with `&` + `wait`:
+   ```bash
+   python3 pipeline/illustrate.py $DATE <slot>-<slug> "<subject>" > /tmp/jsj-$DATE/illo-<slot>.log 2>&1 &
+   ```
+   `illustrate.py` reads `$OPENAI_API_KEY` from the environment (falls back to `~/.config/jsj/openai.key` for local dev). It retries once on any non-2xx response with a 10s backoff, then exits non-zero.
+4. After `wait`, for each slot verify both `content/articles/$DATE/<slot>-<slug>-light.png` and `<slot>-<slug>-dark.png` exist and are each ≥50 KB (small files usually indicate a blank generation).
+5. Log per-slot outcome in the run log under `stages.illustrate`. Include `articles_illustrated`, `images_failed`, `duration_sec`, and a rough `estimated_cost_usd` (`0.016 * articles_illustrated`).
+
+**Illustration failures are non-fatal.** If any slot fails, log the stderr and continue — the article ships without an illustration. The frontend's `Illustration` component hides itself when `has_illustration` is false, and the article renders text-only with no broken-image icon. This matches the existing graceful-degradation pattern used for N/5 stories.
+
+**Retries:** since illustration failures do not flip the run status to `partial` or `failed`, the 7:15/9:30 retry Routines will not re-run to regenerate images. Accept the miss for the day; the next edition starts fresh.
+
 ## Step 12 — commit + push
 
 1. `git config user.name "J.S. Gallagher"` (local config, do not write global)
@@ -265,6 +283,7 @@ Write `pipeline/runs/$DATE.json` (include in the commit above):
     "edit":     { "editors_spawned": 5, "approved_first_pass": 3, "revised": 2, "held": 0 },
     "revise":   { "revisions_spawned": 2, "approved_after_revise": 2 },
     "stage":    { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 28, "estimated_cost_usd": 0.08 },
     "commit":   { "sha": "<git sha>", "pushed": true }
   },
   "articles": [
@@ -294,6 +313,7 @@ Write `pipeline/runs/$DATE.json` (include in the commit above):
 - **Validator fails on staged articles.** Do NOT commit. Save the full validator output to the run log. Exit.
 - **Push fails.** The most likely cause is a token scope issue. Do NOT retry with different credentials. Save the (redacted) error to the run log. Exit.
 - **You are rate-limited mid-run.** Back off 60s and retry once. If still limited, downgrade the editor pass to Sonnet via the Agent tool's `model` parameter and continue. Log this in the run log.
+- **`illustrate.py` fails for a slot.** Log the stderr under `stages.illustrate.images_failed` and proceed. The article ships text-only. Do not retry the pipeline; images are a nice-to-have, not load-bearing.
 
 ## What you are NOT doing
 

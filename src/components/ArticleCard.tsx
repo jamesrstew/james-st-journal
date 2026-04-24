@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Article } from "@/lib/articles";
+import { Illustration } from "./Illustration";
 
 type Variant = "lead" | "column" | "compact";
 
@@ -27,6 +28,7 @@ export function ArticleCard({ article, variant = "column" }: ArticleCardProps) {
         href={article.href}
         className="!text-ink no-underline transition-opacity duration-150 hover:opacity-70"
       >
+        {variant === "lead" && <Illustration article={article} eager />}
         <p className="small-caps text-accent-red">{article.category}</p>
         <h2 className={`headline mt-2 ${HEADLINE_SIZE[variant]}`}>
           {article.headline}

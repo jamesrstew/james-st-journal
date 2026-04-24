@@ -15,7 +15,7 @@ You are reading the repo for this paper.
 
 ## What it does
 
-Every morning, at 5:03 a.m. sharp, an Anthropic Routines trigger wakes up Claude on my Max subscription. It clones this repo, reads the night's RSS feeds, clusters the stories, picks the five that matter (weighted toward the beats a money-and-power daily would actually lead with — markets, business, politics, tech), writes them up in a passable imitation of broadsheet English, hands the drafts to a second agent pretending to be a weary copy editor, reconciles their differences, commits the result, and goes back to sleep.
+Every morning, at 5:03 a.m. sharp, an Anthropic Routines trigger wakes up Claude on my Max subscription. It clones this repo, reads the night's RSS feeds, clusters the stories, picks the five that matter (weighted toward the beats a money-and-power daily would actually lead with — markets, business, politics, tech), writes them up in a passable imitation of broadsheet English, hands the drafts to a second agent pretending to be a weary copy editor, reconciles their differences, asks a third model (OpenAI's `gpt-image-2`) to draw a single pen-and-ink sketch per story, commits the result, and goes back to sleep.
 
 Vercel notices the commit and redeploys the site. By 6:30 a.m. there is a new edition at [jamesstjournal.com](https://jamesstjournal.com), assuming nothing has exploded. Things will occasionally explode. This is addressed in the fine print.
 
@@ -43,6 +43,7 @@ src/                           the Next.js app that renders all of the above
 - **Playfair Display**, **Source Serif 4**, **Inter** via `next/font/google`
 - **Markdown + frontmatter** in the repo itself — git is the database
 - **Anthropic Routines** fires the Claude CLI against my Max subscription on a 5:03 a.m. PT cron. The Max sub is the whole point; no separate API bill
+- **OpenAI `gpt-image-2`** at `quality=low` for a single pen-and-ink sketch per article (light + dark variants derived from one generation via local ink-density recomposite, ~$2.40/mo — the only non-Max spend in the whole operation)
 - **GitHub Actions** as an alarm clock — an 8 a.m. PT health check pages loudly if the edition didn't land
 
 No Postgres. No pgvector. No pain. No dark mode. No dependency on a separate API bill. You will notice the stark absence of these things. This is on purpose.
