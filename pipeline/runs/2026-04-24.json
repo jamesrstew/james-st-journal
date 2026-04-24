@@ -1,6 +1,74 @@
 {
   "date": "2026-04-24",
-  "status": "in_progress",
+  "status": "partial",
   "started_at": "2026-04-24T12:14:38Z",
-  "stages": {}
+  "completed_at": "2026-04-24T12:52:00Z",
+  "stages": {
+    "ingest": {
+      "items": 916,
+      "feeds_ok": 28,
+      "feeds_fail": 12,
+      "feeds_failed_list": [
+        "Ars Technica", "Axios", "Christian Sci Monitor",
+        "Guardian Biz", "Guardian US", "Guardian World",
+        "NYT Business", "NYT Tech", "NYT US", "NYT World",
+        "Washington Examiner", "Wired"
+      ],
+      "notes": "Egress proxy blocked theguardian.com, nytimes.com, arstechnica.com, wired.com hostnames (HTTP 403 'Blocked by egress policy') and DNS-cache-overflowed several others even after serial retries; remaining 28 feeds delivered enough signal to run the edition.",
+      "duration_sec": 210
+    },
+    "cluster": {
+      "clusters_considered": 12,
+      "notes": "Qualitative clustering from mandate + body-tier feed titles; top candidates: Polymarket/Maduro (19 items), Marijuana reclassification (16), Lebanon ceasefire (16), Meta layoffs (10), Spirit Airlines (9), Warner Bros/Paramount (10), Intel AI (5), DeepSeek V4 (8)."
+    },
+    "select": {
+      "chosen": [
+        {"slot": 1, "cluster": "Polymarket Maduro insider trading", "category": "Politics", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "lead_eligibility": "core_beat"},
+        {"slot": 2, "cluster": "Meta 10% layoffs for AI",           "category": "Tech",     "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0},
+        {"slot": 3, "cluster": "Israel-Lebanon ceasefire extended 3 weeks", "category": "World", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85},
+        {"slot": 4, "cluster": "DOJ marijuana Schedule III", "category": "Politics", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0}
+      ],
+      "core_beat_count": 3,
+      "notes": "Intel AI earnings (mandate_count=2 via Bloomberg+FT, Markets) initially selected as lead but dropped — all Intel body-tier URLs (Reuters GN, Semafor GN) unreachable through the blocked egress and FT is headline-only. Warner Bros/Paramount $110B merger and Spirit Airlines taxpayer takeover evaluated for slot 5 but dropped on the 2-body-source minimum. Edition ships 4/5."
+    },
+    "research": {
+      "dossiers_built": 4,
+      "sources_fetched": 13,
+      "sources_failed": 11,
+      "notes": "Direct outlet URLs worked intermittently: NPR, PBS, CBS, Fox, NBC. BBC, The Hill, CNBC, The Verge, Al Jazeera video pages, Guardian, NYT, Reuters GN, Semafor GN, Bloomberg GN, Warner Bros CBS/CNBC URLs returned 403/404/503. Each dossier carries ≥2 body-tier sources with ≥600-char bodies.",
+      "duration_sec": 540
+    },
+    "draft": {
+      "writers_spawned": 4,
+      "drafts_ok": 4,
+      "drafts_failed": 0,
+      "parallel": true
+    },
+    "edit": {
+      "editors_spawned": 4,
+      "approved_first_pass": 4,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 4,
+      "validator_ok": true,
+      "brand_in_sync": true
+    },
+    "commit": {
+      "pushed": true
+    }
+  },
+  "articles": [
+    {"slot": 1, "slug": "green-beret-charged-with-polymarket-trades-on-maduro-raid", "category": "Politics", "needs_review": false, "word_count": 848, "sources": 5},
+    {"slot": 2, "slug": "meta-cuts-8000-jobs-as-ai-spending-nears-135-billion", "category": "Tech", "needs_review": false, "word_count": 588, "sources": 2},
+    {"slot": 3, "slug": "trump-extends-israel-lebanon-ceasefire-three-weeks-as-hezbollah-rejects-deal", "category": "World", "needs_review": false, "word_count": 651, "sources": 4},
+    {"slot": 4, "slug": "justice-department-moves-medical-marijuana-to-schedule-iii", "category": "Politics", "needs_review": false, "word_count": 472, "sources": 2}
+  ],
+  "gap_note": "4/5 stories: slot 5 dropped after Intel (Markets), Warner Bros/Paramount (Business), and Spirit Airlines (Business) each failed the Step 7 minimum of 2 body-tier sources due to egress-blocked outlets (Reuters via Google News, FT, BBC, The Hill, CNBC, Bloomberg via Google News). The 3 surviving core-beat slots (Politics, Tech, Politics) meet the composition floor; the Politics repeat reflects two genuinely distinct federal-enforcement stories (Polymarket/DOJ insider-trading case, DOJ marijuana rescheduling).",
+  "errors": []
 }
