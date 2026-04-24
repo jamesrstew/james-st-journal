@@ -271,9 +271,12 @@ Write `pipeline/runs/$DATE.json` (include in the commit above):
     { "slot":1, "slug":"...", "category":"Markets", "needs_review":false, "word_count":812, "sources":3 },
     ...
   ],
+  "egress_blocked_hostnames": [],
   "errors": []
 }
 ```
+
+`egress_blocked_hostnames` is a deduped list of bare hostnames (e.g. `"nytimes.com"`, `"theguardian.com"`) that returned HTTP 403 "Blocked by egress policy" or an equivalent proxy block during either the ingest step (RSS fetch) or the research step (body fetch). One entry per hostname regardless of how many URLs failed under it. Leave `[]` on clean runs. Used for longitudinal trend-spotting: outlets that appear across ≥3 consecutive run logs are candidates for swapping to a Google News mirror in `pipeline/sources.json` or dropping altogether.
 
 **Never include `$GITHUB_TOKEN` or any credentials in this file.** Never include raw source bodies (URLs and titles only).
 
