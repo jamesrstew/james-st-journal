@@ -77,48 +77,55 @@ export default async function ArticlePage({
           </p>
         )}
 
-        <p className="small-caps text-accent-red">{article.category}</p>
+        <article>
+          <header>
+            <p className="small-caps text-accent-red">{article.category}</p>
 
-        <h1 className="headline mt-3 text-[clamp(1.75rem,6vw,3rem)]">
-          {article.headline}
-        </h1>
+            <h1 className="headline mt-3 text-[clamp(1.75rem,6vw,3rem)]">
+              {article.headline}
+            </h1>
 
-        <p className="dek mt-4 text-lg sm:text-xl">{article.dek}</p>
+            <p className="dek mt-4 text-lg sm:text-xl">{article.dek}</p>
 
-        <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs small-caps text-muted">
-          <span>By {article.byline}</span>
-          <span>·</span>
-          <time dateTime={article.published_at}>
-            {formatDateline(date)}
-          </time>
-          {article.reading_time_min ? (
-            <>
+            <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs small-caps text-muted">
+              <span>By {article.byline}</span>
               <span>·</span>
-              <span>{article.reading_time_min} min read</span>
-            </>
-          ) : null}
-        </div>
+              <time dateTime={article.published_at}>
+                {formatDateline(date)}
+              </time>
+              {article.reading_time_min ? (
+                <>
+                  <span>·</span>
+                  <span>{article.reading_time_min} min read</span>
+                </>
+              ) : null}
+            </div>
+          </header>
 
-        {article.has_illustration ? (
-          <div className="mt-8 mb-8">
-            <Illustration article={article} eager />
-          </div>
-        ) : (
-          <hr className="mt-8 mb-12 sm:mb-14 rule-thin" />
-        )}
+          {article.has_illustration ? (
+            <div className="mt-8 mb-8">
+              <Illustration article={article} eager />
+            </div>
+          ) : (
+            <hr className="mt-8 mb-12 sm:mb-14 rule-thin" />
+          )}
 
-        <ArticleBody markdown={article.body} />
+          <ArticleBody markdown={article.body} />
 
-        <SourceList sources={article.sources} />
+          <SourceList sources={article.sources} />
 
-        <p className="mt-10 italic text-sm text-muted">
-          {brand.disclosure}
-        </p>
+          <p className="mt-10 italic text-sm text-muted">
+            {brand.disclosure}
+          </p>
+        </article>
 
-        <div className="mt-12 flex items-center justify-between text-xs small-caps">
+        <nav
+          aria-label="Edition navigation"
+          className="mt-12 flex items-center justify-between text-xs small-caps"
+        >
           <Link href="/">← Back to today&rsquo;s edition</Link>
           <Link href={`/archive/${date}`}>Full edition: {date}</Link>
-        </div>
+        </nav>
       </main>
       <Footer />
     </>
