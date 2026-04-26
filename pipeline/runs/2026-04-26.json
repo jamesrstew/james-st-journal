@@ -1,6 +1,35 @@
 {
   "date": "2026-04-26",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-04-26T12:11:04Z",
-  "stages": {}
+  "stages": {
+    "ingest":   { "items": 993, "feeds_ok": 40, "feeds_fail": 0, "duration_sec": 4 },
+    "cluster":  { "clusters": 14, "body_tier_clusters": 9, "duration_sec": 1 },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "Gunman charges WHCA dinner checkpoint; Trump evacuated, suspect Cole Tomas Allen detained", "category": "Politics", "score": 51.0, "mandate_count": 4, "signal_boost": 2.0, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "Trump scraps envoy trip to Pakistan as Hormuz crisis deepens; Yergin calls it 'biggest energy disruption ever'", "category": "Markets", "score": 18.5, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "JNIM-FLA coordinated attacks rock Bamako and other Mali cities; Defence Minister Camara reported killed", "category": "World", "score": 7.6, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 0.85 },
+        { "slot": 4, "cluster": "Orban quits Hungarian parliament after landslide loss; Magyar to meet von der Leyen on EU funds", "category": "World", "score": 11.6, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85 },
+        { "slot": 5, "cluster": "Trump administration terminates all 24 members of the National Science Board", "category": "Politics", "score": 2.0, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 }
+      ],
+      "core_beat_count": 3
+    },
+    "research": { "dossiers_built": 5, "sources_fetched": 16, "sources_failed": 25, "duration_sec": 92, "notes": "Many Google News redirect URLs failed to resolve in curl (Reuters/AP/Examiner/Guardian via GN); supplemented with WebFetch on direct outlet URLs (NBC, ABC, BTimes, NASA Watch, Qatar Tribune, Al Jazeera, USNews/Reuters mirror). The Hill returned HTTP 403 to the fetcher." },
+    "draft":    { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit":     { "editors_spawned": 5, "approved_first_pass": 5, "revised": 0, "held": 0 },
+    "revise":   { "revisions_spawned": 0, "approved_after_revise": 0 },
+    "stage":    { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 30, "estimated_cost_usd": 0.08 },
+    "commit":   { "sha": "PENDING", "pushed": false }
+  },
+  "articles": [
+    { "slot": 1, "slug": "gunman-storms-correspondents-dinner-trump-evacuated", "category": "Politics", "needs_review": false, "word_count": 892, "sources": 4 },
+    { "slot": 2, "slug": "yergin-calls-hormuz-biggest-energy-disruption-ever-as-trump-cancels-envoy-trip", "category": "Markets", "needs_review": false, "word_count": 678, "sources": 3 },
+    { "slot": 3, "slug": "jihadists-and-tuareg-rebels-strike-bamako-and-kati-as-mali-defense-chief-reported-killed", "category": "World", "needs_review": false, "word_count": 656, "sources": 3 },
+    { "slot": 4, "slug": "orban-quits-parliament-as-magyar-heads-to-brussels-on-eu-funds", "category": "World", "needs_review": false, "word_count": 456, "sources": 3 },
+    { "slot": 5, "slug": "white-house-fires-entire-national-science-board", "category": "Politics", "needs_review": false, "word_count": 479, "sources": 3 }
+  ],
+  "egress_blocked_hostnames": ["thehill.com"],
+  "errors": []
 }
