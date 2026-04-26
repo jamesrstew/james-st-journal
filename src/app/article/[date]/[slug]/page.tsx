@@ -69,7 +69,7 @@ export default async function ArticlePage({
   return (
     <>
       <JsonLd data={articleJsonLd(article)} />
-      <Masthead editionDate={date} />
+      <Masthead editionDate={date} asPrimaryHeading={false} />
       <main className="mx-auto max-w-[680px] px-4 sm:px-6 py-8 sm:py-12">
         {article.is_sample && (
           <p className="mb-6 border border-rule bg-paper px-3 py-2 text-center text-xs small-caps text-muted">
@@ -77,20 +77,39 @@ export default async function ArticlePage({
           </p>
         )}
 
-        <article>
+        <article itemScope itemType="https://schema.org/NewsArticle">
           <header>
-            <p className="small-caps text-accent-red">{article.category}</p>
+            <p
+              className="small-caps text-accent-red"
+              itemProp="articleSection"
+            >
+              {article.category}
+            </p>
 
-            <h1 className="headline mt-3 text-[clamp(1.75rem,6vw,3rem)]">
+            <h1
+              className="headline mt-3 text-[clamp(1.75rem,6vw,3rem)]"
+              itemProp="headline"
+            >
               {article.headline}
             </h1>
 
-            <p className="dek mt-4 text-lg sm:text-xl">{article.dek}</p>
+            <p className="dek mt-4 text-lg sm:text-xl" itemProp="description">
+              {article.dek}
+            </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs small-caps text-muted">
-              <span>By {article.byline}</span>
+              <span>
+                By{" "}
+                <span
+                  itemProp="author"
+                  itemScope
+                  itemType="https://schema.org/Person"
+                >
+                  <span itemProp="name">{article.byline}</span>
+                </span>
+              </span>
               <span>·</span>
-              <time dateTime={article.published_at}>
+              <time itemProp="datePublished" dateTime={article.published_at}>
                 {formatDateline(date)}
               </time>
               {article.reading_time_min ? (
@@ -110,7 +129,9 @@ export default async function ArticlePage({
             <hr className="mt-8 mb-12 sm:mb-14 rule-thin" />
           )}
 
-          <ArticleBody markdown={article.body} />
+          <div itemProp="articleBody">
+            <ArticleBody markdown={article.body} />
+          </div>
 
           <SourceList sources={article.sources} />
 
