@@ -93,12 +93,16 @@ jobs:
           # Trim headline section to keep the Telegram body short
           LAST_COMMIT_SHORT=$(echo "${LAST_COMMIT}" | cut -c1-80)
 
+          # Build BODY one line at a time. Keep each assignment on a single
+          # YAML line — multi-line bash strings here would dedent below the
+          # `run: |` block scalar and break workflow parsing entirely.
+          NL=$'\n'
           if [ ! -f "${RUN}" ]; then
-            BODY="JSJ ${DATE} — NO BREADCRUMB
-trigger never started, or died pre-Step-1
-last edition: \"${LAST_COMMIT_SHORT}\" (${LAST_COMMIT_WHEN})
-manual fire: RemoteTrigger run jsj-edition
-run: ${URL}"
+            BODY="JSJ ${DATE} — NO BREADCRUMB"
+            BODY="${BODY}${NL}trigger never started, or died pre-Step-1"
+            BODY="${BODY}${NL}last edition: \"${LAST_COMMIT_SHORT}\" (${LAST_COMMIT_WHEN})"
+            BODY="${BODY}${NL}manual fire: RemoteTrigger run jsj-edition"
+            BODY="${BODY}${NL}run: ${URL}"
           else
             STATUS=$(jq -r '.status // "unknown"' "${RUN}")
             STARTED=$(jq -r '.started_at // ""' "${RUN}")
@@ -116,17 +120,14 @@ run: ${URL}"
             # Trim error to keep body short
             FIRST_ERROR=$(echo "${FIRST_ERROR}" | cut -c1-140)
 
-            BODY="JSJ ${DATE} — ${STATUS}
-stage: ${LAST_STAGE} (${STAGE_COUNT}/9)
-breadcrumb: ${BREADCRUMB_AGE}"
-            [ -n "${SOURCES_FAILED}" ] && BODY="${BODY}
-sources failed: ${SOURCES_FAILED}"
-            [ -n "${FIRST_ERROR}" ] && BODY="${BODY}
-err: ${FIRST_ERROR}"
-            BODY="${BODY}
-last edition: \"${LAST_COMMIT_SHORT}\" (${LAST_COMMIT_WHEN})
-manual fire: RemoteTrigger run jsj-edition
-run: ${URL}"
+            BODY="JSJ ${DATE} — ${STATUS}"
+            BODY="${BODY}${NL}stage: ${LAST_STAGE} (${STAGE_COUNT}/9)"
+            BODY="${BODY}${NL}breadcrumb: ${BREADCRUMB_AGE}"
+            [ -n "${SOURCES_FAILED}" ] && BODY="${BODY}${NL}sources failed: ${SOURCES_FAILED}"
+            [ -n "${FIRST_ERROR}" ] && BODY="${BODY}${NL}err: ${FIRST_ERROR}"
+            BODY="${BODY}${NL}last edition: \"${LAST_COMMIT_SHORT}\" (${LAST_COMMIT_WHEN})"
+            BODY="${BODY}${NL}manual fire: RemoteTrigger run jsj-edition"
+            BODY="${BODY}${NL}run: ${URL}"
           fi
 
           echo "Telegram body:"
