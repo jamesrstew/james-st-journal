@@ -1,6 +1,139 @@
 {
   "date": "2026-04-28",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-04-28T12:13:40Z",
-  "stages": {}
+  "completed_at": "2026-04-28T12:52:00Z",
+  "stages": {
+    "ingest": {
+      "items": 1357,
+      "feeds_ok": 40,
+      "feeds_fail": 0,
+      "duration_sec": 18,
+      "note": "All 40 feeds returned 200. WSJ feeds returned year-stale content (Jan 2025 dates) and contributed 0 fresh items; NYT GN feeds returned empty arrays (parser found 0 items). Politico, Fox News, RealClearPolitics, ProPublica all returned items today (no egress block at the RSS layer)."
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 1,
+      "note": "Five clusters built editorially from mandate-tier signals. Initial sixth and seventh candidates (Shell-Arc M&A, BoJ hawkish hold) had insufficient body-fetchable coverage — body fetch egress restricted to a small set of working domains — and were dropped in favor of King Charles state visit and Fed FOMC preview, both with ≥2 working body-tier sources."
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "trump-rejects-iran-hormuz-proposal-2026-04-28",
+          "category": "World",
+          "score": 16.04,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "trump-ballroom-shooter-2026-04-28",
+          "category": "Politics",
+          "score": 15.687,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 3,
+          "cluster": "openai-musk-altman-msft-2026-04-28",
+          "category": "Tech",
+          "score": 15.525,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 4,
+          "cluster": "king-charles-state-visit-2026-04-28",
+          "category": "World",
+          "score": 13.541,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 5,
+          "cluster": "fed-fomc-warsh-2026-04-28",
+          "category": "Markets",
+          "score": 9.01,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0
+        }
+      ],
+      "core_beat_count": 3,
+      "slot1_lead_basis": "Slot 1 (Iran/Hormuz) selected via mandate>=2 escape hatch (FT + Bloomberg both treating Iran war as top news) plus highest raw_score among eligible (16.04). Iran has been a top-2 story 6 of 7 days; today's NEW angle is Trump's reported dissatisfaction with Iran's proposal, oil topping $110, and the Idemitsu Maru becoming the first Japanese supertanker to test the strait — judged enough novelty to justify dedupe_penalty=0.4 (not 0.5). Trump-ballroom (Politics) was 0.353 points behind."
+  },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 24,
+      "sources_failed": 1,
+      "duration_sec": 12,
+      "note": "Direct outlet fetches via curl + UA succeeded for CNBC, PBS NewsHour, NPR, The Verge, CBS News, NBC News, Al Jazeera, Fox News (8 working domains today). BBC, Reuters, AP, Guardian, FT, Bloomberg, The Hill, Ars Technica, Wired, AP News, NYT, Washington Examiner all egress-blocked at the article level — Google News redirect URLs return JS-rendered news.google.com shells with no resolvable destination. One PBS show-page fetch (slot 2 preservationists) returned an empty extraction even on retry (site DOM mismatch); five other slot-2 sources covered for it."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0,
+      "note": "Slot 4 (Charles) flagged for revise: Witkoff/Kushner Islamabad cancellation referenced in graf 3 traced only to recent_headlines, not to any body-tier source in the dossier. Slots 1, 3, 5 took light editor edits (grammatical agreement on Rubio quote in s1; 'stagflationary period' fix in s5; no edits in s3)."
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1,
+      "held_after_revise": 0,
+      "note": "Slot 4 writer replaced the Witkoff/Kushner sentence with a Doughty 'rest of the world to ransom' UN-blockade rejection drawn verbatim from the Fox News dossier source. Editor approved second pass with no further edits."
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 30,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "PENDING",
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "trump-cool-on-iran-hormuz-offer-as-oil-tops-100", "category": "World", "needs_review": false, "word_count": 902, "sources": 7 },
+    { "slot": 2, "slug": "allen-charged-as-gop-bill-and-doj-push-revive-trump-ballroom", "category": "Politics", "needs_review": false, "word_count": 705, "sources": 5 },
+    { "slot": 3, "slug": "musk-altman-trial-opens-as-openai-revenue-miss-hits-ai-stocks", "category": "Tech", "needs_review": false, "word_count": 618, "sources": 4 },
+    { "slot": 4, "slug": "charles-addresses-congress-as-iran-war-strains-u-s-u-k-ties", "category": "World", "needs_review": false, "word_count": 526, "sources": 5 },
+    { "slot": 5, "slug": "powell-final-fomc-as-warsh-vote-and-boj-hold-frame-week", "category": "Markets", "needs_review": false, "word_count": 533, "sources": 3 }
+  ],
+  "egress_blocked_hostnames": [
+    "apnews.com",
+    "reuters.com",
+    "bbc.com",
+    "feeds.bbci.co.uk",
+    "theguardian.com",
+    "ft.com",
+    "bloomberg.com",
+    "thehill.com",
+    "arstechnica.com",
+    "wired.com",
+    "nytimes.com",
+    "washingtonexaminer.com",
+    "axios.com",
+    "investing.com",
+    "barrons.com",
+    "marketwatch.com",
+    "reuters.com",
+    "shell.com"
+  ],
+  "errors": []
 }
