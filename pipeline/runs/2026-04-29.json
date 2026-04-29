@@ -1,6 +1,154 @@
 {
   "date": "2026-04-29",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-04-29T12:13:45Z",
-  "stages": {}
+  "retry_started_at": "2026-04-29T15:35:00Z",
+  "ended_at": "2026-04-29T15:55:07.960Z",
+  "retry_note": "Primary 5:03 AM PT fire left in_progress breadcrumb stale (201m). Retry took over per bootstrap-retry.md.",
+  "stages": {
+    "ingest": {
+      "items": 1417,
+      "feeds_ok": 40,
+      "feeds_fail": 0,
+      "duration_sec": 30
+    },
+    "cluster": {
+      "clusters_total": 865,
+      "body_tier_clusters": 127,
+      "duration_sec": 2
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "United Arab Emirates leaves OPEC after nearly 60 years",
+          "category": "Markets",
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "note": "FT carries; lead by core-beat eligibility"
+        },
+        {
+          "slot": 2,
+          "cluster": "DOJ's second indictment of James Comey over '8647' seashell post",
+          "category": "Politics",
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "Supreme Court voids Louisiana map and narrows Voting Rights Act Section 2",
+          "category": "Politics",
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Powell holds final FOMC, Senate panel advances Warsh, Big Tech earnings preview",
+          "category": "Markets",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "FCC orders early review of Disney/ABC broadcast licenses after Kimmel joke",
+          "category": "Tech",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 5
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 17,
+      "sources_failed": 2,
+      "duration_sec": 25
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 40,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "<filled by post-commit step>",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "uae-quits-opec-after-six-decades",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 898,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "comey-indicted-second-time-over-8647-seashell-post",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 704,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "supreme-court-voids-louisiana-map-narrows-voting-rights-act",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 641,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "warsh-clears-banking-panel-as-powell-runs-his-last-meeting",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 551,
+      "sources": 4
+    },
+    {
+      "slot": 5,
+      "slug": "fcc-orders-early-renewal-of-abc-station-licenses",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 554,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "bbc.com",
+    "thehill.com",
+    "axios.com",
+    "reuters.com",
+    "realclearpolitics.com",
+    "ft.com",
+    "politico.com"
+  ],
+  "errors": []
 }
