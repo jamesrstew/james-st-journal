@@ -1,6 +1,36 @@
 {
   "date": "2026-04-30",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-04-30T12:03:00Z",
-  "stages": {}
+  "stages": {
+    "ingest":   { "items": 1445, "feeds_ok": 40, "feeds_fail": 0, "duration_sec": 24 },
+    "cluster":  { "clusters": 5, "body_tier_clusters": 5, "duration_sec": 5 },
+    "select":   {
+      "chosen": [
+        { "slot": 1, "cluster": "Fed holds rates in most divided vote since 1992; Powell to stay on Fed board", "category": "Markets",  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "Big Tech AI capex tops $700B (Microsoft, Alphabet, Samsung, Meta)",            "category": "Tech",     "mandate_count": 3, "signal_boost": 2.0,  "category_weight": 1.0 },
+        { "slot": 3, "cluster": "Hegseth grilled in first congressional hearing since Iran war began; $25B",   "category": "Politics", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 4, "cluster": "Florida passes GOP-favoring House map after Voting Rights Act ruling",        "category": "Politics", "mandate_count": 0, "signal_boost": 1.0,  "category_weight": 1.0 },
+        { "slot": 5, "cluster": "US indicts Sinaloa governor Rocha Moya and 9 Mexican officials",              "category": "World",    "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85 }
+      ],
+      "core_beat_count": 4
+    },
+    "research":   { "dossiers_built": 5, "sources_fetched": 16, "sources_failed": 0, "duration_sec": 180,
+                    "notes": "BBC and The Hill direct fetches blocked by egress (403). Pivoted to PBS, CNBC, NPR, Fox News, CBS News, Al Jazeera direct URLs and parsed HTML locally. Google News redirect URLs (Reuters/AP) returned only the JS interstitial; abandoned in favor of direct outlet URLs." },
+    "draft":      { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit":       { "editors_spawned": 5, "approved_first_pass": 3, "revised": 2, "held": 0 },
+    "revise":     { "revisions_spawned": 2, "approved_after_revise": 2 },
+    "stage":      { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 33, "estimated_cost_usd": 0.08 },
+    "commit":     { "sha": "PENDING", "pushed": true }
+  },
+  "articles": [
+    { "slot": 1, "slug": "fed-splits-8-4-as-powell-stays-on-board-and-warsh-clears-panel",          "category": "Markets",  "needs_review": false, "word_count": 891, "sources": 4 },
+    { "slot": 2, "slug": "big-tech-ai-capex-tops-700-billion-as-samsung-profit-octuples",           "category": "Tech",     "needs_review": false, "word_count": 675, "sources": 3 },
+    { "slot": 3, "slug": "hegseth-tells-house-iran-war-has-cost-25-billion-with-no-end-in-sight",   "category": "Politics", "needs_review": false, "word_count": 689, "sources": 4 },
+    { "slot": 4, "slug": "florida-passes-gop-favoring-house-map-after-voting-rights-act-ruling",    "category": "Politics", "needs_review": false, "word_count": 557, "sources": 3 },
+    { "slot": 5, "slug": "us-indicts-sinaloa-governor-rocha-moya-sheinbaum-drug-war",                "category": "World",    "needs_review": false, "word_count": 538, "sources": 2 }
+  ],
+  "egress_blocked_hostnames": ["bbc.com", "thehill.com"],
+  "errors": []
 }
