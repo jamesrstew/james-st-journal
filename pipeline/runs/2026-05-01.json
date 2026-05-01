@@ -1,6 +1,72 @@
 {
   "date": "2026-05-01",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-05-01T12:14:53Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1320,
+      "feeds_total": 40,
+      "feeds_ok": 40,
+      "feeds_fail": 0
+    },
+    "cluster": {
+      "clusters": 16,
+      "body_tier_clusters": 14,
+      "dropped_for_thin_body_tier": ["exxon-chevron-q1-earnings-war-oil", "yen-fx-intervention"]
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "dhs-shutdown-ends-trump-signs", "category": "Politics", "score": 13.90, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "dedupe_penalty": 0.0 },
+        { "slot": 2, "cluster": "iran-war-terminated-60-day-deadline", "category": "Politics", "score": 13.23, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0, "dedupe_penalty": 0.5 },
+        { "slot": 3, "cluster": "mills-drops-maine-senate", "category": "Politics", "score": 10.97, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "dedupe_penalty": 0.0 },
+        { "slot": 4, "cluster": "scotch-whisky-tariffs-charles", "category": "Business", "score": 8.72, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "dedupe_penalty": 0.15 },
+        { "slot": 5, "cluster": "apple-iphone-17-sales-boom", "category": "Tech", "score": 7.44, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0, "dedupe_penalty": 0.0 }
+      ],
+      "core_beat_count": 5
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 13,
+      "sources_failed": 14,
+      "notes": "Reuters/AP/Guardian/Axios/Bloomberg URLs reach us only via Google News redirects, which curl cannot resolve client-side; treated as unreachable and not counted as egress blocks. BBC and The Hill direct article URLs returned HTTP 403 'Blocked by egress policy' on every fetch."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 2,
+      "revised": 3,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 3,
+      "approved_after_revise": 3,
+      "held_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 37,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "trump-signs-dhs-bill-ending-76-day-shutdown-as-ice-funds-move-to-reconciliation", "category": "Politics", "needs_review": false, "word_count": 890, "sources": 2 },
+    { "slot": 2, "slug": "white-house-says-iran-war-clock-paused-as-60-day-deadline-passes", "category": "Politics", "needs_review": false, "word_count": 587, "sources": 5 },
+    { "slot": 3, "slug": "mills-exits-maine-senate-race-leaving-platner-to-face-collins", "category": "Politics", "needs_review": false, "word_count": 586, "sources": 2 },
+    { "slot": 4, "slug": "trump-lifts-scotch-whisky-tariffs-after-king-charles-state-visit", "category": "Business", "needs_review": false, "word_count": 570, "sources": 2 },
+    { "slot": 5, "slug": "apple-warns-memory-crunch-will-squeeze-mac-supply-as-iphone-revenue-jumps-22-percent", "category": "Tech", "needs_review": false, "word_count": 547, "sources": 2 }
+  ],
+  "egress_blocked_hostnames": ["bbc.com", "thehill.com"],
+  "errors": []
 }
