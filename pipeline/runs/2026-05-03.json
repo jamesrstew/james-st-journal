@@ -1,6 +1,156 @@
 {
   "date": "2026-05-03",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-05-03T12:13:16Z",
-  "stages": {}
+  "finished_at": "2026-05-03T12:42:52Z",
+  "stages": {
+    "ingest": {
+      "items": 1008,
+      "feeds_ok": 40,
+      "feeds_fail": 0
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "iran-peace-proposal-trump-review-2026-05-03",
+          "category": "Politics",
+          "score": 14.385,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "taiwan-lai-eswatini-2026-05-03",
+          "category": "World",
+          "score": 8.466,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "spirit-airlines-passenger-fallout-2026-05-03",
+          "category": "Business",
+          "score": 6.4,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "vra-redistricting-special-sessions-2026-05-03",
+          "category": "Politics",
+          "score": 5.653,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "kentucky-derby-golden-tempo-2026-05-03",
+          "category": "Sports",
+          "score": 4.809,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.5
+        }
+      ],
+      "core_beat_count": 3
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 21,
+      "sources_failed": 19
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "trump-reviews-iran-14-point-proposal-as-strikes-stay-on-table",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 861,
+      "sources": 5,
+      "has_illustration": true
+    },
+    {
+      "slot": 2,
+      "slug": "taiwan-lai-lands-eswatini-after-china-blocks-overflights",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 682,
+      "sources": 3,
+      "has_illustration": true
+    },
+    {
+      "slot": 3,
+      "slug": "spirit-passengers-scramble-as-rivals-cap-fares-and-duffy-rules-out-bailouts",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 675,
+      "sources": 4,
+      "has_illustration": true
+    },
+    {
+      "slot": 4,
+      "slug": "alabama-tennessee-call-special-sessions-to-redraw-house-maps",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 547,
+      "sources": 3,
+      "has_illustration": true
+    },
+    {
+      "slot": 5,
+      "slug": "golden-tempo-wins-152nd-kentucky-derby-devaux-makes-history",
+      "category": "Sports",
+      "needs_review": false,
+      "word_count": 491,
+      "sources": 4,
+      "has_illustration": true
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "apnews.com",
+    "bbc.com",
+    "theguardian.com"
+  ],
+  "errors": [],
+  "notes": [
+    "Reuters, AP News, BBC, The Hill, and The Guardian direct article URLs returned 401/403 (egress proxy or per-outlet bot block). Body-tier dossiers were assembled from PBS, NPR, Axios, CNBC, CBS, NBC, Al Jazeera, Deutsche Welle, Washington Examiner, and Fox News. Original Berkshire Q1 / Russia oil port drone strike clusters were dropped to the 2-body-source minimum and refilled with Spirit Airlines passenger fallout (slot 3) and Kentucky Derby (slot 5) per Step 7's hard-minimum rule."
+  ]
 }
