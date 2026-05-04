@@ -21,7 +21,7 @@
     "revise":   { "revisions_spawned": 0, "approved_after_revise": 0 },
     "stage":    { "articles_written": 5, "validator_ok": true },
     "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 32, "estimated_cost_usd": 0.08 },
-    "commit":   { "sha": "<populated by pre-push fixup>", "pushed": false }
+    "commit":   { "sha": "0720a0dd6432be5994767f0322a0dde18fb5e6d5", "pushed": true }
   },
   "articles": [
     { "slot": 1, "slug": "us-navy-launches-project-freedom-as-iran-claims-warship-strike", "category": "World",    "needs_review": false, "word_count": 892, "sources": 5 },
