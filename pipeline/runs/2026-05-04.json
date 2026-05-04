@@ -1,6 +1,48 @@
 {
   "date": "2026-05-04",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-05-04T12:17:44Z",
-  "stages": {}
+  "stages": {
+    "ingest":   { "items": 1102, "feeds_ok": 40, "feeds_fail": 0, "duration_sec": 95 },
+    "cluster":  { "clusters": 14, "body_tier_clusters": 8, "duration_sec": 4 },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "hormuz-humanitarian-guide-2026-05-04",  "category": "World",    "score": 6.02, "mandate_count": 2, "signal_boost": 1.7,  "category_weight": 0.85 },
+        { "slot": 2, "cluster": "giuliani-critical-condition-2026-05-04", "category": "Politics", "score": 4.32, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "hantavirus-cruise-2026-05-04",           "category": "Health",   "score": 4.02, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.7 },
+        { "slot": 4, "cluster": "iran-energy-ripple-2026-05-04",          "category": "Markets",  "score": 3.58, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 5, "cluster": "spirit-airlines-collapse-2026-05-04",    "category": "Business", "score": 1.6,  "mandate_count": 0, "signal_boost": 1.0,  "category_weight": 1.0 }
+      ],
+      "core_beat_count": 3
+    },
+    "research": { "dossiers_built": 5, "sources_fetched": 24, "sources_failed": 1, "duration_sec": 60 },
+    "draft":    { "writers_spawned": 6, "drafts_ok": 5, "drafts_failed": 0, "drafts_discarded": 1, "discarded_reason": "first slot-1 prompt sent without dossier substituted; agent hallucinated content; replaced by a fresh slot-1 agent that read the dossier from disk" },
+    "edit":     { "editors_spawned": 5, "approved_first_pass": 5, "revised": 0, "held": 0 },
+    "revise":   { "revisions_spawned": 0, "approved_after_revise": 0 },
+    "stage":    { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 32, "estimated_cost_usd": 0.08 },
+    "commit":   { "sha": "<populated by pre-push fixup>", "pushed": false }
+  },
+  "articles": [
+    { "slot": 1, "slug": "us-navy-launches-project-freedom-as-iran-claims-warship-strike", "category": "World",    "needs_review": false, "word_count": 892, "sources": 5 },
+    { "slot": 2, "slug": "giuliani-hospitalized-critical-condition-florida",                "category": "Politics", "needs_review": false, "word_count": 621, "sources": 4 },
+    { "slot": 3, "slug": "who-hantavirus-cruise-ship-atlantic",                              "category": "Health",   "needs_review": false, "word_count": 695, "sources": 5 },
+    { "slot": 4, "slug": "iran-war-energy-squeeze-hits-the-pump",                            "category": "Markets",  "needs_review": false, "word_count": 546, "sources": 4 },
+    { "slot": 5, "slug": "spirit-airlines-aftermath-refunds-bondholders-bailout",            "category": "Business", "needs_review": false, "word_count": 551, "sources": 3 }
+  ],
+  "egress_blocked_hostnames": [
+    "bbc.com",
+    "thehill.com",
+    "theguardian.com",
+    "apnews.com",
+    "reuters.com",
+    "politico.com",
+    "wired.com",
+    "arstechnica.com",
+    "realclearpolitics.com"
+  ],
+  "errors": [
+    "Initial slot-1 writer agent received an unsubstituted DOSSIER_PLACEHOLDER and produced fabricated facts (USS Bataan, Pat Ryder briefing, USS Carney, etc.). Output discarded; replaced by a fresh slot-1 writer that read the dossier directly from disk.",
+    "Several Google News-routed feed items resolve to GN article-redirect pages whose target URL is not extractable without the GN decode endpoint, forcing a pivot of slots 2-5 from the originally scored clusters (GameStop/eBay, Cerebras IPO, Iran-war powers AUMF, UK airline cancellations) to clusters with direct allowed-host coverage (Giuliani, hantavirus, Iran-war energy ripple, Spirit Airlines aftermath). Recommend swapping more body_fetchable feeds to direct-host RSS where available; the egress proxy currently blocks BBC, Guardian, AP, Reuters, The Hill, Politico, Wired, Ars Technica, RealClearPolitics."
+  ]
 }
