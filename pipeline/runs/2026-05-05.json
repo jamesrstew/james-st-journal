@@ -1,6 +1,44 @@
 {
   "date": "2026-05-05",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-05-05T12:07:37Z",
-  "stages": {}
+  "stages": {
+    "ingest":   { "items": 1323, "feeds_ok": 40, "feeds_fail": 0, "duration_sec": 90 },
+    "cluster":  { "clusters": 1122, "body_tier_clusters": 62, "duration_sec": 6 },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "scotus-mifepristone-mail-2026-05-05", "category": "Politics", "score": 5.0,  "mandate_count": 0, "signal_boost": 1.0,  "category_weight": 1.0 },
+        { "slot": 2, "cluster": "hormuz-fujairah-uae-strike-2026-05-05", "category": "Markets",  "score": 6.7, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "tuesday-primaries-in-oh-mi-2026-05-05", "category": "Politics", "score": 4.8, "mandate_count": 0, "signal_boost": 1.0,  "category_weight": 1.0 },
+        { "slot": 4, "cluster": "brockman-openai-stake-musk-trial-2026-05-05", "category": "Tech", "score": 3.6, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 5, "cluster": "russia-victory-day-truce-zelenskyy-counter-2026-05-05", "category": "World", "score": 2.4, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 0.85 }
+      ],
+      "core_beat_count": 4
+    },
+    "research": { "dossiers_built": 5, "sources_fetched": 26, "sources_failed": 6, "duration_sec": 70 },
+    "draft":    { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit":     { "editors_spawned": 5, "approved_first_pass": 3, "revised": 2, "held": 0 },
+    "revise":   { "revisions_spawned": 2, "approved_after_revise": 2 },
+    "stage":    { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 25, "estimated_cost_usd": 0.08 },
+    "commit":   { "sha": "pending", "pushed": false }
+  },
+  "articles": [
+    { "slot": 1, "slug": "alito-restores-mifepristone-mail-access-for-one-week",                                "category": "Politics", "needs_review": false, "word_count": 897, "sources": 6 },
+    { "slot": 2, "slug": "iran-strikes-fujairah-as-us-navy-clears-hormuz-lane",                                  "category": "Markets",  "needs_review": false, "word_count": 651, "sources": 5 },
+    { "slot": 3, "slug": "trump-tests-gop-grip-in-indiana-ohio-michigan-primaries",                              "category": "Politics", "needs_review": false, "word_count": 656, "sources": 6 },
+    { "slot": 4, "slug": "brockman-pegs-openai-stake-near-30-billion-as-musk-settlement-text-surfaces",          "category": "Tech",     "needs_review": false, "word_count": 549, "sources": 3 },
+    { "slot": 5, "slug": "putin-victory-day-truce-zelenskyy-30-day-counter",                                     "category": "World",    "needs_review": false, "word_count": 547, "sources": 6 }
+  ],
+  "egress_blocked_hostnames": [
+    "bbc.com",
+    "bloomberg.com",
+    "thehill.com"
+  ],
+  "errors": [
+    "Slot 1 (mifepristone) writer drafted a 5-paragraph version with two quote-trace failures (em-dash elision in a Danco quote; sentence-initial casing on a Hawkins quote) and one factual-traceability flag (calling the EPPC report a '2025 report' when no source dated it). Editor returned revise; r1 writer fixed all three, r1 editor approved.",
+    "Slot 2 (Hormuz/Markets) writer drafted with two factual-traceability failures: a Brent ~$108/barrel figure that lived only in recent_headlines (prior JSJ coverage), and a Sunday-attributed Fars news-agency warship-strike sentence not in any dossier source body. Editor returned revise; r1 writer cut both and foregrounded the Fujairah angle; r1 editor approved.",
+    "Egress proxy returned HTTP 403 on www.thehill.com on some article paths (others on the same host returned 200 — likely per-URL path-level filtering rather than full host blocking), and on www.bbc.com and www.bloomberg.com across all attempted paths. The Hill items dominate direct-URL Hormuz coverage and were partially substituted by the URLs that did return 200; BBC and Bloomberg coverage was fully substituted by Fox/CBS/NPR/PBS/NBC/Al Jazeera direct URLs.",
+    "Google News redirect URLs (news.google.com/rss/articles/CBMi...) cannot be decoded without the GN batchexecute endpoint — both WebFetch and curl follow them only to the GN landing shell. Pipeline pivoted to using direct outlet URLs surfaced via either the same outlet's native RSS feed or a domain-restricted WebSearch lookup. Recommend swapping more body_fetchable entries in pipeline/sources.json from Google News mirrors to direct outlet feeds where available."
+  ]
 }
