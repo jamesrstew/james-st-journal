@@ -59,7 +59,7 @@
       "notes": "Slots 2/3/5 retried after a parallel-shell race left their log directory missing on first launch; second invocation succeeded for all three."
     },
     "commit": {
-      "sha": "PENDING_FILL_AFTER_COMMIT",
+      "sha": "cf1c62f",
       "pushed": true
     }
   },
