@@ -1,7 +1,185 @@
 {
   "date": "2026-05-07",
-  "status": "in_progress",
+  "status": "success",
+  "fire": "retry",
   "started_at": "2026-05-07T16:35:21Z",
-  "stages": {},
-  "fire": "retry"
+  "ended_at": "2026-05-07T17:06:25Z",
+  "stages": {
+    "ingest": {
+      "items": 1443,
+      "feeds_ok": 40,
+      "feeds_fail": 0,
+      "duration_sec": 30
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "S&P 500 / Nasdaq at record highs as oil dips below $100 on US-Iran framework-deal hopes",
+          "category": "Markets",
+          "raw_score": 7.225,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "Iran formally reviews US 14-point peace proposal as Pezeshkian meets supreme leader",
+          "category": "World",
+          "raw_score": 6.885,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "Rubio meets Pope Leo XIV at Vatican to mend Trump rift",
+          "category": "World",
+          "raw_score": 3.43,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 4,
+          "cluster": "Judge unseals purported Epstein suicide note found by cellmate",
+          "category": "Politics",
+          "raw_score": 3.3,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Tennessee GOP unveils map splitting Memphis across three districts",
+          "category": "Politics",
+          "raw_score": 1.08,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 3,
+      "dropped_clusters": [
+        {
+          "cluster": "Citigroup 11–13% profit target / Fraser overhaul",
+          "reason": "only Reuters body source, all routes via Google News redirect blocked"
+        }
+      ]
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 16,
+      "sources_failed": 4,
+      "duration_sec": 90
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 3,
+      "revised": 2,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 2,
+      "approved_after_revise": 2,
+      "held_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 36,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "<TO_FILL>",
+      "pushed": true
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "oil-falls-below-100-as-iran-weighs-trump-framework",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 883,
+      "sources": 4,
+      "draft_iterations": 2
+    },
+    {
+      "slot": 2,
+      "slug": "iran-formally-reviews-us-deal-as-pezeshkian-meets-supreme-leader",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 690,
+      "sources": 4,
+      "draft_iterations": 1
+    },
+    {
+      "slot": 3,
+      "slug": "rubio-meets-pope-leo-at-vatican-to-mend-trump-rift",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 697,
+      "sources": 3,
+      "draft_iterations": 1
+    },
+    {
+      "slot": 4,
+      "slug": "judge-unseals-purported-epstein-suicide-note",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 425,
+      "sources": 2,
+      "draft_iterations": 1
+    },
+    {
+      "slot": 5,
+      "slug": "tennessee-gop-map-splits-memphis-into-three-districts",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 481,
+      "sources": 2,
+      "draft_iterations": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "thehill.com",
+    "apnews.com",
+    "reuters.com",
+    "axios.com",
+    "wired.com",
+    "arstechnica.com",
+    "theguardian.com",
+    "dw.com"
+  ],
+  "errors": [
+    {
+      "stage": "research",
+      "kind": "egress_blocks",
+      "note": "Reuters and AP only available via Google News rss/articles redirects, which return GN player pages (no resolved URL) at this trigger. Direct thehill.com 403 by egress policy. Body sources for slots 1–5 came from cnbc.com, npr.org, pbs.org, cbsnews.com, aljazeera.com, foxnews.com, politico.com (all reachable via curl with browser UA)."
+    },
+    {
+      "stage": "select",
+      "kind": "cluster_dropped",
+      "note": "Citigroup 11–13% profit target / Fraser overhaul cluster dropped at Step 7 — Reuters via Google News was the only body source, and the GN URL did not resolve. Replaced with Tennessee redistricting (Politics, raw_score 1.08) to satisfy the 3-of-5 CORE_BEAT composition floor."
+    },
+    {
+      "stage": "retry",
+      "kind": "retry_fire_context",
+      "note": "Primary fire (12:10:51Z) shipped a partial edition (slot 2 Epstein held over-band). A first retry fire wrote an in_progress breadcrumb at 14:17:29Z but never completed; this second retry started at 16:35:21Z, regenerated the full edition, and replaced the primary's article files in content/articles/2026-05-07/."
+    }
+  ]
 }
