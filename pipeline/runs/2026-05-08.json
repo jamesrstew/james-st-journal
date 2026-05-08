@@ -1,6 +1,36 @@
 {
   "date": "2026-05-08",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-05-08T12:07:32Z",
-  "stages": {}
+  "stages": {
+    "ingest":   { "items": 1426, "feeds_ok": 40, "feeds_fail": 0, "duration_sec": 60 },
+    "cluster":  { "clusters": 5, "body_tier_clusters": 5, "duration_sec": 5 },
+    "select":   {
+      "chosen": [
+        { "slot": 1, "cluster": "Renewed US-Iran fighting near Hormuz: US Navy attacked, retaliatory strikes on Bandar Abbas and Qeshm; ceasefire under strain", "category": "World", "raw_score": 13.51, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85, "lead_eligibility": "mandate >= 2 escape hatch (FT + Bloomberg)" },
+        { "slot": 2, "cluster": "US trade court strikes down Trump's 10% universal tariffs imposed after Supreme Court loss", "category": "Politics", "raw_score": 12.62, "adjusted_score": 12.62, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "Hantavirus cruise outbreak spreads: Spain readies evacuations as ship heads to Canary Islands; new cases in UK and Singapore", "category": "Health", "raw_score": 8.43, "adjusted_score": 8.43, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.7, "dedupe_penalty": 0.3 },
+        { "slot": 4, "cluster": "Reform UK surges in English local elections; Starmer vows to stay despite Labour drubbing", "category": "World", "raw_score": 7.37, "adjusted_score": 7.0, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85, "overlap_penalty": "0.05 (one prior World slot)" },
+        { "slot": 5, "cluster": "AI demand reshapes Big Tech P&L: Cloudflare cuts 1,100 in AI restructuring while Nintendo and Sony pin earnings strain on AI-driven memory crunch", "category": "Tech", "raw_score": 2.17, "adjusted_score": 2.17, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0, "selection_note": "Slot-5 candidate pool restricted to CORE_BEATS to honor composition floor" }
+      ],
+      "core_beat_count": 2,
+      "composition_floor_gap": "Core-beat count is 2/3; greedy fill placed two World stories before slot 5 could be restricted. Published with 2 core-beat slots (Politics + Tech). Lead is World-category but mandate-escape-hatch eligible (FT + Bloomberg leading the Iran-Hormuz coverage)."
+    },
+    "research": { "dossiers_built": 5, "sources_fetched": 19, "sources_failed": 0, "duration_sec": 120 },
+    "draft":    { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit":     { "editors_spawned": 5, "approved_first_pass": 5, "revised": 0, "held": 0 },
+    "revise":   { "revisions_spawned": 0, "approved_after_revise": 0 },
+    "stage":    { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 28, "estimated_cost_usd": 0.08 },
+    "commit":   { "pushed": true }
+  },
+  "articles": [
+    { "slot": 1, "slug": "us-iran-trade-fire-in-hormuz-strikes-hit-bandar-abbas", "category": "World", "needs_review": false, "word_count": 879, "sources": 3 },
+    { "slot": 2, "slug": "trade-court-blocks-trump-section-122-tariffs", "category": "Politics", "needs_review": false, "word_count": 687, "sources": 3 },
+    { "slot": 3, "slug": "spain-readies-evacuations-as-hantavirus-cruise-nears-tenerife", "category": "Health", "needs_review": false, "word_count": 666, "sources": 4 },
+    { "slot": 4, "slug": "reform-uk-routs-labour-as-starmer-refuses-to-quit", "category": "World", "needs_review": false, "word_count": 527, "sources": 4 },
+    { "slot": 5, "slug": "ai-bill-lands-on-cloudflare-staff-and-console-buyers", "category": "Tech", "needs_review": false, "word_count": 508, "sources": 5 }
+  ],
+  "egress_blocked_hostnames": ["bbc.com", "thehill.com", "realclearpolitics.com"],
+  "errors": []
 }
