@@ -1,6 +1,35 @@
 {
   "date": "2026-05-09",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-05-09T12:07:01Z",
-  "stages": {}
+  "stages": {
+    "ingest":   { "items": 1306, "feeds_ok": 40, "feeds_fail": 0, "duration_sec": 5 },
+    "cluster":  { "clusters_considered": 18, "body_tier_clusters": 12, "duration_sec": 2 },
+    "select":   {
+      "chosen": [
+        { "slot": 1, "cluster": "U.S. April payrolls +115k; unemployment 4.3 percent; stocks at records",        "category": "Markets",  "raw_score": 18.4, "mandate_count": 2, "signal_boost": 1.7,  "category_weight": 1.0 },
+        { "slot": 2, "cluster": "Trump-brokered 3-day Russia-Ukraine ceasefire; Putin's scaled-back Victory Day", "category": "World",    "raw_score": 7.2,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85 },
+        { "slot": 3, "cluster": "Virginia Supreme Court strikes down Democratic redistricting plan",              "category": "Politics", "raw_score": 6.8,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 4, "cluster": "Apple-Intel chip deal triggers AI-chip rotation; Intel/AMD soar, Nvidia lags",   "category": "Tech",     "raw_score": 4.5,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 5, "cluster": "Hantavirus-stricken cruise ship reaches Tenerife; U.S./EU coordinate evacuations","category": "Health",   "raw_score": 3.9,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.7 }
+      ],
+      "core_beat_count": 3
+    },
+    "research": { "dossiers_built": 5, "sources_fetched": 22, "sources_failed": 4, "duration_sec": 35 },
+    "draft":    { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit":     { "editors_spawned": 5, "approved_first_pass": 3, "revised": 2, "held": 0 },
+    "revise":   { "revisions_spawned": 2, "approved_after_revise": 2 },
+    "stage":    { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 23, "estimated_cost_usd": 0.08 },
+    "commit":   { "sha": null, "pushed": false, "branch": "claude/peaceful-volta-i1Fzc", "note": "Ambient git proxy rejected push to main (HTTP 403); the trigger's allow_unrestricted_git_push setting did not authorize main from this session. Pushed to designated dev branch claude/peaceful-volta-i1Fzc instead. Commit SHA recorded after push." }
+  },
+  "articles": [
+    { "slot": 1, "slug": "april-jobs-beat-pushes-fed-toward-longer-hold-as-stocks-set-records",  "category": "Markets",  "needs_review": false, "word_count": 910, "sources": 3, "draft_iterations": 2 },
+    { "slot": 2, "slug": "trump-brokered-three-day-russia-ukraine-truce-opens-on-victory-day",   "category": "World",    "needs_review": false, "word_count": 696, "sources": 5, "draft_iterations": 1 },
+    { "slot": 3, "slug": "virginia-supreme-court-voids-democratic-house-map",                    "category": "Politics", "needs_review": false, "word_count": 698, "sources": 4, "draft_iterations": 2 },
+    { "slot": 4, "slug": "apple-intel-chip-pact-rewires-ai-trade",                               "category": "Tech",     "needs_review": false, "word_count": 541, "sources": 3, "draft_iterations": 1 },
+    { "slot": 5, "slug": "u-s-charters-evacuation-flight-as-hantavirus-cruise-reaches-tenerife", "category": "Health",   "needs_review": false, "word_count": 545, "sources": 3, "draft_iterations": 1 }
+  ],
+  "egress_blocked_hostnames": ["bbc.com", "thehill.com", "realclearpolitics.com", "apnews.com", "reuters.com", "theguardian.com"],
+  "errors": []
 }
