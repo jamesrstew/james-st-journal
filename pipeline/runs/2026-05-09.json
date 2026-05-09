@@ -21,7 +21,7 @@
     "revise":   { "revisions_spawned": 2, "approved_after_revise": 2 },
     "stage":    { "articles_written": 5, "validator_ok": true },
     "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 23, "estimated_cost_usd": 0.08 },
-    "commit":   { "sha": null, "pushed": false, "branch": "claude/peaceful-volta-i1Fzc", "note": "Ambient git proxy rejected push to main (HTTP 403); the trigger's allow_unrestricted_git_push setting did not authorize main from this session. Pushed to designated dev branch claude/peaceful-volta-i1Fzc instead. Commit SHA recorded after push." }
+    "commit":   { "sha": "14bbb6a527fef17bf4b2786e7efd7e2211363ed6", "pushed": true, "branch": "claude/peaceful-volta-i1Fzc", "note": "Push to main rejected with HTTP 403 by ambient git proxy (4 attempts with 2s/4s/8s backoff). The session's git-push permissions are scoped to the dev branch claude/peaceful-volta-i1Fzc, not main. Edition pushed there instead; a fast-forward merge to main is required to surface today's edition on the live site." }
   },
   "articles": [
     { "slot": 1, "slug": "april-jobs-beat-pushes-fed-toward-longer-hold-as-stocks-set-records",  "category": "Markets",  "needs_review": false, "word_count": 910, "sources": 3, "draft_iterations": 2 },
