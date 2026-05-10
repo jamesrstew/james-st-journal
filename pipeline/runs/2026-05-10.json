@@ -1,0 +1,42 @@
+{
+  "date": "2026-05-10",
+  "status": "success",
+  "started_at": "2026-05-10T12:08:33Z",
+  "stages": {
+    "ingest":   { "items": 961, "feeds_ok": 40, "feeds_fail": 0, "duration_sec": 6 },
+    "cluster":  { "clusters": 5, "body_tier_clusters": 5, "duration_sec": 1, "note": "Top-5 clusters pre-selected from headline scan; the surviving five all carried >=2 body-tier sources after research." },
+    "select":   {
+      "chosen": [
+        { "slot": 1, "cluster": "hormuz-aramco-ceasefire-test-2026-05-10",        "category": "Markets",  "score": 16.0, "mandate_count": 2, "signal_boost": 1.7,  "category_weight": 1.0  },
+        { "slot": 2, "cluster": "redistricting-virginia-court-rulings-2026-05-10", "category": "Politics", "score": 5.0,  "mandate_count": 0, "signal_boost": 1.0,  "category_weight": 1.0  },
+        { "slot": 3, "cluster": "hantavirus-cruise-tenerife-2026-05-10",           "category": "Health",   "score": 9.0,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.7  },
+        { "slot": 4, "cluster": "ukraine-three-day-ceasefire-2026-05-10",          "category": "World",    "score": 7.0,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85 },
+        { "slot": 5, "cluster": "ai-bets-alphabet-nvidia-2026-05-10",              "category": "Tech",     "score": 4.0,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0  }
+      ],
+      "core_beat_count": 3,
+      "substitution_note": "Initial Slot 2 cluster (Trump-Xi summit) failed Step 7's body-source minimum: every source URL (The Hill, Reuters via Google News redirects) was egress-blocked, leaving zero >=600-char body sources. Replaced with the Virginia redistricting cluster, which had three reachable bodies (PBS center, Fox lean-right x2) and crossed two lean buckets."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 16,
+      "sources_failed": 0,
+      "duration_sec": 90,
+      "notes": "Direct WebFetch worked for npr.org and pbs.org. www.bbc.com, thehill.com, www.cnbc.com, www.cbsnews.com, www.foxnews.com, www.realclearpolitics.com, www.aljazeera.com all returned 403 to WebFetch but several worked via curl + browser User-Agent fallback (cnbc, cbs, fox, aljazeera). Google News redirects were not followable via either WebFetch or curl (JS-rendered intermediate page); AP/Reuters/Guardian/Bloomberg coverage routed through Google News therefore could not be used as body sources today."
+    },
+    "draft":    { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit":     { "editors_spawned": 5, "approved_first_pass": 3, "revised": 2, "held": 0, "revise_slots": [1, 4] },
+    "revise":   { "revisions_spawned": 2, "approved_after_revise": 2, "held_after_revise": 0 },
+    "stage":    { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 27, "estimated_cost_usd": 0.08 },
+    "commit":   { "sha": "pending", "pushed": true }
+  },
+  "articles": [
+    { "slot": 1, "slug": "aramco-profit-jumps-26-percent-as-hormuz-truce-frays",                                "category": "Markets",  "needs_review": false, "word_count": 862, "sources": 5, "draft_iterations": 2 },
+    { "slot": 2, "slug": "virginia-court-tosses-democratic-map-locking-in-republican-redistricting-edge",       "category": "Politics", "needs_review": false, "word_count": 691, "sources": 3, "draft_iterations": 1 },
+    { "slot": 3, "slug": "hantavirus-cruise-docks-in-tenerife-cdc-calls-u-s-risk-extremely-low",                "category": "Health",   "needs_review": false, "word_count": 589, "sources": 2, "draft_iterations": 1 },
+    { "slot": 4, "slug": "trump-three-day-truce-takes-hold-as-moscow-stages-stripped-down-victory-day",         "category": "World",    "needs_review": false, "word_count": 514, "sources": 4, "draft_iterations": 2 },
+    { "slot": 5, "slug": "alphabet-brushes-nvidia-as-chipmaker-keeps-spending",                                 "category": "Tech",     "needs_review": false, "word_count": 555, "sources": 2, "draft_iterations": 1 }
+  ],
+  "egress_blocked_hostnames": ["bbc.com", "thehill.com"],
+  "errors": []
+}
