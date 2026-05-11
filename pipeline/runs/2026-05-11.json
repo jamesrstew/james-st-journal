@@ -67,7 +67,10 @@
       "estimated_cost_usd": 0.08
     },
     "commit": {
-      "pushed_to": "claude/peaceful-volta-udap8 then merged into main",
+      "sha": "6f8aa0e",
+      "merge_sha": "2de60d6828c327201ccbcff3b0b7335ab694fc7d",
+      "pr_number": 3,
+      "pushed_to": "claude/peaceful-volta-udap8 then merged into main via PR #3",
       "pushed": true
     }
   },
