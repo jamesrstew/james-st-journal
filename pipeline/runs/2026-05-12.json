@@ -1,0 +1,158 @@
+{
+  "date": "2026-05-12",
+  "status": "success",
+  "started_at": "2026-05-12T12:07:33Z",
+  "stages": {
+    "ingest": {
+      "items": 1356,
+      "feeds_ok": 40,
+      "feeds_fail": 0,
+      "duration_sec": 28
+    },
+    "cluster": {
+      "clusters": 11,
+      "body_tier_clusters": 11,
+      "duration_sec": 2
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Trump declares Iran ceasefire on 'life support'; Hormuz remains closed; Aramco warns 100 million-barrel weekly loss",
+          "category": "World",
+          "score": 18.06,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 0.85,
+          "dedupe_penalty": 0.5
+        },
+        {
+          "slot": 2,
+          "cluster": "Trump backs federal gas tax pause and taps SPR as Iran-war pump prices spike; Hawley to introduce suspension bill",
+          "category": "Markets",
+          "score": 15.05,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "dedupe_penalty": 0.15
+        },
+        {
+          "slot": 3,
+          "cluster": "Starmer fights for survival as second minister resigns; UK 30-year gilt yield hits highest since 1998",
+          "category": "Markets",
+          "score": 13.32,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 1,
+          "dedupe_penalty": 0.5
+        },
+        {
+          "slot": 4,
+          "cluster": "Trump-Xi summit set for Thursday; Musk, Cook, Boeing CEO join delegation; Taiwan arms in agenda",
+          "category": "Politics",
+          "score": 11.99,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "dedupe_penalty": 0.5
+        },
+        {
+          "slot": 5,
+          "cluster": "Supreme Court clears Alabama GOP map, extends mifepristone access, weighs Virginia redistricting appeal",
+          "category": "Politics",
+          "score": 10.4,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "dedupe_penalty": 0.15
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 12,
+      "sources_failed": 18,
+      "duration_sec": 30
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 2,
+      "revised": 3,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 3,
+      "approved_after_revise": 3
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 28,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "trump-puts-iran-ceasefire-on-life-support-as-iron-dome-arrives-in-uae",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 804,
+      "sources": 2
+    },
+    {
+      "slot": 2,
+      "slug": "trump-backs-gas-tax-pause-as-pump-prices-hit-4-52",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 623,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "starmer-loses-second-minister-as-30-year-gilt-yield-hits-2008-high",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 666,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "trump-xi-summit-thursday-iran-taiwan-trade",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 536,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "supreme-court-clears-alabama-map-extends-mifepristone-access",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 541,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "bbc.com",
+    "thehill.com",
+    "aljazeera.com",
+    "washingtonexaminer.com",
+    "realclearpolitics.com"
+  ],
+  "errors": []
+}
