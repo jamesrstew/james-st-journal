@@ -104,7 +104,9 @@
       "estimated_cost_usd": 0.08
     },
     "commit": {
-      "sha": "pending",
+      "sha": "434d506",
+      "main_merge_sha": "939c0ce27bef02ff895df7d06d37f8b483be765d",
+      "pr_number": 7,
       "pushed": true
     }
   },
