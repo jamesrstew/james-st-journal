@@ -1,0 +1,120 @@
+{
+  "date": "2026-05-13",
+  "status": "success",
+  "started_at": "2026-05-13T12:06:55Z",
+  "stages": {
+    "ingest": {
+      "items": 1309,
+      "feeds_ok": 36,
+      "feeds_fail": 4,
+      "duration_sec": 2,
+      "notes": "NPR feeds (Top, Business, Tech, World) all returned HTTP 403; WSJ feeds returned no items in window (stale upstream); NYT GN feeds returned 0 items."
+    },
+    "cluster": {
+      "clusters": 80,
+      "body_tier_clusters": 49,
+      "duration_sec": 1
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "April CPI hits 3-year high at 3.8% on Iran-war energy costs; bond market reloads Fed rate-hike wagers as Senate confirms Warsh as Fed governor",
+          "category": "Markets",
+          "score": 17.34,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0,
+          "dedupe_penalty": 0.0
+        },
+        {
+          "slot": 2,
+          "cluster": "Trump arrives in Beijing for Xi summit; CEO delegation in tow",
+          "category": "Politics",
+          "score": 11.13,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0,
+          "dedupe_penalty": 0.3
+        },
+        {
+          "slot": 3,
+          "cluster": "Iran war: oil inventories drawing at record pace per IEA; Hormuz standoff continues; retired US commanders split on resuming strikes",
+          "category": "Markets",
+          "score": 8.28,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0,
+          "dedupe_penalty": 0.2
+        },
+        {
+          "slot": 4,
+          "cluster": "FDA Commissioner Marty Makary resigns after one year; Kennedy installs Diamantas",
+          "category": "Politics",
+          "score": 7.56,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0,
+          "dedupe_penalty": 0.0
+        },
+        {
+          "slot": 5,
+          "cluster": "Altman testifies in Musk v. OpenAI; recounts 'hair-raising' succession idea; SoftBank books $46B Vision Fund gain",
+          "category": "Tech",
+          "score": 3.36,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0,
+          "dedupe_penalty": 0.0
+        }
+      ],
+      "core_beat_count": 5
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 13,
+      "sources_failed": 5,
+      "duration_sec": 60,
+      "notes": "Direct outlets that worked: PBS NewsHour, CNBC, CNBC Markets, NBC News, CBS News, The Verge, Al Jazeera, Fox News. Direct outlets blocked: BBC, The Hill (egress 403). Google News RSS URLs returned JS landing pages with no extractable body — could not resolve to underlying outlet URLs without browser execution."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 3,
+      "revised": 2,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 2,
+      "approved_after_revise": 2,
+      "notes": "Slot 2 (Trump-Xi summit) revised to drop the Nvidia/Huang/H200 framing — that thesis came from the Bloomberg headline-tier cluster summary, not from any body-tier source. Slot 3 (Iran/oil) revised to lead with the Hormuz/military-debate angle instead of the CPI 3.8% print, which is slot 1's lede."
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 28,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "pending",
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "april-cpi-hits-three-year-high-as-senate-confirms-warsh", "category": "Markets", "needs_review": false, "word_count": 896, "sources": 3 },
+    { "slot": 2, "slug": "trump-lands-in-beijing-with-ceo-delegation-as-xi-summit-opens", "category": "Politics", "needs_review": false, "word_count": 690, "sources": 3 },
+    { "slot": 3, "slug": "retired-commanders-split-on-iran-strikes-as-hormuz-holds-crude-above-100", "category": "Markets", "needs_review": false, "word_count": 618, "sources": 2 },
+    { "slot": 4, "slug": "makary-resigns-fda-after-one-year-as-kennedy-installs-diamantas", "category": "Politics", "needs_review": false, "word_count": 524, "sources": 3 },
+    { "slot": 5, "slug": "altman-tells-jury-musk-floated-passing-openai-to-his-children", "category": "Tech", "needs_review": false, "word_count": 529, "sources": 2 }
+  ],
+  "egress_blocked_hostnames": ["bbc.com", "feeds.npr.org", "thehill.com"],
+  "errors": []
+}
