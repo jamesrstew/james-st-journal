@@ -1,6 +1,164 @@
 {
   "date": "2026-05-14",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-05-14T12:07:56Z",
-  "stages": {}
+  "finished_at": "2026-05-14T12:37:36Z",
+  "stages": {
+    "ingest": {
+      "items": 1356,
+      "feeds_ok": 36,
+      "feeds_fail": 4,
+      "duration_sec": 3,
+      "notes": "NPR Top/Business/Tech/World all returned HTTP 403 (persistent block since 2026-04-24)."
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 1
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Trump and Xi sit down in Beijing for first U.S. presidential visit since 2017; Xi delivers public Taiwan warning, two sides agree Hormuz must stay open",
+          "category": "Politics",
+          "score": 28.99,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 1,
+          "dedupe_penalty": 0.3
+        },
+        {
+          "slot": 2,
+          "cluster": "Streeting holds fire on Labour leadership bid; Rayner cleared by HMRC; King's Speech delivered as 30-yr gilt eases from 2008 high",
+          "category": "Politics",
+          "score": 10.94,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 1,
+          "dedupe_penalty": 0.5
+        },
+        {
+          "slot": 3,
+          "cluster": "Warsh confirmed Fed chair 54-45 in narrowest-ever vote; April PPI jumps 6% YoY, biggest since 2022, traders price out 2026 rate cuts",
+          "category": "Markets",
+          "score": 10.69,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "dedupe_penalty": 0.15
+        },
+        {
+          "slot": 4,
+          "cluster": "SC Supreme Court overturns Murdaugh 2023 murder convictions, orders new trial citing clerk's jury tampering",
+          "category": "Culture",
+          "score": 4.42,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 0.5,
+          "dedupe_penalty": 0,
+          "note": "Replaced Cerebras IPO cluster (raw_score 2.81) because Cerebras had only 1 direct-fetchable body source."
+        },
+        {
+          "slot": 5,
+          "cluster": "Hantavirus cruise-ship outbreak grows to 11 cases worldwide; French patient on artificial lung; CDC declines home isolation for U.S. exposures",
+          "category": "Health",
+          "score": 2.94,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 0.7,
+          "dedupe_penalty": 0.3,
+          "note": "Replaced Honda EV writedown cluster (raw_score 1.50) because Honda cluster had zero direct-fetchable body sources (all Google News redirects unresolvable)."
+        }
+      ],
+      "core_beat_count": 3,
+      "composition_floor_met": true
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 18,
+      "sources_failed": 4,
+      "duration_sec": 90,
+      "notes": "Direct outlet URLs only; Google News redirect URLs ignored as JS-only redirects unresolvable. BBC and The Hill consistently 403. RealClearPolitics URLs return 0 bytes (aggregator, no article body). One PBS hantavirus URL returned 0 chars."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1,
+      "notes": "Slot 3 revised once to remove unsourced 51-45 procedural-vote figure flagged by editor; replaced with sourced Tillis-hold / Powell-probe-dropped detail."
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 36,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false,
+      "note": "Filled in by post-merge update"
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "xi-warns-trump-on-taiwan-as-beijing-summit-opens",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 876,
+      "sources": 5
+    },
+    {
+      "slot": 2,
+      "slug": "streeting-holds-fire-as-rayner-cleared-and-kings-speech-lands",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 646,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "warsh-confirmed-54-45-as-april-ppi-jumps-6-percent",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 698,
+      "sources": 4
+    },
+    {
+      "slot": 4,
+      "slug": "south-carolina-high-court-overturns-murdaugh-murder-convictions",
+      "category": "Culture",
+      "needs_review": false,
+      "word_count": 528,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "hantavirus-cruise-cases-rise-to-11-as-french-patient-goes-on-artificial-lung",
+      "category": "Health",
+      "needs_review": false,
+      "word_count": 524,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "bbc.com",
+    "feeds.npr.org",
+    "thehill.com"
+  ],
+  "errors": []
 }
