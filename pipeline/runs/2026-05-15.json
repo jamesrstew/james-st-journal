@@ -26,7 +26,7 @@
     "revise":   { "revisions_spawned": 2, "approved_after_revise": 2, "held_after_revise": 0 },
     "stage":    { "articles_written": 5, "validator_ok": true },
     "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 32, "estimated_cost_usd": 0.08 },
-    "commit":   { "sha": "PENDING", "pushed": false }
+    "commit":   { "sha": "d84af5643cf64e36712507d76f49260a7c416c1d", "pushed": true }
   },
   "articles": [
     { "slot": 1, "slug": "trump-leaves-beijing-with-boeing-deal-as-taiwan-and-iran-stay-unresolved", "category": "Politics", "needs_review": false, "word_count": 880, "sources": 7 },
