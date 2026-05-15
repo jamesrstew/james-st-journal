@@ -1,6 +1,40 @@
 {
   "date": "2026-05-15",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-05-15T12:07:59Z",
-  "stages": {}
+  "stages": {
+    "ingest":   { "items": 1352, "feeds_ok": 36, "feeds_fail": 4, "duration_sec": 22, "notes": "All four NPR feeds returned HTTP 200 with Akamai 'Access Denied' HTML bodies (origin-side bot wall, not egress); counted as parse_error." },
+    "cluster":  { "clusters": 12, "body_tier_clusters": 9, "duration_sec": 5 },
+    "select":   {
+      "chosen": [
+        { "slot": 1, "cluster": "Trump-Xi summit concludes", "category": "Politics", "score": 13.6, "mandate_count": 5, "signal_boost": 2.0, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "Global bond/inflation selloff", "category": "Markets", "score": 12.88, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "CIA chief in Havana + DOJ Castro indictment", "category": "Politics", "score": 11.97, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0 },
+        { "slot": 4, "cluster": "Iran war: ship attacks, war powers vote, UAE pipeline", "category": "World", "score": 7.13, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85 },
+        { "slot": 5, "cluster": "Ebola outbreak in eastern DR Congo", "category": "Health", "score": 3.19, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.7 }
+      ],
+      "core_beat_count": 3,
+      "dropped_clusters": [
+        { "cluster": "Burnham/Starmer UK leadership challenge + gilts slump", "reason": "Only one accessible body-tier source (CNBC); BBC egress-blocked, AP/Reuters/Guardian via Google News redirects unresolvable, The Hill 403; failed the 2-source-minimum. Subject material partially absorbed into slot 2 (CNBC Burnham/gilts piece used to anchor the UK leg of the markets story)." },
+        { "cluster": "Cerebras IPO 68% pop / $95B market cap", "reason": "Only CNBC accessible directly; Reuters and Axios via Google News redirects unresolvable, Bloomberg headline-only. Failed the 2-source-minimum." },
+        { "cluster": "Trump ethics filing — hundreds of millions of dollars in Q1 trades", "reason": "Only Reuters (via Google News) and FT/Bloomberg headline-only covering. Zero accessible body-tier sources." }
+      ]
+    },
+    "research": { "dossiers_built": 5, "sources_fetched": 23, "sources_failed": 0, "duration_sec": 38, "notes": "Direct-URL fetches only. Google News /rss/articles/ redirect targets return HTTP 400 from both curl and WebFetch and were skipped. bbc.com, apnews.com, thehill.com, reuters.com (all egress-blocked or origin-403)." },
+    "draft":    { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit":     { "editors_spawned": 5, "approved_first_pass": 3, "revised": 2, "held": 0 },
+    "revise":   { "revisions_spawned": 2, "approved_after_revise": 2, "held_after_revise": 0 },
+    "stage":    { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 32, "estimated_cost_usd": 0.08 },
+    "commit":   { "sha": "PENDING", "pushed": false }
+  },
+  "articles": [
+    { "slot": 1, "slug": "trump-leaves-beijing-with-boeing-deal-as-taiwan-and-iran-stay-unresolved", "category": "Politics", "needs_review": false, "word_count": 880, "sources": 7 },
+    { "slot": 2, "slug": "global-bond-rout-deepens-as-pound-slides-and-warsh-fed-takes-over",        "category": "Markets",  "needs_review": false, "word_count": 699, "sources": 4 },
+    { "slot": 3, "slug": "cia-chief-in-havana-as-doj-targets-raul-castro",                            "category": "Politics", "needs_review": false, "word_count": 686, "sources": 4 },
+    { "slot": 4, "slug": "uae-fast-tracks-second-hormuz-bypass-pipeline-as-brent-tops-108",          "category": "World",    "needs_review": false, "word_count": 549, "sources": 3 },
+    { "slot": 5, "slug": "ebola-outbreak-declared-in-eastern-congo-with-65-dead",                    "category": "Health",   "needs_review": false, "word_count": 474, "sources": 2 }
+  ],
+  "egress_blocked_hostnames": ["apnews.com", "bbc.com", "thehill.com"],
+  "errors": []
 }
