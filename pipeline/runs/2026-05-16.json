@@ -21,7 +21,7 @@
     "revise":   { "revisions_spawned": 1, "approved_after_revise": 1, "slot_3_notes": ["$14 billion figure for pending Taiwan arms package was not in dossier source bodies — removed; replaced with unquantified CNBC language.","Softened 'pressed him to scrap' lede to source-traceable 'over Beijing's objections' framing."] },
     "stage":    { "articles_written": 5, "validator_ok": true },
     "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 110, "estimated_cost_usd": 0.08 },
-    "commit":   { "pushed": true }
+    "commit":   { "sha": "9e075493881c1a7e1e344c66694389c0326a0c3e", "pushed": true }
   },
   "articles": [
     { "slot": 1, "slug": "bond-rout-bleeds-into-stocks-as-forecasters-see-6-percent-inflation",            "category": "Markets",  "needs_review": false, "word_count": 887, "sources": 4 },
