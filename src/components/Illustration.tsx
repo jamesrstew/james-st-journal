@@ -7,7 +7,7 @@ interface IllustrationProps {
 
 export function Illustration({ article, eager = false }: IllustrationProps) {
   if (!article.has_illustration) return null;
-  const base = `/api/content/${article.edition}/${article.slot}-${article.slug}`;
+  const base = `/illustrations/${article.edition}/${article.slot}-${article.slug}`;
   const loading = eager ? "eager" : "lazy";
   return (
     <div className="illustration-wrap">

@@ -27,6 +27,7 @@ export const ArticleFrontmatterSchema = z.object({
   draft_iterations: z.number().int().min(0).optional(),
   needs_review: z.boolean().default(false),
   is_sample: z.boolean().default(false),
+  has_illustration: z.boolean().default(true),
 });
 
 export type ArticleFrontmatter = z.infer<typeof ArticleFrontmatterSchema>;

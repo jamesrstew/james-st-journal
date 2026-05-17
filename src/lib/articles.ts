@@ -14,7 +14,6 @@ export interface Article extends ArticleFrontmatter {
   reading_time_min: number;
   word_count: number;
   href: string;
-  has_illustration: boolean;
 }
 
 export interface Edition {
@@ -44,12 +43,6 @@ function readArticleFile(editionDate: string, filename: string): Article {
   const body = content.trim();
   const stats = readingTime(body);
 
-  const illoBase = `${parsed.data.slot}-${parsed.data.slug}`;
-  const editionDir = path.join(CONTENT_ROOT, editionDate);
-  const has_illustration =
-    fs.existsSync(path.join(editionDir, `${illoBase}-light.png`)) &&
-    fs.existsSync(path.join(editionDir, `${illoBase}-dark.png`));
-
   return {
     ...parsed.data,
     body,
@@ -57,7 +50,6 @@ function readArticleFile(editionDate: string, filename: string): Article {
       parsed.data.reading_time_min ?? Math.max(1, Math.round(stats.minutes)),
     word_count: parsed.data.word_count ?? stats.words,
     href: `/article/${parsed.data.edition}/${parsed.data.slug}`,
-    has_illustration,
   };
 }
 

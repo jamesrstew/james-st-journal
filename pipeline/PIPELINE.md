@@ -243,10 +243,10 @@ For each staged article under `content/articles/$DATE/*.md`, generate a pen-sket
    python3 pipeline/illustrate.py $DATE <slot>-<slug> "<subject>" > /tmp/jsj-$DATE/illo-<slot>.log 2>&1 &
    ```
    `illustrate.py` reads `$OPENAI_API_KEY` from the environment (falls back to `~/.config/jsj/openai.key` for local dev). It retries once on any non-2xx response with a 10s backoff, then exits non-zero.
-4. After `wait`, for each slot verify both `content/articles/$DATE/<slot>-<slug>-light.png` and `<slot>-<slug>-dark.png` exist and are each ≥50 KB (small files usually indicate a blank generation).
+4. After `wait`, for each slot verify both `public/illustrations/$DATE/<slot>-<slug>-light.png` and `<slot>-<slug>-dark.png` exist and are each ≥50 KB (small files usually indicate a blank generation). If either PNG is missing or undersized for a slot, set that article's frontmatter `has_illustration: false` before commit so the renderer hides the slot instead of 404ing.
 5. Log per-slot outcome in the run log under `stages.illustrate`. Include `articles_illustrated`, `images_failed`, `duration_sec`, and a rough `estimated_cost_usd` (`0.016 * articles_illustrated`).
 
-**Illustration failures are non-fatal.** If any slot fails, log the stderr and continue — the article ships without an illustration. The frontend's `Illustration` component hides itself when `has_illustration` is false, and the article renders text-only with no broken-image icon. This matches the existing graceful-degradation pattern used for N/5 stories.
+**Illustration failures are non-fatal.** If any slot fails, log the stderr and continue — the article ships with `has_illustration: false` in its frontmatter. The frontend's `Illustration` component hides itself when that flag is false, and the article renders text-only with no broken-image icon. This matches the existing graceful-degradation pattern used for N/5 stories.
 
 **Day-level retries:** none. The pipeline runs once at 5:03 AM PT; there is no retry fire. A missing illustration stays missing for that day. Tomorrow's edition starts fresh.
 
@@ -254,7 +254,7 @@ For each staged article under `content/articles/$DATE/*.md`, generate a pen-sket
 
 1. `git config user.name "J.S. Gallagher"` (local config, do not write global)
 2. `git config user.email "editor@jamesstjournal.com"`
-3. `git add content/articles/$DATE/ pipeline/runs/$DATE.json src/lib/brand.ts`
+3. `git add content/articles/$DATE/ public/illustrations/$DATE/ pipeline/runs/$DATE.json src/lib/brand.ts`
 4. Commit message:
    ```
    edition: $DATE — <lead headline> — N/5 stories

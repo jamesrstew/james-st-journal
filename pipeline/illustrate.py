@@ -17,8 +17,8 @@ Key: reads OPENAI_API_KEY from the environment. Falls back to
 ~/.config/jsj/openai.key for local dev. Exits 2 if neither is available.
 
 Output:
-    content/articles/<YYYY-MM-DD>/<slot>-<slug>-light.png
-    content/articles/<YYYY-MM-DD>/<slot>-<slug>-dark.png
+    public/illustrations/<YYYY-MM-DD>/<slot>-<slug>-light.png
+    public/illustrations/<YYYY-MM-DD>/<slot>-<slug>-dark.png
 
 Cost at quality=low + size=1536x1024: ~$0.016 per article.
 """
@@ -28,7 +28,7 @@ from io import BytesIO
 from PIL import Image, ImageChops
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
-CONTENT   = REPO_ROOT / "content" / "articles"
+ILLOS     = REPO_ROOT / "public" / "illustrations"
 KEY_FILE  = pathlib.Path.home() / ".config/jsj/openai.key"
 
 LIGHT_BG  = (0xFA, 0xFA, 0xF7)
@@ -128,13 +128,13 @@ def main():
         print(f"error: slug must be <slot>-<kebab-slug>, got {slug!r}", file=sys.stderr)
         sys.exit(2)
 
-    out_dir = CONTENT / date
+    out_dir = ILLOS / date
     out_dir.mkdir(parents=True, exist_ok=True)
 
     raw = generate(subject, slug)
     composite(raw, LIGHT_BG, LIGHT_INK).save(out_dir / f"{slug}-light.png", optimize=True)
     composite(raw, DARK_BG,  DARK_INK ).save(out_dir / f"{slug}-dark.png",  optimize=True)
-    print(f"[{slug}] wrote {slug}-light.png and {slug}-dark.png to content/articles/{date}/")
+    print(f"[{slug}] wrote {slug}-light.png and {slug}-dark.png to public/illustrations/{date}/")
 
 
 if __name__ == "__main__":
