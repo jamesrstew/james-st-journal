@@ -1,7 +1,197 @@
 {
   "date": "2026-05-18",
-  "status": "in_progress",
-  "started_at": "2026-05-18T14:17:18Z",
-  "stages": {},
-  "notes": "retry fire overwriting earlier partial run"
+  "status": "success",
+  "fire": "retry",
+  "stages": {
+    "ingest": {
+      "items": 1096,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "feeds_failed_names": [
+        "Politico",
+        "The Verge",
+        "NPR Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World",
+        "FT Home"
+      ],
+      "duration_sec": 3
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 1
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "iran-uae-nuclear-bond-rout-2026-05-18",
+          "category": "Markets",
+          "score": 14.28,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "dedupe_penalty": 0.3,
+          "lean_mix": [
+            "center",
+            "lean-left"
+          ]
+        },
+        {
+          "slot": 2,
+          "cluster": "nextera-dominion-67b-ai-power-2026-05-18",
+          "category": "Business",
+          "score": 6.94,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "dedupe_penalty": 0,
+          "lean_mix": [
+            "center",
+            "lean-left"
+          ]
+        },
+        {
+          "slot": 3,
+          "cluster": "ukraine-russia-drone-exchange-2026-05-18",
+          "category": "World",
+          "score": 6.71,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 0.85,
+          "dedupe_penalty": 0,
+          "lean_mix": [
+            "center",
+            "lean-left"
+          ]
+        },
+        {
+          "slot": 4,
+          "cluster": "trump-drops-10b-irs-lawsuit-2026-05-18",
+          "category": "Politics",
+          "score": 6.71,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "dedupe_penalty": 0,
+          "lean_mix": [
+            "center",
+            "lean-left"
+          ]
+        },
+        {
+          "slot": 5,
+          "cluster": "voter-roll-scrutiny-2026-05-18",
+          "category": "Politics",
+          "score": 1.42,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1,
+          "dedupe_penalty": 0,
+          "lean_mix": [
+            "center",
+            "lean-right"
+          ]
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 14,
+      "sources_failed": 8,
+      "duration_sec": 25,
+      "notes": "WSJ feeds returned stale 2025 items (filtered out); NYT GN feeds returned empty channels; FT/Politico/Verge/NPR feeds returned empty bodies. BBC, Reuters, AP, Bloomberg, Guardian, The Hill, Axios, Washington Examiner all 403 'Blocked by egress policy' on direct fetch; Google News redirects didn't follow through curl/WebFetch. Bodies obtained from CNBC, NBC, CBS, PBS NewsHour, Al Jazeera, Fox News which were not egress-blocked."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 95,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "drone-strike-on-uae-nuclear-plant-deepens-bond-rout-as-brent-nears-110",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 870,
+      "sources": 5
+    },
+    {
+      "slot": 2,
+      "slug": "nextera-to-buy-dominion-in-67-billion-deal-for-ai-power",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 586,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "russian-drone-hits-chinese-ship-off-odesa-on-eve-of-putin-xi-summit",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 665,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "trump-drops-10-billion-irs-suit-as-democrats-target-17-billion-allies-fund",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 536,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "voter-roll-scrutiny-intensifies-ahead-of-midterms",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 545,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "apnews.com",
+    "bbc.com",
+    "bloomberg.com",
+    "ft.com",
+    "npr.org",
+    "nytimes.com",
+    "reuters.com",
+    "theguardian.com",
+    "thehill.com",
+    "theverge.com",
+    "politico.com",
+    "wsj.com",
+    "washingtonexaminer.com"
+  ],
+  "errors": [],
+  "retry_notes": "Earlier 5:03 AM PT primary fire (sha 98eafd5...) committed 5/5 stories but slot 1 was held with needs_review:true after a single revision; flagged status:'partial'. This retry rebuilt the edition from scratch: fresh ingest, fresh selection, all 5 slots approved on first editor pass."
 }
