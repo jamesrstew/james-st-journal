@@ -1,6 +1,82 @@
 {
   "date": "2026-05-19",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-05-19T12:06:08Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1504,
+      "items_after_window": 1295,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "feeds_failed_names": ["Politico", "The Verge", "NPR Top", "NPR Business", "NPR Tech", "NPR World", "FT Home"],
+      "duration_sec": 4
+    },
+    "cluster": {
+      "candidates_surveyed": 16,
+      "body_tier_clusters": 12,
+      "duration_sec": 2
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "trump-iran-strike-postponed-2026-05-19", "category": "Markets",  "raw_score": 15.17, "mandate_count": 2, "signal_boost": 1.7,  "category_weight": 1.0,  "dedupe_penalty": 0.3,  "lean_mix": ["center","lean-left","left","lean-right","right"] },
+        { "slot": 2, "cluster": "musk-openai-verdict-2026-05-19",         "category": "Tech",     "raw_score": 9.76,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0,  "dedupe_penalty": 0.15, "lean_mix": ["center"] },
+        { "slot": 3, "cluster": "adani-doj-charges-dropped-2026-05-19",   "category": "Business", "raw_score": 5.85,  "mandate_count": 0, "signal_boost": 1.0,  "category_weight": 1.0,  "dedupe_penalty": 0.0,  "lean_mix": ["center"] },
+        { "slot": 4, "cluster": "tuesday-primaries-massie-2026-05-19",    "category": "Politics", "raw_score": 9.18,  "mandate_count": 0, "signal_boost": 1.0,  "category_weight": 1.0,  "dedupe_penalty": 0.0,  "lean_mix": ["center","lean-left"] },
+        { "slot": 5, "cluster": "ebola-american-doctor-2026-05-19",       "category": "Health",   "raw_score": 5.51,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.7,  "dedupe_penalty": 0.15, "lean_mix": ["center","lean-left"] }
+      ],
+      "core_beat_count": 4,
+      "notes": "LIRR-strike-ends cluster initially considered for slot 3 but dropped: only one body-tier source (CBS) fetched cleanly after The Hill and direct Reuters/AP/Bloomberg URLs were blocked. Swapped in Adani DOJ-dismissal cluster (PBS + CNBC body sources)."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 12,
+      "sources_failed": 22,
+      "blocked_outlets": ["BBC (all sections)", "The Hill", "Reuters direct", "Google News article-redirect URLs (AP/Reuters/Wired/Guardian/Wash Examiner from GN)"],
+      "duration_sec": 75
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 2,
+      "revised": 3,
+      "held": 0,
+      "revise_reasons": {
+        "slot_2": "word count 848 over band; two Musk quotes had lower-case 'there' where source had capital T; Tesla 'merger' verb stronger than source",
+        "slot_4": "kicker asserted unsourced 6 p.m. poll-close time",
+        "slot_5": "Spencer misattributed for entry-ban news (PBS host Nawaz framed it, not Spencer); unsourced Africa CDC kicker; counterpoint graf broke fourth wall referencing JSJ dossier"
+      }
+    },
+    "revise": {
+      "revisions_spawned": 3,
+      "approved_after_revise": 3,
+      "held_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 35,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "trump-shelves-tuesday-iran-strike-brent-slides-below-111",                "category": "Markets",  "needs_review": false, "word_count": 875, "sources": 3 },
+    { "slot": 2, "slug": "jury-rejects-musk-suit-against-openai-clearing-altman-ipo-path",          "category": "Tech",     "needs_review": false, "word_count": 545, "sources": 2 },
+    { "slot": 3, "slug": "doj-moves-to-drop-adani-bribery-case-after-10-billion-u-s-investment-pledge", "category": "Business", "needs_review": false, "word_count": 692, "sources": 2 },
+    { "slot": 4, "slug": "trump-targets-massie-as-kentucky-anchors-six-state-primary-tuesday",      "category": "Politics", "needs_review": false, "word_count": 536, "sources": 3 },
+    { "slot": 5, "slug": "american-doctor-contracts-ebola-as-congo-toll-hits-131-and-us-restricts-entry", "category": "Health",   "needs_review": false, "word_count": 491, "sources": 2 }
+  ],
+  "egress_blocked_hostnames": ["rss.politico.com", "theverge.com", "ft.com", "feeds.npr.org", "bbc.com", "thehill.com", "reuters.com", "news.google.com"],
+  "errors": []
 }
