@@ -1,6 +1,95 @@
 {
   "date": "2026-05-20",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-05-20T12:07:12Z",
-  "stages": {}
+  "finished_at": "2026-05-20T12:48:25Z",
+  "stages": {
+    "ingest": {
+      "items": 1292,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "feeds_failed_names": ["Politico", "The Verge", "NPR Top", "NPR Business", "NPR Tech", "NPR World", "FT Home"],
+      "feeds_returned_zero": ["NYT World (GN)", "NYT US (GN)", "NYT Business (GN)", "NYT Tech (GN)", "WSJ World", "WSJ Business", "WSJ Markets"],
+      "duration_sec": 3
+    },
+    "cluster": {
+      "candidates_surveyed": 20,
+      "body_tier_clusters": 11,
+      "duration_sec": 2
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "trump-massie-tuesday-primaries-2026-05-20",       "category": "Politics", "raw_score": 12.85, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0,  "dedupe_penalty": 0.3,  "lean_mix": ["center","lean-left","lean-right"] },
+        { "slot": 2, "cluster": "iran-war-powers-cassidy-flip-2026-05-20",          "category": "Politics", "raw_score": 11.24, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0,  "dedupe_penalty": 0.3,  "lean_mix": ["center","lean-left"] },
+        { "slot": 3, "cluster": "google-io-ai-everywhere-2026-05-20",               "category": "Tech",     "raw_score": 6.48,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0,  "dedupe_penalty": 0.0,  "lean_mix": ["center"] },
+        { "slot": 4, "cluster": "putin-xi-beijing-summit-2026-05-20",               "category": "World",    "raw_score": 6.14,  "mandate_count": 0, "signal_boost": 1.0,  "category_weight": 0.85, "dedupe_penalty": 0.15, "lean_mix": ["center"] },
+        { "slot": 5, "cluster": "samsung-electronics-strike-2026-05-20",            "category": "Business", "raw_score": 4.59,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0,  "dedupe_penalty": 0.0,  "lean_mix": ["center","lean-left"] }
+      ],
+      "core_beat_count": 4,
+      "notes": "EU-US trade pact cluster initially scored 6.08 for slot 5 but dropped: only one body-tier source (CNBC) fetched cleanly after Reuters/Guardian/DW/BBC were blocked by egress policy or paywall. Swapped in Samsung strike (CNBC + Al Jazeera body sources)."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 21,
+      "sources_failed": 0,
+      "blocked_outlets": ["BBC (all sections)", "The Hill", "Reuters direct", "Guardian direct", "DW direct", "Wired direct", "Bloomberg direct", "Washington Post direct", "Google News article-redirect URLs (all GN-mediated AP/Reuters/Axios/Wired/Guardian/CSM/DW/Semafor/WashEx/NYT/Economist)"],
+      "fetch_mix": "curl (19) + WebFetch on axios.com (2 — only outlet WebFetch resolves)",
+      "duration_sec": 90
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0,
+      "writer_model": "claude-sonnet-4-6 (sub-agents)"
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0,
+      "editor_model": "claude-sonnet-4-6 (sub-agents)",
+      "revise_reasons": { "slot_3": ["Dek 230 chars > 200 cap", "Unsourced 'ChatGPT' brand name in lede"] }
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 34,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "<git sha set on commit>",
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "gallrein-defeats-massie-trump-six-state-primary-sweep",                       "category": "Politics", "needs_review": false, "word_count": 841, "sources": 6 },
+    { "slot": 2, "slug": "senate-war-powers-vote-advances-as-irgc-threatens-strikes-beyond-the-region", "category": "Politics", "needs_review": false, "word_count": 588, "sources": 4 },
+    { "slot": 3, "slug": "google-io-ai-agents-search-gemini-flash",                                    "category": "Tech",     "needs_review": false, "word_count": 598, "sources": 2 },
+    { "slot": 4, "slug": "putin-xi-reach-understanding-on-power-of-siberia-2-pipeline-parameters",      "category": "World",    "needs_review": false, "word_count": 464, "sources": 4 },
+    { "slot": 5, "slug": "samsung-workers-strike-wage-talks-collapse",                                  "category": "Business", "needs_review": false, "word_count": 476, "sources": 2 }
+  ],
+  "egress_blocked_hostnames": [
+    "rss.politico.com",
+    "theverge.com",
+    "feeds.npr.org",
+    "ft.com",
+    "bbc.com",
+    "thehill.com",
+    "reuters.com",
+    "theguardian.com",
+    "dw.com",
+    "wired.com",
+    "bloomberg.com",
+    "washingtonpost.com",
+    "apnews.com"
+  ],
+  "errors": []
 }
