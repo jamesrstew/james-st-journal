@@ -1,6 +1,91 @@
 {
   "date": "2026-05-21",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-05-21T12:05:37Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1364,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "feeds_fail_names": [
+        "Politico",
+        "The Verge",
+        "NPR Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World",
+        "FT Home"
+      ]
+    },
+    "cluster": {
+      "clusters_evaluated": 8,
+      "body_tier_clusters": 8
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "us-iran-peace-talks-2026-05-21", "category": "World", "score": 16.66, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85, "dedupe_penalty": 0.3 },
+        { "slot": 2, "cluster": "spacex-ipo-filing-2026-05-21", "category": "Business", "score": 15.13, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0, "dedupe_penalty": 0.0 },
+        { "slot": 3, "cluster": "anti-weaponization-fund-lawsuit-2026-05-21", "category": "Politics", "score": 8.64, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "dedupe_penalty": 0.3 },
+        { "slot": 4, "cluster": "nvidia-q1-earnings-2026-05-21", "category": "Markets", "score": 8.55, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "dedupe_penalty": 0.0 },
+        { "slot": 5, "cluster": "walmart-q1-outlook-2026-05-21", "category": "Business", "score": 5.65, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "dedupe_penalty": 0.0 }
+      ],
+      "core_beat_count": 4,
+      "skipped_for_thin_dossier": [
+        "openai-ipo-prep-2026-05-21 (only 1 body-tier source body fetchable)",
+        "fed-minutes-rate-hike-2026-05-21 (no body-tier source body fetchable; egress proxy blocked Reuters direct and Google News redirects need JS)"
+      ]
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 17,
+      "sources_failed": 9,
+      "notes": "WebFetch returned 403 on cnbc.com, thehill.com, nbcnews.com, bbc.com, arstechnica.com, reuters.com, axios.com — falling back to curl with a browser UA recovered all of those EXCEPT BBC/Reuters/Axios/Ars/The Hill, which stayed 403. Google News redirect URLs require JS to follow and were not used."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "1-iran-reviews-us-peace-proposal-as-pakistan-army-chief-flies-to-tehran", "category": "World", "needs_review": false, "word_count": 881, "sources": 6 },
+    { "slot": 2, "slug": "2-spacex-files-record-ipo-with-2-6-billion-operating-loss", "category": "Business", "needs_review": false, "word_count": 697, "sources": 3 },
+    { "slot": 3, "slug": "3-capitol-police-sue-to-block-trump-anti-weaponization-fund-as-gop-defections-grow", "category": "Politics", "needs_review": false, "word_count": 690, "sources": 3 },
+    { "slot": 4, "slug": "4-nvidia-cedes-china-as-80-billion-buyback-lifts-asian-chip-stocks", "category": "Markets", "needs_review": false, "word_count": 544, "sources": 3 },
+    { "slot": 5, "slug": "5-walmart-cuts-outlook-citing-fuel-strain-on-shoppers", "category": "Business", "needs_review": false, "word_count": 550, "sources": 2 }
+  ],
+  "egress_blocked_hostnames": [
+    "arstechnica.com",
+    "axios.com",
+    "bbc.com",
+    "feeds.npr.org",
+    "ft.com",
+    "reuters.com",
+    "rss.politico.com",
+    "thehill.com",
+    "theverge.com"
+  ],
+  "errors": []
 }
