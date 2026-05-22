@@ -1,6 +1,93 @@
 {
   "date": "2026-05-22",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-05-22T12:07:44Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1374,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "feeds_fail_names": [
+        "The Verge",
+        "Politico",
+        "NPR Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World",
+        "FT Home"
+      ]
+    },
+    "cluster": {
+      "clusters_evaluated": 7,
+      "body_tier_clusters": 7,
+      "manual_curation": "Auto-clustering produced over-broad groups (BBC feed items lumped together by section tagging); replaced with hand-curated cluster predicates keyed on entity overlap, then validated each cluster's body-source distinct count and lean spread."
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "iran-hormuz-warpowers-2026-05-22", "category": "World", "score": 6.50, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85, "dedupe_penalty": 0.5 },
+        { "slot": 2, "cluster": "dnc-2024-autopsy-2026-05-22", "category": "Politics", "score": 5.10, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0, "dedupe_penalty": 0.0 },
+        { "slot": 3, "cluster": "anti-weaponization-fund-ice-bill-2026-05-22", "category": "Politics", "score": 2.98, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0, "dedupe_penalty": 0.3 },
+        { "slot": 4, "cluster": "nato-poland-rubio-2026-05-22", "category": "Politics", "score": 4.50, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "dedupe_penalty": 0.0 },
+        { "slot": 5, "cluster": "us-cuba-pressure-2026-05-22", "category": "World", "score": 4.31, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 0.85, "dedupe_penalty": 0.0 }
+      ],
+      "core_beat_count": 3,
+      "swapped_out": [
+        "lilly-orforglipron-obesity-2026-05-22 (Health, fresh breakthrough story) — replaced after research stage; only one body-tier source body (CNBC) was fetchable. The Hill returned 403 (PerimeterX), and all other Lilly coverage came via Google News (GN) redirect URLs whose JS-rendered interstitial cannot be followed by curl or WebFetch. Slot 5 refilled with us-cuba-pressure-2026-05-22 which has 4 reachable body sources."
+      ]
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 15,
+      "sources_failed": 7,
+      "notes": "Same outlet-block profile as 2026-05-21 logged: BBC* (egress 'Blocked by egress policy'), NPR* (Akamai Access Denied), The Hill (PerimeterX 403), RealClearPolitics (DataDome 403). All Google News (GN-suffix) feed items remained unfetchable for bodies — the news.google.com/rss/articles/... URLs serve a JS-rendered interstitial that curl and WebFetch cannot follow. Direct sources that worked: CNBC, PBS NewsHour, Al Jazeera, CBS News, NBC News. Reuters/AP/Axios/Bloomberg/Economist/WSJ/FT/Washington Examiner content stayed inaccessible via either direct or GN routes."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0,
+      "light_edits": "Slot 1 editor removed an unsupported 'first time since 1973' claim, corrected 'nine more days' to 'eleven more days', and trimmed an unstated date qualifier ('since late April'); slot 5 editor removed one meta-editorial sentence about the source mix. No structural revisions."
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 41,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "1-house-cancels-iran-war-powers-vote-as-rubio-rejects-hormuz-tolls", "category": "World", "needs_review": false, "word_count": 876, "sources": 4 },
+    { "slot": 2, "slug": "2-dnc-releases-2024-autopsy-as-calls-grow-for-martin-to-resign", "category": "Politics", "needs_review": false, "word_count": 656, "sources": 2 },
+    { "slot": 3, "slug": "3-gop-revolt-over-anti-weaponization-fund-sinks-senate-ice-bill", "category": "Politics", "needs_review": false, "word_count": 701, "sources": 3 },
+    { "slot": 4, "slug": "4-trump-pledges-5000-more-troops-to-poland-reversing-european-pullback", "category": "Politics", "needs_review": false, "word_count": 549, "sources": 2 },
+    { "slot": 5, "slug": "5-rubio-and-trump-raise-military-threat-against-cuba", "category": "World", "needs_review": false, "word_count": 502, "sources": 4 }
+  ],
+  "egress_blocked_hostnames": [
+    "bbc.com",
+    "feeds.bbci.co.uk",
+    "npr.org",
+    "feeds.npr.org",
+    "thehill.com",
+    "realclearpolitics.com",
+    "politico.com",
+    "theverge.com",
+    "ft.com"
+  ],
+  "errors": []
 }
