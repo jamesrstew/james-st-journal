@@ -62,7 +62,9 @@
       "estimated_cost_usd": 0.08
     },
     "commit": {
-      "pushed": true
+      "sha": "d7e41ef93bae28982881dbc53927385735651cd9",
+      "pushed": true,
+      "pushed_to": ["claude/peaceful-volta-3zuYR", "main"]
     }
   },
   "articles": [
