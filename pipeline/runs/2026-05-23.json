@@ -1,6 +1,87 @@
 {
   "date": "2026-05-23",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-05-23T12:05:39Z",
-  "stages": {}
+  "finished_at": "2026-05-23T12:29:42Z",
+  "stages": {
+    "ingest": {
+      "items": 1287,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "feeds_fail_names": ["Politico", "The Verge", "NPR Top", "NPR Business", "NPR Tech", "NPR World", "FT Home"]
+    },
+    "cluster": {
+      "clusters_evaluated": 7,
+      "body_tier_clusters": 7,
+      "manual_curation": "Hand-curated cluster predicates keyed on entity overlap (Gabbard+resign, SpaceX/Starship, Fed/Warsh/Waller/consumer sentiment, Ebola/green-card travel-ban, Trump green-card overhaul, China coal mine, Iran day-85). Each cluster validated for >=2 distinct body-tier sources before scoring."
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "gabbard-resigns-dni-2026-05-23", "category": "Politics", "score": 12.2, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0, "dedupe_penalty": 0.0 },
+        { "slot": 2, "cluster": "spacex-starship-v3-test-flight-2026-05-23", "category": "Tech", "score": 11.6, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0, "dedupe_penalty": 0.0 },
+        { "slot": 3, "cluster": "trump-green-card-overhaul-2026-05-23", "category": "Politics", "score": 9.2, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "dedupe_penalty": 0.0 },
+        { "slot": 4, "cluster": "fed-rate-path-waller-warsh-2026-05-23", "category": "Markets", "score": 8.2, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "dedupe_penalty": 0.15 },
+        { "slot": 5, "cluster": "ebola-uganda-congo-green-card-2026-05-23", "category": "Health", "score": 5.6, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.7, "dedupe_penalty": 0.3 }
+      ],
+      "core_beat_count": 4,
+      "skipped": [
+        { "cluster": "china-coal-mine-blast-2026-05-23", "score": 4.6, "reason": "World category, score below Ebola pick; six body sources but mono-perspective (center-only)." },
+        { "cluster": "iran-peace-day-85-2026-05-23", "score": 4.9, "reason": "Recurring story ran 5/19, 5/21, 5/22 — dedupe_penalty 0.5; no fresh breakthrough today." }
+      ]
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 15,
+      "sources_failed": 10,
+      "notes": "Same outlet-block profile as 2026-05-22 logged: BBC* (egress 'Blocked by egress policy'), NPR* (Akamai Access Denied), The Hill (PerimeterX 403), Politico/Verge/FT (403). PBS NewsHour required curl -k (system cert not-yet-valid against May 2026 dates). All Google News (GN-suffix) feed item URLs remained unfetchable for bodies — the news.google.com/rss/articles/... URLs serve a JS-rendered interstitial that curl and WebFetch cannot follow. Direct sources that worked: PBS NewsHour, CBS News, CNBC, Fox News, Al Jazeera. Reuters/AP/Axios/Bloomberg/Economist/WSJ/Washington Examiner content stayed inaccessible via either direct or GN routes."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0,
+      "light_edits": "Slot 3 editor trimmed 81 words (762 -> 681) to fit the 500-700 band, cutting one redundant attribution clause and one closing sentence. Slot 5 editor trimmed 61 words (609 -> 548) to fit the 350-550 band, cutting one redundant context sentence on the WHO upgrade. No structural revisions."
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 32,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "gabbard-resigns-as-dni-citing-husbands-cancer", "category": "Politics", "needs_review": false, "word_count": 875, "sources": 3 },
+    { "slot": 2, "slug": "spacex-starship-v3-flies-as-engine-failures-shadow-ipo", "category": "Tech", "needs_review": false, "word_count": 698, "sources": 3 },
+    { "slot": 3, "slug": "uscis-orders-most-green-card-applicants-to-leave-us-to-apply", "category": "Politics", "needs_review": false, "word_count": 681, "sources": 2 },
+    { "slot": 4, "slug": "consumer-sentiment-hits-record-low-as-warsh-takes-fed-chair", "category": "Markets", "needs_review": false, "word_count": 537, "sources": 4 },
+    { "slot": 5, "slug": "uganda-ebola-cases-rise-to-five-as-who-raises-congo-risk-to-very-high", "category": "Health", "needs_review": false, "word_count": 548, "sources": 3 }
+  ],
+  "egress_blocked_hostnames": [
+    "bbc.com",
+    "feeds.bbci.co.uk",
+    "npr.org",
+    "feeds.npr.org",
+    "thehill.com",
+    "realclearpolitics.com",
+    "politico.com",
+    "theverge.com",
+    "ft.com"
+  ],
+  "errors": []
 }
