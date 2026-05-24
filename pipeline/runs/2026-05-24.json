@@ -1,6 +1,97 @@
 {
   "date": "2026-05-24",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-05-24T12:05:02Z",
-  "stages": {}
+  "finished_at": "2026-05-24T12:37:00Z",
+  "stages": {
+    "ingest": {
+      "items": 859,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "feeds_fail_names": ["Politico", "The Verge", "NPR Top", "NPR Business", "NPR Tech", "NPR World", "FT Home"],
+      "duration_sec": 15,
+      "notes": "Same outlet-block profile as 2026-05-23: Politico/Verge/FT egress-blocked; NPR feeds Akamai Access Denied. WSJ-direct, ProPublica, CNBC Markets, and all four NYT (GN) feeds parsed without errors but returned zero items inside the 36h window — possible stale/empty source feeds."
+    },
+    "cluster": {
+      "clusters_evaluated": 7,
+      "body_tier_clusters": 5,
+      "manual_curation": "Hand-curated cluster predicates keyed on entity overlap (Iran/Hormuz+deal, Secret-Service+White-House+gunfire, Shanxi coal mine, Garden Grove chemical tank, Marines+Caracas+Machado). Mexico-EU trade was promising on raw signal but every available body source (Reuters/DW) routes only through Google News redirector URLs that serve a JS shell — no fetchable body — and was dropped at the research step. Recurring story dedupe penalties applied vs. last seven editions; Iran took 0.2 (developmental, fresh deal-framework), Cuba/Venezuela cluster took 0.4 (lead 5/22)."
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "iran-hormuz-deal-2026-05-24", "category": "Politics", "score": 11.5, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0, "dedupe_penalty": 0.2 },
+        { "slot": 2, "cluster": "white-house-shooting-2026-05-24", "category": "Politics", "score": 11.5, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "dedupe_penalty": 0.0 },
+        { "slot": 3, "cluster": "china-coal-mine-2026-05-24", "category": "World", "score": 6.2, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85, "dedupe_penalty": 0.0 },
+        { "slot": 4, "cluster": "california-chemical-tank-2026-05-24", "category": "Health", "score": 4.2, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 0.7, "dedupe_penalty": 0.0 },
+        { "slot": 5, "cluster": "us-latin-america-pressure-2026-05-24", "category": "Politics", "score": 3.4, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0, "dedupe_penalty": 0.4 }
+      ],
+      "core_beat_count": 3,
+      "skipped": [
+        { "cluster": "mexico-eu-trade-deal-2026-05-24", "score": 1.35, "reason": "Strong WSJ-pageable Business story but all body-tier coverage (Reuters, DW) routes only via Google News redirector URLs that return a JS shell — zero direct outlets carried the deal in our 36h window. Failed the research-step 2-distinct-fetchable-bodies floor and was refilled with the Cuba/Venezuela pressure cluster." },
+        { "cluster": "russia-oreshnik-kyiv-strike-2026-05-24", "score": 3.4, "reason": "World category and would have duplicated the World slot already held by China coal mine; dedupe-penalized against recent Ukraine coverage (5/17, 5/18)." },
+        { "cluster": "deepseek-v4pro-price-cut-2026-05-24", "score": null, "reason": "Tech, only one body-tier source (Reuters via GN) — below the 2-source floor." }
+      ]
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 13,
+      "sources_failed": 4,
+      "duration_sec": 54,
+      "notes": "Direct-fetch routes that worked: PBS NewsHour, CBS News, NBC News, Al Jazeera, CNBC. Blocked again this run: BBC (egress 'Blocked by egress policy'), NPR (Akamai 403), The Hill (PerimeterX captcha), Reuters/AP/DW/Politico/Verge/FT direct (egress 403), RealClearPolitics (DataDome captcha), Guardian direct (egress 403). All Google News (GN-suffix) feed item URLs remained unfetchable for bodies — the news.google.com/rss/articles/... URLs serve a JS-rendered interstitial with no inline source link, so curl/WebFetch cannot reach the original article. Required curl -k for SSL date handshakes against May 2026 timestamps (matches 2026-05-23 finding)."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0,
+      "light_edits": "Slot 1 editor recast a Sadeqi attribution (removed an Al Jazeera narration verb that had been stitched into a direct quote and the stray 'reportedly') and tightened two drifty subheads ('What is on the table' → 'On the table'; 'The view that isn't here' → 'The missing view'). Slot 3 editor tightened four subheads into the 2-4 word band ('What investigators say', 'Operator and warning', 'Province under strain', 'Counterpoint'). Slot 4 editor tightened one subhead ('A narrowing set of options' → 'Two bad options'). Slot 5 editor swapped 'snatched' → 'captured' to match the source verb, corrected an overreach in 'outpolled Maduro' (Machado was not on the ballot; her stand-in González was), and moved a period inside a quoted phrase (AP style). No structural revisions."
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 37,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "PENDING",
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "trump-says-iran-deal-largely-negotiated-hormuz-to-reopen", "category": "Politics", "needs_review": false, "word_count": 919, "sources": 4 },
+    { "slot": 2, "slug": "secret-service-kills-gunman-at-white-house-checkpoint", "category": "Politics", "needs_review": false, "word_count": 699, "sources": 2 },
+    { "slot": 3, "slug": "shanxi-coal-mine-blast-kills-82", "category": "World", "needs_review": false, "word_count": 604, "sources": 2 },
+    { "slot": 4, "slug": "newsom-declares-emergency-as-garden-grove-chemical-tank-nears-explosion", "category": "Health", "needs_review": false, "word_count": 541, "sources": 3 },
+    { "slot": 5, "slug": "marines-drill-in-caracas-as-machado-vows-2026-return", "category": "Politics", "needs_review": false, "word_count": 545, "sources": 3 }
+  ],
+  "egress_blocked_hostnames": [
+    "bbc.com",
+    "feeds.bbci.co.uk",
+    "npr.org",
+    "feeds.npr.org",
+    "thehill.com",
+    "politico.com",
+    "rss.politico.com",
+    "theverge.com",
+    "ft.com",
+    "reuters.com",
+    "apnews.com",
+    "dw.com",
+    "realclearpolitics.com",
+    "theguardian.com"
+  ],
+  "errors": []
 }
