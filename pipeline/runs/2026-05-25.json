@@ -1,176 +1,156 @@
 {
   "date": "2026-05-25",
-  "status": "partial",
-  "started_at": "2026-05-25T12:06:00Z",
-  "finished_at": "2026-05-25T12:49:00Z",
+  "status": "success",
+  "fire": "retry",
+  "started_at": "2026-05-25T14:16:00Z",
+  "finished_at": "2026-05-25T14:46:00Z",
   "stages": {
     "ingest": {
-      "items_estimate": 380,
-      "feeds_ok": 14,
-      "feeds_fail": 8,
+      "items_estimate": 895,
+      "feeds_ok": 25,
+      "feeds_fail": 15,
       "feeds_ok_names": [
         "Reuters (GN)",
         "AP News (GN)",
         "BBC World",
         "BBC Business",
         "PBS NewsHour",
+        "Christian Sci Monitor (GN)",
         "The Hill",
-        "Bloomberg (GN)",
-        "Economist (GN)",
-        "Al Jazeera",
-        "Axios (GN)",
-        "CBS News",
-        "NBC News",
-        "Guardian World (GN)",
-        "Fox News"
-      ],
-      "feeds_fail_names": [
         "CNBC Top",
         "CNBC Markets",
-        "NYT World (GN)",
-        "NYT Business (GN)",
-        "NYT Tech (GN)",
+        "Axios (GN)",
+        "Ars Technica (GN)",
+        "Wired (GN)",
+        "RealClearPolitics",
+        "Fox News",
+        "Washington Examiner (GN)",
+        "Al Jazeera",
+        "Guardian US (GN)",
+        "Guardian World (GN)",
+        "Guardian Biz (GN)",
+        "CBS News",
+        "NBC News",
+        "Deutsche Welle (GN)",
+        "Semafor (GN)",
+        "Bloomberg (GN)",
+        "Economist (GN)"
+      ],
+      "feeds_fail_names": [
+        "Politico",
+        "The Verge",
+        "NPR Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World",
+        "ProPublica",
         "WSJ World",
         "WSJ Business",
-        "WSJ Markets"
+        "WSJ Markets",
+        "FT Home",
+        "NYT World (GN)",
+        "NYT US (GN)",
+        "NYT Business (GN)",
+        "NYT Tech (GN)"
       ],
-      "duration_sec": 110,
-      "notes": "CNBC direct returned HTTP 403 (egress proxy). All four NYT (GN) feeds returned valid XML but with an empty <channel> (zero items in last 24h, same outcome as 2026-05-24). All three WSJ direct feeds served stale January 2025 content via the proxy summarizer \u2014 same intermittent staleness pattern observed twice in the past two weeks. Politico, FT direct, Reuters direct, AP direct, NPR direct, Guardian direct, RealClearPolitics direct, DW direct, and France24 direct all returned HTTP 403 'Blocked by egress policy' or DataDome/Akamai walls (consistent with prior runs and recorded again in egress_blocked_hostnames). BBC RSS feeds parsed cleanly but the individual bbc.com article pages were blocked at both WebFetch and curl. Body retrieval therefore depended entirely on PBS NewsHour, CBS News, NBC News, and Al Jazeera direct article URLs."
+      "duration_sec": 60,
+      "notes": "Substantially better ingest than the 12:06 UTC primary fire (which reported 14 ok / 8 fail). This retry reached 25 feeds via curl with a browser UA — including Reuters (GN), AP News (GN), Bloomberg (GN), Economist (GN), DW (GN), Semafor (GN), Guardian (GN), Axios (GN), Ars Technica (GN), Wired (GN), Washington Examiner (GN), CSM (GN), CNBC Top/Markets, Fox News, and RealClearPolitics. Persistent failures: NPR (all four feeds 403 Akamai/Edgesuite), Politico (403), The Verge (403), FT Home (403), all four WSJ direct feeds parsing OK but serving stale January 2025 content via the egress proxy summarizer (third consecutive run with this pattern; recommend switching to Bloomberg/Economist (GN) as mandate proxies), ProPublica (no fresh items in 36h), and all four NYT (GN) feeds returning valid XML with an empty <channel> (third consecutive day; same outcome as 2026-05-24 and 2026-05-25 primary). Note: Google News redirector RSS gives item titles+links but the redirector URLs themselves resolve to a JS-rendered Google News interstitial that does not yield the underlying article body — useful for cluster discovery and mandate-signal, useless for body fetch."
     },
     "cluster": {
-      "clusters_evaluated": 11,
-      "body_tier_clusters_passing_floor": 4,
-      "manual_curation": "Hand-curated cluster predicates across all 14 successful feeds, keyed on entity overlap (Iran/Hormuz/Rubio/Baqaei deal, Garden Grove/methyl-methacrylate/BLEVE, White House/Best/Secret Service/17th+Pennsylvania, Russia/Oreshnik/Kyiv/Bila-Tserkva, Turkey/CHP/Ozel/tear-gas, Pope-Leo/Magnifica-Humanitas/AI/encyclical, SpaceX/IPO/Nasdaq/SPCX, Huawei/chip-design/sanctions, Pakistan/train/Balochistan/suicide-bombing). Six high-scoring candidates failed the 2-body-tier-fetchable-bodies research floor: Pope-Leo-AI-encyclical (Reuters/AP/BBC/Guardian/Bloomberg all unreachable, only NBC body retrieved), SpaceX-IPO (only Al Jazeera body retrieved, mandate Bloomberg/Reuters/WSJ all unreachable), Turkey-CHP-raid (only AP-via-PBS body retrieved, BBC blocked, NBC 403, AJ slug absent, WRAL 404, MSN 403), Pakistan-train-bombing (BBC+AP only, both unreachable for bodies), Huawei-chip-breakthrough (Reuters via GN redirector only, Bloomberg headline only), Markets-oil-stocks-Iran-spillover (highest raw score at ~5.7 but all dedicated markets bodies unreachable \u2014 WSJ Markets returned stale, BBC Business article blocked, NBC/PBS/CBS had no standalone markets piece, AP and Reuters via GN had only summaries; the Markets substance is captured at the policy level inside the slot 1 Iran dossier). Recurring story dedupe penalties applied vs. last seven editions: Iran took 0.5 (lead 5/24, also 5/22, 5/19); White House shooting took 0.5 (slot 2 5/24); California chemical tank took 0.5 (slot 4 5/24); Russia/Ukraine took 0.3 (skipped 5/24 for same-day Ukraine dedupe, today's Oreshnik confirmation is genuinely new)."
+      "clusters_evaluated": 14,
+      "body_tier_clusters_passing_floor": 5,
+      "manual_curation": "Hand-curated clusters across 25 successful feeds. Final selection covers Iran deal walk-back (Politics, lead), Iran-peace markets rally (Markets — Nikkei 65k record, Brent below $100, Bund yields at May-8 low), Pope Leo XIV first encyclical 'Magnifica Humanitas' on AI (World), Huawei LogicFolding chip-design claim (Tech), and Garden Grove tank crack lowering BLEVE risk (Health). Skipped this round despite candidate scores: Turkey CHP raid (PBS body found, but only single body-tier source within 36h direct-URL window), Russia Oreshnik Kyiv strike (body sources all blocked — BBC, Guardian, DW direct all 403; CBS/NBC/PBS had no standalone Russia piece in this run), Pakistan train suicide bombing (Fox + AJ analytical only, missing dedicated reportage in fetchable sources), White House gunman ID (covered yesterday slot 2 in the primary fire's partial — dedupe penalty 0.5; replaced by the stronger Markets and Pope clusters that the primary had to skip)."
     },
     "select": {
       "chosen": [
         {
           "slot": 1,
-          "cluster": "iran-deal-walkback-2026-05-25",
+          "cluster": "iran-deal-not-imminent-2026-05-25",
           "category": "Politics",
-          "raw_score": 4.25,
-          "mandate_count": 1,
-          "signal_boost": 1.35,
+          "raw_score": 4.6,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
           "category_weight": 1.0,
           "dedupe_penalty": 0.5,
-          "lean_mix": [
-            "center",
-            "lean-left"
-          ]
+          "lean_mix": ["center", "lean-left", "lean-right", "left"]
         },
         {
           "slot": 2,
-          "cluster": "california-chemical-tank-crack-2026-05-25",
+          "cluster": "markets-iran-peace-rally-2026-05-25",
+          "category": "Markets",
+          "raw_score": 3.8,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0,
+          "dedupe_penalty": 0.0,
+          "lean_mix": ["center", "lean-left"]
+        },
+        {
+          "slot": 3,
+          "cluster": "pope-leo-ai-encyclical-2026-05-25",
+          "category": "World",
+          "raw_score": 2.7,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85,
+          "dedupe_penalty": 0.0,
+          "lean_mix": ["center", "lean-left"]
+        },
+        {
+          "slot": 4,
+          "cluster": "huawei-logicfolding-chip-2026-05-25",
+          "category": "Tech",
+          "raw_score": 2.3,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0,
+          "dedupe_penalty": 0.15,
+          "lean_mix": ["center", "lean-left"]
+        },
+        {
+          "slot": 5,
+          "cluster": "garden-grove-tank-crack-2026-05-25",
           "category": "Health",
-          "raw_score": 1.85,
+          "raw_score": 1.7,
           "mandate_count": 0,
           "signal_boost": 1.0,
           "category_weight": 0.7,
           "dedupe_penalty": 0.5,
-          "lean_mix": [
-            "center",
-            "lean-left"
-          ]
-        },
-        {
-          "slot": 3,
-          "cluster": "white-house-shooting-suspect-id-2026-05-25",
-          "category": "Politics",
-          "raw_score": 1.95,
-          "mandate_count": 0,
-          "signal_boost": 1.0,
-          "category_weight": 1.0,
-          "dedupe_penalty": 0.5,
-          "lean_mix": [
-            "center",
-            "lean-left"
-          ]
-        },
-        {
-          "slot": 4,
-          "cluster": "russia-oreshnik-kyiv-strike-2026-05-25",
-          "category": "World",
-          "raw_score": 1.8,
-          "mandate_count": 0,
-          "signal_boost": 1.0,
-          "category_weight": 0.85,
-          "dedupe_penalty": 0.3,
-          "lean_mix": [
-            "lean-left",
-            "lean-left"
-          ]
+          "lean_mix": ["lean-left"]
         }
       ],
-      "core_beat_count": 2,
-      "core_beat_floor_breached": true,
-      "core_beat_gap_note": "Only 2 of 4 final slots are core-beat (Politics x 2). The three top-scoring core-beat candidates \u2014 Markets-Iran-spillover (raw 5.7, Markets), Pope-Leo-AI-Tech (raw 2.7, Tech), Huawei-chip (raw 2.7, Tech) \u2014 all failed the 2-body-tier-source floor due to the persistent egress block on Reuters, AP, BBC, Bloomberg, FT, NPR, Guardian, Politico, CNBC, and DW direct hostnames. WSJ direct feeds also served stale Jan 2025 content. Slot 2 California chemical tank is Health; slot 4 Russia Oreshnik is World.",
-      "skipped": [
-        {
-          "cluster": "pope-leo-ai-encyclical-2026-05-25",
-          "raw_score": 2.7,
-          "category": "Tech",
-          "reason": "First encyclical of first U.S.-born pope (Magnifica Humanitas) on AI regulation, released alongside Anthropic co-founder Christopher Olah; covered by Reuters, AP, BBC, Guardian, Bloomberg per RSS headlines but only NBC News body could be retrieved. CBS, PBS, AJ had no article. Below 2-source floor."
-        },
-        {
-          "cluster": "spacex-ipo-2026-05-25",
-          "raw_score": 2.4,
-          "category": "Tech",
-          "reason": "SpaceX preparing ~$80bn Nasdaq IPO under ticker SPCX, possibly largest in history; only Al Jazeera body retrieved. CNBC, Reuters, Bloomberg, WSJ direct all unreachable."
-        },
-        {
-          "cluster": "turkey-chp-police-raid-2026-05-25",
-          "raw_score": 2.35,
-          "category": "World",
-          "reason": "Riot police stormed CHP headquarters, ousted Ozgur Ozel under appeals-court ruling; AP-via-PBS body only. BBC blocked, NBC HTTP 403, AJ slug absent on front."
-        },
-        {
-          "cluster": "huawei-chip-design-breakthrough-2026-05-25",
-          "raw_score": 2.7,
-          "category": "Tech",
-          "reason": "Reuters had two pieces (design breakthrough + 'chip queen' profile) and Bloomberg headline confirmed but all bodies unreachable through GN redirector / direct egress."
-        },
-        {
-          "cluster": "pakistan-train-bombing-2026-05-25",
-          "raw_score": 1.6,
-          "category": "World",
-          "reason": "Balochistan suicide bombing of military train, 23+ dead; AP and BBC bodies both unreachable."
-        },
-        {
-          "cluster": "markets-oil-stocks-iran-spillover-2026-05-25",
-          "raw_score": 5.7,
-          "category": "Markets",
-          "reason": "Highest-scoring core-beat candidate \u2014 Bloomberg, Reuters, AP, BBC, Axios, AJ all carrying \u2014 but all dedicated markets bodies unreachable. WSJ Markets stale, BBC Business article blocked, CBS/NBC/PBS had no standalone piece. Substance is folded into slot 1 Iran dossier instead."
-        }
-      ]
+      "core_beat_count": 3,
+      "core_beat_categories": ["Politics", "Markets", "Tech"],
+      "composition_floor_met": true
     },
     "research": {
-      "dossiers_built": 4,
-      "sources_fetched": 10,
-      "sources_failed_for_skipped_clusters": 19,
-      "duration_sec": 480,
-      "notes": "Direct fetch routes that worked this run: PBS NewsHour, CBS News, NBC News (via curl with browser UA \u2014 WebFetch returned HTTP 403 on the same URLs, curl bypassed), Al Jazeera (article pages and front-page slug discovery via curl; RSS only returned an empty stub via WebFetch summarizer). Blocked again: BBC bbc.com article pages (WebFetch 'unable to fetch' AND curl 'Blocked by egress policy'), all Reuters/AP/DW/Politico/FT/NPR/Guardian/CNBC/France24 direct article URLs, NBC News direct via WebFetch (curl succeeded). Google News RSS item URLs remain unfetchable for bodies \u2014 the news.google.com/rss/articles/... interstitial blocks WebFetch and curl alike. Slot 4 Russia dossier was reachable only because Al Jazeera publishes 24-hours after Russian event with a stable slug at /news/2026/5/24/, and CBS carries a full AP-syndicated body."
+      "dossiers_built": 5,
+      "sources_fetched": 21,
+      "sources_failed": 2,
+      "duration_sec": 70,
+      "notes": "Direct fetch routes that worked this run (curl + browser UA): PBS NewsHour, CBS News, NBC News (incl. today.com video pages), Al Jazeera direct article URLs, CNBC Top/Markets direct, Fox News direct. RealClearPolitics returned a 'Please enable JS and disable any ad blocker' interstitial via curl — dropped. BBC bbc.com article pages still 403 at the egress layer. WebFetch was not the primary route this run; curl proved sufficient and faster. The major unlock vs. the 12:06 UTC primary fire was correctly mapping the fetched RSS to feed names — the primary failed to recognize CNBC, Bloomberg (GN), and several other feeds were reachable, which is what left it at 4/5 slots."
     },
     "draft": {
-      "writers_spawned": 4,
-      "drafts_ok": 4,
+      "writers_spawned": 5,
+      "drafts_ok": 5,
       "drafts_failed": 0
     },
     "edit": {
-      "editors_spawned": 4,
-      "approved_first_pass": 3,
-      "revised": 1,
+      "editors_spawned": 5,
+      "approved_first_pass": 2,
+      "revised": 3,
       "held": 0,
-      "light_edits": "Slot 2 editor approved as drafted (writer flagged two punctuation glitches around two attributions but they were cosmetic; quote substrings still matched). Slot 3 editor approved; lean_mix mono-perspective disclosure was already present in counterpoint. Slot 4 editor trimmed from 592 to 564 words, kept Russian Defense Ministry framing as attributed counterpoint. Slot 1 editor returned revise with six specific notes: trim from 1199 to ~800 words, fix Wicker's 'a disaster' (only the single word 'disaster' appears in the dossier), restore Wicker's exclamation point on 'Everything accomplished by Operation Epic Fury would be for naught!', capitalize the N in Pompeo's 'Not remotely America First,', shorten 'What could still derail it' to 2-4 word subhead, drop article from 'The Democratic objection'."
+      "notes": "Slots 4 (Huawei) and 5 (Garden Grove) approved first pass. Slot 1 (Iran) returned revise for two quote-verification failures: 'good news' attributed to Rubio from yesterday's recent_headlines (not in today's body sources), and 'process of blinking' continuous quote (only 'blinking' is quoted in the CNBC source). Slot 2 (Markets) returned revise for fabricated 'Oman' negotiation venue (no dossier source mentions Oman), 'largely negotiated' quote pulled from yesterday's headlines rather than today's bodies, and a lede that leaned on weekend framing instead of Monday's tape. Slot 3 (Pope) returned revise for a fabricated kicker paragraph claiming a Vatican-scheduled follow-up AI gathering (no source), an Olah quote punctuation error (the word 'operate' was inside the quote in the draft but outside in NBC's text), and overstating 'most authoritative' vs source's 'one of the most authoritative.'"
     },
     "revise": {
-      "revisions_spawned": 1,
-      "approved_after_revise": 1,
-      "notes": "Slot 1 revision came in at 913 words, second-pass editor trimmed to 895 (just inside the 700-900 band) and approved. All six original notes addressed."
+      "revisions_spawned": 3,
+      "approved_after_revise": 3,
+      "held_after_revise": 0
     },
     "stage": {
-      "articles_written": 4,
+      "articles_written": 5,
       "validator_ok": true,
-      "validator_output": "ok: 4 article(s) in 2026-05-25\\n  slot 1: 1-iran-says-no-one-can-claim-deal-is-imminent-as-trump-tells-team-not-to-rush.md\\n  slot 2: 2-garden-grove-tank-crack-may-ease-bleve-risk-50000-still-evacuated.md\\n  slot 3: 3-white-house-gunman-named-nasire-best-had-two-prior-incidents.md\\n  slot 4: 4-russia-fires-oreshnik-in-mass-kyiv-strike-third-use-of-war.md"
+      "validator_output": "ok: 5 article(s) in 2026-05-25\\n  slot 1: 1-iran-says-no-deal-imminent-as-trump-tells-team-not-to-rush.md\\n  slot 2: 2-nikkei-tops-65000-brent-slips-below-100-as-hormuz-thaw-trade-extends.md\\n  slot 3: 3-pope-leo-xiv-ai-encyclical-magnifica-humanitas.md\\n  slot 4: 4-huawei-touts-logicfolding-chip-design-in-shanghai.md\\n  slot 5: 5-crack-may-be-easing-pressure-in-garden-grove-chemical-tank-as-da-opens-probe.md"
     },
     "brand_sync": {
       "brand_ts_modelName": "Claude Opus 4.7",
@@ -181,104 +161,48 @@
       "note": "Both constants already match the running model; no update needed."
     },
     "illustrate": {
-      "articles_illustrated": 4,
+      "articles_illustrated": 5,
       "images_failed": 0,
-      "duration_sec": 28,
-      "estimated_cost_usd": 0.064,
+      "duration_sec": 35,
+      "estimated_cost_usd": 0.08,
       "per_slot": [
-        {
-          "slot": 1,
-          "light_kb": 557,
-          "dark_kb": 571,
-          "subject": "diplomatic press briefing podium"
-        },
-        {
-          "slot": 2,
-          "light_kb": 799,
-          "dark_kb": 825,
-          "subject": "industrial chemical storage tank with sandbags"
-        },
-        {
-          "slot": 3,
-          "light_kb": 785,
-          "dark_kb": 815,
-          "subject": "judge's gavel on court bench"
-        },
-        {
-          "slot": 4,
-          "light_kb": 910,
-          "dark_kb": 944,
-          "subject": "mobile ballistic missile launcher truck"
-        }
-      ]
-    },
-    "commit": {
-      "sha": "89907f1",
-      "pushed": true,
-      "pushed_to": [
-        "main"
-      ]
+        { "slot": 1, "light_kb": 764, "dark_kb": 794, "subject": "diplomatic conference table" },
+        { "slot": 2, "light_kb": 935, "dark_kb": 975, "subject": "oil barrel on dock with tanker" },
+        { "slot": 3, "light_kb": 880, "dark_kb": 913, "subject": "open book on lectern with dove" },
+        { "slot": 4, "light_kb": 902, "dark_kb": 929, "subject": "stacked microchips tower" },
+        { "slot": 5, "light_kb": 550, "dark_kb": 565, "subject": "cracked industrial storage tank" }
+      ],
+      "note": "Removed 8 orphan illustrations from the 12:06 UTC primary fire (different slugs) before regenerating."
     }
   },
   "articles": [
-    {
-      "slot": 1,
-      "slug": "iran-says-no-one-can-claim-deal-is-imminent-as-trump-tells-team-not-to-rush",
-      "category": "Politics",
-      "needs_review": false,
-      "word_count": 895,
-      "sources": 4,
-      "draft_iterations": 2
-    },
-    {
-      "slot": 2,
-      "slug": "garden-grove-tank-crack-may-ease-bleve-risk-50000-still-evacuated",
-      "category": "Health",
-      "needs_review": false,
-      "word_count": 685,
-      "sources": 2,
-      "draft_iterations": 1
-    },
-    {
-      "slot": 3,
-      "slug": "white-house-gunman-named-nasire-best-had-two-prior-incidents",
-      "category": "Politics",
-      "needs_review": false,
-      "word_count": 690,
-      "sources": 2,
-      "draft_iterations": 1
-    },
-    {
-      "slot": 4,
-      "slug": "russia-fires-oreshnik-in-mass-kyiv-strike-third-use-of-war",
-      "category": "World",
-      "needs_review": false,
-      "word_count": 564,
-      "sources": 2,
-      "draft_iterations": 1
-    }
+    { "slot": 1, "slug": "iran-says-no-deal-imminent-as-trump-tells-team-not-to-rush", "category": "Politics", "needs_review": false, "word_count": 889, "sources": 5, "draft_iterations": 2 },
+    { "slot": 2, "slug": "nikkei-tops-65000-brent-slips-below-100-as-hormuz-thaw-trade-extends", "category": "Markets", "needs_review": false, "word_count": 661, "sources": 4, "draft_iterations": 2 },
+    { "slot": 3, "slug": "pope-leo-xiv-ai-encyclical-magnifica-humanitas", "category": "World", "needs_review": false, "word_count": 694, "sources": 2, "draft_iterations": 2 },
+    { "slot": 4, "slug": "huawei-touts-logicfolding-chip-design-in-shanghai", "category": "Tech", "needs_review": false, "word_count": 544, "sources": 2, "draft_iterations": 1 },
+    { "slot": 5, "slug": "crack-may-be-easing-pressure-in-garden-grove-chemical-tank-as-da-opens-probe", "category": "Health", "needs_review": false, "word_count": 511, "sources": 4, "draft_iterations": 1 }
   ],
-  "edition_size": "4/5",
-  "edition_size_gap_note": "Published 4 of 5 stories. Slot 5 was held empty because no fifth cluster could field 2 body-tier sources within the research-step time budget after the Pope-Leo AI encyclical, SpaceX IPO, Turkey CHP raid, Huawei chip breakthrough, Pakistan train bombing, and Markets-Iran-spillover candidates were all blocked at the body fetch step. The N/5 banner on the homepage will reflect this.",
+  "edition_size": "5/5",
+  "supersedes_primary": {
+    "primary_status": "partial",
+    "primary_sha": "89907f1",
+    "primary_articles": 4,
+    "retry_improved": "Filled all 5 slots, swapped White House gunman / Russia Oreshnik (dedupe-penalized and body-tier-thin) for higher-value Markets, Pope-AI, and Huawei clusters that the primary had logged as candidates but had to skip due to body-fetch failures."
+  },
   "egress_blocked_hostnames": [
-    "bbc.com",
     "feeds.bbci.co.uk",
-    "npr.org",
+    "bbc.com",
     "feeds.npr.org",
-    "thehill.com",
-    "politico.com",
+    "npr.org",
     "rss.politico.com",
+    "politico.com",
     "theverge.com",
     "ft.com",
-    "reuters.com",
-    "apnews.com",
-    "dw.com",
+    "thehill.com",
     "realclearpolitics.com",
-    "theguardian.com",
-    "cnbc.com",
-    "france24.com",
-    "washingtonpost.com",
-    "nbcnews.com"
+    "propublica.org",
+    "nytimes.com",
+    "feeds.a.dj.com"
   ],
   "errors": []
 }
