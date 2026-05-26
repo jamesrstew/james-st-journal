@@ -1,1 +1,177 @@
-{"date":"2026-05-26","status":"in_progress","started_at":"2026-05-26T12:07:31Z","stages":{}}
+{
+  "date": "2026-05-26",
+  "status": "success",
+  "started_at": "2026-05-26T12:07:31Z",
+  "stages": {
+    "ingest": {
+      "items": 1107,
+      "feeds_ok": 31,
+      "feeds_fail": 9,
+      "duration_sec": 90,
+      "feeds_failed": [
+        "Politico",
+        "The Verge",
+        "NPR Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World",
+        "FT Home",
+        "NYT World (GN)",
+        "NYT Tech (GN)"
+      ]
+    },
+    "cluster": {
+      "clusters_evaluated": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 5,
+      "note": "qualitative top-5 cluster pass over 1107 items in the last 36 hours"
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "us-strikes-iran-deal-progress",
+          "category": "Politics",
+          "raw_score": 20.63,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 2,
+          "cluster": "russia-warns-kyiv-strikes",
+          "category": "World",
+          "raw_score": 10.98,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "cornyn-paxton-texas-runoff",
+          "category": "Politics",
+          "raw_score": 10.41,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 4,
+          "cluster": "ferrari-luce-electric-five-seat",
+          "category": "Business",
+          "raw_score": 7.68,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 5,
+          "cluster": "treasury-curve-warsh-higher-for-longer",
+          "category": "Markets",
+          "raw_score": 3.1,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 17,
+      "sources_failed": 11,
+      "duration_sec": 180,
+      "note": "fetch cascade: curl direct on accessible publishers (CNBC, CBS, Fox, NBC, Wash Examiner, Semafor, Axios, Al Jazeera); Google News URLs resolved via googlenewsdecoder; Reuters, AP, BBC, Hill, Guardian, Wired, NPR, FT, NYT, Verge all returned 403 to both direct curl and WebFetch"
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 65,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": true
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "us-strikes-iran-as-rubio-says-deal-is-days-away",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 922,
+      "sources": 5
+    },
+    {
+      "slot": 2,
+      "slug": "russia-warns-rubio-of-systematic-strikes-on-kyiv",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 682,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "cornyn-paxton-texas-runoff-tests-trump-grip",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 714,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "ferrari-unveils-electric-luce-and-shares-fall",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 537,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "bond-market-tells-warsh-the-free-lunch-is-over",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 568,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "apnews.com",
+    "bbc.com",
+    "ft.com",
+    "nbcnews.com",
+    "npr.org",
+    "politico.com",
+    "reuters.com",
+    "theguardian.com",
+    "thehill.com",
+    "theverge.com",
+    "wired.com"
+  ],
+  "errors": [],
+  "notes": [
+    "WSJ feeds returned stale items (frozen at Jan 27 2025); contributed zero to mandate signal.",
+    "NYT Google News filters returned 0-1 items each (NYT World and NYT Tech filters appear empty).",
+    "Slot 4 (Ferrari) and Slot 5 (Warsh) shipped with single-bucket lean_mix (center only); both editors verified the mono-perspective disclosure in each draft."
+  ]
+}
