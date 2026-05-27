@@ -1,6 +1,76 @@
 {
   "date": "2026-05-27",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-05-27T12:07:54Z",
-  "stages": {}
+  "finished_at": "2026-05-27T12:27:38Z",
+  "stages": {
+    "ingest": {
+      "items": 1279,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "feeds_failed_list": ["The Verge", "FT Home", "Politico", "NPR Top", "NPR Business", "NPR Tech", "NPR World"],
+      "duration_sec": 9
+    },
+    "cluster": {
+      "clusters_considered": 12,
+      "body_tier_clusters": 8,
+      "duration_sec": 1
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "S&P 500 and Nasdaq records, Micron joins $1T club, Nvidia triples Taiwan spend", "category": "Markets", "score": 9.5, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "Trump-backed Paxton ousts Cornyn in Texas Senate GOP runoff", "category": "Politics", "score": 10.3, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "BP ousts chair Albert Manifold; Manifold disputes ouster", "category": "Business", "score": 9.2, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 4, "cluster": "NASA awards Blue Origin and Firefly contracts to pre-stage lunar base by 2028", "category": "Tech", "score": 10.3, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 5, "cluster": "Israel expands ground operations past Yellow Line in southern Lebanon as strikes kill dozens", "category": "World", "score": 4.94, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 0.85 }
+      ],
+      "core_beat_count": 4,
+      "composition_floor_met": true
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 12,
+      "sources_failed": 0,
+      "note": "Routines egress policy blocks WebFetch and curl for Reuters, AP, Guardian, BBC, NPR, FT, Politico, The Hill, Axios, Ars Technica, Wired, DW, NYT, WSJ, Bloomberg. Built all dossiers from accessible body-tier outlets: CNBC, CBS News, Al Jazeera, PBS NewsHour. Every dossier meets the 2-source / 600-char hard minimum.",
+      "duration_sec": 26
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 55,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "micron-sk-hynix-cross-1-trillion-as-nvidia-triples-taiwan-spend", "category": "Markets", "needs_review": false, "word_count": 836, "sources": 4 },
+    { "slot": 2, "slug": "paxton-ousts-cornyn-as-trump-endorsement-flips-texas-senate-race", "category": "Politics", "needs_review": false, "word_count": 694, "sources": 2 },
+    { "slot": 3, "slug": "manifold-disputes-bp-ouster-as-board-cites-conduct", "category": "Business", "needs_review": false, "word_count": 641, "sources": 2 },
+    { "slot": 4, "slug": "nasa-hires-blue-origin-and-firefly-to-pre-stage-a-moon-base-by-2028", "category": "Tech", "needs_review": false, "word_count": 520, "sources": 2 },
+    { "slot": 5, "slug": "israel-pushes-past-yellow-line-as-strikes-kill-dozens-in-south-lebanon", "category": "World", "needs_review": false, "word_count": 545, "sources": 2 }
+  ],
+  "egress_blocked_hostnames": ["www.theverge.com", "www.ft.com", "rss.politico.com", "feeds.npr.org", "www.bbc.com", "www.reuters.com", "apnews.com", "www.theguardian.com", "www.axios.com", "arstechnica.com", "www.wired.com", "thehill.com", "www.dw.com"],
+  "errors": []
 }
