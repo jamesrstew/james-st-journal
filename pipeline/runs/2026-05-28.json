@@ -26,11 +26,51 @@
     },
     "select": {
       "chosen": [
-        { "slot": 1, "cluster": "US-Iran ceasefire unravels: fresh strikes, Hormuz tankers flee, draft deal in dispute", "category": "World",    "score": 10.8, "mandate_count": 2, "signal_boost": 1.7,  "category_weight": 0.85 },
-        { "slot": 2, "cluster": "Snowflake jumps and Salesforce stalls as AI earnings split enterprise software",       "category": "Business", "score": 7.2,  "mandate_count": 2, "signal_boost": 1.7,  "category_weight": 1.0 },
-        { "slot": 3, "cluster": "Ex-federal judges urge Miami court to reopen Trump IRS settlement as possible fraud",  "category": "Politics", "score": 5.4,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
-        { "slot": 4, "cluster": "Google security engineer charged in $1.2M Polymarket insider-trading scheme",          "category": "Tech",     "score": 5.6,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
-        { "slot": 5, "cluster": "Ebola surges in DR Congo as Uganda seals border and US plans Kenya quarantine",        "category": "Health",   "score": 4.4,  "mandate_count": 0, "signal_boost": 1.0,  "category_weight": 0.7 }
+        {
+          "slot": 1,
+          "cluster": "US-Iran ceasefire unravels: fresh strikes, Hormuz tankers flee, draft deal in dispute",
+          "category": "World",
+          "score": 10.8,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "Snowflake jumps and Salesforce stalls as AI earnings split enterprise software",
+          "category": "Business",
+          "score": 7.2,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 3,
+          "cluster": "Ex-federal judges urge Miami court to reopen Trump IRS settlement as possible fraud",
+          "category": "Politics",
+          "score": 5.4,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 4,
+          "cluster": "Google security engineer charged in $1.2M Polymarket insider-trading scheme",
+          "category": "Tech",
+          "score": 5.6,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 5,
+          "cluster": "Ebola surges in DR Congo as Uganda seals border and US plans Kenya quarantine",
+          "category": "Health",
+          "score": 4.4,
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 0.7
+        }
       ],
       "core_beat_count": 3,
       "notes": "Slot 1 led via the mandate escape hatch (Bloomberg + Economist mandate_count >= 2 on the Iran cluster). Slot 3 was originally drafted as the DOJ/Carroll probe but swapped to the bipartisan ex-judges petition on the Trump IRS settlement because the only reliably fetchable body source on Carroll was CBS (Reuters/BBC/Hill/Guardian/Deutsche Welle all egress-blocked or PerimeterX-walled), failing the two-body-source hard minimum."
@@ -40,7 +80,7 @@
       "sources_fetched": 21,
       "sources_failed": 6,
       "duration_sec": 70,
-      "notes": "Egress proxy blocks remain heavy across Reuters, BBC, The Hill, FT, NPR, Politico, AP News (direct), Guardian (direct), DW, Ars Technica, Wired, Axios — all routed via Google News (GN) RSS yesterday for the same reason. Google News landing pages do not expose the destination URL to curl, so GN-routed bodies could not be retrieved today. Body sources came from CNBC, PBS, CBS, NBC, Al Jazeera, and Fox News — direct curl with a browser UA worked for all six."
+      "notes": "Egress proxy blocks remain heavy across Reuters, BBC, The Hill, FT, NPR, Politico, AP News (direct), Guardian (direct), DW, Ars Technica, Wired, Axios \u2014 all routed via Google News (GN) RSS yesterday for the same reason. Google News landing pages do not expose the destination URL to curl, so GN-routed bodies could not be retrieved today. Body sources came from CNBC, PBS, CBS, NBC, Al Jazeera, and Fox News \u2014 direct curl with a browser UA worked for all six."
     },
     "draft": {
       "writers_spawned": 5,
@@ -53,8 +93,8 @@
       "revised": 3,
       "held": 0,
       "revise_notes": {
-        "slot_3": "Luttig descriptor included 'Fourth Circuit,' not in dossier — softened to 'former appellate Judge … a well-known conservative jurist who has been critical of Trump' (CBS phrasing).",
-        "slot_4": "D4vd reference cited 'a Los Angeles homicide investigation' — Los Angeles not in any dossier source; rewrote to drop the jurisdiction claim.",
+        "slot_3": "Luttig descriptor included 'Fourth Circuit,' not in dossier \u2014 softened to 'former appellate Judge \u2026 a well-known conservative jurist who has been critical of Trump' (CBS phrasing).",
+        "slot_4": "D4vd reference cited 'a Los Angeles homicide investigation' \u2014 Los Angeles not in any dossier source; rewrote to drop the jurisdiction claim.",
         "slot_5": "Freshness pivot misattributed 'seven cases' to JSJ's Saturday edition (Saturday's headline said five). Rewritten to contrast Saturday's reported five with today's seven."
       }
     },
@@ -73,16 +113,56 @@
       "estimated_cost_usd": 0.08
     },
     "commit": {
-      "sha": "pending",
+      "sha": "1c6ead7d8653b3d4c229e5369cbe5017e1dbc931",
       "pushed": true
     }
   },
   "articles": [
-    { "slot": 1, "slug": "iran-and-us-trade-strikes-as-hormuz-deal-collapses-into-dispute",          "category": "World",    "needs_review": false, "word_count": 890, "sources": 5, "draft_iterations": 1 },
-    { "slot": 2, "slug": "snowflake-jumps-36-on-6-billion-aws-pact-as-salesforce-guidance-disappoints","category": "Business","needs_review": false, "word_count": 700, "sources": 3, "draft_iterations": 1 },
-    { "slot": 3, "slug": "ex-judges-ask-miami-court-to-reopen-trump-irs-settlement",                  "category": "Politics", "needs_review": false, "word_count": 695, "sources": 2, "draft_iterations": 2 },
-    { "slot": 4, "slug": "google-engineer-charged-polymarket-insider-trading",                        "category": "Tech",     "needs_review": false, "word_count": 548, "sources": 4, "draft_iterations": 2 },
-    { "slot": 5, "slug": "uganda-shuts-congo-border-as-us-plans-kenya-ebola-facility",                "category": "Health",   "needs_review": false, "word_count": 549, "sources": 3, "draft_iterations": 2 }
+    {
+      "slot": 1,
+      "slug": "iran-and-us-trade-strikes-as-hormuz-deal-collapses-into-dispute",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 890,
+      "sources": 5,
+      "draft_iterations": 1
+    },
+    {
+      "slot": 2,
+      "slug": "snowflake-jumps-36-on-6-billion-aws-pact-as-salesforce-guidance-disappoints",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 700,
+      "sources": 3,
+      "draft_iterations": 1
+    },
+    {
+      "slot": 3,
+      "slug": "ex-judges-ask-miami-court-to-reopen-trump-irs-settlement",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 695,
+      "sources": 2,
+      "draft_iterations": 2
+    },
+    {
+      "slot": 4,
+      "slug": "google-engineer-charged-polymarket-insider-trading",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 548,
+      "sources": 4,
+      "draft_iterations": 2
+    },
+    {
+      "slot": 5,
+      "slug": "uganda-shuts-congo-border-as-us-plans-kenya-ebola-facility",
+      "category": "Health",
+      "needs_review": false,
+      "word_count": 549,
+      "sources": 3,
+      "draft_iterations": 2
+    }
   ],
   "egress_blocked_hostnames": [
     "www.reuters.com",
