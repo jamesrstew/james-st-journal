@@ -1,6 +1,52 @@
 {
   "date": "2026-05-29",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-05-29T12:05:51Z",
-  "stages": {}
+  "completed_at": "2026-05-29T14:36:00Z",
+  "fire": "retry",
+  "stages": {
+    "ingest": { "items": 320, "feeds_ok": 26, "feeds_fail": 4, "duration_sec": 60, "notes": "WebFetch returned summaries for several feeds; raw RSS captured via curl where possible. WSJ feeds returned cached Jan-2025 content (stale)." },
+    "cluster": { "clusters": 32, "body_tier_clusters": 18, "duration_sec": 3 },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "Federal judge blocks Trump $1.8B Anti-Weaponization Fund", "category": "Politics", "score": 4.2, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "US-Iran tentative 60-day ceasefire MOU with Strait of Hormuz reopening framework", "category": "World", "score": 4.0, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 0.85 },
+        { "slot": 3, "cluster": "Blue Origin New Glenn explodes on Cape Canaveral pad during hot-fire test", "category": "Tech", "score": 3.6, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 },
+        { "slot": 4, "cluster": "Oil down 20 pct on Iran-deal optimism; Fed Bowman pushes against rate hikes", "category": "Markets", "score": 3.5, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 },
+        { "slot": 5, "cluster": "Russian drone strikes NATO-member Romania apartment block; alliance condemns", "category": "World", "score": 3.2, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 0.85 }
+      ],
+      "core_beat_count": 3,
+      "notes": "Composition floor met (3 core-beats: Politics, Tech, Markets). Politics topped raw_score among core-beat clusters so it leads. WSJ/FT/Bloomberg/Economist body-tier coverage was unavailable due to egress and stale feeds, so mandate_count is 0 across all clusters."
+    },
+    "research": { "dossiers_built": 5, "sources_fetched": 13, "sources_failed": 6, "duration_sec": 120, "notes": "BBC, Reuters, Guardian, AP, NPR, DW, The Hill, FT all blocked by egress policy or behind captcha. Bodies pulled from CBS News, NBC News, CNBC, and Al Jazeera." },
+    "draft": { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit": { "editors_spawned": 5, "approved_first_pass": 5, "revised": 0, "held": 0, "notes": "Two slots (3, 4) initially flagged for length on an interim writer pass; the writer's own internal iteration produced the in-target draft and a fresh editor pass approved both. No formal revision round required." },
+    "revise": { "revisions_spawned": 0, "approved_after_revise": 0 },
+    "stage": { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 34, "estimated_cost_usd": 0.08 },
+    "commit": { "sha": "pending", "pushed": false }
+  },
+  "articles": [
+    { "slot": 1, "slug": "judge-freezes-trump-anti-weaponization-fund", "category": "Politics", "needs_review": false, "word_count": 886, "sources": 2 },
+    { "slot": 2, "slug": "us-iran-draft-60-day-truce-with-hormuz-reopening-awaits-trump", "category": "World", "needs_review": false, "word_count": 700, "sources": 2 },
+    { "slot": 3, "slug": "blue-origin-new-glenn-explodes-on-pad-jolting-artemis-timeline", "category": "Tech", "needs_review": false, "word_count": 685, "sources": 2 },
+    { "slot": 4, "slug": "oil-tumbles-20-percent-as-bowman-tells-fed-to-sit-still", "category": "Markets", "needs_review": false, "word_count": 537, "sources": 4 },
+    { "slot": 5, "slug": "russian-drone-hits-romanian-apartment-block-as-nato-vows-defense", "category": "World", "needs_review": false, "word_count": 555, "sources": 3 }
+  ],
+  "egress_blocked_hostnames": [
+    "apnews.com",
+    "bbc.com",
+    "dw.com",
+    "feeds.npr.org",
+    "ft.com",
+    "reuters.com",
+    "theguardian.com",
+    "thehill.com"
+  ],
+  "errors": [
+    "RSS fetch blocked by egress policy on apnews.com, bbc.com (feeds), theguardian.com, dw.com, ft.com.",
+    "thehill.com served PerimeterX captcha interstitial on article body fetches; The Hill was excluded from dossiers as a result.",
+    "Body fetch blocked by egress on bbc.com and reuters.com; relied on CBS News, NBC News, CNBC, Al Jazeera for body-tier coverage.",
+    "WSJ Markets/Business/World RSS returned stale January 2025 content; those feeds skipped for clustering."
+  ]
 }
