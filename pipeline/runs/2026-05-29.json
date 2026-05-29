@@ -24,7 +24,7 @@
     "revise": { "revisions_spawned": 0, "approved_after_revise": 0 },
     "stage": { "articles_written": 5, "validator_ok": true },
     "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 34, "estimated_cost_usd": 0.08 },
-    "commit": { "sha": "pending", "pushed": false }
+    "commit": { "sha": "e2cd21ae9b7213b6a802f514905a4626ffecad74", "pushed": true }
   },
   "articles": [
     { "slot": 1, "slug": "judge-freezes-trump-anti-weaponization-fund", "category": "Politics", "needs_review": false, "word_count": 886, "sources": 2 },
