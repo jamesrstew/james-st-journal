@@ -1,6 +1,83 @@
 {
   "date": "2026-05-30",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-05-30T12:06:45Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1189,
+      "feeds_ok": 26,
+      "feeds_fail": 14,
+      "duration_sec": 2,
+      "notes": "Politico, The Verge, FT blocked by egress proxy; all four NPR feeds blocked by Akamai/origin; WSJ World/Business/Markets feeds returning a stale Jan-2025 snapshot (no recent items); NYT GN section searches returned empty channels for World/US/Business/Tech."
+    },
+    "cluster": {
+      "clusters": 11,
+      "body_tier_clusters": 11,
+      "duration_sec": 1
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "kennedy-center-trump-name-blocked", "category": "Politics", "score": 10.498, "adjusted_score": 10.498, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "bondi-epstein-house-testimony", "category": "Politics", "score": 9.31, "adjusted_score": 9.31, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "hegseth-shangri-la-china", "category": "World", "score": 9.191, "adjusted_score": 9.191, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85 },
+        { "slot": 4, "cluster": "eu-hungary-magyar-funding", "category": "World", "score": 8.176, "adjusted_score": 7.767, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85 },
+        { "slot": 5, "cluster": "louisiana-congressional-map", "category": "Politics", "score": 5.999, "adjusted_score": 5.999, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0, "composition_floor_restricted": true }
+      ],
+      "core_beat_count": 3,
+      "notes": "Iran cluster (mandate=2) finished 6th with raw_score 4.39 after a 0.5 dedupe penalty for running on five of the prior seven editions; ineligible for Slot 1 only because Kennedy Center scored higher among lead-eligible clusters. Slot 5 was restricted to core beats to meet the composition floor (>=3 core beats)."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 12,
+      "sources_failed": 8,
+      "duration_sec": 110,
+      "notes": "Google News redirect URLs returned HTTP 400 via WebFetch; bbc.com, cnbc.com, and thehill.com URLs returned 403 for several articles. Successful direct fetches: PBS NewsHour x5, Al Jazeera x4, CBS News x2, Axios x1, Christian Science Monitor x1. All five dossiers carry >=2 body-tier sources with bodies >=600 chars; lean_mix for every dossier is ['center','lean-left']."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 2,
+      "revised": 3,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 3,
+      "approved_after_revise": 3
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 31,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "pending",
+      "pushed": false
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "judge-strips-trump-name-from-kennedy-center-blocks-closure", "category": "Politics", "needs_review": false, "word_count": 737, "sources": 4 },
+    { "slot": 2, "slug": "bondi-defends-epstein-files-handling-declines-trump-questions", "category": "Politics", "needs_review": false, "word_count": 563, "sources": 2 },
+    { "slot": 3, "slug": "hegseth-presses-asian-allies-as-vietnam-warns-of-flashpoints", "category": "World", "needs_review": false, "word_count": 659, "sources": 2 },
+    { "slot": 4, "slug": "eu-unlocks-16-4-billion-for-hungary-as-magyar-launches-reforms", "category": "World", "needs_review": false, "word_count": 457, "sources": 2 },
+    { "slot": 5, "slug": "louisiana-senate-passes-map-cutting-majority-black-district", "category": "Politics", "needs_review": false, "word_count": 463, "sources": 2 }
+  ],
+  "egress_blocked_hostnames": [
+    "bbc.com",
+    "cnbc.com",
+    "ft.com",
+    "npr.org",
+    "politico.com",
+    "thehill.com",
+    "theverge.com"
+  ],
+  "errors": []
 }
