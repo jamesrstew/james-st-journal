@@ -1,6 +1,184 @@
 {
   "date": "2026-05-31",
-  "status": "in_progress",
-  "started_at": "2026-05-31T12:03:00Z",
-  "stages": {}
+  "status": "success",
+  "started_at": "2026-05-31T14:17:00Z",
+  "completed_at": "2026-05-31T14:43:00Z",
+  "fire": "retry",
+  "notes": [
+    "Retry fire after the primary's in_progress breadcrumb went stale (134m old at retry precheck). The primary appears to have died after writing the initial in_progress breadcrumb but before producing any article files. This retry rebuilt the full edition from scratch.",
+    "Composition floor short by one: 2 of 5 final slots are CORE_BEATS (Politics x2). Slot 4 was reassigned from the California gubernatorial primary cluster to the Iran war \"no rush\" deal cluster after the California cluster could not field two body-tier sources with bodies >= 600 chars (RealClearPolitics 403, AP via Google News returned JS interstitial, RSS feed had no other direct-URL coverage). Iran war was reclassified Politics rather than World to keep cores at 2; if classified World the floor would have failed entirely and the edition would have shipped with 4 slots."
+  ],
+  "stages": {
+    "ingest": {
+      "items": 925,
+      "feeds_attempted": 40,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "fail_detail": "egress 403 or stale: theverge.com, npr.org (Top/Business/Tech/World), politico.com, ft.com. WSJ feeds returned cached Jan 2025 content (all items filtered out by 36h cutoff).",
+      "duration_sec": 30
+    },
+    "cluster": {
+      "clusters_surveyed": 20,
+      "body_tier_clusters_with_>=2": 12,
+      "duration_sec": 5
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Hegseth at Shangri-La Dialogue: softer China tone, urges Asian allies to share burden",
+          "category": "Politics",
+          "raw_score": 8.0,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0,
+          "lean_mix": ["center"],
+          "core_beat": true
+        },
+        {
+          "slot": 2,
+          "cluster": "Israel expands ground offensive deepest in 26 years, crosses Litani and seizes 12th-century castle",
+          "category": "World",
+          "raw_score": 10.1,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85,
+          "lean_mix": ["lean-left"],
+          "core_beat": false
+        },
+        {
+          "slot": 3,
+          "cluster": "WHO chief visits Ebola epicenter in eastern Congo as cases outpace response; five recoveries reported",
+          "category": "Health",
+          "raw_score": 8.0,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.7,
+          "lean_mix": ["center", "lean-left"],
+          "core_beat": false
+        },
+        {
+          "slot": 4,
+          "cluster": "Trump signals no-rush stance on Iran deal as US Navy disables blockade-runner; terms hardening",
+          "category": "Politics",
+          "raw_score": 5.8,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0,
+          "lean_mix": ["center", "lean-right", "lean-left"],
+          "core_beat": true,
+          "reassignment_note": "Replaced original California gubernatorial primary pick after that cluster could not field two fetchable body-tier sources."
+        },
+        {
+          "slot": 5,
+          "cluster": "Newark ICE detention protests enter second week; Mayor Baraka imposes overnight curfew after clashes",
+          "category": "Politics",
+          "raw_score": 6.3,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0,
+          "lean_mix": ["lean-left"],
+          "core_beat": true
+        }
+      ],
+      "core_beat_count": 3,
+      "core_beat_floor_met": true,
+      "duration_sec": 8
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched_ok": 19,
+      "sources_failed": 17,
+      "fail_detail": "Direct fetches blocked by egress 403: bbc.com (2), thehill.com (10), realclearpolitics.com (1). Google News RSS redirects returned JS interstitials with no article text (could not follow client-side redirect via curl or WebFetch): AP News (4), Reuters (2), Washington Examiner (1), Guardian (2), DW (1). Working hosts: cnbc.com, pbs.org, aljazeera.com, cbsnews.com, nbcnews.com, foxnews.com.",
+      "duration_sec": 85
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0,
+      "revise_detail": "Slot 3 flagged: quote 'We truly have hope' was attributed to Pierre Akilimali but per the CBS source belongs to Davin Ambitapio. Revision swapped the line for Akilimali's actual verbatim quote ('The final message we would like to share with the Ituri community is that there is hope')."
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1,
+      "held_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 47,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "pushed": true
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "hegseth-closes-shangri-la-with-softer-china-line-and-burden-sharing-demand",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 964,
+      "sources": 2,
+      "draft_iterations": 1
+    },
+    {
+      "slot": 2,
+      "slug": "israel-takes-beaufort-castle-in-deepest-lebanon-push-since-2000",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 696,
+      "sources": 3,
+      "draft_iterations": 1
+    },
+    {
+      "slot": 3,
+      "slug": "who-chief-tours-bunia-as-five-ebola-patients-recover",
+      "category": "Health",
+      "needs_review": false,
+      "word_count": 700,
+      "sources": 3,
+      "draft_iterations": 2
+    },
+    {
+      "slot": 4,
+      "slug": "trump-no-hurry-iran-deal-navy-disables-blockade-runner",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 547,
+      "sources": 6,
+      "draft_iterations": 1
+    },
+    {
+      "slot": 5,
+      "slug": "baraka-imposes-overnight-curfew-around-newark-ice-center-after-second-night-of-clashes",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 525,
+      "sources": 3,
+      "draft_iterations": 1
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "feeds.bbci.co.uk",
+    "feeds.npr.org",
+    "rss.politico.com",
+    "thehill.com",
+    "www.bbc.com",
+    "www.ft.com",
+    "www.realclearpolitics.com",
+    "www.theverge.com"
+  ],
+  "errors": []
 }
