@@ -1,1 +1,61 @@
-{"date":"2026-06-01","status":"in_progress","started_at":"2026-06-01T12:06:29Z","stages":{}}
+{
+  "date": "2026-06-01",
+  "status": "success",
+  "started_at": "2026-06-01T12:06:29Z",
+  "stages": {
+    "ingest": {
+      "items": 945,
+      "feeds_ok": 26,
+      "feeds_fail": 7,
+      "failed_feeds": ["Politico", "The Verge", "NPR Top", "NPR Business", "NPR Tech", "NPR World", "FT Home"]
+    },
+    "cluster": {
+      "clusters_considered": 12,
+      "body_tier_clusters": 9
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "AI rally / SoftBank tops Toyota / Nikkei 67,000", "category": "Markets", "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "Powell warns politicizing Fed would destroy public trust", "category": "Politics", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "Netanyahu orders Beirut strikes as US floats de-escalation roadmap", "category": "World", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85 },
+        { "slot": 4, "cluster": "Nvidia opens PC front while Washington tightens AI chip exports to China", "category": "Tech", "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0 },
+        { "slot": 5, "cluster": "Colombia presidential vote heads to runoff between Cepeda and de la Espriella", "category": "World", "mandate_count": 0, "signal_boost": 1.0, "category_weight": 0.85 }
+      ],
+      "core_beat_count": 3,
+      "notes": "Berkshire-Taylor Morrison ($6.8B) was the initial slot 5 candidate but dropped to Colombia after only one direct body-tier source (CNBC) could be fetched; reuters.com and bloomberg.com bodies were blocked by egress and Google News /rss/articles/ token resolution via the Fbv4je batchexecute RPC returned HTTP 400. Slot 4 framed as a Nvidia twofer combining the Vera/PC launch with the same-day chip-export crackdown."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 14,
+      "sources_failed": 9,
+      "notes": "Failures dominated by Google News /rss/articles/ tokens which require a batchexecute resolve that HTTP 400'd. BBC direct article fetches returned 403 (UA-filter on bbc.com). Slot 1 published with single-bucket lean_mix (center only); per writer.md, the counterpoint surfaces a substantive skeptic view (BCA Research breadth concerns, Oppenheimer) rather than a partisan-opposing-bucket objection."
+    },
+    "draft": { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit": { "editors_spawned": 5, "approved_first_pass": 2, "revised": 3, "held": 0 },
+    "revise": { "revisions_spawned": 3, "approved_after_revise": 3 },
+    "stage": { "articles_written": 5, "validator_ok": true },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 43,
+      "estimated_cost_usd": 0.08
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "softbank-passes-toyota-as-ai-rally-narrows-to-twenty-stocks", "category": "Markets", "needs_review": false, "word_count": 900, "sources": 3 },
+    { "slot": 2, "slug": "powell-warns-politicizing-fed-would-destroy-public-trust", "category": "Politics", "needs_review": false, "word_count": 632, "sources": 2 },
+    { "slot": 3, "slug": "netanyahu-orders-beirut-strikes-as-us-floats-de-escalation-roadmap", "category": "World", "needs_review": false, "word_count": 673, "sources": 3 },
+    { "slot": 4, "slug": "nvidia-opens-pc-front-as-washington-tightens-china-chip-curbs", "category": "Tech", "needs_review": false, "word_count": 494, "sources": 3 },
+    { "slot": 5, "slug": "colombia-presidential-vote-heads-to-june-runoff-as-petro-disputes-count", "category": "World", "needs_review": false, "word_count": 545, "sources": 3 }
+  ],
+  "egress_blocked_hostnames": [
+    "rss.politico.com",
+    "theverge.com",
+    "feeds.npr.org",
+    "ft.com",
+    "bbc.com",
+    "reuters.com",
+    "web.archive.org"
+  ],
+  "errors": []
+}
