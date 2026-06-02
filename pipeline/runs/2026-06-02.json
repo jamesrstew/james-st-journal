@@ -1,6 +1,184 @@
 {
   "date": "2026-06-02",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-02T12:06:36Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1234,
+      "feeds_ok": 26,
+      "feeds_fail": 14,
+      "feeds_failed_list": [
+        "Politico",
+        "The Verge",
+        "NPR Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World",
+        "WSJ World",
+        "WSJ Business",
+        "WSJ Markets",
+        "FT Home",
+        "NYT World (GN)",
+        "NYT US (GN)",
+        "NYT Business (GN)",
+        "NYT Tech (GN)"
+      ],
+      "duration_sec": 18
+    },
+    "cluster": {
+      "clusters_evaluated": "ad-hoc (top-of-mind clustering on ~1200 items)",
+      "body_tier_clusters": 17,
+      "duration_sec": 6
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Anthropic files confidentially for SEC IPO as valuation nears $1 trillion",
+          "category": "Tech",
+          "score": 8.5,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 2,
+          "cluster": "Alphabet to raise $80 billion for AI as Berkshire makes $10 billion buy",
+          "category": "Markets",
+          "score": 6.2,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 3,
+          "cluster": "Trump administration will comply with court order freezing $1.8B 'anti-weaponization' fund as Republicans push back",
+          "category": "Politics",
+          "score": 5.8,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 4,
+          "cluster": "Russian overnight missile attack kills 18 across Ukraine, including children",
+          "category": "World",
+          "score": 5.0,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 5,
+          "cluster": "Trump says Israel and Hezbollah agreed to dial back fighting as strikes continue in southern Lebanon",
+          "category": "World",
+          "score": 4.4,
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 0.85
+        }
+      ],
+      "core_beat_count": 3,
+      "composition_floor_met": true
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 16,
+      "sources_failed": 8,
+      "blocked_outlets_at_research": [
+        "bbc.com",
+        "thehill.com",
+        "axios.com (cf challenge)",
+        "reuters.com (egress)",
+        "ft.com"
+      ],
+      "duration_sec": 70
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 3,
+      "revised": 2,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 2,
+      "approved_after_revise": 2,
+      "slots_revised": [
+        1,
+        5
+      ]
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 60,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "<filled-after-commit>",
+      "pushed": true
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "anthropic-files-confidentially-for-ipo-at-valuation-near-1-trillion",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 776,
+      "sources": 3
+    },
+    {
+      "slot": 2,
+      "slug": "alphabet-to-raise-80-billion-in-stock-sale-with-10-billion-berkshire-buy",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 675,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "doj-shelves-1-8-billion-anti-weaponization-fund-as-senate-gop-pushes-back",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 710,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "russia-fires-656-drones-and-73-missiles-at-ukraine-killing-at-least-18",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 567,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "trump-says-israel-and-hezbollah-agree-to-halt-fire-as-strikes-continue",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 559,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "ft.com",
+    "politico.com",
+    "theverge.com",
+    "npr.org",
+    "bbc.com",
+    "thehill.com",
+    "reuters.com",
+    "axios.com"
+  ],
+  "errors": []
 }
