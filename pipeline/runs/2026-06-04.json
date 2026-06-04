@@ -1,6 +1,85 @@
 {
   "date": "2026-06-04",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-04T12:06:43Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items_raw": 1483,
+      "items_recent": 1245,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "feeds_blocked_403": ["www.theverge.com", "rss.politico.com", "feeds.npr.org", "www.ft.com"],
+      "duration_sec": 22
+    },
+    "cluster": {
+      "clusters_total": 226,
+      "body_tier_clusters_kept": 226,
+      "method": "token-Jaccard with mandate/authority-weighted seeding"
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "House passes war powers resolution to halt US military action against Iran in rebuke of Trump", "category": "Politics", "raw_score": 10.69, "source_count": 11, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "balance_multiplier": 1.0 },
+        { "slot": 2, "cluster": "Trump to nominate Todd Blanche as permanent attorney general", "category": "Politics", "raw_score": 7.65, "source_count": 9, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0, "balance_multiplier": 1.0 },
+        { "slot": 3, "cluster": "Bitcoin falls to pre-Iran-conflict lows as crypto slide extends", "category": "Markets", "raw_score": 3.83, "source_count": 4, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "balance_multiplier": 0.75 },
+        { "slot": 4, "cluster": "Flesh-eating New World screwworm confirmed in Texas calf, first US case in decades", "category": "Health", "raw_score": 4.04, "source_count": 6, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.7, "balance_multiplier": 1.0 },
+        { "slot": 5, "cluster": "SpaceX targets $75 billion record IPO at $1.77 trillion valuation; Musk on track for first trillionaire", "category": "Markets", "raw_score": 9.18, "source_count": 9, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "balance_multiplier": 1.0 }
+      ],
+      "core_beat_count": 4,
+      "notes": "Slot 4 originally scored Trump $700M coal push (Business, raw_score 4.59) but every body-tier coal URL (The Hill, Reuters, Axios, Bloomberg) was blocked by egress proxy or unfetchable via Google News redirect. Swapped to next-ranked Health cluster (screwworm) which had reliable native URLs on CBS/NBC/CNBC."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 16,
+      "sources_failed": 8,
+      "duration_sec": 35,
+      "notes": "Egress proxy blocked native fetches on bbc.com, thehill.com, reuters.com, axios.com, aljazeera.com (intermittent), foxnews.com (RSS-feed URL mistakenly used in slot 1 first pass). CNBC, CBS, NBC, PBS, Fox News article pages worked. Slot 1 shipped on PBS + CBS only (2 sources, both > 600 chars)."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1,
+      "details": "Slot 2 (Blanche AG) — editor flagged two facts (Judge Brinkema name + May 28 date; Senate Majority Leader Thune urging shutdown) that came from recent_headlines rather than dossier body-tier sources; dek timing math was also off (six weeks vs. ~two months since Bondi firing). Writer revised; second editor approved."
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 100,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "house-passes-war-powers-resolution-on-iran-as-four-republicans-defect", "category": "Politics", "needs_review": false, "word_count": 862, "sources": 2 },
+    { "slot": 2, "slug": "trump-to-nominate-blanche-as-permanent-attorney-general", "category": "Politics", "needs_review": false, "word_count": 655, "sources": 3 },
+    { "slot": 3, "slug": "bitcoin-erases-iran-war-gains-as-long-term-holders-capitulate", "category": "Markets", "needs_review": false, "word_count": 710, "sources": 3 },
+    { "slot": 4, "slug": "usda-confirms-new-world-screwworm-in-texas-calf", "category": "Health", "needs_review": false, "word_count": 529, "sources": 3 },
+    { "slot": 5, "slug": "spacex-prices-record-ipo-at-135-a-share", "category": "Markets", "needs_review": false, "word_count": 521, "sources": 5 }
+  ],
+  "egress_blocked_hostnames": [
+    "bbc.com",
+    "thehill.com",
+    "reuters.com",
+    "axios.com",
+    "feeds.npr.org",
+    "rss.politico.com",
+    "www.theverge.com",
+    "www.ft.com"
+  ],
+  "errors": []
 }
