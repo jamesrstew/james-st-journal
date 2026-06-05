@@ -30,11 +30,46 @@
     },
     "select": {
       "chosen": [
-        { "slot": 1, "cluster": "Markets: Dow record, Broadcom AI miss, Asia tech selloff, Iran/Hezbollah overhang", "category": "Markets", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
-        { "slot": 2, "cluster": "Bolton to plead guilty in classified records case", "category": "Politics", "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 },
-        { "slot": 3, "cluster": "Senate passes $70B ICE funding bill; anti-weaponization fund survives", "category": "Politics", "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 },
-        { "slot": 4, "cluster": "Zelenskyy open letter to Putin; Putin hardline at St Petersburg; House passes Ukraine aid", "category": "World", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85 },
-        { "slot": 5, "cluster": "AI sector and Washington: OpenAI complies with Trump vetting order; Anthropic IPO; Warren summons Huang", "category": "Tech", "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 }
+        {
+          "slot": 1,
+          "cluster": "Markets: Dow record, Broadcom AI miss, Asia tech selloff, Iran/Hezbollah overhang",
+          "category": "Markets",
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "Bolton to plead guilty in classified records case",
+          "category": "Politics",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "Senate passes $70B ICE funding bill; anti-weaponization fund survives",
+          "category": "Politics",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Zelenskyy open letter to Putin; Putin hardline at St Petersburg; House passes Ukraine aid",
+          "category": "World",
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 5,
+          "cluster": "AI sector and Washington: OpenAI complies with Trump vetting order; Anthropic IPO; Warren summons Huang",
+          "category": "Tech",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        }
       ],
       "core_beat_count": 4,
       "composition_floor_met": true
@@ -76,16 +111,51 @@
       "estimated_cost_usd": 0.08
     },
     "commit": {
-      "sha": null,
-      "pushed": false
+      "sha": "f7befd7a3f32d4167e4901a875142132acd552bc",
+      "pushed": true
     }
   },
   "articles": [
-    { "slot": 1, "slug": "dow-hits-record-as-broadcom-miss-cracks-the-ai-trade", "category": "Markets", "needs_review": false, "word_count": 843, "sources": 4 },
-    { "slot": 2, "slug": "bolton-to-plead-guilty-to-one-count-in-classified-records-case", "category": "Politics", "needs_review": false, "word_count": 685, "sources": 3 },
-    { "slot": 3, "slug": "senate-passes-70-billion-ice-funding-anti-weaponization-fund-survives", "category": "Politics", "needs_review": false, "word_count": 683, "sources": 4 },
-    { "slot": 4, "slug": "zelenskyy-open-letter-asks-putin-for-face-to-face-talks", "category": "World", "needs_review": false, "word_count": 544, "sources": 5 },
-    { "slot": 5, "slug": "openai-agrees-to-trump-ai-review-as-washington-presses-sector", "category": "Tech", "needs_review": false, "word_count": 541, "sources": 3 }
+    {
+      "slot": 1,
+      "slug": "dow-hits-record-as-broadcom-miss-cracks-the-ai-trade",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 843,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "bolton-to-plead-guilty-to-one-count-in-classified-records-case",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 685,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "senate-passes-70-billion-ice-funding-anti-weaponization-fund-survives",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 683,
+      "sources": 4
+    },
+    {
+      "slot": 4,
+      "slug": "zelenskyy-open-letter-asks-putin-for-face-to-face-talks",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 544,
+      "sources": 5
+    },
+    {
+      "slot": 5,
+      "slug": "openai-agrees-to-trump-ai-review-as-washington-presses-sector",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 541,
+      "sources": 3
+    }
   ],
   "egress_blocked_hostnames": [
     "politico.com",
