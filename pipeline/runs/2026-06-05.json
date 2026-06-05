@@ -1,6 +1,99 @@
 {
   "date": "2026-06-05",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-05T12:03:00Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1338,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "duration_sec": 22,
+      "fail_reasons": [
+        "Politico (403)",
+        "The Verge (403)",
+        "NPR Top (403)",
+        "NPR Business (403)",
+        "NPR Tech (403)",
+        "NPR World (403)",
+        "FT Home (403)"
+      ],
+      "stale_feeds": [
+        "WSJ World (latest items from Jan 2025)",
+        "WSJ Business (latest items from Jan 2025)",
+        "WSJ Markets (latest items from Jan 2025)"
+      ]
+    },
+    "cluster": {
+      "clusters_examined": 22,
+      "body_tier_clusters": 14,
+      "duration_sec": 8
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "Markets: Dow record, Broadcom AI miss, Asia tech selloff, Iran/Hezbollah overhang", "category": "Markets", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "Bolton to plead guilty in classified records case", "category": "Politics", "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "Senate passes $70B ICE funding bill; anti-weaponization fund survives", "category": "Politics", "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 },
+        { "slot": 4, "cluster": "Zelenskyy open letter to Putin; Putin hardline at St Petersburg; House passes Ukraine aid", "category": "World", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85 },
+        { "slot": 5, "cluster": "AI sector and Washington: OpenAI complies with Trump vetting order; Anthropic IPO; Warren summons Huang", "category": "Tech", "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 }
+      ],
+      "core_beat_count": 4,
+      "composition_floor_met": true
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 19,
+      "sources_failed": 0,
+      "duration_sec": 45,
+      "notes": [
+        "Skipped GN-aggregator URLs (no server-side redirect to publisher); leaned on direct CNBC/CBS/NBC/PBS/Al Jazeera/Fox URLs.",
+        "BBC and The Hill direct URLs returned 403 across the run — likely egress-policy block."
+      ]
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1,
+      "held_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 62,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "dow-hits-record-as-broadcom-miss-cracks-the-ai-trade", "category": "Markets", "needs_review": false, "word_count": 843, "sources": 4 },
+    { "slot": 2, "slug": "bolton-to-plead-guilty-to-one-count-in-classified-records-case", "category": "Politics", "needs_review": false, "word_count": 685, "sources": 3 },
+    { "slot": 3, "slug": "senate-passes-70-billion-ice-funding-anti-weaponization-fund-survives", "category": "Politics", "needs_review": false, "word_count": 683, "sources": 4 },
+    { "slot": 4, "slug": "zelenskyy-open-letter-asks-putin-for-face-to-face-talks", "category": "World", "needs_review": false, "word_count": 544, "sources": 5 },
+    { "slot": 5, "slug": "openai-agrees-to-trump-ai-review-as-washington-presses-sector", "category": "Tech", "needs_review": false, "word_count": 541, "sources": 3 }
+  ],
+  "egress_blocked_hostnames": [
+    "politico.com",
+    "theverge.com",
+    "npr.org",
+    "ft.com",
+    "bbc.com",
+    "thehill.com"
+  ],
+  "errors": []
 }
