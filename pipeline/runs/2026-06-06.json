@@ -1,6 +1,185 @@
 {
   "date": "2026-06-06",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-06T12:08:39Z",
-  "stages": {}
+  "finished_at": "2026-06-06T12:44:08Z",
+  "stages": {
+    "ingest": {
+      "items": 1258,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "duration_sec": 3,
+      "fail_reasons": [
+        "Politico (403)",
+        "The Verge (403)",
+        "NPR Top (403)",
+        "NPR Business (403)",
+        "NPR Tech (403)",
+        "NPR World (403)",
+        "FT Home (403)"
+      ],
+      "stale_feeds": [
+        "WSJ World (latest items from Jan 2025)",
+        "WSJ Business (latest items from Jan 2025)",
+        "WSJ Markets (latest items from Jan 2025)"
+      ]
+    },
+    "cluster": {
+      "clusters_examined": 823,
+      "body_tier_clusters": "qualitative merge from ~30 high-signal clusters",
+      "duration_sec": 4
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Markets: May jobs blowout (172k) flips Fed bet from cut to hike; AI/chip selloff widens; rotation into financials/healthcare/Marvell+Flex",
+          "category": "Markets",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1,
+          "score": 9.2
+        },
+        {
+          "slot": 2,
+          "cluster": "Becerra advances to November ballot for California governor; Steyer-Hilton fight for second top-two slot",
+          "category": "Politics",
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "score": 5.5
+        },
+        {
+          "slot": 3,
+          "cluster": "US shoots down Iranian drones, intercepts ballistic missiles toward Kuwait/Bahrain; strikes Iranian radar at Goruk and Qeshm Island; Lebanon widens",
+          "category": "World",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 0.85,
+          "score": 3.8
+        },
+        {
+          "slot": 4,
+          "cluster": "Trump tells WSJ acting DNI Bill Pulte should start firings at ODNI; Senate skepticism snarls FISA renewal",
+          "category": "Politics",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1,
+          "score": 3.2
+        },
+        {
+          "slot": 5,
+          "cluster": "Google to pay SpaceX $920M/month for AI compute; Alphabet seeks fresh capital; Trump-OpenAI talks on possible government stake",
+          "category": "Tech",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1,
+          "score": 3
+        }
+      ],
+      "core_beat_count": 4,
+      "composition_floor_met": true,
+      "dropped_for_thin_sourcing": [
+        {
+          "cluster": "Federal judge strikes down Trump 39-country asylum policy",
+          "reason": "Only PBS NewsHour (AP wire) returned a body; Reuters/AP/Guardian via Google News did not server-side redirect; Hill returned px-captcha; CBS had video-only."
+        },
+        {
+          "cluster": "Energy Department: Antares Nuclear microreactor reaches criticality at INL",
+          "reason": "Only PBS NewsHour (AP wire) returned a body; no second outlet carried the story directly under a fetchable URL."
+        }
+      ]
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 17,
+      "sources_failed": 0,
+      "duration_sec": 60,
+      "notes": [
+        "Skipped GN-aggregator URLs (no server-side redirect to publisher); leaned on direct CNBC/CBS/NBC/PBS/Al Jazeera/Fox URLs and WebFetch where it worked.",
+        "BBC and The Hill direct URLs returned 403 across the run — egress-policy/px-captcha block (now 3+ days running for both).",
+        "CNBC URLs blocked WebFetch with 403 but resolved cleanly via curl + Mozilla UA — fell back accordingly."
+      ]
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 34,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "TBD",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "may-jobs-blowout-flips-fed-bet-to-rate-hike",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 884,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "becerra-advances-california-governor-general-election",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 688,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "us-shoots-down-iranian-drones-intercepts-gulf-missile-barrage",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 696,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "trump-tells-wsj-pulte-should-start-firings-at-odni",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 515,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "google-to-pay-spacex-920-million-a-month-for-ai-compute",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 548,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "bbc.com",
+    "ft.com",
+    "npr.org",
+    "politico.com",
+    "thehill.com",
+    "theverge.com"
+  ],
+  "errors": []
 }
