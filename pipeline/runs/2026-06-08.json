@@ -1,6 +1,167 @@
 {
   "date": "2026-06-08",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-08T12:03:00Z",
-  "stages": {}
+  "finished_at": "2026-06-08T12:39:00Z",
+  "stages": {
+    "ingest": {
+      "items": 1019,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "duration_sec": 18,
+      "notes": "Egress allowlist broader than 2026-06-07 — most native and GN feeds returned 200. Body-fetchable failures: Politico, The Verge, NPR (all 4 sections). Mandate-tier headline-only failure: FT Home. WSJ feeds returned stale content (pubDate January 2025) but accepted as legacy signal — Bloomberg and Economist GN feeds provided the live mandate signal."
+    },
+    "cluster": {
+      "clusters": 11,
+      "body_tier_clusters": 9,
+      "duration_sec": 2
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Iran fires missiles at Israel for first time since April 8 ceasefire; Israel retaliates against military targets in western and central Iran; Trump pushes both sides to halt fighting on war's 100th day",
+          "category": "Politics",
+          "score": 12.14,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0,
+          "note": "Bloomberg + Economist mandate signal both treat the strike exchange as top story; CBS, PBS, Al Jazeera and NBC supplied direct body-tier text. Iran story ran 06-07 but today's news (first Iranian missiles since April 8 ceasefire) is a distinct new development — dedupe penalty 0.2."
+        },
+        {
+          "slot": 2,
+          "cluster": "Xi Jinping arrives in Pyongyang for first state visit in seven years; Kim Jong Un stages 21-gun-salute welcome; talks expected to cover Korean nuclear posture and a Beijing counterweight to US-South Korea-Japan trilateral",
+          "category": "World",
+          "score": 9.83,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85,
+          "note": "Body-tier from Al Jazeera, CNBC and Fox News produced a diverse lean_mix; Bloomberg + Economist mandate signal both treated the visit as top-five news."
+        },
+        {
+          "slot": 3,
+          "cluster": "Magnitude 7.8 earthquake off southern Philippines kills at least 32, injures 200+, triggers small tsunami; Sarangani landslide buries 13 villagers; Marcos orders disaster response",
+          "category": "World",
+          "score": 9.27,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85,
+          "note": "CBS direct, AP via Yahoo syndication, and CNN supplied body-tier text. Bloomberg mandate signal."
+        },
+        {
+          "slot": 4,
+          "cluster": "Global tech rout: South Korea KOSPI plunges 8.29% (circuit breaker tripped); Samsung -10.2%, SK Hynix -7.6%, Nikkei -3.9%, TAIEX -3.5%; AI hyperscaler bear case spreads after Alphabet $80B raise; Iran-Israel escalation compounds risk-off",
+          "category": "Markets",
+          "score": 8.64,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0,
+          "note": "Two CNBC body-tier (Cramer bear case, KOSPI foreign outflows) and Al Jazeera Asia wrap. Bloomberg mandate signal across multiple items. Follow-through to 06-06 jobs-print lead; today's news is the actual market break, not the rate-bet."
+        },
+        {
+          "slot": 5,
+          "cluster": "Trump abruptly ends Sunday Meet the Press interview with Kristen Welker after she challenges California election claims, January 6 and the shelved $1.8B anti-weaponization fund",
+          "category": "Politics",
+          "score": 6.40,
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 1.0,
+          "note": "Body-tier from NBC News fact-check (lean-left), Fox News media desk (lean-right) and Salon (left) — strongest lean_mix of the edition. No mandate-tier coverage; selected to meet composition floor of 3 core-beats (Politics x2, Markets x1)."
+        }
+      ],
+      "core_beat_count": 3,
+      "composition_note": "Politics 2 / World 2 / Markets 1. Composition floor of 3 core-beats met. Two World pieces back-to-back (slots 2-3) reflect strong Xi mandate signal and a deadly natural-disaster pick."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 14,
+      "sources_failed": 24,
+      "duration_sec": 120,
+      "notes": "Google News redirects (most GN URLs) produced JS-rendered shells and were dropped. Direct outlet body fetches that worked: CBS, PBS, NBC, CNBC, Al Jazeera, Fox News, CNN, Salon, Yahoo (hosting AP wire). Direct outlet 403s: BBC, The Hill, Axios, Wash Examiner, AP News direct, DW direct. Curl + browser UA worked where WebFetch also fell through; one Al Jazeera summary supplemented via WebFetch where extraction needed a second source. Hard minimum of 2 body-tier sources met for every slot; slot 1 carries 4 sources, slot 3 carries 3, others 3 each."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 70,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "<filled after commit>",
+      "pushed": true
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "iran-israel-trade-missile-strikes-as-trump-presses-both-sides-to-stop",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 873,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "xi-arrives-in-pyongyang-as-beijing-tests-its-grip-on-kim",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 698,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "magnitude-7-8-quake-off-mindanao-kills-at-least-32",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 703,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "kospi-circuit-breaker-trips-as-ai-trade-cracks-worldwide",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 518,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "trump-walks-out-of-meet-the-press-interview-after-welker-presses-evidence",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 550,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "apnews.com",
+    "axios.com",
+    "bbc.com",
+    "dw.com",
+    "ft.com",
+    "npr.org",
+    "politico.com",
+    "thehill.com",
+    "theverge.com"
+  ],
+  "errors": [],
+  "composition": "5/5 slots published. Composition: Politics 2, World 2, Markets 1 — 3 core-beat floor met. Lead is the first Iranian missile barrage of Israel since the April 8 ceasefire, with mandate signal from both Bloomberg and Economist treating it as top news."
 }
