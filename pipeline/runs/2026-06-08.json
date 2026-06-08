@@ -25,7 +25,7 @@
           "score": 12.14,
           "mandate_count": 2,
           "signal_boost": 1.7,
-          "category_weight": 1.0,
+          "category_weight": 1,
           "note": "Bloomberg + Economist mandate signal both treat the strike exchange as top story; CBS, PBS, Al Jazeera and NBC supplied direct body-tier text. Iran story ran 06-07 but today's news (first Iranian missiles since April 8 ceasefire) is a distinct new development — dedupe penalty 0.2."
         },
         {
@@ -55,17 +55,17 @@
           "score": 8.64,
           "mandate_count": 1,
           "signal_boost": 1.35,
-          "category_weight": 1.0,
+          "category_weight": 1,
           "note": "Two CNBC body-tier (Cramer bear case, KOSPI foreign outflows) and Al Jazeera Asia wrap. Bloomberg mandate signal across multiple items. Follow-through to 06-06 jobs-print lead; today's news is the actual market break, not the rate-bet."
         },
         {
           "slot": 5,
           "cluster": "Trump abruptly ends Sunday Meet the Press interview with Kristen Welker after she challenges California election claims, January 6 and the shelved $1.8B anti-weaponization fund",
           "category": "Politics",
-          "score": 6.40,
+          "score": 6.4,
           "mandate_count": 0,
-          "signal_boost": 1.0,
-          "category_weight": 1.0,
+          "signal_boost": 1,
+          "category_weight": 1,
           "note": "Body-tier from NBC News fact-check (lean-left), Fox News media desk (lean-right) and Salon (left) — strongest lean_mix of the edition. No mandate-tier coverage; selected to meet composition floor of 3 core-beats (Politics x2, Markets x1)."
         }
       ],
@@ -105,7 +105,7 @@
       "estimated_cost_usd": 0.08
     },
     "commit": {
-      "sha": "<filled after commit>",
+      "sha": "e07b84b5e65d295b2d8f3847853642611f85912c",
       "pushed": true
     }
   },
