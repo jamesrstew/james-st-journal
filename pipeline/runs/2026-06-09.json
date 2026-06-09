@@ -1,6 +1,96 @@
 {
   "date": "2026-06-09",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-09T12:13:15Z",
-  "stages": {}
+  "finished_at": "2026-06-09T14:46:00Z",
+  "fire": "retry",
+  "retry_note": "The 5:03 AM PT primary left an in_progress breadcrumb at 12:13:15Z and never completed. This retry (started ~14:25Z) ran the full pipeline and overwrote the breadcrumb.",
+  "stages": {
+    "ingest": {
+      "items": 1298,
+      "feeds_ok": 32,
+      "feeds_fail": 8,
+      "duration_sec": 21,
+      "fails": ["PBS NewsHour", "Politico", "The Verge", "NPR Top", "NPR Business", "NPR Tech", "NPR World", "FT Home"]
+    },
+    "cluster": {
+      "clusters_raw": 925,
+      "body_tier_clusters": 48,
+      "after_mandate_enrichment_top": 48,
+      "duration_sec": 4
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "OpenAI files confidentially for U.S. IPO", "category": "Markets", "raw_score": 7.65, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "lean_mix": ["center", "right"] },
+        { "slot": 2, "cluster": "Federal judge vacates Trump $100,000 H-1B visa fee", "category": "Politics", "raw_score": 7.05, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "lean_mix": ["center", "right"] },
+        { "slot": 3, "cluster": "Pentagon adds Alibaba, BYD, Baidu to 1260H Chinese-military list", "category": "Business", "raw_score": 5.94, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "lean_mix": ["center", "left"] },
+        { "slot": 4, "cluster": "Israel-Iran step back from weekend exchange while Tyre bombing continues", "category": "World", "raw_score": 5.46, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85, "lean_mix": ["left", "right"] },
+        { "slot": 5, "cluster": "Sea drone rescues Apache crew near Strait of Hormuz in U.S. military first", "category": "Politics", "raw_score": 3.40, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0, "lean_mix": ["left", "right"] }
+      ],
+      "core_beat_count": 4,
+      "composition_note": "4 core-beats (Markets, Politics, Business, Politics) + 1 World — well above floor of 3. Slot 5 swapped from Germany-France FCAS to Apache rescue because the only accessible body-tier outlet for FCAS via the egress proxy was Semafor — below the 2-source minimum. Apache rescue cluster had three accessible body-tier sources (CBS, NBC, Washington Examiner) with diverse lean."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 15,
+      "sources_failed": 0,
+      "duration_sec": 70,
+      "note": "Reuters, AP, Guardian, Axios, Wired, Ars Technica, DW, BBC, The Hill, RCP were 403 'Blocked by egress policy' on body fetches; the run used CNBC, CBS, NBC, Washington Examiner, Semafor, Al Jazeera and Fox News bodies — all accessible. Built a Google News URL resolver (gn-resolve.js) that calls the news.google.com batchexecute API to follow the GN-RSS-redirect chain to the canonical outlet URL; required for Washington Examiner and Semafor items whose RSS feeds redirect through Google News."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1,
+      "slot_revised": 5,
+      "reason": "Slot 5 first draft was 627 words (target 350-550) and contained three unsourced specifics flagged by the editor (Task Force 59 'since 2021' founding date, Feb. 28 war start date, 'longest U.S. shooting war in a generation' characterization). Revised draft came back at 514 words with all unsourced specifics removed; editor approved at 526 final."
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 40,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "openai-files-confidentially-for-ipo-as-ai-trade-wobbles", "category": "Markets", "needs_review": false, "word_count": 890, "sources": 3 },
+    { "slot": 2, "slug": "federal-judge-vacates-trump-100000-h-1b-visa-fee", "category": "Politics", "needs_review": false, "word_count": 681, "sources": 2 },
+    { "slot": 3, "slug": "pentagon-adds-alibaba-baidu-byd-to-1260h-china-military-list", "category": "Business", "needs_review": false, "word_count": 666, "sources": 3 },
+    { "slot": 4, "slug": "israel-iran-step-back-as-tyre-bombing-continues", "category": "World", "needs_review": false, "word_count": 684, "sources": 4 },
+    { "slot": 5, "slug": "sea-drone-rescues-apache-crew-near-strait-of-hormuz", "category": "Politics", "needs_review": false, "word_count": 526, "sources": 3 }
+  ],
+  "egress_blocked_hostnames": [
+    "reuters.com",
+    "apnews.com",
+    "theguardian.com",
+    "axios.com",
+    "wired.com",
+    "arstechnica.com",
+    "dw.com",
+    "bbc.com",
+    "thehill.com",
+    "realclearpolitics.com",
+    "rss.politico.com",
+    "theverge.com",
+    "ft.com",
+    "pbs.org",
+    "npr.org"
+  ],
+  "errors": []
 }
