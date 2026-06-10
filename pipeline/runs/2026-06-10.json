@@ -1,6 +1,146 @@
 {
   "date": "2026-06-10",
-  "status": "in_progress",
-  "started_at": "2026-06-10T12:11:10Z",
-  "stages": {}
+  "status": "success",
+  "stages": {
+    "ingest": {
+      "items": 1242,
+      "feeds_ok": 29,
+      "feeds_fail": 11,
+      "duration_sec": 25
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 3
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "US strikes Iran after Apache shootdown; Iran fires on US bases; Trump pushes both sides to halt",
+          "category": "World",
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "Graham Platner wins Maine Democratic Senate primary; will challenge Susan Collins",
+          "category": "Politics",
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "Tech stocks slide, AI trade cracks as Oracle test and Apple Siri reveal disappoint; SoftBank tumbles 8%; CPI ahead",
+          "category": "Markets",
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Bill Gates appears before House Oversight Committee in Jeffrey Epstein investigation",
+          "category": "Politics",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Belfast erupts in anti-immigrant violence after Sudanese migrant's stabbing arrest",
+          "category": "World",
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        }
+      ],
+      "core_beat_count": 3
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 17,
+      "sources_failed": 7,
+      "duration_sec": 45
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 3,
+      "revised": 2,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 2,
+      "approved_after_revise": 2
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 54,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "<pending>",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "us-and-iran-trade-direct-fire-as-trump-says-tehran-will-pay-the-price",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 833,
+      "sources": 3
+    },
+    {
+      "slot": 2,
+      "slug": "platner-wins-maine-democratic-senate-primary-sets-collins-showdown",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 698,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "softbank-falls-8-as-tuesday-tech-rout-bleeds-into-asia-ahead-of-may-cpi",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 663,
+      "sources": 6
+    },
+    {
+      "slot": 4,
+      "slug": "bill-gates-faces-house-oversight-panel-on-epstein-ties",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 530,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "belfast-court-charges-sudanese-asylum-seeker-as-arson-spreads-across-north",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 496,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "feeds.npr.org",
+    "ft.com",
+    "rss.politico.com",
+    "theverge.com"
+  ],
+  "errors": []
 }
