@@ -1,6 +1,162 @@
 {
   "date": "2026-06-11",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-11T12:11:37Z",
-  "stages": {}
+  "finished_at": "2026-06-11T12:41:15Z",
+  "stages": {
+    "ingest": {
+      "items": 1352,
+      "feeds_ok": 37,
+      "feeds_fail": 3,
+      "deduped_items": 1211,
+      "duration_sec": 6
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 2
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "May CPI hits 4.2%, three-year high, energy spike from Iran war; Trump says \"I love the inflation\"",
+          "category": "Markets",
+          "score": 23.57,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "Second day of US strikes on Iran, Iran retaliates against US bases, Indian sailors killed in US tanker strike off Oman, Hormuz tensions",
+          "category": "World",
+          "score": 20.65,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "SpaceX IPO oversubscribed and set for liftoff; record listing, Musk speaks at ASML, valuation debate",
+          "category": "Markets",
+          "score": 16.24,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "FISA Section 702 extension imperiled as Trump sticks with Pulte for DNI, GOP revolt; spy powers about to lapse",
+          "category": "Politics",
+          "score": 7.25,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Oracle stock drops on data center capex plans, $20B raise; AI infrastructure cost concerns ripple through chip names",
+          "category": "Tech",
+          "score": 3.59,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 30,
+      "sources_failed": 0,
+      "duration_sec": 12
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 3,
+      "revised": 2,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 2,
+      "approved_after_revise": 2
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 88,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "may-cpi-hits-4-2-percent-trump-says-i-love-the-inflation",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 895,
+      "sources": 6
+    },
+    {
+      "slot": 2,
+      "slug": "us-strikes-iran-second-day-indian-sailors-killed-hormuz",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 649,
+      "sources": 8
+    },
+    {
+      "slot": 3,
+      "slug": "spacex-ipo-prices-thursday-warren-asks-sec-to-stand-down",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 691,
+      "sources": 7
+    },
+    {
+      "slot": 4,
+      "slug": "fisa-702-extension-faces-house-collapse-as-pulte-fight-hardens",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 550,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "oracle-slides-20-billion-raise-ai-capex",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 544,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "rss.politico.com",
+    "www.theverge.com",
+    "www.ft.com",
+    "www.bbc.com",
+    "www.reuters.com",
+    "apnews.com",
+    "www.theguardian.com",
+    "thehill.com",
+    "www.realclearpolitics.com",
+    "www.wired.com",
+    "arstechnica.com",
+    "www.wsj.com"
+  ],
+  "errors": []
 }
