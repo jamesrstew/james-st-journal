@@ -1,6 +1,167 @@
 {
   "date": "2026-06-12",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-12T12:10:22Z",
-  "stages": {}
+  "finished_at": "2026-06-12T12:40:10Z",
+  "stages": {
+    "ingest": {
+      "items": 1309,
+      "feeds_ok": 32,
+      "feeds_fail": 8,
+      "duration_sec": 24
+    },
+    "cluster": {
+      "clusters": 685,
+      "body_tier_clusters": 85,
+      "duration_sec": 3
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "SpaceX prices $75 billion IPO at $135 a share, set to begin trading on Nasdaq under SPCX",
+          "category": "Markets",
+          "score": 5.7,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 2,
+          "cluster": "Trump cancels Iran strikes and claims deal near; Tehran disputes account; U.S. blockade and tanker strikes continue",
+          "category": "World",
+          "score": 2.8,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "U.S. producer prices jump 1.1% in May; 6.5% annual gain is sharpest since November 2022 as Iran-war energy shock filters into wholesale costs",
+          "category": "Markets",
+          "score": 3.2,
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 4,
+          "cluster": "FISA Section 702 set to lapse after House rejects extension 198-218; Trump nominates Jay Clayton for DNI",
+          "category": "Politics",
+          "score": 4.0,
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 5,
+          "cluster": "Bezos-backed Prometheus industrial-AI startup raises $12 billion Series B at $41 billion valuation",
+          "category": "Tech",
+          "score": 2.3,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 17,
+      "sources_failed": 9,
+      "duration_sec": 240
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 30,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "pending",
+      "pushed": true
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "spacex-prices-75-billion-ipo-at-135-musk-nears-trillionaire-mark",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 729,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "trump-halts-iran-strikes-tehran-denies-deal",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 680,
+      "sources": 4
+    },
+    {
+      "slot": 3,
+      "slug": "wholesale-prices-surge-as-iran-war-energy-shock-hits-supply-chain",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 546,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "house-kills-fisa-extension-trump-taps-clayton-for-dni",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 525,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "bezos-prometheus-12-billion-series-b-41-billion-valuation",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 473,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "rss.politico.com",
+    "www.theverge.com",
+    "feeds.npr.org",
+    "www.ft.com",
+    "www.bbc.com",
+    "www.reuters.com",
+    "apnews.com",
+    "thehill.com",
+    "www.cnbc.com",
+    "www.cnn.com",
+    "www.washingtonpost.com",
+    "www.realclearpolitics.com",
+    "www.washingtontimes.com",
+    "www.rferl.org",
+    "www.usnews.com"
+  ],
+  "errors": [
+    "PBS NewsHour RSS returned HTTP 202 during ingest; Politico, Verge, NPR (4 feeds), and FT all returned 403 from the egress proxy",
+    "Direct article fetches at Reuters, AP News, BBC, The Hill, CNBC, CNN, Washington Post, NPR, RealClearPolitics, Washington Times, Radio Free Europe, US News all returned 403 or were unreachable; substitutes drawn from CBS News, Al Jazeera, Fox News, ABC News, Benzinga, The Hans India, The Next Web, Prism News, Democracy Now, Basenor, Capital.com, plus WebSearch result synthesis with cited URLs"
+  ]
 }
