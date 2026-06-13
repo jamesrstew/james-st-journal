@@ -1,6 +1,97 @@
 {
   "date": "2026-06-13",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-13T12:07:03Z",
-  "stages": {}
+  "completed_at": "2026-06-13T12:28:00Z",
+  "stages": {
+    "ingest": {
+      "items": 1197,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "duration_sec": 4,
+      "failed_feeds": [
+        "Politico (egress-blocked)",
+        "The Verge (egress-blocked)",
+        "FT Home (egress-blocked)",
+        "NPR Top (Akamai access-denied)",
+        "NPR Business (Akamai access-denied)",
+        "NPR Tech (Akamai access-denied)",
+        "NPR World (Akamai access-denied)"
+      ]
+    },
+    "cluster": {
+      "clusters_inspected": 18,
+      "body_tier_clusters": 14,
+      "duration_sec": 2
+    },
+    "select": {
+      "chosen": [
+        {"slot": 1, "cluster": "SpaceX trades for first time; stock soars on debut, making Musk world's first trillionaire", "category": "Markets", "score": 15.2, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0, "dedupe_penalty": 0.5, "balance_multiplier": 1.0, "rationale": "lead — only candidate with mandate_count >= 2 and CORE_BEAT; fresh angle (trading debut + trillionaire milestone) vs. yesterday's pricing lead"},
+        {"slot": 2, "cluster": "Pakistan PM says US-Iran deal text final, signing within 24 hours", "category": "World", "score": 13.0, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85, "dedupe_penalty": 0.3, "balance_multiplier": 1.0},
+        {"slot": 3, "cluster": "Anthropic disables Fable 5 and Mythos 5 after US export order limiting foreign access", "category": "Tech", "score": 12.6, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "dedupe_penalty": 0.0, "balance_multiplier": 1.0},
+        {"slot": 4, "cluster": "DOJ clears Paramount's $110 billion acquisition of Warner Bros. Discovery", "category": "Business", "score": 12.6, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "dedupe_penalty": 0.0, "balance_multiplier": 1.0},
+        {"slot": 5, "cluster": "US strike kills Tren de Aragua leader Guerrero in Venezuela, with Caracas's help", "category": "Politics", "score": 12.0, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "dedupe_penalty": 0.0, "balance_multiplier": 1.0}
+      ],
+      "core_beat_count": 4,
+      "composition_floor_met": true
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 19,
+      "sources_failed": 12,
+      "duration_sec": 90,
+      "per_slot_source_count": {"1": 4, "2": 5, "3": 3, "4": 3, "5": 4},
+      "notes": "WSJ, FT, NYT, AP, Reuters, BBC, Guardian, NPR, Politico, Ars Technica, Wired, The Hill, DW all egress-blocked at body fetch. Dossiers fell back to CNBC/CBS/NBC/Fox/RealClearPolitics/Christian Science Monitor/Washington Examiner/Al Jazeera/Axios/Semafor — all met the >=2 body sources with >=600 chars minimum."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 23,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "pushed": true
+    }
+  },
+  "articles": [
+    {"slot": 1, "slug": "spacex-soars-on-nasdaq-debut-crowning-musk-first-trillionaire", "category": "Markets", "needs_review": false, "word_count": 800, "sources": 4},
+    {"slot": 2, "slug": "pakistan-says-us-iran-deal-text-final-signing-within-24-hours", "category": "World", "needs_review": false, "word_count": 728, "sources": 5},
+    {"slot": 3, "slug": "anthropic-pulls-fable-5-mythos-5-on-us-export-order", "category": "Tech", "needs_review": false, "word_count": 703, "sources": 3},
+    {"slot": 4, "slug": "doj-clears-paramount-warner-bros-discovery-merger", "category": "Business", "needs_review": false, "word_count": 550, "sources": 3},
+    {"slot": 5, "slug": "us-strike-kills-tren-de-aragua-leader-with-venezuelan-help", "category": "Politics", "needs_review": false, "word_count": 547, "sources": 4}
+  ],
+  "egress_blocked_hostnames": [
+    "apnews.com",
+    "arstechnica.com",
+    "bbc.com",
+    "dw.com",
+    "ft.com",
+    "npr.org",
+    "politico.com",
+    "reuters.com",
+    "theguardian.com",
+    "thehill.com",
+    "theverge.com",
+    "wired.com"
+  ],
+  "errors": []
 }
