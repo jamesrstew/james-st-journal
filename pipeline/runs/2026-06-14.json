@@ -1,6 +1,170 @@
 {
   "date": "2026-06-14",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-14T12:08:17Z",
-  "stages": {}
+  "completed_at": "2026-06-14T12:41:47Z",
+  "stages": {
+    "ingest": {
+      "items": 897,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "failed_feeds": [
+        "The Verge: HTTP 403",
+        "Politico: HTTP 403",
+        "NPR Top: HTTP 403",
+        "NPR Tech: HTTP 403",
+        "NPR World: HTTP 403",
+        "NPR Business: HTTP 403",
+        "FT Home: HTTP 403"
+      ]
+    },
+    "cluster": {
+      "clusters_inspected": 27,
+      "body_tier_clusters": 21,
+      "dropped_thin_clusters": 5
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Trump celebrates 80th birthday with UFC Freedom 250 fight night on White House South Lawn; MTG, Maher and others criticize spectacle",
+          "category": "Politics",
+          "score": 10.168,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "Trump says U.S.-Iran peace deal will be signed Sunday, opening Hormuz; Tehran disputes timing",
+          "category": "World",
+          "score": 9.84,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "2026 FIFA World Cup opens across North America; U.S. beats Paraguay 4-1, Brazil draws Morocco, Knicks-style fan fervor as opening weekend plays out",
+          "category": "Sports",
+          "score": 7.342,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.5
+        },
+        {
+          "slot": 4,
+          "cluster": "Anthropic disables Fable 5 and Mythos 5 after Trump export order, with new details on Amazon role and Chinese-access suspicions",
+          "category": "Tech",
+          "score": 6.696,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Workers remove Trump's name from Kennedy Center facade Saturday after federal court rejects administration's bid to halt removal",
+          "category": "Politics",
+          "score": 3.605,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 3
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 23,
+      "sources_failed_blocked": "~30 (BBC, AP, Reuters via direct, Google News JS-only)",
+      "notes": "See egress_blocked_hostnames"
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0,
+      "model": "claude-opus-4-7"
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0,
+      "model": "claude-sonnet-4-6 (downgraded for rate-limit headroom per failure-mode guidance)"
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 60,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "pending",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "ufc-freedom-250-white-house-south-lawn-trump-80th-birthday",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 867,
+      "sources": 5
+    },
+    {
+      "slot": 2,
+      "slug": "trump-says-iran-deal-signs-sunday-hormuz-to-reopen",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 702,
+      "sources": 4
+    },
+    {
+      "slot": 3,
+      "slug": "world-cup-opens-in-north-america-as-brazil-stumbles-and-us-routs-paraguay",
+      "category": "Sports",
+      "needs_review": false,
+      "word_count": 700,
+      "sources": 4
+    },
+    {
+      "slot": 4,
+      "slug": "amazon-jailbreak-and-china-fears-drove-90-minute-fable-takedown",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 544,
+      "sources": 5
+    },
+    {
+      "slot": 5,
+      "slug": "trumps-name-comes-off-the-kennedy-center",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 549,
+      "sources": 4
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "theverge.com",
+    "politico.com",
+    "feeds.npr.org",
+    "ft.com",
+    "bbc.com",
+    "apnews.com",
+    "reuters.com",
+    "theguardian.com",
+    "thehill.com",
+    "arstechnica.com",
+    "dw.com"
+  ],
+  "errors": []
 }
