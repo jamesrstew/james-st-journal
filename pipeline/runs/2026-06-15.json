@@ -1,6 +1,165 @@
 {
   "date": "2026-06-15",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-15T12:10:31Z",
-  "stages": {}
+  "finished_at": "2026-06-15T12:32:17Z",
+  "stages": {
+    "ingest": {
+      "items": 940,
+      "feeds_ok": 31,
+      "feeds_fail": 9,
+      "duration_sec": 6
+    },
+    "cluster": {
+      "clusters": 22,
+      "body_tier_clusters": 18,
+      "duration_sec": 2
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "US and Iran reach tentative peace deal; naval blockade halted, Strait of Hormuz to reopen Friday after Geneva signing",
+          "category": "World",
+          "mandate_count": 0,
+          "signal_boost": 1.7,
+          "category_weight": 0.85,
+          "score": null
+        },
+        {
+          "slot": 2,
+          "cluster": "Markets rally as oil tumbles below $80 and Treasury yields slide on Iran peace deal",
+          "category": "Markets",
+          "mandate_count": 0,
+          "signal_boost": 1.7,
+          "category_weight": 1,
+          "score": null
+        },
+        {
+          "slot": 3,
+          "cluster": "Fox Corp. agrees to acquire Roku in $22 billion streaming consolidation deal",
+          "category": "Business",
+          "mandate_count": 0,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "score": null
+        },
+        {
+          "slot": 4,
+          "cluster": "G7 opens in Evian-les-Bains with Trump threatening tariffs and pushing critical-minerals plan after Iran deal",
+          "category": "Politics",
+          "mandate_count": 0,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "score": null
+        },
+        {
+          "slot": 5,
+          "cluster": "UK to ban social media for under-16s, model on Australian law, first regulations in spring 2027",
+          "category": "Tech",
+          "mandate_count": 0,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "score": null
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 18,
+      "sources_failed": 9,
+      "duration_sec": 30
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 37,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "pending",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "us-iran-deal-complete-geneva-signing-friday-hormuz-blockade-lifts",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 894,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "oil-tumbles-stocks-rally-yields-slide-on-iran-deal",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 647,
+      "sources": 5
+    },
+    {
+      "slot": 3,
+      "slug": "fox-to-buy-roku-for-22-billion-in-cash-and-stock-deal",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 664,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "trump-arrives-at-g7-with-wine-tariff-threat-and-iran-deal-in-hand",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 515,
+      "sources": 4
+    },
+    {
+      "slot": 5,
+      "slug": "uk-bans-social-media-for-under-16s-modeled-on-australia",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 509,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "apnews.com",
+    "bbc.com",
+    "foxnews.com",
+    "ft.com",
+    "npr.org",
+    "pbs.org",
+    "politico.com",
+    "realclearpolitics.com",
+    "theguardian.com",
+    "thehill.com",
+    "theverge.com"
+  ],
+  "errors": [],
+  "notes": [
+    "WSJ direct RSS returning stale (Jan 2025) cached content; NYT Business via Google News returned empty feed. FT.com blocked by egress. Bloomberg via GN parsed cleanly and provided the mandate signal.",
+    "Body fetches all routed through direct publisher hostnames (cnbc.com, cbsnews.com, aljazeera.com, nbcnews.com, hollywoodreporter.com) because Google News redirect URLs do not resolve via curl/WebFetch from this environment.",
+    "All five drafts approved on first editor pass; no revision round invoked."
+  ]
 }
