@@ -1,6 +1,107 @@
 {
   "date": "2026-06-16",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-16T12:09:07Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1267,
+      "feeds_ok": 32,
+      "feeds_fail": 8,
+      "duration_sec": 20,
+      "feeds_fail_detail": [
+        { "name": "PBS NewsHour", "reason": "egress blocked or empty" },
+        { "name": "Politico", "reason": "egress blocked or empty" },
+        { "name": "The Verge", "reason": "egress blocked or empty" },
+        { "name": "NPR Top", "reason": "Access Denied (Akamai/edgesuite)" },
+        { "name": "NPR Business", "reason": "Access Denied (Akamai/edgesuite)" },
+        { "name": "NPR Tech", "reason": "Access Denied (Akamai/edgesuite)" },
+        { "name": "NPR World", "reason": "Access Denied (Akamai/edgesuite)" },
+        { "name": "FT Home", "reason": "egress blocked or empty" }
+      ],
+      "feeds_zero_items": [
+        { "name": "WSJ World", "reason": "feed appears frozen (most recent items Jan 2025); excluded by 36h cutoff" },
+        { "name": "WSJ Business", "reason": "feed appears frozen; excluded by 36h cutoff" },
+        { "name": "WSJ Markets", "reason": "feed appears frozen; excluded by 36h cutoff" },
+        { "name": "NYT World (GN)", "reason": "Google News site filter returned 0 results" },
+        { "name": "NYT US (GN)", "reason": "Google News site filter returned 0 results" },
+        { "name": "NYT Business (GN)", "reason": "Google News site filter returned 0 results" },
+        { "name": "NYT Tech (GN)", "reason": "Google News site filter returned 0 results" }
+      ]
+    },
+    "cluster": {
+      "clusters": 16,
+      "body_tier_clusters": 12,
+      "duration_sec": 2
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "California Gov. Gavin Newsom says Trump ordered DOJ to investigate him and his wife", "category": "Politics", "score": 13.5,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "US-Iran deal moves toward Friday signing but Senate, allies, Israel raise doubts over Hormuz timeline and terms", "category": "World",   "score": 12.5,  "mandate_count": 2, "signal_boost": 1.7,  "category_weight": 0.85 },
+        { "slot": 3, "cluster": "US B-52 bomber crashes at Edwards Air Force Base; eight dead",                              "category": "World",   "score": 10.79, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85 },
+        { "slot": 4, "cluster": "Bank of Japan raises key rate to 1%, highest in 31 years",                                  "category": "Markets", "score": 9.59,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 5, "cluster": "Anthropic in talks with White House to lift AI export curbs after Mythos/Fable takedown",   "category": "Tech",    "score": 6.08,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 }
+      ],
+      "core_beat_count": 3,
+      "composition_ok": true
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 11,
+      "sources_failed": 8,
+      "duration_sec": 35,
+      "fallbacks_used": [
+        "Slot 1 second body source: Semafor direct URL (BBC and The Hill blocked)",
+        "Slot 5 second body source: Semafor direct URL (BBC, The Hill, RealClearPolitics blocked)"
+      ]
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 2,
+      "revised": 3,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 3,
+      "approved_after_revise": 3
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 33,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "",
+      "pushed": false
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "newsom-says-trump-ordered-doj-to-investigate-him-and-his-wife", "category": "Politics", "needs_review": false, "word_count": 816, "sources": 2 },
+    { "slot": 2, "slug": "iran-deal-friday-signing-hormuz-lebanon-fund-doubts",            "category": "World",    "needs_review": false, "word_count": 671, "sources": 3 },
+    { "slot": 3, "slug": "b-52-bomber-crash-edwards-air-force-base-kills-eight",           "category": "World",    "needs_review": false, "word_count": 480, "sources": 2 },
+    { "slot": 4, "slug": "bank-of-japan-raises-rate-to-1-percent-highest-since-1995",      "category": "Markets",  "needs_review": false, "word_count": 543, "sources": 2 },
+    { "slot": 5, "slug": "anthropic-meets-white-house-to-lift-fable-mythos-export-curbs",  "category": "Tech",     "needs_review": false, "word_count": 424, "sources": 2 }
+  ],
+  "egress_blocked_hostnames": [
+    "pbs.org",
+    "rss.politico.com",
+    "theverge.com",
+    "feeds.npr.org",
+    "ft.com",
+    "bbc.com",
+    "thehill.com",
+    "theguardian.com",
+    "axios.com",
+    "realclearpolitics.com"
+  ],
+  "errors": []
 }
