@@ -1,6 +1,193 @@
 {
   "date": "2026-06-17",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-17T12:09:11Z",
-  "stages": {}
+  "finished_at": "2026-06-17T12:28:59Z",
+  "stages": {
+    "ingest": {
+      "items": 1281,
+      "feeds_ok": 32,
+      "feeds_fail": 8,
+      "feeds_fail_detail": [
+        {
+          "name": "The Verge",
+          "reason": "HTTP 403"
+        },
+        {
+          "name": "NPR World",
+          "reason": "HTTP 403"
+        },
+        {
+          "name": "NPR Business",
+          "reason": "HTTP 403"
+        },
+        {
+          "name": "Politico",
+          "reason": "HTTP 403"
+        },
+        {
+          "name": "PBS NewsHour",
+          "reason": "empty body"
+        },
+        {
+          "name": "NPR Tech",
+          "reason": "HTTP 403"
+        },
+        {
+          "name": "NPR Top",
+          "reason": "HTTP 403"
+        },
+        {
+          "name": "FT Home",
+          "reason": "HTTP 403"
+        }
+      ],
+      "duration_sec": 2
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 1
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "SpaceX, freshly public, overtakes Amazon in market cap and locks $60B Cursor takeover",
+          "category": "Markets",
+          "score": 5.4,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "Trump hedges on Iran deal as Senate Republicans demand a vote and oil falls below $80",
+          "category": "World",
+          "score": 4.2,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "Bloomberg publishes Lutnick letter that drove Anthropic to disable Mythos export tier; AI industry alarms",
+          "category": "Tech",
+          "score": 3.4,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Fed widely expected to hold rates as Kevin Warsh chairs his first FOMC meeting",
+          "category": "Markets",
+          "score": 3.6,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Georgia GOP voters back Trump's Senate pick Collins but reject his governor pick Jones, choosing Jackson",
+          "category": "Politics",
+          "score": 3.2,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 30,
+      "sources_failed": 11,
+      "duration_sec": 12
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 27,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "PENDING",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "spacex-passes-amazon-options-list-cursor-deal",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 902,
+      "sources": 5,
+      "draft_iterations": 1
+    },
+    {
+      "slot": 2,
+      "slug": "trump-hedges-on-iran-deal-as-tankers-move-and-oil-slides",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 714,
+      "sources": 4,
+      "draft_iterations": 1
+    },
+    {
+      "slot": 3,
+      "slug": "cyber-defenders-press-white-house-to-restore-anthropic-models",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 670,
+      "sources": 2,
+      "draft_iterations": 2
+    },
+    {
+      "slot": 4,
+      "slug": "warsh-fed-expected-to-hold-rates-at-first-fomc",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 474,
+      "sources": 2,
+      "draft_iterations": 1
+    },
+    {
+      "slot": 5,
+      "slug": "georgia-gop-splits-trump-tickets-collins-up-jones-out",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 544,
+      "sources": 6,
+      "draft_iterations": 1
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "apnews.com",
+    "arstechnica.com",
+    "axios.com",
+    "reuters.com",
+    "thehill.com"
+  ],
+  "errors": []
 }
