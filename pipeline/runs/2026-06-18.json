@@ -97,8 +97,8 @@
       "estimated_cost_usd": 0.08
     },
     "commit": {
-      "sha": "PENDING",
-      "pushed": false
+      "sha": "145756eecc82348c19d356bf1e08e9e122f98cb0",
+      "pushed": true
     }
   },
   "articles": [
