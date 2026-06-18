@@ -1,6 +1,165 @@
 {
   "date": "2026-06-18",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-18T12:06:23Z",
-  "stages": {}
+  "finished_at": "2026-06-18T12:33:02Z",
+  "stages": {
+    "ingest": {
+      "items": 1298,
+      "feeds_ok": 32,
+      "feeds_fail": 8,
+      "duration_sec": 14
+    },
+    "cluster": {
+      "clusters": 744,
+      "candidate_clusters_ge_3": 80,
+      "body_tier_clusters": 80,
+      "duration_sec": 3
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Warsh's first FOMC meeting holds rates but signals a hawkish shift; bond yields and dollar surge as Fed officials see a 2026 rate hike",
+          "category": "Markets",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "US and Iran sign an interim 14-point memorandum of understanding to extend the ceasefire and reopen the Strait of Hormuz, kicking off 60 days of further talks",
+          "category": "World",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "Defense Secretary Pete Hegseth announces a 6-month review of US forces in Europe, lambasting NATO allies for blocking US bases during the Iran war",
+          "category": "Politics",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Ukraine launches one of its largest drone barrages on Moscow, hitting the Moscow oil refinery for the second time this week as Russia's air defense stockpiles strain",
+          "category": "World",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 5,
+          "cluster": "Anthropic and Google DeepMind CEOs press G7 leaders for a US-led AI coalition as Anthropic remains in talks with the White House over the Fable 5 / Mythos 5 export curbs; India faces sovereign-AI reckoning",
+          "category": "Tech",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 3
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 19,
+      "sources_failed_partial": [
+        "bbc.com (403)",
+        "thehill.com (403)",
+        "Google News redirects (JS-rendered)"
+      ],
+      "duration_sec": 90
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 60,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "PENDING",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "warsh-fed-debut-hawkish-shift-yields-jump",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 895,
+      "sources": 6
+    },
+    {
+      "slot": 2,
+      "slug": "trump-defends-iran-mou-as-tankers-transit-hormuz",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 690,
+      "sources": 5
+    },
+    {
+      "slot": 3,
+      "slug": "hegseth-orders-six-month-review-of-us-forces-in-europe",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 659,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "ukraine-drones-hit-moscow-refinery-as-russian-interceptor-stocks-thin",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 549,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "amodei-hassabis-press-g7-for-us-led-ai-coalition",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 554,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "pbs.org",
+    "rss.politico.com",
+    "theverge.com",
+    "ft.com",
+    "bbc.com",
+    "bbc.co.uk",
+    "thehill.com",
+    "reuters.com"
+  ],
+  "notes": [
+    "Direct RSS for The Verge, FT, Politico, NPR, and PBS NewsHour returned 403 (egress proxy block); items came in via Google News mirrors where available.",
+    "Body fetches for BBC, The Hill, Reuters direct, and NYT-via-Google-News failed at the egress layer (403 or JS-only Google News redirect). Research narrowed to outlets reachable via curl with a browser UA: CNBC, CBS, NBC, Al Jazeera, Fox News.",
+    "Slot 5 (Tech) dossier is mono-perspective (3 CNBC articles, all lean=center); the counterpoint graf explicitly surfaces the absent US national-security framing of the Anthropic export curbs.",
+    "Slot 4 (World) dossier is also mono-perspective (CBS + Al Jazeera, both lean-left); counterpoint flags absent Russian/independent-analyst framing.",
+    "Composition floor met: 3 of 5 articles in CORE_BEATS (Markets, Politics, Tech).",
+    "Lead-slot mandate escape hatch not used; lead is Markets (core beat)."
+  ],
+  "errors": []
 }
