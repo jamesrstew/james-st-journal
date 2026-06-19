@@ -1,6 +1,157 @@
 {
   "date": "2026-06-19",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-19T12:03:00Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1294,
+      "feeds_ok": 28,
+      "feeds_fail": 12,
+      "duration_sec": 14
+    },
+    "cluster": {
+      "clusters_considered": 22,
+      "body_tier_clusters": 18,
+      "duration_sec": 4
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "US-Iran talks postponed in Switzerland as Lebanon fighting escalates; Vance defends MOU as GOP critics emerge",
+          "category": "Politics",
+          "score": 6.0,
+          "mandate_count": 3,
+          "signal_boost": 2.0,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 2,
+          "cluster": "Brent posts 9% weekly loss as Hormuz flows resume; OPEC rebuts IEA glut forecast",
+          "category": "Markets",
+          "score": 4.5,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 3,
+          "cluster": "SpaceX stock slides for second day after IPO, bankers prep $20B bond, ProPublica reveals China stakes",
+          "category": "Business",
+          "score": 4.0,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 4,
+          "cluster": "Obama Presidential Center opens in Chicago with veiled rebukes of Trump as Juneteenth marks the day",
+          "category": "Politics",
+          "score": 3.4,
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 5,
+          "cluster": "Yen slides past 161, nearing 40-year low; Japan's intervention and BoJ hike fail to support the currency",
+          "category": "Markets",
+          "score": 3.2,
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 1.0
+        }
+      ],
+      "core_beat_count": 4,
+      "note": "Egress proxy blocked direct article fetch on BBC, The Hill, GN-routed Reuters/AP/CSM/Wash Examiner/Axios/Semafor/Guardian; reselected sources from egress-accessible outlets (CNBC, CBS, NBC, Fox, Al Jazeera, ProPublica) while preserving cluster diversity"
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 20,
+      "sources_failed": 0,
+      "duration_sec": 18
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 60,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "switzerland-talks-collapse-as-lebanon-strikes-and-gop-critics-test-iran-deal",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 926,
+      "sources": 5
+    },
+    {
+      "slot": 2,
+      "slug": "opec-rejects-iea-glut-call-as-brent-books-8-percent-weekly-loss",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 687,
+      "sources": 5
+    },
+    {
+      "slot": 3,
+      "slug": "spacex-slides-second-day-as-propublica-details-secret-chinese-stakes",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 672,
+      "sources": 5
+    },
+    {
+      "slot": 4,
+      "slug": "obama-presidential-center-opens-on-juneteenth-eve",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 523,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "yen-breaches-161-against-dollar-nearing-40-year-low",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 521,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "bbc.com",
+    "thehill.com",
+    "news.google.com",
+    "feeds.npr.org",
+    "pbs.org",
+    "rss.politico.com",
+    "theverge.com",
+    "ft.com"
+  ],
+  "errors": []
 }
