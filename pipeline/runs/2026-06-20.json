@@ -22,7 +22,7 @@
     "revise":   { "revisions_spawned": 2, "approved_after_revise": 2, "notes": ["slot 1: trimmed 964→824 words, dropped Cruz misattribution, fixed Obama location phrasing", "slot 3: removed Humira/Skyrizi/Rinvoq/biosimilar framing not in dossier"] },
     "stage":    { "articles_written": 5, "validator_ok": true },
     "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 41, "estimated_cost_usd": 0.08 },
-    "commit":   { "sha": null, "pushed": false }
+    "commit":   { "sha": "fc5e4c4", "pushed": true }
   },
   "articles": [
     { "slot": 1, "slug": "lebanon-ceasefire-frays-within-hours-as-trump-calls-iran-deal-unconditional-surrender", "category": "Politics", "needs_review": false, "word_count": 848, "sources": 8 },
