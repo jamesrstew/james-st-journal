@@ -1,6 +1,36 @@
 {
   "date": "2026-06-20",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-20T12:06:34Z",
-  "stages": {}
+  "finished_at": "2026-06-20T12:34:28Z",
+  "stages": {
+    "ingest":   { "items": 1041, "feeds_ok": 23, "feeds_fail": 8, "duration_sec": 4, "failures": ["The Verge: 403", "FT Home: 403", "NPR Business: 403", "NPR Tech: 403", "PBS NewsHour: empty body", "NPR Top: 403", "NPR World: 403", "Politico: 403"] },
+    "cluster":  { "clusters_considered": 24, "body_tier_clusters": 18, "duration_sec": 2 },
+    "select":   {
+      "chosen": [
+        { "slot": 1, "cluster": "Israel-Hezbollah ceasefire on then off; U.S.-Iran Switzerland talks postponed; Obama and Vance trade positions", "category": "Politics", "raw_score": 7.08, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "UK gilts jump on Burnham win and rising borrowing; yen breaches 161 despite $72.8B intervention; Hormuz tanker traffic resumes", "category": "Markets", "raw_score": 4.30, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "AbbVie nears $11B all-cash deal for Apogee Therapeutics at 60 percent premium", "category": "Business", "raw_score": 5.10, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0 },
+        { "slot": 4, "cluster": "Two East Midlands Railway trains collide south of Bedford in evening rush", "category": "World", "raw_score": 3.79, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 0.85 },
+        { "slot": 5, "cluster": "Nobel laureate Jumper leaves DeepMind for Anthropic; Trump tells Axios he no longer views Anthropic as security threat", "category": "Tech", "raw_score": 2.83, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 }
+      ],
+      "core_beat_count": 4
+    },
+    "research": { "dossiers_built": 5, "sources_fetched": 26, "sources_failed": 4, "duration_sec": 38, "notes": "Egress proxy blocks direct BBC/AP/Reuters/Guardian/NYT/Hill/FT/Axios/DW/NPR hostnames; relied on CNBC, NBC, CBS, Fox, ABC, LBC, Al Jazeera, Bloomberg and several aggregator URLs surfaced via WebSearch. AbbVie dossier rescued via Reuters wire embedded in regionalmedianews.com JSON-LD articleBody after thin direct sources. Two Google News redirect chains failed to resolve." },
+    "draft":    { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit":     { "editors_spawned": 5, "approved_first_pass": 3, "revised": 2, "held": 0 },
+    "revise":   { "revisions_spawned": 2, "approved_after_revise": 2, "notes": ["slot 1: trimmed 964→824 words, dropped Cruz misattribution, fixed Obama location phrasing", "slot 3: removed Humira/Skyrizi/Rinvoq/biosimilar framing not in dossier"] },
+    "stage":    { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 41, "estimated_cost_usd": 0.08 },
+    "commit":   { "sha": null, "pushed": false }
+  },
+  "articles": [
+    { "slot": 1, "slug": "lebanon-ceasefire-frays-within-hours-as-trump-calls-iran-deal-unconditional-surrender", "category": "Politics", "needs_review": false, "word_count": 848, "sources": 8 },
+    { "slot": 2, "slug": "iran-afterglow-meets-inflation-fears-as-gilts-yen-and-hormuz-split", "category": "Markets", "needs_review": false, "word_count": 726, "sources": 4 },
+    { "slot": 3, "slug": "abbvie-nears-11-billion-cash-deal-for-apogee-therapeutics", "category": "Business", "needs_review": false, "word_count": 481, "sources": 2 },
+    { "slot": 4, "slug": "two-east-midlands-trains-collide-south-of-bedford-killing-driver-injuring-89", "category": "World", "needs_review": false, "word_count": 517, "sources": 3 },
+    { "slot": 5, "slug": "jumper-jumps-to-anthropic-as-trump-eases-national-security-stance", "category": "Tech", "needs_review": false, "word_count": 513, "sources": 5 }
+  ],
+  "egress_blocked_hostnames": ["bbc.com", "ft.com", "feeds.npr.org", "rss.politico.com", "theverge.com", "thehill.com", "apnews.com", "reuters.com", "nytimes.com", "theguardian.com", "dw.com", "axios.com"],
+  "errors": []
 }
