@@ -74,8 +74,8 @@
       "estimated_cost_usd": 0.08
     },
     "commit": {
-      "sha": null,
-      "pushed": false
+      "sha": "cd457565beb03ac57de5204a8a7917564b16cd8b",
+      "pushed": true
     }
   },
   "articles": [
