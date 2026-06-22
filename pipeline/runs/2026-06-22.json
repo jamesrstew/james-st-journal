@@ -9,22 +9,70 @@
       "feeds_fail": 14,
       "duration_sec": 16,
       "failed_feeds": [
-        { "name": "Politico", "error": "HTTP 403 egress" },
-        { "name": "The Verge", "error": "HTTP 403 egress" },
-        { "name": "FT Home", "error": "HTTP 403 egress" },
-        { "name": "Bloomberg (GN)", "error": "HTTP 403 egress (initial fetch; partial recovery on retry)" },
-        { "name": "Christian Sci Monitor (GN)", "error": "HTTP 202 empty body on first try; recovered on retry" },
-        { "name": "NPR Top",      "error": "HTTP 403 Akamai access-denied" },
-        { "name": "NPR Business", "error": "HTTP 403 Akamai access-denied" },
-        { "name": "NPR Tech",     "error": "HTTP 403 Akamai access-denied" },
-        { "name": "NPR World",    "error": "HTTP 403 Akamai access-denied" },
-        { "name": "WSJ World",    "error": "RSS feed appears stale (Jan 2025 dates); 0 items in 36h window" },
-        { "name": "WSJ Business", "error": "RSS feed appears stale (Jan 2025 dates); 0 items in 36h window" },
-        { "name": "WSJ Markets",  "error": "RSS feed appears stale (Jan 2025 dates); 0 items in 36h window" },
-        { "name": "NYT World (GN)",    "error": "Google News feed returned channel-only XML, 0 items" },
-        { "name": "NYT US (GN)",       "error": "Google News feed returned channel-only XML, 0 items" },
-        { "name": "NYT Business (GN)", "error": "Google News feed returned channel-only XML, 0 items" },
-        { "name": "NYT Tech (GN)",     "error": "fetch failed to write any file" }
+        {
+          "name": "Politico",
+          "error": "HTTP 403 egress"
+        },
+        {
+          "name": "The Verge",
+          "error": "HTTP 403 egress"
+        },
+        {
+          "name": "FT Home",
+          "error": "HTTP 403 egress"
+        },
+        {
+          "name": "Bloomberg (GN)",
+          "error": "HTTP 403 egress (initial fetch; partial recovery on retry)"
+        },
+        {
+          "name": "Christian Sci Monitor (GN)",
+          "error": "HTTP 202 empty body on first try; recovered on retry"
+        },
+        {
+          "name": "NPR Top",
+          "error": "HTTP 403 Akamai access-denied"
+        },
+        {
+          "name": "NPR Business",
+          "error": "HTTP 403 Akamai access-denied"
+        },
+        {
+          "name": "NPR Tech",
+          "error": "HTTP 403 Akamai access-denied"
+        },
+        {
+          "name": "NPR World",
+          "error": "HTTP 403 Akamai access-denied"
+        },
+        {
+          "name": "WSJ World",
+          "error": "RSS feed appears stale (Jan 2025 dates); 0 items in 36h window"
+        },
+        {
+          "name": "WSJ Business",
+          "error": "RSS feed appears stale (Jan 2025 dates); 0 items in 36h window"
+        },
+        {
+          "name": "WSJ Markets",
+          "error": "RSS feed appears stale (Jan 2025 dates); 0 items in 36h window"
+        },
+        {
+          "name": "NYT World (GN)",
+          "error": "Google News feed returned channel-only XML, 0 items"
+        },
+        {
+          "name": "NYT US (GN)",
+          "error": "Google News feed returned channel-only XML, 0 items"
+        },
+        {
+          "name": "NYT Business (GN)",
+          "error": "Google News feed returned channel-only XML, 0 items"
+        },
+        {
+          "name": "NYT Tech (GN)",
+          "error": "fetch failed to write any file"
+        }
       ]
     },
     "cluster": {
@@ -35,11 +83,51 @@
     },
     "select": {
       "chosen": [
-        { "slot": 1, "cluster": "starmer-resigns-2026-06-22",            "category": "World",   "score": 13.74, "mandate_count": 2, "signal_boost": 1.7,  "category_weight": 0.85 },
-        { "slot": 2, "cluster": "greenspan-dies-2026-06-22",             "category": "Markets", "score": 11.34, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
-        { "slot": 3, "cluster": "colombia-de-la-espriella-2026-06-22",   "category": "World",   "score": 10.82, "mandate_count": 2, "signal_boost": 1.7,  "category_weight": 0.85 },
-        { "slot": 4, "cluster": "china-rare-earth-retaliation-2026-06-22","category": "Markets", "score": 4.46,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
-        { "slot": 5, "cluster": "ai-data-center-backlash-2026-06-22",    "category": "Tech",    "score": 2.25,  "mandate_count": 0, "signal_boost": 1.0,  "category_weight": 1.0 }
+        {
+          "slot": 1,
+          "cluster": "starmer-resigns-2026-06-22",
+          "category": "World",
+          "score": 13.74,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "greenspan-dies-2026-06-22",
+          "category": "Markets",
+          "score": 11.34,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "colombia-de-la-espriella-2026-06-22",
+          "category": "World",
+          "score": 10.82,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 4,
+          "cluster": "china-rare-earth-retaliation-2026-06-22",
+          "category": "Markets",
+          "score": 4.46,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "ai-data-center-backlash-2026-06-22",
+          "category": "Tech",
+          "score": 2.25,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        }
       ],
       "core_beat_count": 3,
       "notes": [
@@ -87,16 +175,51 @@
       "estimated_cost_usd": 0.08
     },
     "commit": {
-      "sha": "PENDING",
-      "pushed": false
+      "sha": "80b66071574dbda86cfff23cfe3cd54dd50ecd84",
+      "pushed": true
     }
   },
   "articles": [
-    { "slot": 1, "slug": "starmer-resigns-burnham-bids-to-succeed",                                            "category": "World",   "needs_review": false, "word_count": 893, "sources": 4 },
-    { "slot": 2, "slug": "alan-greenspan-dies-at-100",                                                         "category": "Markets", "needs_review": false, "word_count": 663, "sources": 3 },
-    { "slot": 3, "slug": "de-la-espriella-claims-colombia-runoff-cepeda-challenges-33000-ballot-boxes",         "category": "World",   "needs_review": false, "word_count": 670, "sources": 3 },
-    { "slot": 4, "slug": "china-hits-us-rare-earth-miners-and-defense-suppliers-in-pentagon-list-retort",       "category": "Markets", "needs_review": false, "word_count": 469, "sources": 2 },
-    { "slot": 5, "slug": "data-center-backlash-meets-chevron-microsoft-gas-deal",                               "category": "Tech",    "needs_review": false, "word_count": 516, "sources": 2 }
+    {
+      "slot": 1,
+      "slug": "starmer-resigns-burnham-bids-to-succeed",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 893,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "alan-greenspan-dies-at-100",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 663,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "de-la-espriella-claims-colombia-runoff-cepeda-challenges-33000-ballot-boxes",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 670,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "china-hits-us-rare-earth-miners-and-defense-suppliers-in-pentagon-list-retort",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 469,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "data-center-backlash-meets-chevron-microsoft-gas-deal",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 516,
+      "sources": 2
+    }
   ],
   "egress_blocked_hostnames": [
     "apnews.com",
