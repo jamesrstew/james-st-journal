@@ -1,1 +1,93 @@
-{"date":"2026-06-23","status":"in_progress","started_at":"2026-06-23T12:03:00Z","stages":{}}
+{
+  "date": "2026-06-23",
+  "status": "success",
+  "started_at": "2026-06-23T12:03:00Z",
+  "stages": {
+    "ingest": {
+      "items": 1323,
+      "feeds_ok": 37,
+      "feeds_fail": 3,
+      "failed_feeds": ["Politico", "The Verge", "FT Home"],
+      "stale_feeds": ["WSJ World", "WSJ Business", "WSJ Markets"],
+      "empty_feeds": ["NYT World (GN)", "NYT US (GN)", "NYT Business (GN)", "NYT Tech (GN)"],
+      "duration_sec": 22
+    },
+    "cluster": {
+      "method": "keyword + qualitative review",
+      "candidates_evaluated": 12,
+      "duration_sec": 4
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "Megacap tech selloff + SpaceX bond debut + Kospi 10% drop", "category": "Markets", "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0, "lean_mix": ["center"] },
+        { "slot": 2, "cluster": "U.S. waives Iran oil sanctions; Switzerland talks; Rubio Gulf tour; Pentagon $80B ask", "category": "Politics", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "lean_mix": ["center", "left"] },
+        { "slot": 3, "cluster": "Senate passes bipartisan housing affordability bill with private-equity curb", "category": "Politics", "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0, "lean_mix": ["center", "left"] },
+        { "slot": 4, "cluster": "Brexit ten-year anniversary; UK PMI shrinks; politics fragments", "category": "World", "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85, "lean_mix": ["center", "left"] },
+        { "slot": 5, "cluster": "NY primaries Tuesday — Mamdani's clout tested as AI-industry money floods Nadler seat", "category": "Politics", "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0, "lean_mix": ["center", "left"] }
+      ],
+      "core_beat_count": 4,
+      "dropped": [
+        { "cluster": "South Korea KOSPI 10% plunge", "reason": "thin body-tier coverage — only Reuters (GN), URL unresolvable through Google News encoder; folded into Slot 1 lead" },
+        { "cluster": "Tesla Autopilot Texas NHTSA probe", "reason": "only one body-tier source (CNBC) had fetchable body; BBC, The Hill, Guardian and Ars Technica all blocked or GN-encoded; refilled with NY primary" }
+      ],
+      "duration_sec": 5
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 18,
+      "sources_failed": 8,
+      "note": "Direct-URL outlets that worked: CNBC, NPR, Al Jazeera, NBC News, CBS News. Outlets that returned bot-wall captchas or 403: BBC, The Hill, PBS NewsHour, Reuters/AP/Guardian/Washington Examiner via Google News (URL-encoded redirects do not resolve via curl).",
+      "duration_sec": 95
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 2,
+      "revised": 3,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 3,
+      "approved_after_revise": 3
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 28,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "tech-rout-deepens-as-spacex-taps-bond-market-and-kospi-sheds-10-percent", "category": "Markets", "needs_review": false, "word_count": 892, "sources": 4 },
+    { "slot": 2, "slug": "us-waives-iran-oil-sanctions-as-switzerland-talks-conclude", "category": "Politics", "needs_review": false, "word_count": 645, "sources": 3 },
+    { "slot": 3, "slug": "senate-passes-housing-bill-curbing-private-equity-home-buying", "category": "Politics", "needs_review": false, "word_count": 640, "sources": 2 },
+    { "slot": 4, "slug": "brexit-ten-years-on-britain-cycles-to-its-seventh-prime-minister", "category": "World", "needs_review": false, "word_count": 562, "sources": 4 },
+    { "slot": 5, "slug": "new-york-primaries-test-mamdani-as-ai-money-floods-nadler-seat", "category": "Politics", "needs_review": false, "word_count": 558, "sources": 5 }
+  ],
+  "egress_blocked_hostnames": [
+    "rss.politico.com",
+    "theverge.com",
+    "ft.com",
+    "bbc.co.uk",
+    "thehill.com",
+    "pbs.org",
+    "arstechnica.com"
+  ],
+  "notes": [
+    "WSJ direct feeds returned stale (Jan 2025) items in every window — not a today-only failure; consider replacing with WSJ (GN) Google News mirrors if the staleness persists.",
+    "NYT (GN) section feeds (world/us/business/tech) all returned 0 items today; the 'when:1d' clause appears to be filtering out the section-specific section URLs.",
+    "Google News RSS links (CBM-prefixed encoded redirects) do not follow to source via simple curl + UA spoof — they return the Google News shell page rather than the underlying article. Pipeline currently has no resolver for these. As a consequence many high-authority body-tier wires (Reuters, AP, Guardian, Washington Examiner) are unreachable for body fetch even though their RSS metadata still scores them in the cluster. Recommend either (a) adding a GN-URL decoder that follows the protobuf-encoded redirect via the news.google.com/articles JSDOM POST endpoint, or (b) supplementing sources.json with more direct-URL outlets per category (esp. Markets/Politics)."
+  ],
+  "errors": []
+}
