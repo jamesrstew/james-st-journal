@@ -7,9 +7,22 @@
       "items": 1323,
       "feeds_ok": 37,
       "feeds_fail": 3,
-      "failed_feeds": ["Politico", "The Verge", "FT Home"],
-      "stale_feeds": ["WSJ World", "WSJ Business", "WSJ Markets"],
-      "empty_feeds": ["NYT World (GN)", "NYT US (GN)", "NYT Business (GN)", "NYT Tech (GN)"],
+      "failed_feeds": [
+        "Politico",
+        "The Verge",
+        "FT Home"
+      ],
+      "stale_feeds": [
+        "WSJ World",
+        "WSJ Business",
+        "WSJ Markets"
+      ],
+      "empty_feeds": [
+        "NYT World (GN)",
+        "NYT US (GN)",
+        "NYT Business (GN)",
+        "NYT Tech (GN)"
+      ],
       "duration_sec": 22
     },
     "cluster": {
@@ -19,16 +32,76 @@
     },
     "select": {
       "chosen": [
-        { "slot": 1, "cluster": "Megacap tech selloff + SpaceX bond debut + Kospi 10% drop", "category": "Markets", "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0, "lean_mix": ["center"] },
-        { "slot": 2, "cluster": "U.S. waives Iran oil sanctions; Switzerland talks; Rubio Gulf tour; Pentagon $80B ask", "category": "Politics", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "lean_mix": ["center", "left"] },
-        { "slot": 3, "cluster": "Senate passes bipartisan housing affordability bill with private-equity curb", "category": "Politics", "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0, "lean_mix": ["center", "left"] },
-        { "slot": 4, "cluster": "Brexit ten-year anniversary; UK PMI shrinks; politics fragments", "category": "World", "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85, "lean_mix": ["center", "left"] },
-        { "slot": 5, "cluster": "NY primaries Tuesday — Mamdani's clout tested as AI-industry money floods Nadler seat", "category": "Politics", "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0, "lean_mix": ["center", "left"] }
+        {
+          "slot": 1,
+          "cluster": "Megacap tech selloff + SpaceX bond debut + Kospi 10% drop",
+          "category": "Markets",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1,
+          "lean_mix": [
+            "center"
+          ]
+        },
+        {
+          "slot": 2,
+          "cluster": "U.S. waives Iran oil sanctions; Switzerland talks; Rubio Gulf tour; Pentagon $80B ask",
+          "category": "Politics",
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "lean_mix": [
+            "center",
+            "left"
+          ]
+        },
+        {
+          "slot": 3,
+          "cluster": "Senate passes bipartisan housing affordability bill with private-equity curb",
+          "category": "Politics",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1,
+          "lean_mix": [
+            "center",
+            "left"
+          ]
+        },
+        {
+          "slot": 4,
+          "cluster": "Brexit ten-year anniversary; UK PMI shrinks; politics fragments",
+          "category": "World",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85,
+          "lean_mix": [
+            "center",
+            "left"
+          ]
+        },
+        {
+          "slot": 5,
+          "cluster": "NY primaries Tuesday — Mamdani's clout tested as AI-industry money floods Nadler seat",
+          "category": "Politics",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1,
+          "lean_mix": [
+            "center",
+            "left"
+          ]
+        }
       ],
       "core_beat_count": 4,
       "dropped": [
-        { "cluster": "South Korea KOSPI 10% plunge", "reason": "thin body-tier coverage — only Reuters (GN), URL unresolvable through Google News encoder; folded into Slot 1 lead" },
-        { "cluster": "Tesla Autopilot Texas NHTSA probe", "reason": "only one body-tier source (CNBC) had fetchable body; BBC, The Hill, Guardian and Ars Technica all blocked or GN-encoded; refilled with NY primary" }
+        {
+          "cluster": "South Korea KOSPI 10% plunge",
+          "reason": "thin body-tier coverage — only Reuters (GN), URL unresolvable through Google News encoder; folded into Slot 1 lead"
+        },
+        {
+          "cluster": "Tesla Autopilot Texas NHTSA probe",
+          "reason": "only one body-tier source (CNBC) had fetchable body; BBC, The Hill, Guardian and Ars Technica all blocked or GN-encoded; refilled with NY primary"
+        }
       ],
       "duration_sec": 5
     },
@@ -65,15 +138,51 @@
       "estimated_cost_usd": 0.08
     },
     "commit": {
+      "sha": "93d2c1ac4df8057095d2803555e7082139e39c68",
       "pushed": true
     }
   },
   "articles": [
-    { "slot": 1, "slug": "tech-rout-deepens-as-spacex-taps-bond-market-and-kospi-sheds-10-percent", "category": "Markets", "needs_review": false, "word_count": 892, "sources": 4 },
-    { "slot": 2, "slug": "us-waives-iran-oil-sanctions-as-switzerland-talks-conclude", "category": "Politics", "needs_review": false, "word_count": 645, "sources": 3 },
-    { "slot": 3, "slug": "senate-passes-housing-bill-curbing-private-equity-home-buying", "category": "Politics", "needs_review": false, "word_count": 640, "sources": 2 },
-    { "slot": 4, "slug": "brexit-ten-years-on-britain-cycles-to-its-seventh-prime-minister", "category": "World", "needs_review": false, "word_count": 562, "sources": 4 },
-    { "slot": 5, "slug": "new-york-primaries-test-mamdani-as-ai-money-floods-nadler-seat", "category": "Politics", "needs_review": false, "word_count": 558, "sources": 5 }
+    {
+      "slot": 1,
+      "slug": "tech-rout-deepens-as-spacex-taps-bond-market-and-kospi-sheds-10-percent",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 892,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "us-waives-iran-oil-sanctions-as-switzerland-talks-conclude",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 645,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "senate-passes-housing-bill-curbing-private-equity-home-buying",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 640,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "brexit-ten-years-on-britain-cycles-to-its-seventh-prime-minister",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 562,
+      "sources": 4
+    },
+    {
+      "slot": 5,
+      "slug": "new-york-primaries-test-mamdani-as-ai-money-floods-nadler-seat",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 558,
+      "sources": 5
+    }
   ],
   "egress_blocked_hostnames": [
     "rss.politico.com",
