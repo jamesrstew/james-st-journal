@@ -1,6 +1,35 @@
 {
   "date": "2026-06-24",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-24T12:08:20Z",
-  "stages": {}
+  "stages": {
+    "ingest":   { "items": 1396, "feeds_ok": 36, "feeds_fail": 4, "duration_sec": 35 },
+    "cluster":  { "clusters": 24, "body_tier_clusters": 18, "duration_sec": 5 },
+    "select":   {
+      "chosen": [
+        { "slot": 1, "cluster": "Big Tech equity rout shaves $1.3 trillion on AI capex jitters; data-centre backlash; chips rebound in Asia", "category": "Markets", "score": 6.0, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "Mamdani-backed candidates sweep NY Democratic House primaries, ousting Goldman, Espaillat, Velazquez (succession), Nadler (succession)", "category": "Politics", "score": 5.2, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "U.S. Senate passes Iran war powers resolution rebuking Trump; nuclear inspections dispute escalates; Rubio Mideast trip", "category": "Politics", "score": 4.0, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 },
+        { "slot": 4, "cluster": "Germany scraps delayed F126 frigate program in major blow to Rheinmetall; defense stocks slide; European warship procurement reset", "category": "Business", "score": 3.8, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 5, "cluster": "Europe-wide 'Omega' heatwave hits record temperatures; France records hottest day ever; power outages, deaths", "category": "World", "score": 3.5, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85 }
+      ],
+      "core_beat_count": 4
+    },
+    "research": { "dossiers_built": 5, "sources_fetched": 22, "sources_failed": 8, "duration_sec": 524 },
+    "draft":    { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit":     { "editors_spawned": 5, "approved_first_pass": 4, "revised": 1, "held": 0 },
+    "revise":   { "revisions_spawned": 1, "approved_after_revise": 1 },
+    "stage":    { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 0, "images_failed": 5, "duration_sec": 95, "estimated_cost_usd": 0.0, "note": "All five slots failed with IncompleteRead from the egress proxy truncating gpt-image-2 response streams; slot 3 additionally hit HTTP 429. All articles ship with has_illustration:false." },
+    "commit":   { "sha": "", "pushed": false }
+  },
+  "articles": [
+    { "slot": 1, "slug": "ai-rout-shaves-1-3-trillion-as-chips-claw-back-in-asia", "category": "Markets", "needs_review": false, "word_count": 812, "sources": 5 },
+    { "slot": 2, "slug": "mamdani-slate-sweeps-new-york-house-primaries", "category": "Politics", "needs_review": false, "word_count": 699, "sources": 3 },
+    { "slot": 3, "slug": "senate-iran-war-powers-resolution-rebuke", "category": "Politics", "needs_review": false, "word_count": 677, "sources": 5 },
+    { "slot": 4, "slug": "germany-scraps-f126-frigate-rheinmetall-slides", "category": "Business", "needs_review": false, "word_count": 483, "sources": 5 },
+    { "slot": 5, "slug": "omega-block-france-hottest-day-europe-heatwave", "category": "World", "needs_review": false, "word_count": 547, "sources": 4 }
+  ],
+  "egress_blocked_hostnames": ["feeds.npr.org"],
+  "errors": []
 }
