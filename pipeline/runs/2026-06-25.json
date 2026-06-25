@@ -1,6 +1,92 @@
 {
   "date": "2026-06-25",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-25T12:06:47Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1480,
+      "feeds_ok": 33,
+      "feeds_fail": 5,
+      "feeds_fail_detail": [
+        "PBS NewsHour (empty body)",
+        "NPR Top (egress 403)",
+        "NPR Business (egress 403)",
+        "NPR Tech (egress 403)",
+        "NPR World (egress 403)"
+      ],
+      "duration_sec": 78
+    },
+    "cluster": {
+      "clusters_considered": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 2
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "Oil prices fall to pre-war levels as Hormuz tankers resume; China refiners weigh Iran crude; OPEC quota fight", "category": "Markets", "raw_score": 24.08, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "Twin earthquakes devastate Venezuela; 164 dead, state of emergency, US mobilizing aid", "category": "World", "raw_score": 23.36, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 0.85, "lead_eligible_via": "mandate_escape" },
+        { "slot": 3, "cluster": "Senate Republicans reverse Iran war powers vote after Trump Capitol meeting", "category": "Politics", "raw_score": 10.06, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 4, "cluster": "AI chip rally erases yesterday rout: Micron blowout, Qualcomm $15B, SK Hynix 12% surge on US ADR plan, OpenAI-Broadcom custom chip", "category": "Markets", "raw_score": 9.67, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0 },
+        { "slot": 5, "cluster": "IBM unveils sub-1nm chip stacking design as block of flats breakthrough", "category": "Tech", "raw_score": 2.4, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 }
+      ],
+      "core_beat_count": 4,
+      "composition_floor_ok": true
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 17,
+      "sources_failed": 10,
+      "fail_pattern_notes": "Google News redirect URLs (Reuters/AP/Axios/Ars/Wired) returned a JS-rendered shell that neither WebFetch nor curl could resolve to the underlying outlet URL. The Hill direct URLs returned a ~6KB bot-wall shell. NBC video subdomain pages had no text. Wire coverage replaced by BBC/CBS/CNBC/Al Jazeera/Fox direct fetches.",
+      "duration_sec": 95
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0,
+      "revised_slots": [3]
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1,
+      "held_after_revise": 0,
+      "notes": [
+        "Slot 3: counterpoint graf reworked to surface the pro-administration substantive case (ceasefire in effect, OMB \"rebuild stocks\" framing, Trump's \"poorly timed and meaningless\" line, Cassidy's assuaged briefing/flip). Light source-fidelity fix on the housing-bill-cancel timing."
+      ]
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "brand_sync": {
+      "brand_ts_model_name": "Claude Opus 4.7",
+      "writer_md_model_id": "claude-opus-4-7",
+      "running_model_id": "claude-opus-4-7",
+      "updated": false
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 122,
+      "estimated_cost_usd": 0.08,
+      "notes": "Initial pipeline/illustrate.py runs failed with urllib IncompleteRead through the agent proxy. Worked around by routing the OpenAI API call through curl (same prompt, same model, same composite); both light- and dark-mode PNGs generated for all 5 slots."
+    },
+    "commit": {
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "brent-falls-to-pre-war-low-as-hormuz-traffic-doubles", "category": "Markets", "needs_review": false, "word_count": 899, "sources": 4 },
+    { "slot": 2, "slug": "twin-quakes-kill-164-in-venezuela-as-trump-mobilizes-u-s-aid", "category": "World", "needs_review": false, "word_count": 689, "sources": 4 },
+    { "slot": 3, "slug": "trump-asks-congress-87-billion-iran-war-senate-flips", "category": "Politics", "needs_review": false, "word_count": 758, "sources": 3 },
+    { "slot": 4, "slug": "micron-blowout-and-qualcomm-forecast-erase-ai-chip-rout", "category": "Markets", "needs_review": false, "word_count": 598, "sources": 4 },
+    { "slot": 5, "slug": "ibm-nanostack-claims-sub-1-nanometer-chip-with-100-billion-transistors", "category": "Tech", "needs_review": false, "word_count": 555, "sources": 2 }
+  ],
+  "egress_blocked_hostnames": ["npr.org"],
+  "errors": []
 }
