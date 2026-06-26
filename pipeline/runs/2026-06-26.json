@@ -1,6 +1,181 @@
 {
   "date": "2026-06-26",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-06-26T12:03:00Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1374,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "feeds_fail_detail": [
+        "Politico (HTTP 403)",
+        "The Verge (HTTP 403)",
+        "NPR Top (HTTP 403)",
+        "NPR Business (HTTP 403)",
+        "NPR Tech (HTTP 403)",
+        "NPR World (HTTP 403)",
+        "FT Home (HTTP 403)"
+      ],
+      "duration_sec": 1
+    },
+    "cluster": {
+      "clusters_considered": 18,
+      "body_tier_clusters": 18,
+      "duration_sec": 143
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Supreme Court shields Bayer's Monsanto from thousands of Roundup cancer suits, scaling back state failure-to-warn claims in a win for the agrichemical industry.",
+          "category": "Business",
+          "raw_score": 12.499,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "dedupe_penalty": 0
+        },
+        {
+          "slot": 2,
+          "cluster": "Apple raises Mac and iPad prices by as much as 20 percent and Microsoft hikes Xbox costs for a third time, blaming surging memory chip costs driven by AI demand.",
+          "category": "Business",
+          "raw_score": 11.7,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "dedupe_penalty": 0
+        },
+        {
+          "slot": 3,
+          "cluster": "Supreme Court clears the way for the Trump administration to end Temporary Protected Status for hundreds of thousands of Haitian and Syrian immigrants.",
+          "category": "Politics",
+          "raw_score": 11.43,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "dedupe_penalty": 0
+        },
+        {
+          "slot": 4,
+          "cluster": "Venezuela's twin-quake death toll climbs above 235 as international rescue teams converge and the U.S. military surges aid to Caracas and La Guaira.",
+          "category": "World",
+          "raw_score": 10.041,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85,
+          "dedupe_penalty": 0.5
+        },
+        {
+          "slot": 5,
+          "cluster": "Europe's record heat wave hits Paris alcohol bans, French school exams in 40C, U.K. grid warnings, and an estimated hundreds of deaths as the omega block persists.",
+          "category": "World",
+          "raw_score": 9.845,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85,
+          "dedupe_penalty": 0.5
+        }
+      ],
+      "core_beat_count": 3,
+      "composition_floor_ok": true
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 15,
+      "sources_failed": 1,
+      "fail_pattern_notes": "Google News redirect URLs (Reuters/AP/Axios/Ars/Wired/Guardian/Bloomberg/Economist/Christian Sci Monitor/Washington Examiner/DW) returned a JS-rendered shell that neither WebFetch nor curl could resolve. The Hill direct URLs returned a 403 bot-wall. RealClearPolitics returned 0 chars. Wire coverage replaced by BBC/CBS/CNBC/Al Jazeera/NBC/Fox direct fetches.",
+      "duration_sec": 95
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0,
+      "revised_slots": [
+        1
+      ]
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1,
+      "held_after_revise": 0,
+      "notes": [
+        "Slot 1: cut $10B cumulative-settlement, '~$5B market-cap', 'largest single-session move since acquisition' superlative, and a fabricated Bayer-breakup graf; renamed 'American depositary receipts' to 'U.S.-listed shares' per source language; dropped unsupported 'farm-bill conference' kicker; bracketed lowercase '[t]he' on the Hari quote to flag a case change. Added sourced Rep. Anna Paulina Luna verbatim X-post quote to keep rhythm. Word count back in band at 882."
+      ]
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 61,
+      "estimated_cost_usd": 0.08,
+      "notes": "Slot 5 retried once on IncompleteRead and succeeded on attempt 2."
+    },
+    "commit": {
+      "sha": "PENDING",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "supreme-court-shields-bayer-from-roundup-cancer-suits",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 882,
+      "sources": 2,
+      "draft_iterations": 2
+    },
+    {
+      "slot": 2,
+      "slug": "apple-lifts-mac-and-ipad-prices-up-to-20-percent-as-xbox-jumps-again",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 652,
+      "sources": 3,
+      "draft_iterations": 1
+    },
+    {
+      "slot": 3,
+      "slug": "supreme-court-clears-trump-to-end-tps-for-haitians-and-syrians",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 642,
+      "sources": 3,
+      "draft_iterations": 1
+    },
+    {
+      "slot": 4,
+      "slug": "venezuela-quake-death-toll-tops-235-as-rescue-teams-converge-on-la-guaira",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 581,
+      "sources": 4,
+      "draft_iterations": 1
+    },
+    {
+      "slot": 5,
+      "slug": "paris-bans-public-drinking-as-attribution-study-pins-heat-dome-on-warming",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 542,
+      "sources": 4,
+      "draft_iterations": 1
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "feeds.npr.org",
+    "theverge.com",
+    "rss.politico.com",
+    "ft.com"
+  ],
+  "errors": []
 }
