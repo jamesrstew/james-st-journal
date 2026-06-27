@@ -1,1 +1,181 @@
-{"date":"2026-06-27","status":"in_progress","started_at":"2026-06-27T12:06:53Z","stages":{}}
+{
+  "date": "2026-06-27",
+  "status": "success",
+  "started_at": "2026-06-27T12:06:53Z",
+  "completed_at": "2026-06-27T12:37:30Z",
+  "stages": {
+    "ingest": {
+      "items": 1328,
+      "feeds_ok": 35,
+      "feeds_fail": 5,
+      "feeds_empty": 7,
+      "duration_sec": 25
+    },
+    "cluster": {
+      "candidate_clusters": 5,
+      "kept_clusters": 5,
+      "duration_sec": 4,
+      "notes": "Five qualitative clusters built from headlines/summaries: Iran-Hormuz strikes, AI markets rout, Bolton plea, Anthropic/OpenAI release, EU digital-tax tariff."
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "US strikes Iran after Tehran drone attack on cargo ship in Strait of Hormuz; Iran retaliates against US-linked targets",
+          "category": "World",
+          "score": 24.027,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "Oracle posts worst week since 2001 dot-com bust as AI financing fears spread; Grantham calls market most expensive in U.S. history",
+          "category": "Markets",
+          "score": 2.647,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "Former Trump national-security adviser John Bolton pleads guilty to mishandling classified documents",
+          "category": "Politics",
+          "score": 4.05,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Trump administration allows limited release of Anthropic's Mythos model to vetted customers and OpenAI delays public rollout of GPT-5.6 amid cybersecurity review",
+          "category": "Tech",
+          "score": 20.509,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Trump threatens 100 percent tariffs on countries that impose digital services taxes on U.S. tech firms; EU pushes back",
+          "category": "Politics",
+          "score": 9.48,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 4,
+      "composition_floor_met": true,
+      "notes": "Original slot 3 (VW 100k layoffs) was dropped at the research stage: no body-tier publisher (Reuters/Axios/Ars/DW/AP) returned a fetchable article URL outside Google News JS-redirected pages, leaving only a single CNBC body source — below the 2-outlet hard minimum. Bolton guilty plea (Politics) was promoted to slot 3 from the next-ranked queue with clean BBC + CNBC body sources."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 16,
+      "sources_failed_egress": [
+        "npr.org (RSS 403)",
+        "pbs.org (RSS 202/empty)",
+        "thehill.com (article 403)",
+        "axios.com (article 403)",
+        "reuters.com (article 401)",
+        "apnews.com (article 404 on direct paths)",
+        "politico.com (article 403)",
+        "news.google.com (article body — requires JS to follow redirect)"
+      ],
+      "duration_sec": 240
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 0,
+      "images_failed": 5,
+      "duration_sec": 96,
+      "estimated_cost_usd": 0,
+      "notes": "All 5 OpenAI gpt-image-2 calls failed with http.client.IncompleteRead — the proxy is truncating image-generation responses (~1.3–1.4 MB read before connection closed). Non-fatal per pipeline contract; all 5 articles ship with has_illustration: false and render text-only."
+    },
+    "commit": {
+      "sha": "pending",
+      "pushed": true
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "us-strikes-iran-bahrain-drones-hormuz-ceasefire",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 867,
+      "sources": 6
+    },
+    {
+      "slot": 2,
+      "slug": "oracle-19-percent-drop-caps-ai-financing-week-grantham-calls-market-priciest-ever",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 660,
+      "sources": 4
+    },
+    {
+      "slot": 3,
+      "slug": "bolton-pleads-guilty-to-retaining-classified-defense-information",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 642,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "us-clears-anthropic-mythos-5-for-trusted-partners-as-openai-staggers-gpt-5-6",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 535,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "trump-threatens-100-percent-tariff-on-countries-with-digital-services-tax",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 517,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "feeds.npr.org",
+    "pbs.org",
+    "thehill.com",
+    "axios.com",
+    "reuters.com",
+    "apnews.com",
+    "politico.com",
+    "foxbusiness.com",
+    "dw.com",
+    "arstechnica.com",
+    "theguardian.com",
+    "bbc.com (via WebFetch)"
+  ],
+  "errors": [
+    {
+      "stage": "illustrate",
+      "kind": "IncompleteRead",
+      "detail": "OpenAI gpt-image-2 image bytes truncated by proxy in all 5 attempts (~1.3 MB read of expected ~1.7-2.0 MB). illustrate.py one-retry-on-non-2xx logic did not trigger because responses had 2xx status before connection cut. Articles published with has_illustration: false."
+    }
+  ]
+}
