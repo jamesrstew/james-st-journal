@@ -111,7 +111,7 @@
       "notes": "All 5 OpenAI gpt-image-2 calls failed with http.client.IncompleteRead — the proxy is truncating image-generation responses (~1.3–1.4 MB read before connection closed). Non-fatal per pipeline contract; all 5 articles ship with has_illustration: false and render text-only."
     },
     "commit": {
-      "sha": "pending",
+      "sha": "7623e041b8e5379812be7914a7a6b191e54e1e15",
       "pushed": true
     }
   },
