@@ -1,1 +1,36 @@
-{"date":"2026-06-28","status":"in_progress","started_at":"2026-06-28T12:07:55Z","stages":{}}
+{
+  "date": "2026-06-28",
+  "status": "success",
+  "started_at": "2026-06-28T12:07:55Z",
+  "stages": {
+    "ingest": { "items": 1051, "feeds_ok": 35, "feeds_fail": 5, "duration_sec": 28, "failures": ["NPR Top: 403 Akamai", "NPR Business: 403 Akamai", "NPR Tech: 403 Akamai", "NPR World: 403 Akamai", "PBS NewsHour: 202 empty"] },
+    "cluster": { "clusters_considered": 16, "body_tier_clusters": 12, "duration_sec": 4, "method": "qualitative_grouping_on_titles_and_summaries" },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "us-iran-strikes-tanker-hormuz-2026-06-28", "category": "World", "score": 11.0, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 0.85, "rationale": "mandate-escape lead: FT/Bloomberg/Economist all carry; today escalates 2026-06-27 lead with Hormuz tanker + Hezbollah rejection + day-2 strikes" },
+        { "slot": 2, "cluster": "bis-ai-debt-bust-2026-06-28", "category": "Markets", "score": 6.5, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0, "rationale": "core-beat; BIS Annual Economic Report published Sunday, FT+Bloomberg mandate" },
+        { "slot": 3, "cluster": "obamacare-subsidies-expire-2026-06-28", "category": "Politics", "score": 4.2, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0, "rationale": "core-beat; fresh AP wire on first official enrollment drop after subsidy expiry" },
+        { "slot": 4, "cluster": "australia-social-media-ban-2026-06-28", "category": "Tech", "score": 5.0, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "rationale": "core-beat; Reuters+BBC+Guardian body, mandate via Bloomberg signal" },
+        { "slot": 5, "cluster": "milei-cabinet-chief-resigns-2026-06-28", "category": "World", "score": 3.6, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85, "rationale": "AP+Reuters+DW body; Bloomberg mandate signal; corruption story fresh today" }
+      ],
+      "core_beat_count": 3,
+      "composition_floor_met": true
+    },
+    "research": { "dossiers_built": 5, "sources_fetched": 13, "sources_failed": 0, "duration_sec": 240, "notes": "Google News redirect URLs (CBM... encoded) returned JS-rendered interstitials of ~98c via curl; fell back to publisher mirrors (ABC News, Las Vegas Sun, Yahoo News Canada, VINnews, Al Jazeera, RTE) via WebFetch and to direct curl on BBC/CBS/CNBC. BIS Annual Economic Report 2026 PDF was extracted with pdftotext. The Hill and Reuters direct URLs blocked by bot-detection (PerimeterX/403)." },
+    "draft": { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit": { "editors_spawned": 5, "approved_first_pass": 1, "revised": 4, "held": 0 },
+    "revise": { "revisions_spawned": 4, "approved_after_revise": 4 },
+    "stage": { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 0, "images_failed": 5, "duration_sec": 62, "estimated_cost_usd": 0.0, "notes": "All five gpt-image-2 requests returned http.client.IncompleteRead mid-response on both the first attempt and the 10s-backoff retry; proxy appears to be truncating the ~1.4 MB base64-PNG payload. Set has_illustration: false on all five articles per the graceful-degradation rule. Failure reproduced sequentially, so not a parallelism issue. Worth flagging for the illustrate.py owner: the upstream proxy may need a higher response-body cap, or the script could stream the response and recover from IncompleteRead." },
+    "commit": { "sha": null, "pushed": false }
+  },
+  "articles": [
+    { "slot": 1, "slug": "trump-threatens-to-end-iran-as-strikes-hit-kuwait-and-bahrain", "category": "World", "needs_review": false, "word_count": 830, "sources": 3, "has_illustration": false },
+    { "slot": 2, "slug": "bis-flags-ai-capex-as-pressure-point-in-2026-annual-report", "category": "Markets", "needs_review": false, "word_count": 612, "sources": 2, "has_illustration": false },
+    { "slot": 3, "slug": "aca-enrollment-falls-3-million-after-subsidies-expire", "category": "Politics", "needs_review": false, "word_count": 489, "sources": 2, "has_illustration": false },
+    { "slot": 4, "slug": "australia-doubles-social-media-ban-penalty-to-99-million", "category": "Tech", "needs_review": false, "word_count": 514, "sources": 3, "has_illustration": false },
+    { "slot": 5, "slug": "mileis-cabinet-chief-adorni-resigns-amid-illicit-enrichment-probe", "category": "World", "needs_review": false, "word_count": 495, "sources": 3, "has_illustration": false }
+  ],
+  "egress_blocked_hostnames": [],
+  "errors": []
+}
