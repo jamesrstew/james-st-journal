@@ -22,7 +22,7 @@
     "revise": { "revisions_spawned": 4, "approved_after_revise": 4 },
     "stage": { "articles_written": 5, "validator_ok": true },
     "illustrate": { "articles_illustrated": 0, "images_failed": 5, "duration_sec": 62, "estimated_cost_usd": 0.0, "notes": "All five gpt-image-2 requests returned http.client.IncompleteRead mid-response on both the first attempt and the 10s-backoff retry; proxy appears to be truncating the ~1.4 MB base64-PNG payload. Set has_illustration: false on all five articles per the graceful-degradation rule. Failure reproduced sequentially, so not a parallelism issue. Worth flagging for the illustrate.py owner: the upstream proxy may need a higher response-body cap, or the script could stream the response and recover from IncompleteRead." },
-    "commit": { "sha": null, "pushed": false }
+    "commit": { "sha": "7d390110951b852f19c1b3dbd7ea414e4e5edc01", "pushed": true }
   },
   "articles": [
     { "slot": 1, "slug": "trump-threatens-to-end-iran-as-strikes-hit-kuwait-and-bahrain", "category": "World", "needs_review": false, "word_count": 830, "sources": 3, "has_illustration": false },
