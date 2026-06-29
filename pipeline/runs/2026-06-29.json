@@ -8,22 +8,77 @@
       "feeds_ok": 33,
       "feeds_fail": 7,
       "duration_sec": 2,
-      "fail_detail": ["Politico (403)", "FT Home (403)", "The Verge (403)", "NPR Top (403)", "NPR Business (403)", "NPR Tech (403)", "NPR World (403)"]
+      "fail_detail": [
+        "Politico (403)",
+        "FT Home (403)",
+        "The Verge (403)",
+        "NPR Top (403)",
+        "NPR Business (403)",
+        "NPR Tech (403)",
+        "NPR World (403)"
+      ]
     },
     "cluster": {
       "clusters": 13,
       "body_tier_clusters": 12,
       "dropped_thin": 1,
       "duration_sec": 1,
-      "dropped_thin_detail": ["spacex-25b-bond — only 1 body-tier source (CNBC)"]
+      "dropped_thin_detail": [
+        "spacex-25b-bond — only 1 body-tier source (CNBC)"
+      ]
     },
     "select": {
       "chosen": [
-        { "slot": 1, "cluster": "venezuela-quake-recovery", "category": "World", "raw_score": 12.4, "adjusted": 12.4, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85 },
-        { "slot": 2, "cluster": "ukraine-russia-fuel", "category": "World", "raw_score": 8.75, "adjusted": 8.31, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85 },
-        { "slot": 3, "cluster": "south-korea-chip-mega-investment", "category": "Tech", "raw_score": 7.66, "adjusted": 7.66, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
-        { "slot": 4, "cluster": "comcast-nbcuniversal-spinoff", "category": "Business", "raw_score": 7.06, "adjusted": 7.06, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
-        { "slot": 5, "cluster": "ai-spending-cheaper-pivot", "category": "Markets", "raw_score": 4.08, "adjusted": 4.08, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 }
+        {
+          "slot": 1,
+          "cluster": "venezuela-quake-recovery",
+          "category": "World",
+          "raw_score": 12.4,
+          "adjusted": 12.4,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "ukraine-russia-fuel",
+          "category": "World",
+          "raw_score": 8.75,
+          "adjusted": 8.31,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "south-korea-chip-mega-investment",
+          "category": "Tech",
+          "raw_score": 7.66,
+          "adjusted": 7.66,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "comcast-nbcuniversal-spinoff",
+          "category": "Business",
+          "raw_score": 7.06,
+          "adjusted": 7.06,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "ai-spending-cheaper-pivot",
+          "category": "Markets",
+          "raw_score": 4.08,
+          "adjusted": 4.08,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        }
       ],
       "core_beat_count": 3,
       "substitution_note": "Slot 5 substituted ai-spending-cheaper-pivot (raw=4.08) for the higher-scoring supreme-court-term-end-trump-power cluster (raw=5.8) at research time: every AP/Axios/Washington-Examiner source in that cluster was a Google News redirect that did not resolve to a fetchable article, leaving zero body-tier sources at ≥600 chars. AI-spending was the next-ranked core-beat alternative with fetchable bodies (Semafor + 2x CNBC)."
@@ -33,7 +88,9 @@
       "sources_fetched": 15,
       "sources_failed": 2,
       "duration_sec": 6,
-      "fail_detail": ["The Hill (403, twice)"]
+      "fail_detail": [
+        "The Hill (403, twice)"
+      ]
     },
     "draft": {
       "writers_spawned": 5,
@@ -60,20 +117,62 @@
       "articles_illustrated": 0,
       "images_failed": 5,
       "duration_sec": 477,
-      "estimated_cost_usd": 0.0,
+      "estimated_cost_usd": 0,
       "failure_mode": "All 10 OpenAI image.generations requests (5 slots x 2 retries each, partly in parallel and partly sequential) failed: 1x HTTP 429 Too Many Requests, 9x http.client.IncompleteRead — the response stream truncated between 1.16 MB and 1.44 MB of an expected ~2.5 MB base64 PNG payload. Consistent with an upstream egress / proxy size cap on long-running OpenAI image responses in this routine environment. Pipeline shipped text-only with has_illustration: false on every article, per the documented graceful-degradation path."
     },
     "commit": {
-      "pushed": true
+      "pushed": true,
+      "sha": "c4124f2336c2b8f53132cb10424b1084f937c409"
     }
   },
   "articles": [
-    { "slot": 1, "slug": "venezuela-quake-toll-passes-1450-as-72-hour-window-closes", "category": "World", "needs_review": false, "word_count": 969, "sources": 4 },
-    { "slot": 2, "slug": "putin-concedes-fuel-shortages-as-ukrainian-drones-hammer-russian-refineries", "category": "World", "needs_review": false, "word_count": 788, "sources": 2 },
-    { "slot": 3, "slug": "south-korea-taps-samsung-sk-hynix-in-518-billion-ai-chip-drive", "category": "Tech", "needs_review": false, "word_count": 669, "sources": 3 },
-    { "slot": 4, "slug": "comcast-to-spin-off-nbcuniversal-and-sky-shares-jump-23-percent", "category": "Business", "needs_review": false, "word_count": 431, "sources": 3 },
-    { "slot": 5, "slug": "ai-capex-pressure-points-pile-up-as-data-centers-meet-weather-and-skepticism", "category": "Markets", "needs_review": false, "word_count": 621, "sources": 3 }
+    {
+      "slot": 1,
+      "slug": "venezuela-quake-toll-passes-1450-as-72-hour-window-closes",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 969,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "putin-concedes-fuel-shortages-as-ukrainian-drones-hammer-russian-refineries",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 788,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "south-korea-taps-samsung-sk-hynix-in-518-billion-ai-chip-drive",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 669,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "comcast-to-spin-off-nbcuniversal-and-sky-shares-jump-23-percent",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 431,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "ai-capex-pressure-points-pile-up-as-data-centers-meet-weather-and-skepticism",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 621,
+      "sources": 3
+    }
   ],
-  "egress_blocked_hostnames": ["rss.politico.com", "ft.com", "theverge.com", "feeds.npr.org", "thehill.com"],
+  "egress_blocked_hostnames": [
+    "rss.politico.com",
+    "ft.com",
+    "theverge.com",
+    "feeds.npr.org",
+    "thehill.com"
+  ],
   "errors": []
 }
