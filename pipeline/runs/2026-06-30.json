@@ -23,11 +23,51 @@
     },
     "select": {
       "chosen": [
-        { "slot": 1, "cluster": "SCOTUS rulings — Cook stays, presidential firing power expanded", "category": "Politics", "score": 19.38, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0 },
-        { "slot": 2, "cluster": "US-Iran stand down, Doha talks set for Tuesday", "category": "World", "score": 8.39, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85 },
-        { "slot": 3, "cluster": "Yen falls to 40-year low; Tokyo signals possible intervention", "category": "Markets", "score": 5.65, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
-        { "slot": 4, "cluster": "Rocket Lab to buy Iridium in $8B cash-and-stock deal", "category": "Tech", "score": 3.24, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
-        { "slot": 5, "cluster": "Guo Wengui (Miles Guo) sentenced to 30 years for $1B fraud", "category": "Business", "score": 5.10, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 }
+        {
+          "slot": 1,
+          "cluster": "SCOTUS rulings \u2014 Cook stays, presidential firing power expanded",
+          "category": "Politics",
+          "score": 19.38,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 2,
+          "cluster": "US-Iran stand down, Doha talks set for Tuesday",
+          "category": "World",
+          "score": 8.39,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "Yen falls to 40-year low; Tokyo signals possible intervention",
+          "category": "Markets",
+          "score": 5.65,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 4,
+          "cluster": "Rocket Lab to buy Iridium in $8B cash-and-stock deal",
+          "category": "Tech",
+          "score": 3.24,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 5,
+          "cluster": "Guo Wengui (Miles Guo) sentenced to 30 years for $1B fraud",
+          "category": "Business",
+          "score": 5.1,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        }
       ],
       "core_beat_count": 4
     },
@@ -65,15 +105,51 @@
       "note": "All five gpt-image-2 calls failed with http.client.IncompleteRead truncation on the response body (TLS connection cut mid-download). One parallel pass then a sequential pass were attempted; both failed the same way. Articles shipped with has_illustration: false per the graceful-degradation rule. Recent prior editions (2026-06-24, 06-27, 06-28, 06-29) also lack illustrations, suggesting persistent proxy/endpoint instability."
     },
     "commit": {
+      "sha": "1272bc8c711de03dc265c9f78a1cdc3138a8bbdf",
       "pushed": true
     }
   },
   "articles": [
-    { "slot": 1, "slug": "scotus-spares-cook-overturns-humphreys-executor", "category": "Politics", "needs_review": false, "word_count": 900, "sources": 5 },
-    { "slot": 2, "slug": "us-iran-stand-down-doha-talks", "category": "World", "needs_review": false, "word_count": 699, "sources": 5 },
-    { "slot": 3, "slug": "yen-slides-to-40-year-low-as-tokyo-warns-of-decisive-action", "category": "Markets", "needs_review": false, "word_count": 699, "sources": 2 },
-    { "slot": 4, "slug": "rocket-lab-buys-iridium-8-billion-spacex-challenge", "category": "Tech", "needs_review": false, "word_count": 472, "sources": 2 },
-    { "slot": 5, "slug": "guo-wengui-sentenced-30-years-billion-dollar-fraud", "category": "Business", "needs_review": false, "word_count": 551, "sources": 2 }
+    {
+      "slot": 1,
+      "slug": "scotus-spares-cook-overturns-humphreys-executor",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 900,
+      "sources": 5
+    },
+    {
+      "slot": 2,
+      "slug": "us-iran-stand-down-doha-talks",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 699,
+      "sources": 5
+    },
+    {
+      "slot": 3,
+      "slug": "yen-slides-to-40-year-low-as-tokyo-warns-of-decisive-action",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 699,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "rocket-lab-buys-iridium-8-billion-spacex-challenge",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 472,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "guo-wengui-sentenced-30-years-billion-dollar-fraud",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 551,
+      "sources": 2
+    }
   ],
   "egress_blocked_hostnames": [
     "theverge.com",
