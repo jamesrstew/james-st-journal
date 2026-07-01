@@ -1,7 +1,159 @@
 {
   "date": "2026-07-01",
-  "status": "in_progress",
-  "started_at": "2026-07-01T14:17:02Z",
+  "status": "success",
   "retry": true,
-  "stages": {}
+  "started_at": "2026-07-01T14:17:02Z",
+  "completed_at": "2026-07-01T14:42:42Z",
+  "stages": {
+    "ingest": {
+      "items": 1287,
+      "feeds_ok": 35,
+      "feeds_fail": 5,
+      "feeds_failed_list": [
+        "PBS NewsHour",
+        "NPR Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World"
+      ]
+    },
+    "cluster": {
+      "clusters_considered": 51,
+      "clusters_used_in_selection": 5,
+      "slot5_source": "south-africa-anti-migrant-protests (Slot 5 added by retry; primary shipped 4/5 with Nike Q4 cluster dropped at research)"
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "scotus-birthright-citizenship-ruling",
+          "category": "Politics",
+          "origin": "primary"
+        },
+        {
+          "slot": 2,
+          "cluster": "trump-crypto-disclosure",
+          "category": "Politics",
+          "origin": "primary"
+        },
+        {
+          "slot": 3,
+          "cluster": "us-stocks-q2-close-rally",
+          "category": "Markets",
+          "origin": "primary"
+        },
+        {
+          "slot": 4,
+          "cluster": "colorado-primary-kiros-degette",
+          "category": "Politics",
+          "origin": "primary"
+        },
+        {
+          "slot": 5,
+          "cluster": "south-africa-anti-migrant-protests",
+          "category": "World",
+          "origin": "retry"
+        }
+      ],
+      "core_beat_count": 4,
+      "slots_filled": 5,
+      "note": "Slots 1-4 preserved from primary fire; slot 5 produced fresh by retry after primary dropped Nike Q4 cluster at research stage (single body-tier source extractable). Retry chose South Africa protests cluster because it had 2 direct-URL body-tier sources (BBC and NBC News) both fetching cleanly."
+    },
+    "research": {
+      "dossiers_built_by_retry": 1,
+      "sources_fetched_by_retry": 2,
+      "slot5_sources": [
+        {
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cy4eq1l184po",
+          "bytes": 6000
+        },
+        {
+          "source": "NBC News",
+          "url": "https://www.nbcnews.com/world/africa/south-africa-arrests-nationwide-anti-migrant-protests-rcna352529",
+          "bytes": 4721
+        }
+      ]
+    },
+    "draft": {
+      "writers_spawned_by_retry": 1,
+      "drafts_ok": 1,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned_by_retry": 1,
+      "approved_first_pass": 1,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0,
+      "held_after_revise": 0
+    },
+    "stage": {
+      "articles_written_by_retry": 1,
+      "total_articles": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 0,
+      "images_failed": 5,
+      "note": "All illustrate.py invocations failed with http.client.IncompleteRead — OpenAI image API response body truncated repeatedly across 3 retries per slot. Same failure mode as primary fire. All 5 articles ship with has_illustration: false; front-end hides slot per graceful-degradation pattern. Non-fatal per PIPELINE.md Step 11.7.",
+      "estimated_cost_usd": 0
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "supreme-court-upholds-birthright-citizenship-allows-state-trans-sports-bans",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 822,
+      "sources": 3
+    },
+    {
+      "slot": 2,
+      "slug": "trump-disclosure-reports-over-1-billion-in-2025-crypto-income",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 648,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "sp-500-nasdaq-cap-best-quarter-since-2020-as-tech-leads-gold-craters",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 767,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "kiros-ousts-degette-in-denver-democratic-primary",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 514,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "south-africa-arrests-more-than-900-in-anti-migrant-marches",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 522,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "thehill.com",
+    "politico.com",
+    "reuters.com",
+    "apnews.com"
+  ],
+  "errors": []
 }
