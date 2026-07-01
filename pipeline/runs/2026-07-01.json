@@ -60,6 +60,7 @@
       "note": "All 4 illustration attempts failed with http.client.IncompleteRead on gpt-image-2 response; illustrate.py retried once with 10s backoff per policy. Both attempts failed for each slot. All articles ship with has_illustration: false; the renderer hides the illustration block gracefully. No day-level retry per policy."
     },
     "commit": {
+      "sha": "9f837eb8db0ffd98c81b00d4d5fd23bcddc9f060",
       "pushed": true
     }
   },
