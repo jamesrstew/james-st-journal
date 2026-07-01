@@ -1,6 +1,76 @@
 {
   "date": "2026-07-01",
-  "status": "in_progress",
+  "status": "partial",
   "started_at": "2026-07-01T12:04:55Z",
-  "stages": {}
+  "completed_at": "2026-07-01T12:35:00Z",
+  "stages": {
+    "ingest": {
+      "items": 1272,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "feeds_failed_list": ["Politico", "The Verge", "NPR Business", "NPR Tech", "NPR Top", "NPR World", "FT Home"]
+    },
+    "cluster": {
+      "clusters_considered": 5,
+      "clusters_dropped_min_body_tier": 1,
+      "clusters_dropped_names": ["mgx-ai-fund-2026-06-30 (only 1 body-tier source)"]
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "SCOTUS ends term: birthright citizenship upheld, states may bar transgender athletes in female school sports", "category": "Politics", "score": 7.727, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "dedupe_penalty": 0.5 },
+        { "slot": 2, "cluster": "Trump financial disclosure reports over $1 billion in 2025 crypto income", "category": "Business", "score": 17.575, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0, "dedupe_penalty": 0.0 },
+        { "slot": 3, "cluster": "S&P 500 and Nasdaq cap best quarter since 2020 as tech leads and gold craters", "category": "Markets", "score": 2.274, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "dedupe_penalty": 0.3 },
+        { "slot": 4, "cluster": "Democratic Socialist Melat Kiros ousts 15-term Diana DeGette in Denver primary", "category": "Politics", "score": 9.18, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "dedupe_penalty": 0.0 }
+      ],
+      "core_beat_count": 4,
+      "slots_filled": 4,
+      "gap_note": "Nike Q4 earnings cluster was ranked into slot 4 but dropped at research stage: only 1 body-tier source (CNBC Q4 earnings piece, 4521 chars) had extractable body text >=600 chars; CNBC Investing Club follow-up was JS-shell/paywalled, Reuters/AP direct URLs blocked by egress and Google News redirects returned interstitial. Refilled with Colorado primary cluster; edition ships 4/5."
+    },
+    "research": {
+      "dossiers_built": 4,
+      "sources_fetched": 15,
+      "sources_failed": 4,
+      "sources_failed_hosts": ["thehill.com (px-captcha)", "reuters.com (blocked)", "apnews.com (blocked)", "dw.com (URL guesses returned 404)"]
+    },
+    "draft": {
+      "writers_spawned": 4,
+      "drafts_ok": 4,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 4,
+      "approved_first_pass": 2,
+      "revised": 2,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 2,
+      "approved_after_revise": 2,
+      "held_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 4,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 0,
+      "images_failed": 4,
+      "duration_sec": 30,
+      "estimated_cost_usd": 0.0,
+      "note": "All 4 illustration attempts failed with http.client.IncompleteRead on gpt-image-2 response; illustrate.py retried once with 10s backoff per policy. Both attempts failed for each slot. All articles ship with has_illustration: false; the renderer hides the illustration block gracefully. No day-level retry per policy."
+    },
+    "commit": {
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "supreme-court-upholds-birthright-citizenship-allows-state-trans-sports-bans", "category": "Politics", "needs_review": false, "word_count": 822, "sources": 3, "draft_iterations": 2 },
+    { "slot": 2, "slug": "trump-disclosure-reports-over-1-billion-in-2025-crypto-income", "category": "Business", "needs_review": false, "word_count": 648, "sources": 3, "draft_iterations": 1 },
+    { "slot": 3, "slug": "sp-500-nasdaq-cap-best-quarter-since-2020-as-tech-leads-gold-craters", "category": "Markets", "needs_review": false, "word_count": 767, "sources": 3, "draft_iterations": 2 },
+    { "slot": 4, "slug": "kiros-ousts-degette-in-denver-democratic-primary", "category": "Politics", "needs_review": false, "word_count": 514, "sources": 2, "draft_iterations": 1 }
+  ],
+  "egress_blocked_hostnames": ["ft.com", "feeds.npr.org", "rss.politico.com", "theverge.com", "thehill.com", "reuters.com", "apnews.com", "theguardian.com"],
+  "errors": [
+    "illustrate.py: http.client.IncompleteRead on gpt-image-2 API for all 4 slots (partial response 1.3-1.4 MB of expected ~2.9 MB); both primary and retry attempts failed. Articles shipped with has_illustration: false."
+  ]
 }
