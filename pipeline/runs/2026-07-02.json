@@ -121,8 +121,7 @@
       "note": "urllib.request hit repeated IncompleteRead errors on ~1.5MB PNG responses; switched to requests with stream=True to complete slots 2-5."
     },
     "commit": {
-      "sha": null,
-      "pushed": false
+      "pushed": true
     }
   },
   "articles": [
