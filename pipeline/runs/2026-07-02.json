@@ -1,6 +1,175 @@
 {
   "date": "2026-07-02",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-02T12:04:58Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1366,
+      "feeds_ok": 39,
+      "feeds_fail": 1,
+      "failed_feeds": [
+        "PBS NewsHour(tiny_body/blocked)"
+      ],
+      "duration_sec": 45,
+      "note": "NPR feeds returned 0 items (Access Denied by origin); WSJ direct feed served stale Jan-2025 content, filtered out by 36h window."
+    },
+    "cluster": {
+      "clusters": 15,
+      "body_tier_clusters": 12,
+      "duration_sec": 3
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "OpenAI proposes 5% stake to Trump administration",
+          "category": "Tech",
+          "score": 3.6,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1,
+          "lean_mix": [
+            "center"
+          ]
+        },
+        {
+          "slot": 2,
+          "cluster": "Russia largest Kyiv barrage of war; Ukraine hits refineries",
+          "category": "World",
+          "score": 4.8,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 0.85,
+          "lean_mix": [
+            "center",
+            "left"
+          ]
+        },
+        {
+          "slot": 3,
+          "cluster": "EU top court upholds record 4.1B EUR Google Android fine",
+          "category": "Tech",
+          "score": 3.4,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1,
+          "lean_mix": [
+            "center"
+          ]
+        },
+        {
+          "slot": 4,
+          "cluster": "Samsung/SK Hynix chip rout as AI trade wobbles; Burry shorts Caterpillar",
+          "category": "Markets",
+          "score": 2.4,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "lean_mix": [
+            "center"
+          ]
+        },
+        {
+          "slot": 5,
+          "cluster": "US declines long-term USMCA renewal",
+          "category": "Business",
+          "score": 3.1,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "lean_mix": [
+            "center",
+            "right"
+          ]
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 12,
+      "sources_failed": 3,
+      "failed_notes": [
+        "The Hill blocked by PerimeterX captcha (all 3 attempts)"
+      ],
+      "duration_sec": 72
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 220,
+      "estimated_cost_usd": 0.08,
+      "note": "urllib.request hit repeated IncompleteRead errors on ~1.5MB PNG responses; switched to requests with stream=True to complete slots 2-5."
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "openai-offers-washington-5-percent-stake-to-defuse-ai-backlash",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 675,
+      "sources": 2
+    },
+    {
+      "slot": 2,
+      "slug": "russia-launches-largest-kyiv-barrage-of-war-killing-18-ukraine-presses-refinery-campaign",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 593,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "eu-top-court-upholds-google-android-fine",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 636,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "asia-chip-selloff-deepens-as-burry-shorts-caterpillar",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 534,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "us-declines-long-term-usmca-renewal-triggering-annual-reviews",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 482,
+      "sources": 4
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "thehill.com",
+    "npr.org"
+  ],
+  "errors": []
 }
