@@ -1,6 +1,85 @@
 {
   "date": "2026-07-03",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-03T12:05:38Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1344,
+      "feeds_ok": 32,
+      "feeds_fail": 8,
+      "failed_feeds": [
+        "PBS NewsHour(tiny_body/blocked)",
+        "NPR Top(403)",
+        "NPR Business(403)",
+        "NPR Tech(403)",
+        "NPR World(403)",
+        "NYT World (GN)(no_items)",
+        "NYT Business (GN)(no_items)",
+        "NYT Tech (GN)(no_items)"
+      ],
+      "duration_sec": 12,
+      "note": "NPR feeds returned HTTP 403 (Access Denied by origin); NYT Google-News section feeds returned zero items; WSJ direct feed served stale Jan-2025 content, filtered out by 36h window."
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 3,
+      "note": "Qualitative clustering over top-tier wires. All 5 selected clusters carried mandate coverage (Bloomberg / FT / Economist) plus direct-URL body sources (AP, CNBC, BBC, Hill, Guardian, Wash Ex, Semafor, Al Jazeera)."
+    },
+    "select": {
+      "chosen": [
+        {"slot": 1, "cluster": "US June jobs report — 57k payrolls, unemployment 4.2%, participation 61.5%; markets rally on rate-hike-off bets", "category": "Markets", "score": 12.79, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0},
+        {"slot": 2, "cluster": "Kyiv death toll rises to 30; Russia's fuel crisis deepens (Novorossiysk gasoline halt, Nayara India jet fuel imports)", "category": "World", "score": 4.79, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85, "dedupe_penalty": 0.3},
+        {"slot": 3, "cluster": "Tesla Q2 deliveries beat (+25% YoY) but stock -7% in worst day in nearly a year", "category": "Markets", "score": 3.44, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0},
+        {"slot": 4, "cluster": "Trump Accounts launch July 4; Goldman Sachs and Morgan Stanley join employer match wave", "category": "Politics", "score": 4.35, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0},
+        {"slot": 5, "cluster": "Ex-Olympian David Hearn indicted by DC grand jury over Reflecting Pool sealant damage", "category": "Culture", "score": 2.62, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 0.5}
+      ],
+      "core_beat_count": 3
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 27,
+      "sources_failed": 8,
+      "duration_sec": 90,
+      "note": "Reuters (DataDome captcha) and The Hill (PerimeterX) fully blocked; substituted with AP, CNBC, BBC, Guardian, Wash Ex, Semafor, Al Jazeera direct URLs. Google-News redirect URLs resolved via googlenewsdecoder before curl fetch."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 215,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {"slot": 1, "slug": "us-hiring-slows-to-57000-in-june-as-labor-force-hits-five-year-low", "category": "Markets", "needs_review": false, "word_count": 748, "sources": 3},
+    {"slot": 2, "slug": "kyiv-attack-toll-climbs-to-30-as-russia-fuel-crisis-deepens", "category": "World", "needs_review": false, "word_count": 647, "sources": 3},
+    {"slot": 3, "slug": "tesla-deliveries-jump-25-percent-stock-worst-day-in-nearly-a-year", "category": "Markets", "needs_review": false, "word_count": 593, "sources": 2},
+    {"slot": 4, "slug": "trump-accounts-debut-july-4-goldman-sachs-morgan-stanley-join-match-wave", "category": "Politics", "needs_review": false, "word_count": 484, "sources": 2},
+    {"slot": 5, "slug": "olympic-canoeist-indicted-on-felony-count-over-reflecting-pool-sealant-damage", "category": "Culture", "needs_review": false, "word_count": 526, "sources": 4}
+  ],
+  "egress_blocked_hostnames": ["reuters.com", "thehill.com", "npr.org", "pbs.org"],
+  "errors": []
 }
