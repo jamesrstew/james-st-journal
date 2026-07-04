@@ -18,7 +18,7 @@
     "revise":   { "revisions_spawned": 0, "approved_after_revise": 0 },
     "stage":    { "articles_written": 5, "validator_ok": true },
     "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 90, "estimated_cost_usd": 0.08 },
-    "commit":   { "sha": "PENDING", "pushed": false }
+    "commit":   { "sha": "d52ac692cee14e5bdaf5404d0a2c088ae6c441c5", "pushed": true }
   },
   "articles": [
     { "slot": 1, "slug": "trump-communist-menace-mount-rushmore", "category": "Politics", "needs_review": false, "word_count": 712, "sources": 3 },
