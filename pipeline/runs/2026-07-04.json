@@ -1,6 +1,32 @@
 {
   "date": "2026-07-04",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-04T12:04:40Z",
-  "stages": {}
+  "stages": {
+    "ingest":   { "items": 1294, "feeds_ok": 35, "feeds_fail": 2, "duration_sec": 15, "notes": ["npr direct feed (feeds.npr.org) returned Access Denied; substituted Google News fallback (site:npr.org). PBS direct feed (pbs.org/newshour/feeds/rss/headlines) returned HTTP 202 with empty body; substituted Google News fallback (site:pbs.org). Two NYT Google News aggregates (nytimes.com/section/world, nytimes.com/section/technology) returned only stub items."] },
+    "cluster":  { "clusters": 5, "body_tier_clusters": 5, "duration_sec": 2 },
+    "select":   { "chosen": [
+      { "slot": 1, "cluster": "Trump warns of 'communist menace' at Mount Rushmore, launching America 250 anniversary weekend", "category": "Politics", "score": 19.44, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0 },
+      { "slot": 2, "cluster": "Iran opens dayslong funeral for slain Supreme Leader Ali Khamenei, killed in February U.S.-Israel strikes", "category": "World", "score": 18.91, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85 },
+      { "slot": 3, "cluster": "Record heat forces parade cancellations, Amtrak restrictions, and grid strain across the eastern U.S. during America 250 weekend", "category": "Business", "score": 13.29, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+      { "slot": 4, "cluster": "Venezuela earthquake death toll surpasses 2,600 as families identify bodies at makeshift morgues and 50,000 remain unaccounted for", "category": "World", "score": 9.39, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85 },
+      { "slot": 5, "cluster": "Trump pardons 11, most for Clean Air Act violations, plus former Abramoff associate Adam Kidan", "category": "Politics", "score": 8.23, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 }
+    ], "core_beat_count": 3 },
+    "research": { "dossiers_built": 5, "sources_fetched": 11, "sources_failed": 4, "duration_sec": 320, "notes": ["Google News aggregator RSS links (news.google.com/rss/articles/...) require client-side JS to reveal destination URLs; served as ineffective for server-side body extraction. Recovered direct-URL bodies from BBC (via curl + article/p extraction), Al Jazeera, CBS News, and ABC News (via WebFetch). Fox News body used for slot 1 (Al Green reaction). CNBC returned HTTP 403 to WebFetch for the Venezuela story; ABC News body substituted."] },
+    "draft":    { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit":     { "editors_spawned": 5, "approved_first_pass": 5, "revised": 0, "held": 0 },
+    "revise":   { "revisions_spawned": 0, "approved_after_revise": 0 },
+    "stage":    { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 90, "estimated_cost_usd": 0.08 },
+    "commit":   { "sha": "PENDING", "pushed": false }
+  },
+  "articles": [
+    { "slot": 1, "slug": "trump-communist-menace-mount-rushmore", "category": "Politics", "needs_review": false, "word_count": 712, "sources": 3 },
+    { "slot": 2, "slug": "iran-begins-six-day-funeral-for-slain-khamenei-as-us-talks-pause", "category": "World", "needs_review": false, "word_count": 635, "sources": 2 },
+    { "slot": 3, "slug": "heat-wave-halts-july-4-parades-amtrak-trains-eastern-us", "category": "Business", "needs_review": false, "word_count": 504, "sources": 2 },
+    { "slot": 4, "slug": "venezuela-earthquake-death-toll-passes-2600", "category": "World", "needs_review": false, "word_count": 445, "sources": 2 },
+    { "slot": 5, "slug": "trump-pardons-11-abramoff-associate-emissions-violators", "category": "Politics", "needs_review": false, "word_count": 449, "sources": 2 }
+  ],
+  "egress_blocked_hostnames": ["feeds.npr.org", "pbs.org", "thehill.com", "cnn.com", "washingtonpost.com", "cnbc.com"],
+  "errors": []
 }
