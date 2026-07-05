@@ -1,6 +1,155 @@
 {
   "date": "2026-07-05",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-05T12:05:12Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 967,
+      "feeds_ok": 32,
+      "feeds_fail": 8,
+      "duration_sec": 2
+    },
+    "cluster": {
+      "clusters": 44,
+      "body_tier_clusters": 44,
+      "duration_sec": 425
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Trump's weather-delayed Salute to America 250 speech at the National Mall mixes patriotism with attacks on communism and political opponents, capping 250th anniversary celebrations",
+          "category": "Politics",
+          "score": 9.945,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "Second day of Ayatollah Khamenei's funeral procession in Tehran draws massive crowds; three sons attend but successor Mojtaba remains unseen",
+          "category": "World",
+          "score": 7.514,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "Trump repositions as peacemaker in separate calls with Putin and Zelenskyy on Ukraine ahead of NATO summit; Zelenskyy calls for 'American resolve'",
+          "category": "World",
+          "score": 6.197,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 4,
+          "cluster": "Eight people including four children shot in Coney Island, New York on July 4",
+          "category": "Politics",
+          "score": 3.4,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Paul Pelosi, husband of Rep. Nancy Pelosi, faces a hit-and-run charge in Napa County",
+          "category": "Politics",
+          "score": 4.1,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 3,
+      "composition_note": "meets floor of 3 core beats",
+      "substitution_note": "slot 4 refilled from hormuz-oil-shipping-recovers (Markets) to coney-island-shooting (Politics) because Al Jazeera Hormuz body was 441 chars (<600 minimum) and no other body-tier source available"
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 12,
+      "sources_failed": 1,
+      "duration_sec": 40
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 55,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "trump-caps-250th-anniversary-with-storm-delayed-mall-speech",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 894,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "khamenei-sons-appear-tehran-funeral-mojtaba-hidden",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 628,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "trump-calls-putin-zelenskyy-nato-summit-ankara",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 651,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "coney-island-shooting-eight-wounded-four-boys-july-4",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 360,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "paul-pelosi-napa-hit-and-run",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 440,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "feeds.npr.org",
+    "ft.com",
+    "rss.politico.com",
+    "thehill.com",
+    "theverge.com"
+  ],
+  "errors": []
 }
