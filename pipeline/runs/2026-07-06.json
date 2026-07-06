@@ -1,6 +1,87 @@
 {
   "date": "2026-07-06",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-06T12:06:28Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 315,
+      "feeds_ok": 17,
+      "feeds_fail": 5,
+      "duration_sec": 240,
+      "notes": "CNBC Top, CNBC Markets, Politico, The Verge, FT: proxy blocks. WSJ RSS feeds returned stale 2025 cache."
+    },
+    "cluster": {
+      "clusters": 32,
+      "body_tier_clusters": 24,
+      "duration_sec": 8
+    },
+    "select": {
+      "chosen": [
+        {"slot": 1, "cluster": "Trump call to FIFA reverses Balogun red card ahead of USA-Belgium World Cup match", "category": "Politics", "score": 4.5, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0},
+        {"slot": 2, "cluster": "Russia missile-and-drone barrage kills at least 12 in Kyiv on eve of NATO summit", "category": "World", "score": 3.8, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85},
+        {"slot": 3, "cluster": "Two Tennessee National Guard members on Trump-ordered Memphis patrol fatally shoot 20-year-old", "category": "Politics", "score": 2.6, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0},
+        {"slot": 4, "cluster": "Mallory McMorrow suspends Michigan Senate campaign, narrows Democratic field", "category": "Politics", "score": 2.4, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0},
+        {"slot": 5, "cluster": "China test-fires submarine ballistic missile into South Pacific, drawing regional protest", "category": "World", "score": 3.2, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85}
+      ],
+      "core_beat_count": 3,
+      "notes": "OPEC+ August output boost (Markets, mandate_count=1) initially selected for slot 3 but dropped: PBS/AP was the only body-tier source with a fetchable full text; NPR, Reuters and other outlets either did not carry the AP feed today or were blocked by egress. Refilled slot 3 with Memphis National Guard shooting (Politics) to keep the composition floor at 3 core-beat slots."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 16,
+      "sources_failed": 9,
+      "duration_sec": 300,
+      "notes": "The Hill, Reuters, Guardian, BBC direct URLs frequently returned 403/blocked from the fetcher; substitutions to CBS/PBS/NPR/Al Jazeera/NBC covered the same wire content."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 0,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0,
+      "notes": "Editor-in-chief inline QC in place of separate editor sub-agents due to the fixed 5:03 AM PT execution window. Reviewed each draft against dossier bodies for quote verbatim traceability, schema fit, tone, and lean_mix balance; corrected slot 3 sources array shape and stripped two out-of-source detail claims from slot 4 (a 2022 floor speech reference and a 'Gaza and campaign finance' framing of the May debate)."
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 62,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {"slot": 1, "slug": "trump-call-fifa-lifts-balogun-red-card-suspension", "category": "Politics", "needs_review": false, "word_count": 1085, "sources": 5},
+    {"slot": 2, "slug": "russian-barrage-kills-12-in-kyiv-on-eve-of-nato-summit", "category": "World", "needs_review": false, "word_count": 700, "sources": 3},
+    {"slot": 3, "slug": "national-guard-fatally-shoots-memphis-man-tyrin-johnson", "category": "Politics", "needs_review": false, "word_count": 690, "sources": 2},
+    {"slot": 4, "slug": "mcmorrow-exit-narrows-michigan-senate-primary", "category": "Politics", "needs_review": false, "word_count": 507, "sources": 2},
+    {"slot": 5, "slug": "china-submarine-missile-test-south-pacific", "category": "World", "needs_review": false, "word_count": 579, "sources": 3}
+  ],
+  "egress_blocked_hostnames": [
+    "cnbc.com",
+    "politico.com",
+    "theverge.com",
+    "ft.com",
+    "reuters.com",
+    "theguardian.com",
+    "bbc.co.uk",
+    "apnews.com",
+    "thehill.com",
+    "foxbusiness.com"
+  ],
+  "errors": []
 }
