@@ -1,6 +1,156 @@
 {
   "date": "2026-07-07",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-07T12:05:59Z",
-  "stages": {}
+  "finished_at": "2026-07-07T12:29:06Z",
+  "stages": {
+    "ingest": {
+      "items": 1364,
+      "feeds_ok": 29,
+      "feeds_fail": 11,
+      "duration_sec": 25
+    },
+    "cluster": {
+      "clusters": 42,
+      "body_tier_clusters": 27,
+      "duration_sec": 4
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "NATO summit opens in Ankara, Trump presses allies on defense spending",
+          "category": "World",
+          "score": 18.4,
+          "mandate_count": 3,
+          "signal_boost": 2.0,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "Iran-linked strikes on Qatari LNG and Saudi crude tankers in Strait of Hormuz lift oil",
+          "category": "Markets",
+          "score": 13.8,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 3,
+          "cluster": "Microsoft cuts 4,800 jobs, spins off four Xbox studios",
+          "category": "Tech",
+          "score": 9.2,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 4,
+          "cluster": "Trump Accounts launch; Shotwell pledges SpaceX stock",
+          "category": "Business",
+          "score": 6.5,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 5,
+          "cluster": "Toyota shifts Tacoma production to San Antonio for $3.6B",
+          "category": "Business",
+          "score": 6.9,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 25,
+      "sources_failed": 12,
+      "duration_sec": 45,
+      "notes": "Google News RSS URLs opaque under new obfuscation \u2014 could not follow to publisher origin via curl. Direct-URL outlets (BBC, CBS, CNBC, Al Jazeera, Fox News) supplied all bodies. WebFetch tool blocked by reuters.com, apnews.com, theguardian.com."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 32,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "PENDING",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "nato-summit-opens-ankara-trump-presses-allies-on-defense-spending",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 864,
+      "sources": 3
+    },
+    {
+      "slot": 2,
+      "slug": "iran-strikes-tankers-strait-of-hormuz-lifting-oil",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 595,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "microsoft-cuts-4800-jobs-spins-off-four-xbox-studios-in-biggest-gaming-reset",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 623,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "shotwell-pledges-spacex-stock-as-trump-accounts-begin-first-deposits",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 545,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "toyota-moves-tacoma-production-mexico-texas-san-antonio",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 482,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "npr.org",
+    "pbs.org",
+    "reuters.com",
+    "apnews.com",
+    "theguardian.com",
+    "thehill.com"
+  ],
+  "errors": []
 }
