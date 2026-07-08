@@ -4,33 +4,145 @@
   "started_at": "2026-07-08T12:05:06Z",
   "completed_at": "2026-07-08T12:37:50Z",
   "stages": {
-    "ingest":   { "items": 1303, "feeds_ok": 35, "feeds_fail": 5, "duration_sec": 55 },
-    "cluster":  { "clusters": 1013, "body_tier_clusters": 69, "duration_sec": 4 },
-    "select":   {
+    "ingest": {
+      "items": 1303,
+      "feeds_ok": 35,
+      "feeds_fail": 5,
+      "duration_sec": 55
+    },
+    "cluster": {
+      "clusters": 1013,
+      "body_tier_clusters": 69,
+      "duration_sec": 4
+    },
+    "select": {
       "chosen": [
-        { "slot": 1, "cluster": "US-Iran fresh strikes; Trump declares ceasefire 'over'", "category": "World",    "raw_score": 14.13, "mandate_count": 2, "signal_boost": 1.7,  "category_weight": 0.85 },
-        { "slot": 2, "cluster": "Amazon $25B bond sale for AI",                            "category": "Business", "raw_score": 4.59,  "mandate_count": 2, "signal_boost": 1.7,  "category_weight": 1.0 },
-        { "slot": 3, "cluster": "Manhattan high-rise columns buckle, evacuations",          "category": "World",    "raw_score": 8.66,  "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85 },
-        { "slot": 4, "cluster": "DeepSeek moves into AI inference silicon",                 "category": "Tech",     "raw_score": 1.87,  "mandate_count": 0, "signal_boost": 1.0,  "category_weight": 1.0 },
-        { "slot": 5, "cluster": "Solstice/Element Solutions $14.5B AI-materials deal",     "category": "Business", "raw_score": 3.4,   "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 }
+        {
+          "slot": 1,
+          "cluster": "US-Iran fresh strikes; Trump declares ceasefire 'over'",
+          "category": "World",
+          "raw_score": 14.13,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "Amazon $25B bond sale for AI",
+          "category": "Business",
+          "raw_score": 4.59,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "Manhattan high-rise columns buckle, evacuations",
+          "category": "World",
+          "raw_score": 8.66,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 4,
+          "cluster": "DeepSeek moves into AI inference silicon",
+          "category": "Tech",
+          "raw_score": 1.87,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Solstice/Element Solutions $14.5B AI-materials deal",
+          "category": "Business",
+          "raw_score": 3.4,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        }
       ],
       "core_beat_count": 3,
       "notes": "Slot 1 leads via mandate escape-hatch (mandate_count >= 2). Composition floor met: 3 core-beat (Business, Tech, Business). Selected clusters c76 (Amazon) and c84 (DeepSeek) required Semafor+CNBC direct-URL fallbacks; Reuters/AP/Bloomberg redirected via Google News and were unresolvable from HTTP-only egress. Slot 5 originally scored as Apple/Broadcom ($30B) but dropped for insufficient body-tier reach; Honeywell/Solstice swapped in from the July 6 cluster (still within 36h window)."
     },
-    "research": { "dossiers_built": 5, "sources_fetched": 12, "sources_failed": 0, "duration_sec": 240 },
-    "draft":    { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
-    "edit":     { "editors_spawned": 5, "approved_first_pass": 5, "revised": 0, "held": 0 },
-    "revise":   { "revisions_spawned": 0, "approved_after_revise": 0 },
-    "stage":    { "articles_written": 5, "validator_ok": true },
-    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 32, "estimated_cost_usd": 0.08 },
-    "commit":   { "sha": "TBD", "pushed": true }
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 12,
+      "sources_failed": 0,
+      "duration_sec": 240
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 32,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "3f77c8fa7313eef0a10798b10e775f7030e4d0e3",
+      "pushed": true
+    }
   },
   "articles": [
-    { "slot": 1, "slug": "trump-declares-iran-ceasefire-over",                                              "category": "World",    "needs_review": false, "word_count": 713, "sources": 4 },
-    { "slot": 2, "slug": "amazon-returns-to-debt-markets-with-25-billion-sale-for-ai-infrastructure",       "category": "Business", "needs_review": false, "word_count": 554, "sources": 2 },
-    { "slot": 3, "slug": "manhattans-former-pfizer-tower-buckles-forcing-midtown-evacuations",              "category": "World",    "needs_review": false, "word_count": 497, "sources": 2 },
-    { "slot": 4, "slug": "deepseek-moves-into-silicon-with-plan-for-its-own-ai-inference-chip",             "category": "Tech",     "needs_review": false, "word_count": 404, "sources": 2 },
-    { "slot": 5, "slug": "solstice-to-buy-element-solutions-for-14-5-billion-in-ai-materials-push",         "category": "Business", "needs_review": false, "word_count": 426, "sources": 2 }
+    {
+      "slot": 1,
+      "slug": "trump-declares-iran-ceasefire-over",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 713,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "amazon-returns-to-debt-markets-with-25-billion-sale-for-ai-infrastructure",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 554,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "manhattans-former-pfizer-tower-buckles-forcing-midtown-evacuations",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 497,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "deepseek-moves-into-silicon-with-plan-for-its-own-ai-inference-chip",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 404,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "solstice-to-buy-element-solutions-for-14-5-billion-in-ai-materials-push",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 426,
+      "sources": 2
+    }
   ],
   "egress_blocked_hostnames": [
     "feeds.npr.org",
