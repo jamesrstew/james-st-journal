@@ -1,6 +1,193 @@
 {
   "date": "2026-07-09",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-09T12:05:52Z",
-  "stages": {}
+  "finished_at": "2026-07-09T12:45:00Z",
+  "stages": {
+    "ingest": {
+      "items": 1330,
+      "body_count": 1120,
+      "headline_count": 210,
+      "feeds_ok": 35,
+      "feeds_fail": 5,
+      "failed_feeds": [
+        {
+          "name": "PBS NewsHour",
+          "status": "202"
+        },
+        {
+          "name": "NPR Top",
+          "status": "403"
+        },
+        {
+          "name": "NPR Business",
+          "status": "403"
+        },
+        {
+          "name": "NPR Tech",
+          "status": "403"
+        },
+        {
+          "name": "NPR World",
+          "status": "403"
+        }
+      ]
+    },
+    "cluster": {
+      "clusters_considered": 15,
+      "body_tier_clusters": 12
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Second night of US-Iran strikes as Iran buries Khamenei and reports 14 killed",
+          "category": "World",
+          "score": 5.85,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 0.85,
+          "reason": "Lead per mandate escape (FT + Bloomberg + Economist covered); 3+ body-tier sources across two lean buckets."
+        },
+        {
+          "slot": 2,
+          "cluster": "Graham Platner drops out of Maine Senate race after sexual-assault allegation",
+          "category": "Politics",
+          "score": 3.4,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1,
+          "reason": "Core-beat cluster with cross-partisan coverage (BBC/CNBC center, NBC lean-left, Fox lean-right)."
+        },
+        {
+          "slot": 3,
+          "cluster": "Meta commits $9.1B to Alberta AI data center powered by dedicated gas plant",
+          "category": "Tech",
+          "score": 2.1,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1,
+          "reason": "Core-beat Tech cluster; CNBC direct + AP wire via ABC News."
+        },
+        {
+          "slot": 4,
+          "cluster": "Ukraine drone campaign widens as Trump greenlights Patriot production",
+          "category": "World",
+          "score": 2.05,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 0.85,
+          "reason": "BBC + CNBC + Fox spans center + lean-right; Trump/Ukraine license announcement fresh."
+        },
+        {
+          "slot": 5,
+          "cluster": "Oil jumps and airline stocks slide after second night of US-Iran strikes",
+          "category": "Markets",
+          "score": 1.85,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1,
+          "reason": "Core-beat Markets angle on Iran spillover; CNBC Top + CNBC Markets."
+        }
+      ],
+      "core_beat_count": 3,
+      "notes": "Iran leads via mandate escape hatch (World but 3+ mandate outlets). Composition floor of 3 core-beat met by Politics/Tech/Markets."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 15,
+      "sources_failed": 6,
+      "failed_hosts": [
+        "thehill.com",
+        "politico.com"
+      ],
+      "duration_sec": 120
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 65,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "us-hits-90-iran-targets-second-night-strikes-khamenei-buried-mashhad",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 900,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "platner-quits-maine-senate-race-after-assault-allegation",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 641,
+      "sources": 4
+    },
+    {
+      "slot": 3,
+      "slug": "meta-to-spend-9-1-billion-on-first-canadian-ai-data-center",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 525,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "trump-ukraine-patriot-license-drones-russian-oil",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 551,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "oil-jumps-4-percent-second-night-iran-strikes",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 558,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "npr.org",
+    "thehill.com",
+    "politico.com",
+    "reuters.com",
+    "apnews.com",
+    "theguardian.com",
+    "news.google.com"
+  ],
+  "errors": [
+    "The Hill and Politico direct URLs returned 403 at the proxy; used alternative sources for Platner/Iran/oil coverage.",
+    "Google News RSS wrappers resolve to a JS shell page; unusable — fell back to direct-URL sources and AP-wire syndicators (ABC News techxplore variants for Meta cluster).",
+    "NPR RSS returned 403 across all four feeds; likely proxy egress rule.",
+    "PBS NewsHour feed returned HTTP 202 with empty body."
+  ]
 }
