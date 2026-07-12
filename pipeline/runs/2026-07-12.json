@@ -1,6 +1,76 @@
 {
   "date": "2026-07-12",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-12T12:05:36Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 903,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "duration_sec": 20,
+      "note": "Politico, The Verge, NPR (Top/Business/Tech/World), FT Home returned HTTP 403 (proxy egress). 30+ feeds succeeded including mandate outlets that resolved: Bloomberg (GN), Economist (GN), NYT Business (GN)."
+    },
+    "cluster": {
+      "clusters": 14,
+      "body_tier_clusters": 14,
+      "duration_sec": 243,
+      "note": "Qualitative clustering by sub-agent. All 14 clusters had ≥2 body-tier items."
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "lindsey-graham-dies-at-71", "category": "Politics", "raw_score": 27.41, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0, "lean_mix": ["center", "right", "left"] },
+        { "slot": 2, "cluster": "us-iran-strikes-hormuz-closed", "category": "World", "raw_score": 18.75, "mandate_count": 7, "signal_boost": 2.0, "category_weight": 0.85, "lean_mix": ["center", "right", "left"] },
+        { "slot": 3, "cluster": "doj-subpoenas-nyt-air-force-one", "category": "Politics", "raw_score": 12.09, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0, "lean_mix": ["center", "left", "right"] },
+        { "slot": 4, "cluster": "ro-khanna-detained-by-israeli-settlers", "category": "Politics", "raw_score": 6.00, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0, "lean_mix": ["center", "left", "right"] },
+        { "slot": 5, "cluster": "qatar-former-emir-hamad-dies", "category": "World", "raw_score": 5.10, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85, "lean_mix": ["center", "left"] }
+      ],
+      "core_beat_count": 3,
+      "note": "Composition floor met: 3 Politics + 2 World. Graham leads on formula (Politics weight 1.0 vs World 0.85 and 20 body items) despite Iran/Hormuz carrying more mandate outlets."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 23,
+      "sources_failed": 0,
+      "duration_sec": 1322,
+      "note": "All Google News wrapper URLs (Reuters/AP/Guardian/Wex/Bloomberg/Economist) returned JS-shell placeholder — dropped. Recovered via curl+parser for BBC/CNBC and via WebSearch for direct Fox/CBS/NBC/Al Jazeera/Wex/Deutsche Welle URLs. Every slot ended with ≥4 sources ≥600 chars."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 27,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "lindsey-graham-senate-hawk-and-trump-ally-dies-at-71", "category": "Politics", "needs_review": false, "word_count": 840, "sources": 5 },
+    { "slot": 2, "slug": "us-strikes-140-iran-sites-after-tanker-attack-shuts-strait-of-hormuz", "category": "World", "needs_review": false, "word_count": 638, "sources": 5 },
+    { "slot": 3, "slug": "trump-doj-subpoenas-nyt-reporters-air-force-one", "category": "Politics", "needs_review": false, "word_count": 516, "sources": 4 },
+    { "slot": 4, "slug": "khanna-detained-by-israeli-settlers-west-bank", "category": "Politics", "needs_review": false, "word_count": 412, "sources": 5 },
+    { "slot": 5, "slug": "sheikh-hamad-bin-khalifa-al-thani-dies-at-74", "category": "World", "needs_review": false, "word_count": 520, "sources": 4 }
+  ],
+  "egress_blocked_hostnames": ["ft.com", "npr.org", "politico.com", "theverge.com"],
+  "errors": []
 }
