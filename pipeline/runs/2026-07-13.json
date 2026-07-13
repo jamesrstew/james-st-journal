@@ -1,6 +1,76 @@
 {
   "date": "2026-07-13",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-13T12:06:40Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1020,
+      "feeds_ok": 36,
+      "feeds_fail": 4,
+      "duration_sec": 24,
+      "note": "NPR Top/Business/Tech/World returned HTTP 403 (proxy egress). 36 of 40 feeds resolved including mandate outlets FT, Bloomberg (GN), Economist (GN), NYT sections (GN)."
+    },
+    "cluster": {
+      "clusters": 21,
+      "body_tier_clusters": 12,
+      "duration_sec": 180,
+      "note": "Qualitative clustering by editor over 1,020 items. Dominant themes: US-Iran escalation, TSMC/SK Hynix AI chip rout, Meta Louisiana data-center expansion, McConnell health disclosure, Zelensky cabinet reshuffle, Bangkok bar fire, Sam Neill death, Sheikh Hamad tribute follow-up."
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "iran-us-hormuz-gulf-strikes-2026-07-13", "category": "World", "raw_score": 8.19, "mandate_count": 4, "signal_boost": 2.0, "category_weight": 0.85, "lean_mix": ["center", "lean-left", "lean-right"] },
+        { "slot": 2, "cluster": "tsmc-chip-selloff-ai-rotation-2026-07-13", "category": "Markets", "raw_score": 5.74, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0, "lean_mix": ["center"] },
+        { "slot": 3, "cluster": "meta-louisiana-50b-data-center-2026-07-13", "category": "Tech", "raw_score": 2.73, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "lean_mix": ["center", "lean-right"] },
+        { "slot": 4, "cluster": "mcconnell-fall-pneumonia-2026-07-13", "category": "Politics", "raw_score": 4.59, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "lean_mix": ["center", "lean-left"] },
+        { "slot": 5, "cluster": "zelensky-ukraine-cabinet-reshuffle-2026-07-13", "category": "World", "raw_score": 3.32, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85, "lean_mix": ["center", "lean-left"] }
+      ],
+      "core_beat_count": 3,
+      "note": "Slot 1 leads via mandate escape hatch (FT, Bloomberg, Economist, WSJ all treating Iran-Hormuz as top news despite six-day dedupe penalty; today's escalation is genuine — Iran declared Hormuz closed and attacked US bases in Bahrain/Kuwait/Jordan/Oman). Composition floor met: Markets + Tech + Politics = 3 core-beat slots. Bangkok bar fire (27 dead) and Sam Neill death considered for slots 4-5; deprioritized as neither has core-beat status nor mandate coverage sufficient to displace core-beat picks."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 15,
+      "sources_failed": 0,
+      "duration_sec": 5,
+      "note": "Google News wrapper URLs (Reuters, AP, Guardian, Bloomberg, Economist, DW, Semafor, Ars Technica, Wired, Axios, Christian Sci Monitor, Washington Examiner) are opaque JS shells — dropped in favor of direct URLs at CNBC, CBS, NBC, BBC, Fox News, Fox Business, Al Jazeera, Euronews, and Kyiv Post. All slots reached ≥2 body-tier sources ≥600 chars."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 27,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "pending",
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "iran-fires-on-us-bases-in-four-arab-states-declares-hormuz-closed", "category": "World", "needs_review": false, "word_count": 848, "sources": 5 },
+    { "slot": 2, "slug": "tsmc-revenue-surges-sk-hynix-worst-seoul-rout", "category": "Markets", "needs_review": false, "word_count": 625, "sources": 3 },
+    { "slot": 3, "slug": "meta-expands-louisiana-data-center-to-5-gigawatts", "category": "Tech", "needs_review": false, "word_count": 593, "sources": 2 },
+    { "slot": 4, "slug": "mcconnell-says-fall-left-him-briefly-unconscious", "category": "Politics", "needs_review": false, "word_count": 444, "sources": 4 },
+    { "slot": 5, "slug": "zelenskyy-to-replace-pm-svyrydenko-in-broad-cabinet-reshuffle", "category": "World", "needs_review": false, "word_count": 392, "sources": 3 }
+  ],
+  "egress_blocked_hostnames": ["npr.org", "thehill.com"],
+  "errors": []
 }
