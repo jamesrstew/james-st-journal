@@ -1,6 +1,77 @@
 {
   "date": "2026-07-14",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-14T12:06:55Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1259,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "duration_sec": 15,
+      "note": "Politico, The Verge, NPR (Top/Business/Tech/World) and FT Home returned HTTP 403 (proxy egress). Mandate outlets Bloomberg (GN) and Economist (GN) both resolved. WSJ and NYT (GN) feeds returned OK but 0 items inside the 36-hour window."
+    },
+    "cluster": {
+      "clusters": 24,
+      "body_tier_clusters": 14,
+      "duration_sec": 210,
+      "note": "Qualitative clustering by editor. Top themes today: US-Iran Hormuz escalation (blockade+toll+sea drones), Graham sister named to Senate, big-bank Q2 earnings (JPMorgan/Wells/Goldman — Bloomberg-only, dropped), IBM Q2 miss, China June exports 27%, NY data center moratorium, Warsh's first Fed hearing + June CPI, 12-state Paramount-WBD antitrust suit, judge voids Trump-IRS $1.8B settlement, ICE Maine shooting, Yemen Houthis strike Saudi Abha, Sam Neill pneumonia disclosure."
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "graham-nordone-senate-2026-07-14",        "category": "Politics", "raw_score": 8.78, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0, "lean_mix": ["center","lean-right"] },
+        { "slot": 2, "cluster": "fed-warsh-cpi-2026-07-14",                 "category": "Markets",  "raw_score": 7.05, "mandate_count": 2, "signal_boost": 1.7,  "category_weight": 1.0, "lean_mix": ["center","lean-left"] },
+        { "slot": 3, "cluster": "paramount-wbd-antitrust-2026-07-14",       "category": "Business", "raw_score": 4.15, "mandate_count": 0, "signal_boost": 1.0,  "category_weight": 1.0, "lean_mix": ["center"] },
+        { "slot": 4, "cluster": "hormuz-blockade-toll-2026-07-14",          "category": "World",    "raw_score": 6.29, "mandate_count": 2, "signal_boost": 1.7,  "category_weight": 0.85, "lean_mix": ["center","lean-left"] },
+        { "slot": 5, "cluster": "judge-nullifies-trump-irs-2026-07-14",     "category": "Politics", "raw_score": 5.95, "mandate_count": 0, "signal_boost": 1.0,  "category_weight": 1.0, "lean_mix": ["center"] }
+      ],
+      "core_beat_count": 4,
+      "note": "Big-bank Q2 earnings (JPMorgan record $6B stock-trading haul; Goldman $7.42B; Wells Fargo beat) was the top-scoring cluster by raw signal but every wire-source coverage was Bloomberg (GN wrapper, headline-only tier); no body-tier direct-URL outlet in today's ingest carried it, so the slot was dropped and Paramount-WBD antitrust took its place as the Business core-beat. Hormuz was the highest-mandate cluster (Bloomberg + Economist + FT all treating it as top news) but was demoted to slot 4 with a 0.5 dedupe penalty for having led four consecutive editions; the lede is framed on the fresh Tuesday-4pm blockade start, Trump's 20% Hormuz cargo toll, and the CENTCOM disclosure of the first-ever combat use of sea drones at Bandar Abbas. Composition floor met with 4/5 core-beats (Politics x2, Markets, Business, World)."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 18,
+      "sources_failed": 0,
+      "duration_sec": 90,
+      "note": "Google News wrapper URLs (Reuters, AP, Guardian, Bloomberg, Economist, DW, Semafor via GN, Ars Technica, Wired, Axios, Christian Sci Monitor, Washington Examiner) are opaque JS shells — dropped in favor of direct URLs at CNBC, CBS News, NBC News, Fox News, BBC, Al Jazeera, and Semafor (semafor.com direct). CNBC and BBC returned 403 to WebFetch but succeeded via curl + browser UA + regex/JSON-LD extraction. Every slot reached >=3 body-tier sources >=600 chars."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0,
+      "note": "Editors approved all 5 drafts on first pass, with light edits on slots 1, 3, 4, and 5 (self-referential 'Sunday's edition' phrase removed from slot 1; redundant EC-date sentence trimmed from slot 3; 'every cargo' -> 'all cargo' matched to source wording in slot 4; 'referral of his conduct' -> 'copy of Williams's order routed to his New York bar' in slot 5)."
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 26,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "grahams-sister-sworn-into-senate-tuesday-restoring-gop-majority",     "category": "Politics", "needs_review": false, "word_count": 702, "sources": 4 },
+    { "slot": 2, "slug": "warsh-first-fed-hearing-june-cpi-rate-hike-bets",                     "category": "Markets",  "needs_review": false, "word_count": 521, "sources": 3 },
+    { "slot": 3, "slug": "12-states-sue-to-block-paramount-warner-bros-merger",                 "category": "Business", "needs_review": false, "word_count": 504, "sources": 3 },
+    { "slot": 4, "slug": "trump-hormuz-toll-iran-blockade-sea-drones",                          "category": "World",    "needs_review": false, "word_count": 518, "sources": 5 },
+    { "slot": 5, "slug": "judge-voids-trump-1-8-billion-irs-deal-refers-lawyer-to-florida-bar", "category": "Politics", "needs_review": false, "word_count": 546, "sources": 3 }
+  ],
+  "egress_blocked_hostnames": ["politico.com", "theverge.com", "npr.org", "ft.com", "thehill.com", "reuters.com", "apnews.com", "theguardian.com", "dw.com", "axios.com", "washingtonexaminer.com"],
+  "errors": []
 }
