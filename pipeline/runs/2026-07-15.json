@@ -1,6 +1,170 @@
 {
   "date": "2026-07-15",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-15T12:09:56Z",
-  "stages": {}
+  "completed_at": "2026-07-15T12:39:53Z",
+  "stages": {
+    "ingest": {
+      "items": 1323,
+      "feeds_ok": 32,
+      "feeds_fail": 8,
+      "failed_feeds": [
+        "PBS NewsHour",
+        "NPR Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World",
+        "NYT World (GN)",
+        "NYT US (GN)",
+        "NYT Tech (GN)"
+      ]
+    },
+    "cluster": {
+      "clusters_considered": 5,
+      "body_tier_clusters": 5
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "China's Q2 GDP growth slows to 4.3%, missing government target",
+          "category": "Business",
+          "score": 7.48,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 2,
+          "cluster": "Todd Blanche faces Senate Judiciary confirmation for attorney general",
+          "category": "Politics",
+          "score": 6.66,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 3,
+          "cluster": "Jay Clayton returns for Senate DNI hearing after Trump halted first bid",
+          "category": "Politics",
+          "score": 3.4,
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 4,
+          "cluster": "Trump scraps 20% Hormuz toll after Gulf pressure; threatens Iran power plants",
+          "category": "World",
+          "score": 3.5,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85,
+          "dedupe_penalty": 0.3
+        },
+        {
+          "slot": 5,
+          "cluster": "Buffett omits Gates Foundation from annual gifts, calls Epstein ties 'distasteful'",
+          "category": "Business",
+          "score": 2.83,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0
+        }
+      ],
+      "core_beat_count": 4,
+      "notes": "Slate composition adjusted from initial selection to prioritize clusters with 2+ direct-fetchable body-tier sources; Google News-wrapped Reuters/AP/Guardian URLs proved unresolvable through JS-based redirect, forcing Wall Street bank-earnings, Stripe/PayPal, and ASML clusters to be dropped (each had only CNBC as a directly fetchable body source)."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 17,
+      "sources_failed": 3,
+      "failed_sources": [
+        "The Hill (multiple articles \u2014 HTTP 403 via Fastly)",
+        "RCP opinion (empty extraction)"
+      ],
+      "notes": "The Hill blocks routine egress; substituted CBS/Fox/Guardian/NBC where possible."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 33,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "<to-be-set>",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "china-growth-slows-to-4-3-percent-second-quarter-missing-beijing-target",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 723,
+      "sources": 3,
+      "headline": "China Growth Slows to 4.3 Percent in Second Quarter, Missing Beijing's Target"
+    },
+    {
+      "slot": 2,
+      "slug": "blanche-faces-senate-judiciary-on-irs-fund-epstein-files",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 701,
+      "sources": 3,
+      "headline": "Blanche Faces Senate Judiciary on IRS Fund, Epstein Files"
+    },
+    {
+      "slot": 3,
+      "slug": "clayton-returns-to-senate-intelligence-panel-after-trump-halted-hearing",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 547,
+      "sources": 4,
+      "headline": "Clayton Returns to Senate Intelligence Panel a Month After Trump Halted His Hearing"
+    },
+    {
+      "slot": 4,
+      "slug": "trump-scraps-hormuz-toll-threatens-iran-power-plants",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 524,
+      "sources": 4,
+      "headline": "Trump Scraps 20 Percent Hormuz Toll a Day After Setting It, Threatens Iran Power Plants"
+    },
+    {
+      "slot": 5,
+      "slug": "buffett-omits-gates-foundation-calls-epstein-ties-distasteful",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 445,
+      "sources": 2,
+      "headline": "Buffett Omits Gates Foundation From Annual Gifts, Calls Epstein Ties 'Distasteful'"
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "npr.org",
+    "thehill.com"
+  ],
+  "errors": []
 }
