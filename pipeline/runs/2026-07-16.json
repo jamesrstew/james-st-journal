@@ -1,6 +1,36 @@
 {
   "date": "2026-07-16",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-16T12:10:00Z",
-  "stages": {}
+  "finished_at": "2026-07-16T12:37:48Z",
+  "stages": {
+    "ingest":   { "items": 1355, "feeds_ok": 36, "feeds_fail": 4, "failed_feeds": ["NPR Top","NPR Business","NPR Tech","NPR World"] },
+    "cluster":  { "clusters_scanned": 14, "top_clusters_selected": 5 },
+    "select":   {
+      "chosen": [
+        {"slot":1,"cluster":"US strikes Iranian tanker in Arabian Sea, hits Bandar Abbas; Trump threatens power plants, Iran frees U.S. citizen","category":"World","score":4.91,"mandate_count":2,"signal_boost":1.7,"category_weight":0.85,"dedupe_penalty":0.5,"lean_mix":["center","lean-left","lean-right","left","right"]},
+        {"slot":2,"cluster":"TSMC pledges additional $100B for U.S. chipmaking, Q2 profit jumps 77% to record","category":"Business","score":3.92,"mandate_count":1,"signal_boost":1.35,"category_weight":1.0,"dedupe_penalty":0.3,"lean_mix":["center","lean-right","lean-left"]},
+        {"slot":3,"cluster":"Blanche AG confirmation in doubt as Cornyn wavers, Vance concedes Epstein 'screwup'","category":"Politics","score":2.0,"mandate_count":0,"signal_boost":1.0,"category_weight":1.0,"dedupe_penalty":0.5,"lean_mix":["center","lean-left","lean-right","right"]},
+        {"slot":4,"cluster":"SpaceX shares fall below IPO price for first time as post-listing rally unravels","category":"Markets","score":3.32,"mandate_count":1,"signal_boost":1.35,"category_weight":1.0,"dedupe_penalty":0.0,"lean_mix":["center"]},
+        {"slot":5,"cluster":"Ukrainians protest in Kyiv after Zelenskyy dismisses defense minister Fedorov","category":"World","score":5.48,"mandate_count":1,"signal_boost":1.35,"category_weight":0.85,"dedupe_penalty":0.15,"lean_mix":["center","lean-left","left"]}
+      ],
+      "core_beat_count": 3
+    },
+    "research": { "dossiers_built": 5, "sources_fetched": 17, "sources_failed": 4, "notes": "The Hill and RealClearPolitics returned bot-detection walls; Reuters direct URL guess blocked; pivoted slot 3 from House Israel-aid vote to Blanche AG confirmation to secure two body-tier direct-URL sources." },
+    "draft":    { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit":     { "editors_spawned": 5, "approved_first_pass": 5, "revised": 0, "held": 0 },
+    "revise":   { "revisions_spawned": 0, "approved_after_revise": 0 },
+    "stage":    { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 34, "estimated_cost_usd": 0.08 },
+    "commit":   { "sha": null, "pushed": false }
+  },
+  "articles": [
+    { "slot": 1, "slug": "iran-vows-crush-regional-targets-as-us-strikes-hit-bandar-abbas", "category": "World", "needs_review": false, "word_count": 797, "sources": 4 },
+    { "slot": 2, "slug": "tsmc-pledges-100-billion-arizona-q2-profit-jumps-77-percent", "category": "Business", "needs_review": false, "word_count": 688, "sources": 2 },
+    { "slot": 3, "slug": "cornyn-blanche-ag-confirmation-hangs-by-thread", "category": "Politics", "needs_review": false, "word_count": 619, "sources": 3 },
+    { "slot": 4, "slug": "spacex-falls-below-ipo-price-first-time", "category": "Markets", "needs_review": false, "word_count": 414, "sources": 2 },
+    { "slot": 5, "slug": "kyiv-protesters-chant-shame-zelenskyy-ousts-defense-chief-fedorov", "category": "World", "needs_review": false, "word_count": 449, "sources": 4 }
+  ],
+  "egress_blocked_hostnames": ["feeds.npr.org", "thehill.com", "reuters.com"],
+  "errors": []
 }
