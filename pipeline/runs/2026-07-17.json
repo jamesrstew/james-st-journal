@@ -1,6 +1,183 @@
 {
   "date": "2026-07-17",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-17T12:07:18Z",
-  "stages": {}
+  "completed_at": "2026-07-17T12:43:12Z",
+  "stages": {
+    "ingest": {
+      "items": 1363,
+      "feeds_ok": 35,
+      "feeds_fail": 5,
+      "duration_sec": 27
+    },
+    "cluster": {
+      "body_tier_items": 1153,
+      "headline_tier_items": 210,
+      "mandate_items": 210
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Global AI/chip stock selloff sends Wall Street futures and Asian markets sliding; Netflix Q2 forecast lands short",
+          "category": "Markets",
+          "score": 11.5,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1,
+          "lean_mix": [
+            "center"
+          ]
+        },
+        {
+          "slot": 2,
+          "cluster": "Trump uses primetime address to allege China meddled in 2020 election and to push mail-in-ballot restrictions ahead of midterms",
+          "category": "Politics",
+          "score": 10.9,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "lean_mix": [
+            "center",
+            "lean-left",
+            "left",
+            "right"
+          ]
+        },
+        {
+          "slot": 3,
+          "cluster": "Xi Jinping opens Shanghai's WAIC pitching China-led global AI order; Moonshot's Kimi model narrows gap with US frontier",
+          "category": "Tech",
+          "score": 10.11,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1,
+          "lean_mix": [
+            "center",
+            "lean-left"
+          ]
+        },
+        {
+          "slot": 4,
+          "cluster": "US extends Iran air campaign into a sixth consecutive night; Iran hits eastern Syria and misses Qatar",
+          "category": "World",
+          "score": 7.37,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85,
+          "lean_mix": [
+            "center",
+            "lean-left",
+            "right"
+          ]
+        },
+        {
+          "slot": 5,
+          "cluster": "White House teleprompter operator suspended and referred to CFTC over roughly $100,000 in Kalshi 'mentions' bets on Trump speeches",
+          "category": "Business",
+          "score": 8,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1,
+          "lean_mix": [
+            "center",
+            "left",
+            "right"
+          ]
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 19,
+      "sources_failed": 9,
+      "duration_sec": 20,
+      "notes": "Reuters direct URLs return 401 (JS challenge); Google News redirects were resolved via googlenewsdecoder. BBC and CNBC direct URLs fetched via curl."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 28,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "PENDING",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "ai-chip-selloff-widens-as-netflix-miss-compounds-rout",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 798,
+      "sources": 3,
+      "has_illustration": true
+    },
+    {
+      "slot": 2,
+      "slug": "trump-china-voter-files-primetime-address",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 673,
+      "sources": 4,
+      "has_illustration": true
+    },
+    {
+      "slot": 3,
+      "slug": "xi-calls-for-global-ai-symphony-at-shanghai-chides-us-chip-curbs",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 526,
+      "sources": 3,
+      "has_illustration": true
+    },
+    {
+      "slot": 4,
+      "slug": "us-hits-iran-bridges-sixth-straight-night",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 504,
+      "sources": 4,
+      "has_illustration": true
+    },
+    {
+      "slot": 5,
+      "slug": "white-house-teleprompter-operator-suspended-over-kalshi-bets-on-trump-speeches",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 464,
+      "sources": 5,
+      "has_illustration": true
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "reuters.com",
+    "apnews.com",
+    "pbs.org",
+    "feeds.npr.org",
+    "thehill.com"
+  ],
+  "errors": []
 }
