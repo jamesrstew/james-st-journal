@@ -1,6 +1,155 @@
 {
   "date": "2026-07-17",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-17T14:17:27Z",
-  "stages": {}
+  "finished_at": "2026-07-17T14:42:55.834Z",
+  "fire": "retry",
+  "stages": {
+    "ingest": {
+      "items": 1352,
+      "feeds_ok": 28,
+      "feeds_fail": 12,
+      "duration_sec": 15
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 2
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "AI trade reverses; Apple retakes most-valuable crown from Nvidia as chip stocks rout",
+          "category": "Markets",
+          "score": null,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "Xi pitches China as global AI leader as Moonshot's Kimi rivals US frontier models",
+          "category": "Tech",
+          "score": null,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "US, Iran mount sixth night of strikes; Hormuz traffic collapses; Kuwait plants attacked",
+          "category": "World",
+          "score": null,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 4,
+          "cluster": "Trump uses primetime speech to press election-fraud claims and accuse China of 2020 meddling",
+          "category": "Politics",
+          "score": null,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Trump Media plans to sell traders millisecond-fast access to president's Truth Social posts",
+          "category": "Business",
+          "score": null,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 28,
+      "sources_failed": 3,
+      "duration_sec": 60,
+      "notes": "Google News RSS redirect URLs return empty JS shell — used direct-fetchable sources only (BBC, CNBC, Al Jazeera, Fox, CBS, The Verge)"
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 28,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "apple-briefly-overtakes-nvidia-as-ai-trade-rotates-out-of-chip-leaders",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 721,
+      "sources": 6
+    },
+    {
+      "slot": 2,
+      "slug": "moonshot-unveils-kimi-k3-as-xi-convenes-29-nation-ai-alliance",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 613,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "iran-strikes-kuwait-water-plant-as-us-hits-iranian-bridges",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 705,
+      "sources": 6
+    },
+    {
+      "slot": 4,
+      "slug": "trump-revives-2020-china-meddling-claim-in-primetime-address",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 445,
+      "sources": 4
+    },
+    {
+      "slot": 5,
+      "slug": "trump-media-to-sell-wall-street-millisecond-access-to-truth-social-posts",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 368,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "news.google.com",
+    "npr.org",
+    "pbs.org",
+    "thehill.com"
+  ],
+  "errors": []
 }
