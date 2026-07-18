@@ -1,6 +1,83 @@
 {
   "date": "2026-07-18",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-18T12:06:35Z",
-  "stages": {}
+  "finished_at": "2026-07-18T12:38:00Z",
+  "fire": "scheduled",
+  "stages": {
+    "ingest": {
+      "items": 1281,
+      "feeds_ok": 35,
+      "feeds_fail": 5,
+      "duration_sec": 20,
+      "notes": "PBS NewsHour returned 0-byte 202; NPR feeds (1001,1004,1006,1019) returned Akamai Access Denied 403 — added to egress_blocked_hostnames."
+    },
+    "cluster": {
+      "clusters": 8,
+      "body_tier_clusters": 8,
+      "duration_sec": 4
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "chip-selloff-ai-bear-market-2026-07-18", "category": "Markets", "score": 9.18, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "burnham-uk-pm-2026-07-18", "category": "World", "score": 12.24, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 0.85 },
+        { "slot": 3, "cluster": "trump-canada-tariffs-wildfire-2026-07-18", "category": "Politics", "score": 10.32, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 4, "cluster": "dhs-mullin-election-review-2026-07-18", "category": "Politics", "score": 6.42, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 5, "cluster": "cyclospora-taco-bell-2026-07-18", "category": "Health", "score": 5.42, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.7 }
+      ],
+      "core_beat_count": 3,
+      "notes": "Meta-Anthropic $10B compute deal (Tech, raw 2.73) considered for slot 5 but dropped for lack of a second body-tier body-length source ≥600 chars after Reuters.com was blocked at the HTTP layer. Cyclospora replaced it (higher adjusted score 5.42 vs 2.73). Iran (raw 5.16 / adjusted 4.90) and NJ AR-15 (raw 2.03) also considered but did not place."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 17,
+      "sources_failed": 5,
+      "duration_sec": 90,
+      "notes": "The Hill (thehill.com) direct URLs 403'd across 5 attempts; slot 4 cluster reshaped around CBS+BBC only. Reuters.com direct URLs returned 401/403. Google News RSS redirects continue to return empty JS shells and were not used per prior-run guidance."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 3,
+      "revised": 2,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 2,
+      "approved_after_revise": 2,
+      "notes": "Slot 1 revised for one misattributed quote (reporter narration presented as Kaufman quote), one non-verbatim direct quote (Moorhead), and dek framing tightening. Slot 4 revised to drop invented DHS Mullin content (Hill URLs were blocked and Mullin never appeared in the CBS+BBC dossier) and pivot to the DOJ 0-for-11 record and audit-gap angle."
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 20,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "ai-trade-cracks-as-chinese-rivals-crumble-spacex-sinks-below-ipo-price", "category": "Markets", "needs_review": false, "word_count": 884, "sources": 4 },
+    { "slot": 2, "slug": "burnham-downing-street-thatcher-break", "category": "World", "needs_review": false, "word_count": 641, "sources": 3 },
+    { "slot": 3, "slug": "trump-threatens-extra-canada-tariff-over-wildfire-smoke", "category": "Politics", "needs_review": false, "word_count": 644, "sources": 3 },
+    { "slot": 4, "slug": "justice-department-loses-11-voter-roll-suits-as-trump-revives-fraud-claims", "category": "Politics", "needs_review": false, "word_count": 464, "sources": 2 },
+    { "slot": 5, "slug": "fda-traces-taco-bell-cyclospora-outbreak-to-taylor-farms-mexico-supplier", "category": "Health", "needs_review": false, "word_count": 505, "sources": 5 }
+  ],
+  "egress_blocked_hostnames": [
+    "pbs.org",
+    "npr.org",
+    "thehill.com",
+    "reuters.com"
+  ],
+  "errors": []
 }
