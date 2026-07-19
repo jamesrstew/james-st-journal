@@ -1,1 +1,155 @@
-{"date":"2026-07-19","status":"in_progress","started_at":"2026-07-19T12:06:38Z","stages":{}}
+{
+  "date": "2026-07-19",
+  "status": "success",
+  "started_at": "2026-07-19T12:06:38Z",
+  "stages": {
+    "ingest": {
+      "items": 1079,
+      "feeds_ok": 35,
+      "feeds_fail": 5,
+      "duration_sec": 20
+    },
+    "cluster": {
+      "clusters_considered": 12,
+      "body_tier_clusters": 12,
+      "duration_sec": 5
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "US-Iran war escalates: two US troops killed in Jordan; CENTCOM eighth-night retaliation",
+          "category": "Politics",
+          "score": 14.7,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 2,
+          "cluster": "Andy Burnham to be sworn in as UK PM Monday; drops digital ID; North Sea signal",
+          "category": "World",
+          "score": 5.35,
+          "mandate_count": 3,
+          "signal_boost": 2.0,
+          "category_weight": 0.85,
+          "mandate_escape_used": true
+        },
+        {
+          "slot": 3,
+          "cluster": "Russia's largest ballistic barrage on Kyiv; Ukraine hits Russian oil depots",
+          "category": "World",
+          "score": 3.83,
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 4,
+          "cluster": "Mamdani floats NYC arrest of Netanyahu at UN General Assembly",
+          "category": "Politics",
+          "score": 3.44,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 5,
+          "cluster": "Jingye demands British Steel compensation; Beijing invokes 1986 treaty",
+          "category": "Business",
+          "score": 3.14,
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 1.0
+        }
+      ],
+      "core_beat_count": 3,
+      "composition_floor_met": true,
+      "duration_sec": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 26,
+      "sources_failed": 4,
+      "duration_sec": 40
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 29,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "iranian-strike-kills-two-us-troops-in-jordan-as-centcom-retaliates-for-eighth-night",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 782,
+      "sources": 6
+    },
+    {
+      "slot": 2,
+      "slug": "burnham-take-office-monday-north-sea-shift-digital-id-retreat",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 595,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "russia-fires-largest-ballistic-barrage-kyiv-ukraine-hits-russian-oil-depots-tankers",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 647,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "mamdani-says-nyc-weighing-whether-it-can-arrest-netanyahu-at-un",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 428,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "jingye-demands-british-steel-compensation-as-beijing-invokes-1986-treaty",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 429,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "thehill.com",
+    "npr.org",
+    "pbs.org",
+    "news.google.com"
+  ],
+  "errors": []
+}
