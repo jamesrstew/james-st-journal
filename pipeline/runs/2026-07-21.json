@@ -1,6 +1,35 @@
 {
   "date": "2026-07-21",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-21T12:10:27Z",
-  "stages": {}
+  "stages": {
+    "ingest": { "items": 1305, "feeds_ok": 35, "feeds_fail": 5, "duration_sec": 45, "failed_feeds": ["NPR Top", "NPR Business", "NPR Tech", "NPR World", "PBS NewsHour"] },
+    "cluster": { "clusters": 22, "body_tier_clusters": 18, "duration_sec": 6 },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "Trump imposes 50% tariffs on wide range of Canadian goods, deepening North America trade war", "category": "Business", "score": 18.36, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "Federal judge pauses Paramount-Warner Bros. merger for at least two weeks, granting states' antitrust request", "category": "Business", "score": 10.32, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "Retail dip-buyers pile into leveraged tech ETFs as Wall Street pros preach caution and Nvidia takes 9.3% Nebius stake", "category": "Markets", "score": 5.6, "mandate_count": 5, "signal_boost": 2.0, "category_weight": 1.0 },
+        { "slot": 4, "cluster": "U.S. strikes Iran for 10th night as Hormuz tankers burn, Houthis declare Saudi maritime blockade, mediators propose truce", "category": "World", "score": 11.475, "mandate_count": 4, "signal_boost": 2.0, "category_weight": 0.85 },
+        { "slot": 5, "cluster": "India's youth-led Cockroach movement resumes marches after New Delhi police crackdown, pressuring Modi over unemployment and exams", "category": "World", "score": 4.8, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85 }
+      ],
+      "core_beat_count": 3
+    },
+    "research": { "dossiers_built": 5, "sources_fetched": 18, "sources_failed": 6, "duration_sec": 90, "notes": "The Hill (thehill.com) consistently blocked by PerimeterX bot detection across 7 URL attempts; pivoted Slot 5 from DOJ Harvard probe (Fox News only direct body source) to India Cockroach protest movement to meet 2-body-tier minimum." },
+    "draft": { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit": { "editors_spawned": 5, "approved_first_pass": 4, "revised": 1, "held": 0 },
+    "revise": { "revisions_spawned": 1, "approved_after_revise": 1, "revised_slots": [3] },
+    "stage": { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 65, "estimated_cost_usd": 0.08 },
+    "commit": { "sha": null, "pushed": false }
+  },
+  "articles": [
+    { "slot": 1, "slug": "trump-imposes-50-percent-tariffs-canadian-goods-1930-law", "category": "Business", "needs_review": false, "word_count": 883, "sources": 2, "draft_iterations": 1 },
+    { "slot": 2, "slug": "judge-pauses-paramount-warner-bros-merger", "category": "Business", "needs_review": false, "word_count": 608, "sources": 3, "draft_iterations": 1 },
+    { "slot": 3, "slug": "retail-buys-the-ai-dip-as-wall-street-preaches-caution", "category": "Markets", "needs_review": false, "word_count": 666, "sources": 3, "draft_iterations": 2 },
+    { "slot": 4, "slug": "houthis-move-to-blockade-saudi-shipping-as-tankers-burn-in-hormuz", "category": "World", "needs_review": false, "word_count": 543, "sources": 6, "draft_iterations": 1 },
+    { "slot": 5, "slug": "indian-cockroach-protesters-return-to-delhi-after-police-crackdown", "category": "World", "needs_review": false, "word_count": 459, "sources": 4, "draft_iterations": 1 }
+  ],
+  "egress_blocked_hostnames": ["feeds.npr.org", "www.pbs.org", "thehill.com", "apnews.com", "www.reuters.com"],
+  "errors": []
 }
