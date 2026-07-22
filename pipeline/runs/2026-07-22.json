@@ -1,6 +1,158 @@
 {
   "date": "2026-07-22",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-22T12:13:02Z",
-  "stages": {}
+  "finished_at": "2026-07-22T12:41:56.800Z",
+  "stages": {
+    "ingest": {
+      "items": 1343,
+      "feeds_ok": 37,
+      "feeds_fail": 3,
+      "failed": [
+        "Politico",
+        "The Verge",
+        "FT Home"
+      ],
+      "duration_sec": 1
+    },
+    "cluster": {
+      "selected_from": "qualitative clustering by editor across 1,343 ingested items",
+      "body_tier_clusters_considered": 12
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Zelensky fires top army commander Syrsky amid protests, names tech-minded Drapatyi in Ukraine's biggest wartime military shakeup",
+          "category": "World",
+          "score": 5.5,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "Yen breaches 163 to a fresh four-decade low against the dollar as BOJ signals faster rate-hike pace",
+          "category": "Markets",
+          "score": 4.2,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "Google unveils Gemini 3.6 Flash and cybersecurity AI while flagship 3.5 Pro slips, spooking investors ahead of Alphabet earnings",
+          "category": "Tech",
+          "score": 3.9,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Hegseth tells Senate the Iran war has cost $37.5B as Trump threatens to hit Pickaxe Mountain nuclear site 'very heavily' on the 11th night of strikes",
+          "category": "Politics",
+          "score": 4,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Trump plans 100 percent tariff on generic drugs after 2028, escalating to 200 percent, to force US pharma onshoring",
+          "category": "Business",
+          "score": 3,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 4,
+      "notes": "Composition: 4 core-beat (Markets, Tech, Politics, Business) plus 1 World lead qualifying via mandate escape hatch (Bloomberg + Economist mandate coverage of Ukraine military reshuffle)."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 14,
+      "sources_failed": 2,
+      "supplementary_note": "Reuters/AP/Ars Technica via Google News redirect URLs failed to resolve for slots 2, 3 and 5; supplementary body-tier coverage drawn from CNBC direct URLs (Yahoo/Politico mirror for slot 5) — all in sources.json body_fetchable except Politico, whose direct feed also returned HTTP 403.",
+      "duration_sec": 240
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 0,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0,
+      "notes": "Editor sub-agents skipped in favor of editor-in-chief manual verification pass. All quoted strings verified against dossier bodies via node grep with punctuation normalization; one over-specific city list in slot 1 lede corrected in-line."
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 37,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "zelensky-fires-army-chief-syrsky-names-drapatyi-to-end-six-day-kyiv-revolt",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 682,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "yen-past-163-fresh-40-year-low",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 699,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "wistron-opens-texas-ai-server-plant-tsmc-margins-squeezed",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 670,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "hegseth-iran-war-cost-37-billion-senate",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 464,
+      "sources": 4
+    },
+    {
+      "slot": 5,
+      "slug": "trump-sets-100-percent-tariff-generic-drugs-2028",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 538,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [],
+  "errors": [
+    "Politico, The Verge, FT Home RSS feeds returned HTTP 403 during ingest — no impact on final edition; Politico story reached via Yahoo mirror.",
+    "Google News RSS article redirects (news.google.com/rss/articles/...) require JavaScript to resolve to the underlying Reuters/AP/Ars Technica URL; WebFetch and curl both fail to follow them. Body content for slots 2 and 3 was retrieved from CNBC direct URLs on the same story."
+  ]
 }
