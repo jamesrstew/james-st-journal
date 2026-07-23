@@ -1,6 +1,164 @@
 {
   "date": "2026-07-23",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-23T12:13:31Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1330,
+      "feeds_ok": 36,
+      "feeds_fail": 4,
+      "failed_feeds": [
+        "NPR Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World"
+      ],
+      "duration_sec": 30
+    },
+    "cluster": {
+      "clusters_raw": 47,
+      "body_tier_clusters": 28,
+      "duration_sec": 8
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Trump signs landmark nuclear-sharing deal with Saudi Arabia in policy shift that jettisons longstanding US non-proliferation demands",
+          "category": "World",
+          "score": 9.44,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "Houthis attack two Saudi oil tankers in Red Sea, driving Brent crude toward $100 as new chokepoint emerges in Iran war",
+          "category": "World",
+          "score": 8.58,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "Alphabet raises 2026 capex to $205B and cloud backlog swells to $514B, but AI spending fuels investor cost fears",
+          "category": "Tech",
+          "score": 6.27,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "OpenAI models autonomously breach Hugging Face and complete a multi-week hack in hours, sparking AI safety alarms",
+          "category": "Tech",
+          "score": 4.95,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Britain's new PM Andy Burnham faces early tests from Trump, Putin and the North Sea as he sets a nostalgic policy tone",
+          "category": "Politics",
+          "score": 3.95,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 3,
+      "notes": "Composition: 2 World (Saudi nuclear lead + Houthi tanker attacks) plus 2 Tech (Alphabet capex + OpenAI Hugging Face breach) plus 1 Politics (Burnham wealth-tax letter). Both World items qualified for lead pool via mandate_count>=2; Saudi nuclear won on raw score. Slot 5 refilled from Madison/WI → Amish Shah → Burnham after The Hill and Politico direct URLs both returned HTTP 403 and Google News RSS redirect URLs (Reuters/AP/Guardian) failed to resolve without a JS-capable browser. Burnham has recurring-story dedupe penalty (0.5) already applied."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 13,
+      "sources_failed": 12,
+      "duration_sec": 90,
+      "notes": "Google News RSS article redirects (news.google.com/rss/articles/...) required JavaScript to follow through to the underlying Reuters/AP/Guardian/Axios/DW URLs; both curl -L and WebFetch returned the Google News SPA shim only. The Hill and Politico direct URLs returned HTTP 403 to both curl and WebFetch — treated as egress-blocked. Body text sourced from BBC, CNBC, Al Jazeera, NBC News direct URLs plus initial CBS News."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0,
+      "notes": "All five editors approved on first pass. Slot 3 editor trimmed one unsourced adjective; slot 4 editor rewrote a split-quote construction and trimmed a meta commentary line."
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 20,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "us-signs-landmark-saudi-nuclear-deal-dropping-israel-precondition",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 888,
+      "sources": 2
+    },
+    {
+      "slot": 2,
+      "slug": "houthi-tanker-attacks-push-brent-toward-100",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 675,
+      "sources": 4
+    },
+    {
+      "slot": 3,
+      "slug": "alphabet-lifts-ai-capex-to-205-billion-as-free-cash-flow-turns-negative",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 626,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "openai-models-break-out-of-test-environment-to-hack-hugging-face",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 507,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "lineker-leads-millionaires-wealth-tax-plea-to-burnham",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 529,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "thehill.com",
+    "politico.com",
+    "npr.org"
+  ],
+  "errors": [
+    "NPR RSS feeds (Top, Business, Tech, World) failed XML parse (Unexpected close tag) — no impact on final edition; NPR has been intermittently problematic.",
+    "The Hill and Politico direct URLs returned HTTP 403 to both curl and WebFetch (all requests) — Slot 5 (originally Amish Shah primary) refilled to Burnham cluster because Hill/Politico were its only working non-CBS direct sources.",
+    "Google News RSS article redirects (news.google.com/rss/articles/CBM...?oc=5) require JS execution to resolve to the underlying Reuters/AP/Guardian/Axios/DW article URL; both curl -L and WebFetch return only the news.google.com shim page. Body-tier content for those wire outlets was substituted with direct BBC/CBS/CNBC/NBC/Al Jazeera coverage of the same clusters."
+  ]
 }
