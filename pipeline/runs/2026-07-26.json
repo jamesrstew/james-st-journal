@@ -1,6 +1,157 @@
 {
   "date": "2026-07-26",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-26T12:06:48Z",
-  "stages": {}
+  "finished_at": "2026-07-26T12:33:09.138964Z",
+  "stages": {
+    "ingest": {
+      "items": 996,
+      "feeds_ok": 36,
+      "feeds_fail": 4
+    },
+    "cluster": {
+      "clusters": 7,
+      "body_tier_clusters": 7
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "French/Spanish wildfires force 250,000+ to evacuate; Bordeaux threatened",
+          "category": "World",
+          "score": 17.907,
+          "mandate_count": 3,
+          "signal_boost": 2.0,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "US pauses Iran strikes; Trump orders no Friday attack; Houthis widen strikes on Saudi Arabia; UK airbase protests",
+          "category": "World",
+          "score": 15.438,
+          "mandate_count": 3,
+          "signal_boost": 2.0,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "Vehicle attack at Berlin Pride kills 1, injures 16, Islamist suspect sought",
+          "category": "World",
+          "score": 11.705,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 4,
+          "cluster": "Maine Democrats nominate Troy Jackson for US Senate race against Collins",
+          "category": "Politics",
+          "score": 9.09,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 5,
+          "cluster": "Trump forced-labor tariffs face lawsuits, Australia PM pressure, market pushback",
+          "category": "Politics",
+          "score": 2.86,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        }
+      ],
+      "core_beat_count": 2,
+      "composition_note": "Core-beat floor of 3/5 not met: only 2/5 slots (Politics x2) are core beats; 3 slots landed in World (wildfires, Iran, Berlin). Wildfires led on raw score with mandate escape hatch. No additional core-beat clusters with raw_score >= 1.0 were available beyond Trump tariffs and Maine Senate \u2014 gap logged."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 28,
+      "sources_failed": 17
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "PENDING",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "wildfires-force-more-than-300000-from-homes-as-firestorm-nears-bordeaux",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 892,
+      "sources": 5
+    },
+    {
+      "slot": 2,
+      "slug": "us-pauses-iran-strikes-for-second-night-as-oman-mediates-hormuz-talks",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 643,
+      "sources": 6
+    },
+    {
+      "slot": 3,
+      "slug": "van-rams-berlin-pride-crowd-killing-one-and-injuring-16",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 671,
+      "sources": 5
+    },
+    {
+      "slot": 4,
+      "slug": "maine-democrats-nominate-troy-jackson-to-face-collins",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 508,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "trumps-forced-labor-tariffs-draw-small-business-lawsuits-and-foreign-protests",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 587,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "feeds.npr.org",
+    "thehill.com",
+    "www.axios.com",
+    "www.reuters.com"
+  ],
+  "errors": [],
+  "notes": [
+    "NPR RSS endpoints (feeds.npr.org) returned HTTP 403 Access Denied via the edge network \u2014 blocked by egress or upstream WAF.",
+    "PBS NewsHour RSS needed a non-default User-Agent (FeedFetcher-Google) to return content; browser UA got a 202 with 0 bytes.",
+    "Reuters, The Hill, and Axios blocked body-tier fetches with 401/403 across the run. Bodies were still drawn from AP News, BBC, DW, Guardian, CBS, Al Jazeera, Washington Examiner, and CNBC direct fetches.",
+    "WSJ RSS returned only Jan 2025 items (feed appears stuck); NYT Google-News mirrors returned mostly empty feeds. Mandate signal came from Bloomberg, FT, Economist and one NYT Business item.",
+    "Slot 2 (Iran) dossier was 88KB largely due to the CBS live-updates blog. Writer synthesized cleanly."
+  ]
 }
