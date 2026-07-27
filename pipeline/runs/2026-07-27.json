@@ -1,6 +1,94 @@
 {
   "date": "2026-07-27",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-27T12:17:01Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1062,
+      "feeds_ok": 34,
+      "feeds_fail": 5,
+      "feeds_fail_detail": [
+        { "name": "PBS NewsHour", "reason": "empty response" },
+        { "name": "NPR Top", "reason": "Akamai access-denied (parse fail)" },
+        { "name": "NPR Business", "reason": "Akamai access-denied (parse fail)" },
+        { "name": "NPR Tech", "reason": "Akamai access-denied (parse fail)" },
+        { "name": "NPR World", "reason": "Akamai access-denied (parse fail)" }
+      ],
+      "duration_sec": 34
+    },
+    "cluster": {
+      "clusters": 24,
+      "body_tier_clusters": 18,
+      "duration_sec": 4,
+      "notes": "Iran/oil supercluster split into Markets (oil/Fed lead) and did not seat World; slot-level fresh news dominated by Business/Tech."
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "CXMT blockbuster Shanghai debut", "category": "Business", "score": 8.2, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "Nvidia Open Secure AI Alliance + $250B OpenAI financing", "category": "Tech", "score": 5.9, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "Oil sinks 7% as US-Iran pause holds; BoE meets", "category": "Markets", "score": 4.4, "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0 },
+        { "slot": 4, "cluster": "Trump Michigan swing + 100-day midterm marker", "category": "Politics", "score": 3.5, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 },
+        { "slot": 5, "cluster": "Shein $99M loss disclosed in HK IPO filing + importer tariff chaos", "category": "Business", "score": 4.14, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 }
+      ],
+      "core_beat_count": 5
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 17,
+      "sources_failed": 6,
+      "sources_failed_detail": [
+        { "outlet": "thehill.com", "reason": "PerimeterX captcha (403)" },
+        { "outlet": "realclearpolitics.com", "reason": "CloudFront JS wall" },
+        { "outlet": "bloomberg.com", "reason": "403" },
+        { "outlet": "reuters.com direct", "reason": "401 auth wall" },
+        { "outlet": "apnews.com via WebFetch", "reason": "endpoint blocked for WebFetch" },
+        { "outlet": "cnbc.com via WebFetch", "reason": "403; direct curl + JSON-LD extractor recovered" }
+      ],
+      "duration_sec": 78
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 2,
+      "revised": 3,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 3,
+      "approved_after_revise": 3
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 63,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "PENDING",
+      "pushed": true
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "cxmt-shanghai-debut-china-most-valuable-listed-company", "category": "Business", "needs_review": false, "word_count": 770, "sources": 3 },
+    { "slot": 2, "slug": "nvidia-open-secure-ai-alliance-openai-financing", "category": "Tech", "needs_review": false, "word_count": 618, "sources": 4 },
+    { "slot": 3, "slug": "oil-sinks-7-percent-as-us-iran-pause-holds-into-third-night", "category": "Markets", "needs_review": false, "word_count": 653, "sources": 5 },
+    { "slot": 4, "slug": "trump-visits-michigan-auto-plant-as-midterm-countdown-hits-100-days", "category": "Politics", "needs_review": false, "word_count": 503, "sources": 3 },
+    { "slot": 5, "slug": "shein-posts-99-million-quarterly-loss-tariffs-hong-kong-ipo", "category": "Business", "needs_review": false, "word_count": 527, "sources": 2 }
+  ],
+  "egress_blocked_hostnames": [],
+  "errors": [],
+  "notes": [
+    "NPR feeds (Top/Business/Tech/World) blocked by Akamai access-denied for 4 consecutive runs — candidate for swap to Google News mirror in pipeline/sources.json.",
+    "PBS NewsHour returned empty on ingest — recurring flake, not blocking.",
+    "Semafor direct URLs (semafor.com/article/...) fetched cleanly and were essential for reaching the 2-source minimum on multiple slots; worth flagging as a reliable body-tier addition.",
+    "The Hill (thehill.com) served PerimeterX captchas on every attempted body fetch — same 403 pattern seen previously. Body-tier value of The Hill is currently effectively zero via curl or WebFetch."
+  ]
 }
