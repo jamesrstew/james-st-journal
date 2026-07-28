@@ -1,6 +1,83 @@
 {
   "date": "2026-07-28",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-28T12:25:11Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1278,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "feeds_fail_detail": [
+        { "name": "Politico", "reason": "HTTP 403 (egress)" },
+        { "name": "The Verge", "reason": "HTTP 403 (egress)" },
+        { "name": "NPR Top", "reason": "HTTP 403 (egress)" },
+        { "name": "NPR Business", "reason": "HTTP 403 (egress)" },
+        { "name": "NPR Tech", "reason": "HTTP 403 (egress)" },
+        { "name": "NPR World", "reason": "HTTP 403 (egress)" },
+        { "name": "FT Home", "reason": "HTTP 403 (egress)" }
+      ],
+      "duration_sec": 7
+    },
+    "cluster": {
+      "clusters_built": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 3
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "Trump hosts Netanyahu and Zelensky at the White House as Iran pause holds and Lindsey Graham funeral draws world leaders", "category": "Politics", "score": 13.11, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "Global chip stocks tumble as SK Hynix plunges and Nvidia's talks over $250B OpenAI financing revive circular-AI fears; Apple retakes most-valuable crown", "category": "Markets", "score": 8.55, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "Johnson & Johnson offers $5.5 billion to settle decades of talc-cancer litigation", "category": "Business", "score": 7.29, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 4, "cluster": "Amazon seeks FCC approval to launch 5,105 satellites for a direct-to-device mobile service", "category": "Tech", "score": 4.73, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 5, "cluster": "France and Spain race to contain historic wildfires ahead of a fourth heat wave; monster fire cloud sparks new blazes", "category": "World", "score": 4.37, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85 }
+      ],
+      "core_beat_count": 4,
+      "notes": "Slot 5 carries a 0.5 dedupe penalty (Iberian wildfires led on 2026-07-26); still qualifies as fresh with new fourth-heatwave threat, first French pyrocumulonimbus, and Sánchez disaster declaration."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 13,
+      "sources_failed": 8,
+      "sources_failed_reason": "Google News RSS URLs (Reuters, Guardian, AP News, Wired) do not follow through to article HTML via curl or WebFetch; the article-ID payload is opaque. Fell back to BBC / CBS / CNBC direct URLs which all fetched cleanly (2-3 body sources per slot, all >=600 chars).",
+      "duration_sec": 36
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 40,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "pending",
+      "pushed": false
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "trump-hosts-zelensky-netanyahu-iran-pause-graham-funeral", "category": "Politics", "needs_review": false, "word_count": 744, "sources": 3 },
+    { "slot": 2, "slug": "sk-hynix-falls-15-percent-as-global-chip-selloff-deepens-on-nvidia-openai-report", "category": "Markets", "needs_review": false, "word_count": 678, "sources": 3 },
+    { "slot": 3, "slug": "johnson-johnson-offers-5-5-billion-to-settle-talc-cancer-suits", "category": "Business", "needs_review": false, "word_count": 558, "sources": 2 },
+    { "slot": 4, "slug": "amazon-asks-fcc-to-approve-5105-satellite-direct-to-device-network", "category": "Tech", "needs_review": false, "word_count": 416, "sources": 2 },
+    { "slot": 5, "slug": "sanchez-declares-disaster-zones-as-fourth-heatwave-nears-iberian-fires", "category": "World", "needs_review": false, "word_count": 485, "sources": 3 }
+  ],
+  "egress_blocked_hostnames": ["rss.politico.com", "theverge.com", "feeds.npr.org", "ft.com"],
+  "errors": []
 }
