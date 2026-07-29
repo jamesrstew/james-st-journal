@@ -1,6 +1,37 @@
 {
   "date": "2026-07-29",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-29T12:13:00Z",
-  "stages": {}
+  "completed_at": "2026-07-29T12:42:00Z",
+  "stages": {
+    "ingest":   { "items": 1344, "feeds_ok": 33, "feeds_fail": 7, "duration_sec": 12, "notes": "Politico, The Verge, NPR Top/Business/Tech/World, and FT Home returned HTTP 403 from the egress proxy" },
+    "cluster":  { "clusters_considered": 12, "body_tier_clusters": 12, "duration_sec": 6 },
+    "select":   {
+      "chosen": [
+        { "slot": 1, "cluster": "Iran fires ballistic missiles at U.S. bases in Jordan; U.S. and Saudi Arabia strike Iran-backed militias in Iraq", "category": "World", "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85, "note": "Leads via mandate escape hatch (mandate_count >= 2)" },
+        { "slot": 2, "cluster": "Fed decision day meets Apple's $5T market cap and Tim Cook's last earnings call as AI-infrastructure trade wobbles", "category": "Markets", "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "SK Hynix Q2 miss and $2T Korean stock rout; finance minister apologizes for leveraged-ETF losses", "category": "Markets", "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0 },
+        { "slot": 4, "cluster": "FCC bans imports of foreign-made humanoid robots, robot dogs and power inverters ahead of Trump-Xi summit", "category": "Politics", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 5, "cluster": "Russia's FSB charges Telegram founder Pavel Durov with aiding terrorism and issues international arrest warrant", "category": "Tech", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 }
+      ],
+      "core_beat_count": 4,
+      "composition_floor_met": true
+    },
+    "research": { "dossiers_built": 5, "sources_fetched": 15, "sources_failed": 0, "duration_sec": 68, "notes": "WebFetch rejected direct BBC/CBS/AJ/CNBC URLs and returned only bare HTTP status; fell back to curl + per-outlet paragraph regex per PIPELINE.md Step 7 cascade. Two The Hill URLs returned HTTP 403 to curl and were dropped; unused because alternates covered the same facts." },
+    "draft":    { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit":     { "editors_spawned": 5, "approved_first_pass": 5, "revised": 0, "held": 0 },
+    "revise":   { "revisions_spawned": 0, "approved_after_revise": 0 },
+    "stage":    { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 45, "estimated_cost_usd": 0.08 },
+    "commit":   { "pushed": true }
+  },
+  "articles": [
+    { "slot": 1, "slug": "iran-targets-us-bases-in-jordan-washington-riyadh-strike-iraq",             "category": "World",    "needs_review": false, "word_count": 895, "sources": 3 },
+    { "slot": 2, "slug": "fed-day-and-cooks-farewell-arrive-as-ai-trade-wobbles",                     "category": "Markets",  "needs_review": false, "word_count": 695, "sources": 3 },
+    { "slot": 3, "slug": "sk-hynix-miss-rekindles-chip-rout-as-korea-finance-minister-apologizes-for-etf-losses", "category": "Markets", "needs_review": false, "word_count": 726, "sources": 4 },
+    { "slot": 4, "slug": "fcc-bars-foreign-humanoid-robots-power-inverters",                          "category": "Politics", "needs_review": false, "word_count": 469, "sources": 2 },
+    { "slot": 5, "slug": "russia-charges-telegram-durov-with-aiding-terrorism",                       "category": "Tech",     "needs_review": false, "word_count": 518, "sources": 3 }
+  ],
+  "egress_blocked_hostnames": ["rss.politico.com", "theverge.com", "feeds.npr.org", "ft.com", "thehill.com"],
+  "errors": []
 }
