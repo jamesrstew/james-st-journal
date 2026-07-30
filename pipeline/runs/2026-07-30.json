@@ -1,6 +1,37 @@
 {
   "date": "2026-07-30",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-30T12:20:55Z",
-  "stages": {}
+  "completed_at": "2026-07-30T12:48:56Z",
+  "stages": {
+    "ingest":   { "items": 1357, "feeds_ok": 35, "feeds_fail": 5, "duration_sec": 20, "notes": "NPR Top/Business/Tech/World returned HTTP 403 from the egress proxy; PBS NewsHour returned HTTP 202 with empty body. WSJ RSS feeds returned stale content (Jan 2025 dates) and all items filtered out by 36-hour cutoff — feeds were parsed OK, just carried no fresh items." },
+    "cluster":  { "clusters_considered": 5, "body_tier_clusters": 5, "duration_sec": 4 },
+    "select":   {
+      "chosen": [
+        { "slot": 1, "cluster": "Fed holds rates as three officials dissent for hikes; Warsh's stripped-back communication backfires as 30-year yields hit 19-year high; bond rout deepens", "category": "Markets", "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "Meta shares tumble as cash flow craters and Zuckerberg defends AI 'agents' vision to skeptical investors", "category": "Markets", "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0 },
+        { "slot": 3, "cluster": "US strikes Iran's Qeshm Island as Saudi Arabia forms Red Sea coalition; Egypt drone attack on Damietta port raises Suez fears", "category": "World", "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85, "note": "Placed via mandate escape hatch (mandate_count >= 2)." },
+        { "slot": 4, "cluster": "Microsoft cloud growth hits fastest pace since 2022 as it discloses $130 billion in new data-center leases; shares rise 9%", "category": "Tech", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
+        { "slot": 5, "cluster": "Poland's PM Tusk says missile that crashed inside country was probably Russian, breaching NATO airspace during Russian attacks on Ukraine", "category": "World", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85 }
+      ],
+      "core_beat_count": 3,
+      "composition_floor_met": true
+    },
+    "research": { "dossiers_built": 5, "sources_fetched": 24, "sources_failed": 2, "duration_sec": 90, "notes": "WebFetch rejected direct BBC URLs (pattern from prior runs); fell back to curl + per-outlet paragraph regex extraction. The Hill returned HTTP 403 to curl (browser UA) on two article URLs and was dropped; alternate sources in the same clusters covered the same facts. All five dossiers cleared the 2-body-sources-≥600-chars floor." },
+    "draft":    { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit":     { "editors_spawned": 5, "approved_first_pass": 4, "revised": 1, "held": 0, "revised_slots": [3] },
+    "revise":   { "revisions_spawned": 1, "approved_after_revise": 1 },
+    "stage":    { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 33, "estimated_cost_usd": 0.08 },
+    "commit":   { "pushed": true }
+  },
+  "articles": [
+    { "slot": 1, "slug": "fed-holds-rates-three-dissent-warsh-rattles-markets",                       "category": "Markets", "needs_review": false, "word_count": 778, "sources": 3 },
+    { "slot": 2, "slug": "meta-sinks-9-percent-cash-flow-craters-zuckerberg-defends-ai-buildout",     "category": "Markets", "needs_review": false, "word_count": 651, "sources": 4 },
+    { "slot": 3, "slug": "damietta-drone-saudi-coalition-widen-iran-war-us-strikes-qeshm",            "category": "World",   "needs_review": false, "word_count": 683, "sources": 6 },
+    { "slot": 4, "slug": "microsoft-cloud-jumps-27-percent-as-ai-trade-splits-big-tech",              "category": "Tech",    "needs_review": false, "word_count": 527, "sources": 4 },
+    { "slot": 5, "slug": "polish-pm-says-missile-in-eastern-poland-field-was-probably-russian",       "category": "World",   "needs_review": false, "word_count": 549, "sources": 3 }
+  ],
+  "egress_blocked_hostnames": ["feeds.npr.org", "pbs.org", "thehill.com"],
+  "errors": []
 }
