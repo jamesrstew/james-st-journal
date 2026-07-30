@@ -23,7 +23,7 @@
     "revise":   { "revisions_spawned": 1, "approved_after_revise": 1 },
     "stage":    { "articles_written": 5, "validator_ok": true },
     "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 33, "estimated_cost_usd": 0.08 },
-    "commit":   { "pushed": true }
+    "commit":   { "sha": "db79d91b71ff93ceabcfc57b0dfcda0dd0c40f76", "pushed": true }
   },
   "articles": [
     { "slot": 1, "slug": "fed-holds-rates-three-dissent-warsh-rattles-markets",                       "category": "Markets", "needs_review": false, "word_count": 778, "sources": 3 },
