@@ -1,6 +1,165 @@
 {
   "date": "2026-07-31",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-07-31T12:19:21Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1372,
+      "feeds_ok": 35,
+      "feeds_fail": 5,
+      "failures": [
+        {
+          "name": "PBS NewsHour",
+          "err": "empty/short: 0"
+        },
+        {
+          "name": "NPR Top",
+          "err": "Error: Unexpected close tag\nLine: 8\nColumn: 7\nChar: >"
+        },
+        {
+          "name": "NPR Business",
+          "err": "Error: Unexpected close tag\nLine: 8\nColumn: 7\nChar: >"
+        },
+        {
+          "name": "NPR Tech",
+          "err": "Error: Unexpected close tag\nLine: 8\nColumn: 7\nChar: >"
+        },
+        {
+          "name": "NPR World",
+          "err": "Error: Unexpected close tag\nLine: 8\nColumn: 7\nChar: >"
+        }
+      ]
+    },
+    "cluster": {
+      "clusters_selected": 5,
+      "body_tier_hard_minimum_met": true
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Big Tech AI earnings rotation",
+          "category": "Markets",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 2,
+          "cluster": "US Q2 GDP 1.5% + Fed dissent + dollar drop",
+          "category": "Markets",
+          "mandate_count": 3,
+          "signal_boost": 2.0,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 3,
+          "cluster": "Trump Board of Peace Hamas disarmament",
+          "category": "Politics",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 4,
+          "cluster": "Anthropic Claude gained unauthorized access + Trump AI controls",
+          "category": "Tech",
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 5,
+          "cluster": "UEFA/CONCACAF World Cup boycott over FIFA private equity",
+          "category": "Business",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0
+        }
+      ],
+      "core_beat_count": 5
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 20,
+      "sources_failed": 6,
+      "notes": "Google News CBMi wrapper links (Reuters/AP/Wire GN) return SPA shell \u2014 dropped. BBC/CNBC/Fox/AJ/CBS direct URLs extracted cleanly."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 28,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": null
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "amazon-jumps-apple-slides-as-ai-earnings-split-big-tech",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 806,
+      "sources": 3
+    },
+    {
+      "slot": 2,
+      "slug": "gdp-slows-to-1-5-percent-fed-dissenters-press-for-hike",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 617,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "hamas-accepts-board-of-peace-disarmament-conditions-move-on-israel",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 622,
+      "sources": 5
+    },
+    {
+      "slot": 4,
+      "slug": "anthropic-says-claude-models-breached-three-companies-in-security-tests",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 505,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "uefa-concacaf-vote-world-cup-boycott-fifa-private-equity",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 553,
+      "sources": 6
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "npr.org",
+    "ft.com"
+  ],
+  "errors": []
 }
