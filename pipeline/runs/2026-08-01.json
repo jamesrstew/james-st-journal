@@ -1,6 +1,182 @@
 {
   "date": "2026-08-01",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-08-01T12:16:02Z",
-  "stages": {}
+  "finished_at": "2026-08-01T12:46:37Z",
+  "stages": {
+    "ingest": {
+      "items": 1191,
+      "feeds_ok": 29,
+      "feeds_fail": 11,
+      "feeds_fail_names": [
+        "PBS NewsHour",
+        "CNBC Top",
+        "CNBC Markets",
+        "NPR Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World",
+        "NYT World (GN)",
+        "NYT US (GN)",
+        "NYT Business (GN)",
+        "NYT Tech (GN)"
+      ]
+    },
+    "cluster": {
+      "clusters_total": null,
+      "publishable_clusters": 58
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "FIFA scraps World Cup private-equity plan after global backlash",
+          "category": "Sports",
+          "score": 8.51,
+          "mandate_count": 3,
+          "mandate_sources": [
+            "FT Home",
+            "Economist (GN)",
+            "Bloomberg (GN)"
+          ],
+          "signal_boost": 2,
+          "category_weight": 0.5,
+          "dedupe_penalty": 0.15
+        },
+        {
+          "slot": 2,
+          "cluster": "US proposes deep Colorado River water cuts for Arizona, California, Nevada - Reuters",
+          "category": "Politics",
+          "score": 7.29,
+          "mandate_count": 1,
+          "mandate_sources": [
+            "Bloomberg (GN)"
+          ],
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "dedupe_penalty": 0
+        },
+        {
+          "slot": 3,
+          "cluster": "Blanche confirmation vote scheduled for Tuesday after Trump says 'weaponization' fund is dead - Reuters",
+          "category": "Politics",
+          "score": 4.4,
+          "mandate_count": 0,
+          "mandate_sources": [],
+          "signal_boost": 1,
+          "category_weight": 1,
+          "dedupe_penalty": 0
+        },
+        {
+          "slot": 4,
+          "cluster": "New York sues Kalshi, says its prediction markets are illegal gambling - Reuters",
+          "category": "Business",
+          "score": 4.3,
+          "mandate_count": 0,
+          "mandate_sources": [],
+          "signal_boost": 1,
+          "category_weight": 1,
+          "dedupe_penalty": 0
+        },
+        {
+          "slot": 5,
+          "cluster": "Nine killed in strikes on Kyiv, as Ukraine sinks Russian container ship",
+          "category": "World",
+          "score": 4.1,
+          "mandate_count": 1,
+          "mandate_sources": [
+            "Bloomberg (GN)"
+          ],
+          "signal_boost": 1.35,
+          "category_weight": 0.85,
+          "dedupe_penalty": 0.3
+        }
+      ],
+      "core_beat_count": 3
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 14,
+      "sources_failed": 11
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "infantino-abandons-world-cup-sale-as-uefa-loses-confidence",
+      "category": "Sports",
+      "needs_review": false,
+      "word_count": 799,
+      "sources": 3
+    },
+    {
+      "slot": 2,
+      "slug": "feds-move-to-cut-colorado-river-water-arizona-california-nevada",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 566,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "trump-weaponization-fund-blanche-vote",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 713,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "new-york-sues-kalshi-illegal-gambling",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 476,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "russian-missiles-kill-nine-in-kyiv-as-ukraine-sinks-rosatom-container-ship",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 549,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "cnbc.com",
+    "dw.com",
+    "feeds.npr.org",
+    "reuters.com",
+    "theguardian.com",
+    "thehill.com"
+  ],
+  "errors": []
 }
