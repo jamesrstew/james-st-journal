@@ -1,6 +1,179 @@
 {
   "date": "2026-08-02",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-08-02T12:06:50Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1002,
+      "feeds_ok": 34,
+      "feeds_fail": 6,
+      "failed_feeds": [
+        "CNBC Top",
+        "CNBC Markets",
+        "NPR Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World"
+      ],
+      "duration_sec": 2
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5,
+      "note": "5 top clusters selected qualitatively from mandate + wire coverage; source_count and lean_mix per selection.json",
+      "duration_sec": 1
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Spain installs sea barrier on Ceuta after mass migrant crossing; Sanchez isolated, EU splits",
+          "category": "World",
+          "raw_score": 12.6,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 0.85,
+          "dedupe_penalty": 0
+        },
+        {
+          "slot": 2,
+          "cluster": "Trump says he canceled fresh Iran strikes after Saudi Prince and Middle East allies pushed for rapid deal; Kuwait intercepts drones, tanker struck in Hormuz",
+          "category": "World",
+          "raw_score": 9.9,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85,
+          "dedupe_penalty": 0.3
+        },
+        {
+          "slot": 3,
+          "cluster": "Trump publicly rebukes SDNY US Attorney Pirro after DOJ drops Reflecting Pool vandalism case",
+          "category": "Politics",
+          "raw_score": 10.6,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "dedupe_penalty": 0
+        },
+        {
+          "slot": 4,
+          "cluster": "Michigan joins Minnesota reporting cyberattacks on water systems; FBI investigating suspected Iran-linked activity; Trump blames Walz",
+          "category": "Tech",
+          "raw_score": 6.72,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "dedupe_penalty": 0
+        },
+        {
+          "slot": 5,
+          "cluster": "Trump threatens to install Blanche as acting AG bypassing Senate; Tillis says confirmation dead; $1.8B fund used as leverage",
+          "category": "Politics",
+          "raw_score": 4.24,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "dedupe_penalty": 0.4
+        }
+      ],
+      "core_beat_count": 3,
+      "note": "Slot 1 (Ceuta, World) and Slot 2 (Iran, World) both led via mandate escape hatch (mandate_count>=2). Slots 3,4,5 fill composition floor of 3 core beats (Politics + Tech + Politics)."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 16,
+      "sources_failed": 12,
+      "note": "12 body-tier sources failed direct fetch — Google News redirect URLs (Reuters, AP, Axios, Guardian, DW, Washington Examiner, CSM), The Hill (PerimeterX CAPTCHA), and RealClearPolitics (403). PBS pages required WebFetch fallback (AWS WAF challenge blocks curl on individual articles but not RSS root).",
+      "duration_sec": 90
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0,
+      "revise_slots": [
+        4
+      ]
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1,
+      "note": "Slot 4 kicker fabricated FBI-advisory specifics; rewritten to stay within Verge source support."
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 26,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "pending",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "spain-rings-ceuta-with-sea-barrier-as-22-eu-leaders-turn-on-sanchez",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 867,
+      "sources": 3,
+      "has_illustration": true
+    },
+    {
+      "slot": 2,
+      "slug": "trump-cancels-new-iran-strikes-cites-hormuz-deal",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 564,
+      "sources": 5,
+      "has_illustration": true
+    },
+    {
+      "slot": 3,
+      "slug": "trump-rebukes-pirro-after-doj-drops-reflecting-pool-vandalism-case",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 560,
+      "sources": 3,
+      "has_illustration": true
+    },
+    {
+      "slot": 4,
+      "slug": "water-utility-hacks-spread-to-michigan-as-trump-rejects-iran-link",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 488,
+      "sources": 2,
+      "has_illustration": true
+    },
+    {
+      "slot": 5,
+      "slug": "tillis-says-blanche-wont-be-confirmed-trump-threatens-acting-ag",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 526,
+      "sources": 3,
+      "has_illustration": true
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "cnbc.com",
+    "npr.org",
+    "thehill.com",
+    "realclearpolitics.com",
+    "apnews.com",
+    "theverge.com"
+  ],
+  "errors": []
 }
