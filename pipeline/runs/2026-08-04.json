@@ -1,6 +1,166 @@
 {
   "date": "2026-08-04",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-08-04T12:10:40Z",
-  "stages": {}
+  "finished_at": "2026-08-04T12:40:11Z",
+  "stages": {
+    "ingest": {
+      "items": 1536,
+      "feeds_ok": 36,
+      "feeds_fail": 4,
+      "feeds_failed_names": [
+        "CNBC Markets",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World"
+      ],
+      "substitutes_used": [
+        "NPR Top→gn-npr.org",
+        "CNBC Top→gn-cnbc.com",
+        "PBS NewsHour→gn-pbs.org"
+      ],
+      "duration_sec": 30
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 5
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Trump chastises Chevron and Exxon for 'too much money' as BP profit doubles and Aramco jumps on Iran",
+          "category": "Business",
+          "score": 7.5,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "25 states sue Trump over new global tariffs, calling them a 'pretext' to replace old ones",
+          "category": "Politics",
+          "score": 7.5,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "Amazon becomes fourth US company to cross $3 trillion market cap as Wall Street sets record on AI an",
+          "category": "Markets",
+          "score": 5,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "FAA certifies Boeing 737 Max 7 for flight after years of delay following crashes and stall system fl",
+          "category": "Business",
+          "score": 5,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Ukraine drone strikes hit Wildberries warehouses in Moscow region and cargo ship near Novorossiysk",
+          "category": "World",
+          "score": 4.3,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 17,
+      "sources_failed": 9,
+      "egress_notes": "Reuters 401 on all URLs; CNBC 403; PBS 202→WebFetch recovered.",
+      "duration_sec": 120
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 90,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "trump-tells-chevron-and-exxon-to-cut-prices-as-bp-doubles-profit",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 897,
+      "sources": 5
+    },
+    {
+      "slot": 2,
+      "slug": "25-democratic-led-states-sue-trump-forced-labor-tariffs-pretext",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 616,
+      "sources": 5
+    },
+    {
+      "slot": 3,
+      "slug": "amazon-tops-3-trillion-as-wall-street-nears-record-on-cloud-earnings",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 558,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "faa-certifies-boeing-737-max-7-nearly-a-decade-after-debut",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 392,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "ukraine-drones-hit-wildberries-warehouses-near-moscow-killing-five",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 484,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "reuters.com",
+    "cnbc.com",
+    "bloomberg.com",
+    "npr.org",
+    "pbs.org"
+  ],
+  "errors": []
 }
