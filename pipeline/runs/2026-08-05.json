@@ -1,6 +1,161 @@
 {
   "date": "2026-08-05",
-  "status": "in_progress",
-  "started_at": "2026-08-05T12:11:18Z",
-  "stages": {}
+  "status": "success",
+  "stages": {
+    "ingest": {
+      "items": 1154,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "feeds_failed": [
+        "PBS NewsHour",
+        "CNBC Top",
+        "CNBC Markets",
+        "NPR Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World"
+      ],
+      "duration_sec": 40
+    },
+    "cluster": {
+      "clusters_considered": "~30 from mandate scan",
+      "body_tier_clusters": "5 selected"
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "michigan-primary-2026-08-05",
+          "category": "Politics",
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "spacex-earnings-ai-spending-2026-08-05",
+          "category": "Business",
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "hormuz-deal-imminent-2026-08-05",
+          "category": "World",
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 4,
+          "cluster": "ai-safety-openai-anthropic-cyber-2026-08-05",
+          "category": "Tech",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "novo-nordisk-wegovy-2026-08-05",
+          "category": "Business",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 12,
+      "sources_failed": 6,
+      "duration_sec": 210,
+      "blocked_notes": "CNBC and NPR RSS 403 via proxy; several GN redirects returned 400 to WebFetch (used curl+regex fallback for BBC/CBS/NBC/WKZO/BioSpace/Globe-and-Mail); Reuters and Fierce Biotech blocked (403)."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 28,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "PENDING",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "el-sayed-wins-michigan-senate-primary-james-and-benson-advance-in-governors-race",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 878,
+      "sources": 3
+    },
+    {
+      "slot": 2,
+      "slug": "spacex-beats-revenue-estimates-but-shares-slide-on-ai-spend",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 528,
+      "sources": 2,
+      "draft_iterations": 2
+    },
+    {
+      "slot": 3,
+      "slug": "trump-bessent-say-strait-of-hormuz-deal-could-come-wednesday",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 636,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "anthropic-openai-agents-faked-identities-uk-security-tests",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 514,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "novo-nordisk-raises-outlook-shares-slide-wegovy-pill-miss",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 464,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "reuters.com",
+    "cnbc.com",
+    "fiercebiotech.com",
+    "realclearpolitics.com",
+    "axios.com",
+    "semafor.com",
+    "foxnews.com",
+    "pbs.org",
+    "npr.org"
+  ],
+  "errors": []
 }
