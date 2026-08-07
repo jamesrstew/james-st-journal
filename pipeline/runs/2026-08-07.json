@@ -1,1 +1,174 @@
-{"date":"2026-08-07","status":"in_progress","started_at":"2026-08-07T12:10:57Z","stages":{}}
+{
+  "date": "2026-08-07",
+  "status": "success",
+  "started_at": "2026-08-07T12:10:57Z",
+  "finished_at": "2026-08-07T13:03:58.893Z",
+  "stages": {
+    "ingest": {
+      "items": 1277,
+      "feeds_ok": 26,
+      "feeds_fail": 6,
+      "feeds_failed_names": [
+        "NPR Top",
+        "NPR Tech",
+        "NPR Business",
+        "NPR World",
+        "CNBC Markets",
+        "CNBC Top"
+      ]
+    },
+    "cluster": {
+      "note": "targeted cluster selection with mandate signal, dedupe review against last 7 editions"
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Iran-Hormuz oil chokepoint deal in final review; traffic dwindles, Iran mulls barring US ships",
+          "category": "Markets",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "Trump signs two executive orders restricting birthright citizenship after Supreme Court rejected earlier order",
+          "category": "Politics",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "New Mexico court orders Meta $567M for teen mental health harms; largest child-safety ruling against a social platform",
+          "category": "Tech",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Saudi Arabia, Pakistan and Turkiye sign Mecca joint defence pact treating an attack on one as an attack on all",
+          "category": "World",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 5,
+          "cluster": "Sen. Marsha Blackburn wins Tennessee GOP gubernatorial primary; Trump declined to endorse",
+          "category": "Politics",
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_note": "3 body-tier sources per slot except slot 5 (2)",
+      "direct_fetch_via_curl_for": [
+        "BBC",
+        "CBS",
+        "NBC",
+        "Verge",
+        "Al Jazeera"
+      ]
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 45,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "iran-oman-agree-hormuz-coordinates-as-traffic-thins",
+      "category": "Markets",
+      "headline": "Iran and Oman Agree on Hormuz Coordinates as Traffic Thins to a Trickle",
+      "needs_review": false,
+      "word_count": 895,
+      "sources": 3
+    },
+    {
+      "slot": 2,
+      "slug": "trump-signs-two-new-birthright-citizenship-orders",
+      "category": "Politics",
+      "headline": "Trump Signs Two New Birthright Citizenship Orders After Supreme Court Rebuff",
+      "needs_review": false,
+      "word_count": 689,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "new-mexico-judge-orders-meta-to-pay-567-million-more-in-child-safety-case",
+      "category": "Tech",
+      "headline": "New Mexico Judge Orders Meta to Pay $567 Million More in Child-Safety Case",
+      "needs_review": false,
+      "word_count": 590,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "saudi-turkey-pakistan-mecca-defense-pact",
+      "category": "World",
+      "headline": "Saudi Arabia, Turkey and Pakistan Sign Mecca Mutual-Defense Pact",
+      "needs_review": false,
+      "word_count": 482,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "blackburn-wins-tennessee-gop-governor-primary-as-trump-stays-out",
+      "category": "Politics",
+      "headline": "Blackburn Wins Tennessee GOP Governor Primary as Trump Stays Out",
+      "needs_review": false,
+      "word_count": 534,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "npr.org",
+    "cnbc.com",
+    "thehill.com",
+    "realclearpolitics.com",
+    "reuters.com",
+    "apnews.com",
+    "theguardian.com",
+    "politico.com",
+    "washingtonexaminer.com",
+    "nytimes.com",
+    "web.archive.org"
+  ],
+  "errors": [
+    "Google News RSS URLs cannot be resolved without decoding their JS payload; body sources restricted to direct-URL outlets (BBC, CBS, NBC, Al Jazeera, The Verge).",
+    "WSJ, NYT (via GN), PBS NewsHour feeds returned no items in the last 36h; WSJ RSS feed appears stale (Jan 2025).",
+    "NPR (all sections), CNBC (Top+Markets) returned HTTP 403 from the egress proxy — dropped from ingest."
+  ]
+}
