@@ -1,6 +1,167 @@
 {
   "date": "2026-08-08",
-  "status": "in_progress",
-  "started_at": "2026-08-08T12:12:52Z",
-  "stages": {}
+  "status": "success",
+  "started_at": "2026-08-08T12:15:00Z",
+  "stages": {
+    "ingest": {
+      "items": 1218,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "failures": [
+        "Politico",
+        "The Verge",
+        "NPR Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World",
+        "FT Home"
+      ],
+      "duration_sec": 12
+    },
+    "cluster": {
+      "clusters_considered": "~30 (qualitative)",
+      "body_tier_clusters": "~15",
+      "duration_sec": 4
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "US employers unexpectedly cut 23,000 jobs in July; markets dial back Fed rate-hike bets",
+          "category": "Markets",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 2,
+          "cluster": "Senate narrowly confirms Todd Blanche as US attorney general",
+          "category": "Politics",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 3,
+          "cluster": "Trump revives effort to fire Fed Governor Lisa Cook after weak jobs data",
+          "category": "Business",
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 4,
+          "cluster": "Conservative Abelardo de la Espriella sworn in as Colombian president; US pledges $1B security aid",
+          "category": "World",
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 5,
+          "cluster": "Trump announces $3B in critical minerals investments; $400M Pentagon commitment to Australian scandium mine",
+          "category": "Business",
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 14,
+      "sources_failed": 6,
+      "notes": "Reuters/Bloomberg direct fetches blocked by bot walls; recovered Reuters+AP+Guardian bodies via Google News URL decoder (batchexecute) then curl with browser UA. CNBC/Hill/The Verge/NPR/FT/Politico direct RSS blocked by egress proxy or Cloudflare.",
+      "duration_sec": 90
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0,
+      "light_edits": [
+        "slot 2: swap 'victim-compensation' to '\"anti-weaponization\"' in lede",
+        "slot 4: tighten hedge language to BBC phrasing",
+        "slot 5: AP-style periods inside quotes"
+      ]
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 60,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "PENDING",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "us-job-market-stalls-in-july-denting-feds-case-for-higher-rates",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 759,
+      "sources": 2
+    },
+    {
+      "slot": 2,
+      "slug": "blanche-confirmed-as-attorney-general-in-50-49-overnight-vote",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 615,
+      "sources": 5
+    },
+    {
+      "slot": 3,
+      "slug": "trump-renews-bid-to-fire-fed-governor-cook-gives-her-three-weeks-to-respond",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 617,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "colombias-de-la-espriella-takes-oath-in-cali-as-us-pledges-1-billion",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 492,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "trump-commits-3-billion-critical-minerals-pentagon-backs-australian-scandium-mine",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 449,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "axios.com",
+    "bloomberg.com",
+    "cnbc.com",
+    "feeds.npr.org",
+    "ft.com",
+    "reuters.com",
+    "rss.politico.com",
+    "thehill.com",
+    "theverge.com"
+  ],
+  "errors": []
 }
