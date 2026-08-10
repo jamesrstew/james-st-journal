@@ -1,6 +1,162 @@
 {
   "date": "2026-08-10",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-08-10T12:38:34Z",
-  "stages": {}
+  "finished_at": "2026-08-10T13:03:37Z",
+  "stages": {
+    "ingest": {
+      "items": 868,
+      "feeds_ok": 31,
+      "feeds_fail": 9,
+      "blocked": [
+        "npr.org",
+        "cnbc.com",
+        "pbs.org"
+      ],
+      "duration_sec": 30
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 1
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Netanyahu publicly rejects Trump-backed 15-point Gaza plan, in rare break with Washington",
+          "category": "World",
+          "score": 13.74,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "Trump signals economic pressure on Iran as Hormuz talks stall; Rezaei named to head Iran security council",
+          "category": "World",
+          "score": 10.61,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "Trump names staff secretary Will Scharf as White House counsel, replacing Warrington",
+          "category": "Politics",
+          "score": 8.23,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Meta releases new open-weight AI model; Zuckerberg argues against closed frontier",
+          "category": "Tech",
+          "score": 5.74,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "GOP senators call for Rep. Max Miller to end reelection bid over abuse allegations",
+          "category": "Politics",
+          "score": 4.59,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 3
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 19,
+      "sources_failed": 4,
+      "duration_sec": 120,
+      "notes": "The Hill, CBS-scharf, CNBC, WaPo, Fox-miller, and Axios all returned 403 or 0 bytes; fell back to NBC/BBC/AJ/Fortune/AOL/Newsweek/HNGN/OANN/KFGO/RTE/Yahoo mirrors."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 36,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "netanyahu-rejects-trump-gaza-plan",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 768,
+      "sources": 2
+    },
+    {
+      "slot": 2,
+      "slug": "trump-low-keys-iran-standoff-as-tehran-names-ex-irgc-chief-to-top-security-post",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 684,
+      "sources": 4
+    },
+    {
+      "slot": 3,
+      "slug": "trump-taps-staff-secretary-will-scharf-as-white-house-counsel",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 552,
+      "sources": 4
+    },
+    {
+      "slot": 4,
+      "slug": "meta-releases-muse-glimmer-zuckerberg-warns-ai-concentration",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 534,
+      "sources": 4
+    },
+    {
+      "slot": 5,
+      "slug": "banks-gop-calls-miller-ohio-ballot-deadline",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 437,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "npr.org",
+    "cnbc.com",
+    "pbs.org",
+    "thehill.com",
+    "axios.com",
+    "washingtonpost.com",
+    "realclearpolitics.com"
+  ],
+  "errors": []
 }
