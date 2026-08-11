@@ -1,6 +1,161 @@
 {
   "date": "2026-08-11",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-08-11T12:46:02Z",
-  "stages": {}
+  "finished_at": "2026-08-11T13:15:02Z",
+  "stages": {
+    "ingest": {
+      "feeds_total": 40,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "items": 1239
+    },
+    "cluster": {
+      "body_tier_items": 1052,
+      "headline_tier_items": 187,
+      "clusters_selected": 5
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Colombia magnitude-7.4 earthquake kills 132+, hundreds missing",
+          "category": "World",
+          "score": 13.3,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "Trump executive order rewrites childhood vaccine schedule and splits MMR shot",
+          "category": "Politics",
+          "score": 12.6,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "Nvidia partners with Wall Street banks to raise $500 billion for AI data-center financing",
+          "category": "Business",
+          "score": 8,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Trump demands Iran pay compensation and pivots to sanctions as Hormuz stalemate deepens",
+          "category": "Politics",
+          "score": 6.7,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Syrian court sentences Bashar al-Assad to death in absentia for war crimes",
+          "category": "World",
+          "score": 5.1,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 0.85
+        }
+      ],
+      "core_beat_count": 3,
+      "composition_notes": "Slot 1 leads with Colombia earthquake (mandate escape hatch, 2 mandate sources). Composition floor 3/5 met via slots 2,3,4 (Politics/Business/Politics)."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 15,
+      "sources_failed_before_alternate": 8,
+      "egress_blocked_reasons": [
+        "The Hill returned HTTP 403 on all direct URLs — swapped to BBC/CBS/AJ alternates",
+        "Google News RSS redirect targets could not be resolved by WebFetch; used curl+parser on BBC and WebFetch on direct outlet URLs"
+      ]
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 31,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "colombia-earthquake-kills-at-least-132-tests-new-president",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 849,
+      "sources": 3
+    },
+    {
+      "slot": 2,
+      "slug": "trump-signs-order-to-cut-childhood-vaccine-schedule-and-split-mmr-shot",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 694,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "nvidia-enlists-wall-street-in-500-billion-ai-infrastructure-consortium",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 517,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "trump-demands-iran-reparations-hormuz",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 521,
+      "sources": 4
+    },
+    {
+      "slot": 5,
+      "slug": "damascus-court-sentences-assad-to-death-for-war-crimes",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 475,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "cnbc.com",
+    "feeds.npr.org",
+    "thehill.com"
+  ],
+  "errors": [],
+  "notes": [
+    "NPR (4 feeds), CNBC (2 feeds), and PBS NewsHour RSS returned 403 or empty at ingest — Akamai/edge blocks",
+    "NYT Google News feeds returned zero items (Google News search returned only channel headers, no <item>) — no impact since NYT is headline-tier signal only",
+    "The Hill body URLs returned 403 despite RSS working; used BBC/CBS/Al Jazeera alternates"
+  ]
 }
