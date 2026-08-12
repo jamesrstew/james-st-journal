@@ -1,6 +1,149 @@
 {
   "date": "2026-08-12",
-  "status": "in_progress",
-  "started_at": "2026-08-12T12:38:47Z",
-  "stages": {}
+  "status": "success",
+  "stages": {
+    "ingest": {
+      "items": 1270,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "duration_sec": 22
+    },
+    "cluster": {
+      "clusters": 12,
+      "body_tier_clusters": 12,
+      "duration_sec": 1
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Iran standoff — Hormuz blockade continues, US disables Panama-flagged tanker, Trump plane-switch details emerge",
+          "category": "Politics",
+          "score": 28.74,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "Ukraine hits Russian Black Sea ports and refineries; Zelensky sends US new peace proposals",
+          "category": "World",
+          "score": 9.14,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "Federal judge blocks Trump's USPS mail-in voting restrictions nationwide",
+          "category": "Politics",
+          "score": 7.29,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Colombia earthquake day 3 — rescues continue, De la Espriella government tested",
+          "category": "World",
+          "score": 5.76,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 5,
+          "cluster": "US July CPI print — inflation eases to 3.4% year-over-year but stays above wage growth as gasoline slips",
+          "category": "Markets",
+          "score": 4.5,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 3
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 19,
+      "sources_failed": 0,
+      "duration_sec": 25
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 36,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "navy-missiles-disable-iran-bound-tanker-trump-confirms-secret-plane-swap",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 850,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "ukraine-strikes-novorossiysk-grain-terminals-kyiv-sends-us-peace-plan",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 670,
+      "sources": 5
+    },
+    {
+      "slot": 3,
+      "slug": "federal-judge-expands-block-on-trump-mail-voting-order-to-all-50-states",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 634,
+      "sources": 4
+    },
+    {
+      "slot": 4,
+      "slug": "colombia-rescue-crews-free-woman-trapped-36-hours-toll-188",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 539,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "july-inflation-cools-3-4-percent-gasoline-slips-fed-splits",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 420,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "cnbc.com",
+    "npr.org",
+    "pbs.org"
+  ],
+  "errors": []
 }
