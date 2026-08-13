@@ -1,1 +1,153 @@
-{"date":"2026-08-13","status":"in_progress","started_at":"2026-08-13T12:38:53Z","stages":{}}
+{
+  "date": "2026-08-13",
+  "status": "success",
+  "started_at": "2026-08-13T12:38:53Z",
+  "finished_at": "2026-08-13T13:16:00Z",
+  "stages": {
+    "ingest": {
+      "items": 1318,
+      "feeds_ok": 38,
+      "feeds_fail": 2,
+      "duration_sec": null
+    },
+    "cluster": {
+      "clusters": 63,
+      "body_tier_clusters": 63,
+      "duration_sec": null
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "White House press secretary Karoline Leavitt announces departure at month's end",
+          "category": "Politics",
+          "score": 7.996,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "Zhu Rongji, former Chinese premier and architect of WTO-era reforms, dies at 97",
+          "category": "World",
+          "score": 7.229,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "ICE plans to spend $20M on electric-shock gloves for immigration officers",
+          "category": "Politics",
+          "score": 6.176,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "DOJ charges former SPLC CFO Heidi Beirich in expanded case against the civil rights group",
+          "category": "Politics",
+          "score": 6.6,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Trump Media sued over service offering paid early access to Truth Social posts",
+          "category": "Business",
+          "score": 6.468,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 4,
+      "notes": "Dropped rerun clusters (CPI, Colombia quake, Trump plane swap) before selection; swapped Slot 3 from Wisconsin primary (thin dossier: only Fox News fetched) to ICE electric-shock gloves per pipeline's <2-body-source rule."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 11,
+      "sources_failed": null,
+      "duration_sec": null,
+      "notes": "Google News redirect URLs did not resolve (SPA shell only); pipeline restricted to direct-feed sources. The Hill, Politico, RealClearPolitics returned HTTP 403 on both curl and WebFetch. Slot 2 second source (NPR World) obtained via WebFetch summarizer."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": null,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "karoline-leavitt-to-step-down",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 732,
+      "sources": 2
+    },
+    {
+      "slot": 2,
+      "slug": "zhu-rongji-architect-of-chinas-wto-entry-dies-at-97",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 626,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "ice-moves-to-buy-20-million-in-electric-shock-gloves-for-field-agents",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 643,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "doj-charges-former-splc-official-heidi-beirich",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 521,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "media-groups-sue-trump-truth-social-feed",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 462,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "cnbc.com",
+    "thehill.com"
+  ],
+  "errors": []
+}
