@@ -1,1 +1,183 @@
-{"date":"2026-08-14","status":"in_progress","started_at":"2026-08-14T14:22:19Z","stages":{}}
+{
+  "date": "2026-08-14",
+  "status": "success",
+  "started_at": "2026-08-14T14:22:19Z",
+  "fire": "retry",
+  "stages": {
+    "ingest": {
+      "items": 1272,
+      "feeds_ok": 32,
+      "feeds_fail": 8,
+      "failures": [
+        {
+          "name": "The Verge",
+          "error": "HTTP 403"
+        },
+        {
+          "name": "NPR Tech",
+          "error": "HTTP 403"
+        },
+        {
+          "name": "NPR Top",
+          "error": "HTTP 403"
+        },
+        {
+          "name": "NPR World",
+          "error": "HTTP 403"
+        },
+        {
+          "name": "FT Home",
+          "error": "HTTP 403"
+        },
+        {
+          "name": "PBS NewsHour",
+          "error": "HTTP 202"
+        },
+        {
+          "name": "Politico",
+          "error": "HTTP 403"
+        },
+        {
+          "name": "NPR Business",
+          "error": "HTTP 403"
+        }
+      ]
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "US retail sales fall first time in 9 months; PPI unchanged; Fed rate-hike bets fade",
+          "category": "Markets",
+          "score": 12.319,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "Trump orders Navy back to steam catapults on carriers; USS Abraham Lincoln crew conditions questioned",
+          "category": "Politics",
+          "score": 11.25,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "WH accuses 40+ countries of helping China dodge tariffs ($19-26B/yr); Trump slaps 100% tariff on drones",
+          "category": "Business",
+          "score": 10.53,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Google unveils Gemini 3.7 Flash, three weeks after prior release, aimed at coding and agent workflows",
+          "category": "Tech",
+          "score": 3.402,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Silver Lake in talks to buy Workday; shares post best day in a decade",
+          "category": "Business",
+          "score": 2.582,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 5
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 25,
+      "sources_failed": 0
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 3,
+      "revised": 2,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 2,
+      "approved_after_revise": 2
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "retail-sales-fall-july-cooling-fed-hike-bets",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 702,
+      "sources": 5
+    },
+    {
+      "slot": 2,
+      "slug": "trump-orders-navy-scrap-electric-catapults-as-iran-war-carrier-gets-relief",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 605,
+      "sources": 6
+    },
+    {
+      "slot": 3,
+      "slug": "white-house-accuses-40-nations-in-china-tariff-dodge-report-as-drone-duties-hit-100-percent",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 644,
+      "sources": 5
+    },
+    {
+      "slot": 4,
+      "slug": "google-ships-gemini-3-7-flash-at-half-the-price-flagship-still-late",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 393,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "silver-lake-workday-take-private-talks",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 382,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "ft.com",
+    "npr.org",
+    "politico.com",
+    "theverge.com"
+  ],
+  "errors": []
+}
