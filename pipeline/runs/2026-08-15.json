@@ -1,6 +1,194 @@
 {
   "date": "2026-08-15",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-08-15T12:13:20Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1213,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "failures": [
+        {
+          "name": "The Verge",
+          "error": "HTTP 403"
+        },
+        {
+          "name": "Politico",
+          "error": "HTTP 403"
+        },
+        {
+          "name": "NPR Top",
+          "error": "HTTP 403"
+        },
+        {
+          "name": "NPR World",
+          "error": "HTTP 403"
+        },
+        {
+          "name": "NPR Business",
+          "error": "HTTP 403"
+        },
+        {
+          "name": "NPR Tech",
+          "error": "HTTP 403"
+        },
+        {
+          "name": "FT Home",
+          "error": "HTTP 403"
+        }
+      ]
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Luigi Mangione pleads guilty to federal stalking charges in UnitedHealthcare CEO killing",
+          "category": "Politics",
+          "score": 17.75,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0,
+          "reason": "highest raw_score with mandate>=2 (Bloomberg + Economist), fresh (no recent-week dedupe)"
+        },
+        {
+          "slot": 2,
+          "cluster": "UAE ADNOC tankers hit in Strait of Hormuz; Trump says he will declare strait US territory; Iran rebuffs and stays undecided on returning to talks",
+          "category": "World",
+          "score": 6.83,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85,
+          "reason": "top non-core cluster; recurring but three distinct new developments today vs prior week"
+        },
+        {
+          "slot": 3,
+          "cluster": "Anthropic investors target $2 trillion IPO valuation for October float; broader AI IPO wave includes SpaceX and OpenAI",
+          "category": "Tech",
+          "score": 3.65,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0,
+          "reason": "highest Tech; fresh Financial Times scoop via Ars Technica plus AP wave piece"
+        },
+        {
+          "slot": 4,
+          "cluster": "Berkshire Hathaway's Q2 13F reveals Alphabet as third-largest holding, Delta added, Visa/Mastercard/Amazon/UNH pruned under Abel",
+          "category": "Markets",
+          "score": 2.73,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0,
+          "reason": "top Markets; classic WSJ fare; first Abel-era 13F"
+        },
+        {
+          "slot": 5,
+          "cluster": "US appeals panel weighs Trump ballroom halt; Senate GOP piggybacks $1B security funding on immigration bill",
+          "category": "Politics",
+          "score": 5.2,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0,
+          "reason": "second Politics; escalating SCOTUS appeal + parallel congressional funding = novel bundle"
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 17,
+      "sources_failed": 0,
+      "notes": "Google-News redirect URLs (Reuters/AP/Guardian/Washington Examiner via GN) could not be resolved server-side; also CNBC, The Hill, WSJ, FT, Axios, Reuters direct blocked by egress. Substituted direct-outlet URLs at AP News, BBC, CBS News, NBC News, Fox News, Al Jazeera, and Ars Technica (all UA-spoofed curl) which fetched cleanly."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 28,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "PENDING",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "mangione-pleads-guilty-in-federal-case-sets-up-manhattan-double-jeopardy-fight",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 825,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "iran-rebuffs-trump-hormuz-claim-uae-tankers-hit",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 698,
+      "sources": 4
+    },
+    {
+      "slot": 3,
+      "slug": "anthropic-targets-2-trillion-valuation-in-october-ipo",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 576,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "abel-triples-berkshires-alphabet-stake",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 474,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "appeals-panel-weighs-trump-ballroom-halt-as-senate-adds-1b-security",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 544,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "cryptobriefing.com",
+    "feeds.npr.org",
+    "news.google.com",
+    "rss.politico.com",
+    "thehill.com",
+    "www.axios.com",
+    "www.cnbc.com",
+    "www.ft.com",
+    "www.investing.com",
+    "www.marketwatch.com",
+    "www.reuters.com",
+    "www.theverge.com",
+    "www.wsj.com"
+  ],
+  "errors": []
 }
