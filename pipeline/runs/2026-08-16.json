@@ -20,7 +20,8 @@
     "edit": { "editors_spawned": 5, "approved_first_pass": 5, "revised": 0, "held": 0 },
     "revise": { "revisions_spawned": 0, "approved_after_revise": 0 },
     "stage": { "articles_written": 5, "validator_ok": true },
-    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 70, "estimated_cost_usd": 0.08 }
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 70, "estimated_cost_usd": 0.08 },
+    "commit": { "sha": "3cb783b854a4f2f1a801976b53c8d2e24ad37b98", "pushed": true }
   },
   "articles": [
     { "slot": 1, "slug": "democrats-set-2028-primary-calendar-with-south-carolina-first", "category": "Politics", "needs_review": false, "word_count": 686, "sources": 3 },
