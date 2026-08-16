@@ -1,6 +1,40 @@
 {
   "date": "2026-08-16",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-08-16T12:12:18Z",
-  "stages": {}
+  "stages": {
+    "ingest": { "items": 992, "feeds_ok": 33, "feeds_fail": 7, "duration_sec": 20 },
+    "cluster": { "clusters_considered": 13, "body_tier_clusters": 12, "duration_sec": 4 },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "DNC 2028 primary calendar — South Carolina first", "category": "Politics", "score": 6.09, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 },
+        { "slot": 2, "cluster": "Ukraine's largest aerial attack on Russia; NATO downs drone over Romania", "category": "World", "score": 6.79, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85 },
+        { "slot": 3, "cluster": "US pulls last Pacific carrier as Trump focuses on Iran", "category": "Politics", "score": 4.28, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0 },
+        { "slot": 4, "cluster": "Magnitude 7.7 earthquake off Indonesia's Flores coast kills 51", "category": "World", "score": 7.14, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85 },
+        { "slot": 5, "cluster": "Kalshi accuses Nevada regulator of federal-law violation in geofencing complaint", "category": "Business", "score": 1.35, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 }
+      ],
+      "core_beat_count": 3
+    },
+    "research": { "dossiers_built": 5, "sources_fetched": 15, "sources_failed": 6, "duration_sec": 240 },
+    "draft": { "writers_spawned": 5, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit": { "editors_spawned": 5, "approved_first_pass": 5, "revised": 0, "held": 0 },
+    "revise": { "revisions_spawned": 0, "approved_after_revise": 0 },
+    "stage": { "articles_written": 5, "validator_ok": true },
+    "illustrate": { "articles_illustrated": 5, "images_failed": 0, "duration_sec": 70, "estimated_cost_usd": 0.08 }
+  },
+  "articles": [
+    { "slot": 1, "slug": "democrats-set-2028-primary-calendar-with-south-carolina-first", "category": "Politics", "needs_review": false, "word_count": 686, "sources": 3 },
+    { "slot": 2, "slug": "ukraine-aerial-attacks-russia-nato-drone-romania", "category": "World", "needs_review": false, "word_count": 615, "sources": 3 },
+    { "slot": 3, "slug": "pentagon-pulls-last-pacific-carrier-as-iran-war-drains-fleet", "category": "Politics", "needs_review": false, "word_count": 597, "sources": 2 },
+    { "slot": 4, "slug": "magnitude-7-7-quake-off-flores-kills-51-displaces-thousands-in-indonesia", "category": "World", "needs_review": false, "word_count": 407, "sources": 3 },
+    { "slot": 5, "slug": "kalshi-fights-nevadas-120000-a-day-geofencing-fine", "category": "Business", "needs_review": false, "word_count": 546, "sources": 3 }
+  ],
+  "egress_blocked_hostnames": ["thehill.com", "cnbc.com", "feeds.npr.org", "bbc.co.uk"],
+  "errors": [],
+  "notes": [
+    "Ingest: 7 feeds failed. CNBC Top, CNBC Markets, NPR Top, NPR Business, NPR Tech, NPR World returned HTTP 403 (egress). The Verge RSS parser choked on a non-string description element. Rest of the fleet fetched cleanly and produced 992 items across 33 feeds.",
+    "Research: The Hill blocked WebFetch with 403 on all three tries; substituted the Reuters/AP wire text via NBC/CBS/ABC News/NPR mirrors. BBC.co.uk also 403-blocked, mitigated with Al Jazeera + NPR + NBC coverage. Google News RSS URLs returned only the shell page from both WebFetch and curl; direct outlet URLs used instead where available.",
+    "Slot 5 (Kalshi) sources are trade publications (Crypto Times, Crypto Briefing, Sports Betting Dime) rather than sources.json body-tier outlets — Reuters, The Hill, and Yahoo Finance mirror all blocked. Coverage is legitimate business/regulatory reporting with named quotes traced to Rick Heaslip's X posts, the Nevada Gaming Control Board stipulation, and Kalshi's court filings. lean_mix is a single center bucket; counterpoint discloses the missing Nevada Gaming Control Board rebuttal.",
+    "Composition: 3 of 5 core-beat (Politics × 2, Business × 1) — meets the ≥3 floor."
+  ]
 }
