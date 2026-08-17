@@ -1,6 +1,153 @@
 {
   "date": "2026-08-17",
-  "status": "in_progress",
-  "started_at": "2026-08-17T13:31:29Z",
-  "stages": {}
+  "status": "success",
+  "stages": {
+    "ingest": {
+      "items": 1043,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "duration_sec": null
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": null
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Kushner meets Hamas leader, then Netanyahu, on Gaza road map",
+          "category": "World",
+          "score": 18.069,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "Trump orders Pentagon to substantially reduce US-South Korea joint military drills",
+          "category": "Politics",
+          "score": 20.627,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "Blanche declines to pledge DOJ independence from White House",
+          "category": "Politics",
+          "score": 11.333,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Trump threatens to bomb Oman over Iran-US talks",
+          "category": "Politics",
+          "score": 11.73,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Ebola outbreak in DR Congo becomes deadliest in country history",
+          "category": "Health",
+          "score": 4.174,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.7
+        }
+      ],
+      "core_beat_count": 3
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 19,
+      "sources_failed": 0,
+      "duration_sec": null
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 42,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "kushner-meets-hamas-chief-cairo-presses-netanyahu-gaza-road-map",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 696,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "trump-orders-pentagon-to-scale-back-south-korea-drills",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 656,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "blanche-refuses-doj-independence-pledge",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 565,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "trump-renews-oman-bomb-threat-as-iran-talks-window-expires",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 528,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "congo-ebola-outbreak-turns-deadliest-in-countrys-history",
+      "category": "Health",
+      "needs_review": false,
+      "word_count": 482,
+      "sources": 4
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "axios.com",
+    "cnbc.com",
+    "feeds.npr.org",
+    "pbs.org",
+    "reuters.com",
+    "thehill.com"
+  ],
+  "errors": []
 }
