@@ -1,1 +1,152 @@
-{"date":"2026-08-18","status":"in_progress","started_at":"2026-08-18T12:23:33Z","stages":{}}
+{
+  "date": "2026-08-18",
+  "status": "success",
+  "stages": {
+    "ingest": {
+      "items": 1199,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "duration_sec": 5
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": null
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Global bond selloff sends long-term borrowing costs to multi-decade highs",
+          "category": "Markets",
+          "score": 8.5,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "Trump-Iran 60-day deadline expires with no deal; Hormuz standoff and Oman threat",
+          "category": "Politics",
+          "score": 12.2,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "Opening arguments begin in 29-state Meta child-safety trial",
+          "category": "Tech",
+          "score": 6.4,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "US-Canada trade talks race to deadline as Trump threatens 50% tariffs",
+          "category": "Business",
+          "score": 8.1,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "CDC: childhood vaccine exemptions hit record; MMR coverage below outbreak floor",
+          "category": "Health",
+          "score": 3.4,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 0.7
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 15,
+      "sources_failed": 3,
+      "duration_sec": null
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 108,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "long-bond-yields-hit-multi-decade-highs-us-iran-truce-collapses",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 752,
+      "sources": 2
+    },
+    {
+      "slot": 2,
+      "slug": "iran-deadline-passes-white-flag",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 700,
+      "sources": 5
+    },
+    {
+      "slot": 3,
+      "slug": "meta-child-safety-trial-opens-oakland-29-states",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 621,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "us-canada-tariff-talks-race-50-percent-deadline",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 514,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "kindergarten-vaccine-exemptions-record-cdc",
+      "category": "Health",
+      "needs_review": false,
+      "word_count": 435,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "axios.com",
+    "cnbc.com",
+    "pbs.org",
+    "reuters.com",
+    "thehill.com"
+  ],
+  "errors": []
+}
