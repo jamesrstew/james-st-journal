@@ -1,1 +1,161 @@
-{"date":"2026-08-19","status":"in_progress","started_at":"2026-08-19T12:26:59Z","stages":{}}
+{
+  "date": "2026-08-19",
+  "status": "success",
+  "stages": {
+    "ingest": {
+      "items": 1242,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "duration_sec": 14
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 1
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "canada-tariff-pause",
+          "category": "Business",
+          "score": 13.6,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "fl-primaries",
+          "category": "Politics",
+          "score": 12.6,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "disney-fcc",
+          "category": "Business",
+          "score": 11.9,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "china-robots-unitree",
+          "category": "Tech",
+          "score": 6.5,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "israel-syria-strike",
+          "category": "World",
+          "score": 5.1,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 0.85
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 12,
+      "sources_failed": 10,
+      "duration_sec": 60,
+      "note": "Egress blocks on The Hill, CNBC, AP News, Reuters (paywall), CBS (some URLs), Guardian, DW; BBC and Fox News reachable via curl+browser UA; Al Jazeera reachable via WebFetch."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 3,
+      "revised": 2,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 2,
+      "approved_after_revise": 2
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 31,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "trump-pauses-50-percent-canada-tariffs-tentative-deal",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 798,
+      "sources": 2
+    },
+    {
+      "slot": 2,
+      "slug": "donalds-wins-florida-gop-governor-nod-as-socialist-nixon-upsets-vindman",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 716,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "disney-and-abc-sue-fcc-over-april-license-renewal-order",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 641,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "unitree-surges-460-percent-in-chinas-first-humanoid-robot-ipo",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 475,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "ukraines-ex-defense-chief-fedorov-calls-for-wartime-election",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 455,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "apnews.com",
+    "cbsnews.com",
+    "cnbc.com",
+    "dw.com",
+    "ft.com",
+    "npr.org",
+    "politico.com",
+    "reuters.com",
+    "theguardian.com",
+    "thehill.com",
+    "theverge.com"
+  ],
+  "errors": [
+    "Israel-Syria strike cluster dropped after slot 5 originally selected: only 1 body-tier source ≥600 chars fetched (BBC); refilled with Ukraine defence minister cluster (BBC + Al Jazeera, both ≥600 chars)."
+  ]
+}
