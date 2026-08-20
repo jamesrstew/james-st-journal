@@ -1,6 +1,154 @@
 {
   "date": "2026-08-20",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-08-20T12:24:32Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1358,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "egress_blocked": [
+        "cnbc.com",
+        "npr.org"
+      ]
+    },
+    "cluster": {
+      "clusters": 222,
+      "body_tier_clusters": 114
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "trump-iran-economic-warfare",
+          "category": "World",
+          "score": 16.806,
+          "adjusted_score": 16.806,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "evergrande-founder-life-sentence",
+          "category": "Business",
+          "score": 9.763,
+          "adjusted_score": 9.763,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "moderna-melanoma-vaccine",
+          "category": "Business",
+          "score": 9.72,
+          "adjusted_score": 9.72,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "us-national-debt-40t",
+          "category": "Business",
+          "score": 8.715,
+          "adjusted_score": 8.715,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "iran-hormuz-shipping",
+          "category": "World",
+          "score": 8.654,
+          "adjusted_score": 8.221,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        }
+      ],
+      "core_beat_count": 3,
+      "lead_note": "Slot 1 uses the mandate escape hatch — World cluster with mandate_count=2 (WSJ, Bloomberg), qualifying under Slot-1 rule."
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 15,
+      "sources_failed": 0,
+      "notes": "GN-redirected URLs unfetchable via curl/WebFetch — resolved via alternate direct URLs found through search."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 28,
+      "estimated_cost_usd": 0.08
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "trump-declares-economic-warfare-on-iran",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 800,
+      "sources": 3
+    },
+    {
+      "slot": 2,
+      "slug": "china-sentences-evergrande-founder-hui-ka-yan-to-life-for-fraud",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 552,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "moderna-doubles-as-mrna-melanoma-vaccine-clears-phase-3-with-mercks-keytruda",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 664,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "us-national-debt-tops-40-trillion",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 501,
+      "sources": 4
+    },
+    {
+      "slot": 5,
+      "slug": "four-in-five-hormuz-oil-cargoes-went-dark-in-august-kpler-says",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 553,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "cnbc.com",
+    "npr.org"
+  ],
+  "errors": []
 }
