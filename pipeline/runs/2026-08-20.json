@@ -102,6 +102,10 @@
       "images_failed": 0,
       "duration_sec": 28,
       "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "33d36af36cba3dcad0e11ddb194762fbf232b9ec",
+      "pushed": true
     }
   },
   "articles": [
