@@ -1,1 +1,157 @@
-{"date":"2026-08-21","status":"in_progress","started_at":"2026-08-21T12:25:59Z","stages":{}}
+{
+  "date": "2026-08-21",
+  "status": "success",
+  "stages": {
+    "ingest": {
+      "items": 1479,
+      "fresh_items": 1312,
+      "feeds_ok": 29,
+      "feeds_fail": 11,
+      "duration_sec": 20,
+      "notes": "CNBC and NPR feeds returned 403 (Akamai block); NYT section-filtered Google News feeds returned zero items; PBS timed out; The Hill body fetches blocked by PerimeterX captcha in research step."
+    },
+    "cluster": {
+      "clusters_reviewed": 12,
+      "body_tier_clusters": 8,
+      "duration_sec": 4,
+      "notes": "Qualitative title+summary review across 1,312 fresh items; direct-URL constraints (Reuters/AP/Guardian/DW all Google-News-only, no direct-fetch path) narrowed candidate clusters."
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Bessent bond market intervention: Treasury unveils expanded buybacks as long yie",
+          "category": "Markets",
+          "score": 9,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "Bessent teases 'toughest ever' Iran sanctions plan for Monday rollout; US design",
+          "category": "Politics",
+          "score": 7.65,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "Civilian-contracted Cessna 441 chartered to remote Cape Newenham long-range rada",
+          "category": "World",
+          "score": 1.7,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 4,
+          "cluster": "Democrat Aisha Wahab wins California's 14th District special election to succeed",
+          "category": "Politics",
+          "score": 2,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Israel re-establishes closed Kadim settlement in occupied West Bank while govern",
+          "category": "World",
+          "score": 1.7,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 0.85
+        }
+      ],
+      "core_beat_count": 3
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 22,
+      "sources_failed": 0,
+      "duration_sec": 30,
+      "notes": "Body fetches from BBC (World & Business), CBS News, Al Jazeera, NBC News, and Fox News (all direct URLs). The Hill, Politico, RealClearPolitics, and Reuters direct all returned 403 during test fetches — used only their headline signals. Google News URL redirect resolution failed (JS-only redirect; egress proxy blocks Chromium sub-requests to clients2.google.com)."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 60,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "bessent-doubles-treasury-buybacks-long-yields-rebound",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 835,
+      "sources": 3
+    },
+    {
+      "slot": 2,
+      "slug": "treasury-brands-hezbollah-iranian-proxy-sanctions-cash-network",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 643,
+      "sources": 5
+    },
+    {
+      "slot": 3,
+      "slug": "charter-plane-crash-at-cape-newenham-radar-site-kills-eight",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 527,
+      "sources": 4
+    },
+    {
+      "slot": 4,
+      "slug": "wahab-wins-california-special-election-to-finish-swalwell-term",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 509,
+      "sources": 4
+    },
+    {
+      "slot": 5,
+      "slug": "israel-reopens-kadim-as-europe-and-canada-condemn-e1-settlement-tenders",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 512,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "feeds.npr.org",
+    "politico.com",
+    "realclearpolitics.com",
+    "reuters.com",
+    "thehill.com",
+    "www.cnbc.com"
+  ],
+  "errors": []
+}
