@@ -16,20 +16,63 @@
     },
     "select": {
       "chosen": [
-        { "slot": 1, "cluster": "US imposes 50% tariffs on Canada; Carney vows dollar-for-dollar match", "category": "Business", "raw_score": 5.8, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0 },
-        { "slot": 2, "cluster": "Chief Justice Roberts freezes ballroom injunction, letting East Wing demolition continue", "category": "Politics", "raw_score": 5.1, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
-        { "slot": 3, "cluster": "TikTok agrees to $400M DOJ children's-privacy settlement (COPPA)", "category": "Tech", "raw_score": 3.6, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 },
-        { "slot": 4, "cluster": "Russian drone strike on Kryvyi Rih shopping mall kills 16, wounds 130; overnight barrage adds 7 dead", "category": "World", "raw_score": 3.2, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 0.85 },
-        { "slot": 5, "cluster": "First 16,250 Ervebo Ebola vaccine doses arrive in DR Congo; trial nears for untested Bundibugyo strain", "category": "Health", "raw_score": 2.6, "mandate_count": 0, "signal_boost": 1.0, "category_weight": 0.7 }
+        {
+          "slot": 1,
+          "cluster": "US imposes 50% tariffs on Canada; Carney vows dollar-for-dollar match",
+          "category": "Business",
+          "raw_score": 5.8,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 2,
+          "cluster": "Chief Justice Roberts freezes ballroom injunction, letting East Wing demolition continue",
+          "category": "Politics",
+          "raw_score": 5.1,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 3,
+          "cluster": "TikTok agrees to $400M DOJ children's-privacy settlement (COPPA)",
+          "category": "Tech",
+          "raw_score": 3.6,
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 4,
+          "cluster": "Russian drone strike on Kryvyi Rih shopping mall kills 16, wounds 130; overnight barrage adds 7 dead",
+          "category": "World",
+          "raw_score": 3.2,
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 5,
+          "cluster": "First 16,250 Ervebo Ebola vaccine doses arrive in DR Congo; trial nears for untested Bundibugyo strain",
+          "category": "Health",
+          "raw_score": 2.6,
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 0.7
+        }
       ],
       "core_beat_count": 3,
-      "notes": "Ed Martin DOJ-departure cluster was preferred for slot 5 but dropped when both The Hill (px-captcha 403) and the AP News GN redirect (opaque Google News base64 URL, no destination resolvable via curl/WebFetch) failed to yield fetchable bodies, leaving only NBC News — below the 2-body-tier minimum. Fell back to the DR Congo Ebola-vaccine-arrival cluster (BBC World + Al Jazeera direct URLs)."
+      "notes": "Ed Martin DOJ-departure cluster was preferred for slot 5 but dropped when both The Hill (px-captcha 403) and the AP News GN redirect (opaque Google News base64 URL, no destination resolvable via curl/WebFetch) failed to yield fetchable bodies, leaving only NBC News \u2014 below the 2-body-tier minimum. Fell back to the DR Congo Ebola-vaccine-arrival cluster (BBC World + Al Jazeera direct URLs)."
     },
     "research": {
       "dossiers_built": 5,
       "sources_fetched": 15,
       "sources_failed": 4,
-      "failure_hosts": ["thehill.com (px-captcha 403 x3)", "aljazeera.com (guessed URL 404 x1 — recovered by using actual RSS link)"],
+      "failure_hosts": [
+        "thehill.com (px-captcha 403 x3)",
+        "aljazeera.com (guessed URL 404 x1 \u2014 recovered by using actual RSS link)"
+      ],
       "duration_sec": 3
     },
     "draft": {
@@ -59,16 +102,51 @@
       "estimated_cost_usd": 0.08
     },
     "commit": {
-      "sha": null,
+      "sha": "2046d48b496fa70fd8a0e062c4bd97cf02200efe",
       "pushed": true
     }
   },
   "articles": [
-    { "slot": 1, "slug": "us-imposes-50-percent-tariffs-on-canada-as-talks-collapse", "category": "Business", "needs_review": false, "word_count": 870, "sources": 5 },
-    { "slot": 2, "slug": "roberts-freezes-ballroom-injunction-letting-east-wing-work-continue", "category": "Politics", "needs_review": false, "word_count": 698, "sources": 2 },
-    { "slot": 3, "slug": "tiktok-400-million-doj-childrens-privacy-settlement", "category": "Tech", "needs_review": false, "word_count": 528, "sources": 2 },
-    { "slot": 4, "slug": "russian-drones-kill-16-at-kryvyi-rih-mall-overnight-strikes-add-seven-dead", "category": "World", "needs_review": false, "word_count": 425, "sources": 3 },
-    { "slot": 5, "slug": "ebola-vaccine-doses-arrive-in-dr-congo-as-trial-nears-for-untested-strain", "category": "Health", "needs_review": false, "word_count": 444, "sources": 2 }
+    {
+      "slot": 1,
+      "slug": "us-imposes-50-percent-tariffs-on-canada-as-talks-collapse",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 870,
+      "sources": 5
+    },
+    {
+      "slot": 2,
+      "slug": "roberts-freezes-ballroom-injunction-letting-east-wing-work-continue",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 698,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "tiktok-400-million-doj-childrens-privacy-settlement",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 528,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "russian-drones-kill-16-at-kryvyi-rih-mall-overnight-strikes-add-seven-dead",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 425,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "ebola-vaccine-doses-arrive-in-dr-congo-as-trial-nears-for-untested-strain",
+      "category": "Health",
+      "needs_review": false,
+      "word_count": 444,
+      "sources": 2
+    }
   ],
   "egress_blocked_hostnames": [
     "cnbc.com",
