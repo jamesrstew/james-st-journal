@@ -1,6 +1,182 @@
 {
   "date": "2026-08-23",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-08-23T12:07:22Z",
-  "stages": {}
+  "completed_at": "2026-08-23T12:35:02Z",
+  "stages": {
+    "ingest": {
+      "items": 525,
+      "feeds_ok": 38,
+      "feeds_fail": 2,
+      "duration_sec": null,
+      "failed": [
+        {
+          "source": "CNBC Top",
+          "error": "Unexpected close tag\nLine: 8\nColumn: 7\nChar: >"
+        },
+        {
+          "source": "CNBC Markets",
+          "error": "Unexpected close tag\nLine: 8\nColumn: 7\nChar: >"
+        }
+      ]
+    },
+    "cluster": {
+      "clusters": 9,
+      "body_tier_clusters": 7,
+      "duration_sec": null,
+      "note": "9 candidate clusters formed; ai-capex-signals and warsh-jackson-hole dropped for <2 body-tier sources"
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Canada vows dollar-for-dollar retaliation Sept 8 as US 50% tariffs take effect; Carney calls it trade war",
+          "category": "Business",
+          "score": 17.52,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "Chinese humanoid robots break Bolt's 100m record at Beijing games; UBTech-adjacent robotics IPO signals China AI push",
+          "category": "Tech",
+          "score": 9.72,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "Zelenskyy rejects wartime elections as feud with sacked defense minister Umerov deepens",
+          "category": "World",
+          "score": 6.08,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 4,
+          "cluster": "Iran warns neighbors that joining US 'economic war' will be treated as enemy act as sanctions expand",
+          "category": "World",
+          "score": 5.71,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 5,
+          "cluster": "Federal judge vacates Trump policy that suspended visa processing from 75 countries",
+          "category": "Politics",
+          "score": 4.3,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 3,
+      "considered_but_dropped": [
+        {
+          "cluster_id": "ai-capex-signals",
+          "reason": "Only 1 body-tier source (Reuters); FT/Bloomberg mandate but headline-only"
+        },
+        {
+          "cluster_id": "warsh-jackson-hole",
+          "reason": "No body-tier sources; upcoming Wednesday event"
+        },
+        {
+          "cluster_id": "israel-syria-strike",
+          "reason": "Displaced by higher-scoring World cluster (iran-neighbors); enough body sources but greedy fill went elsewhere"
+        },
+        {
+          "cluster_id": "iran-uk-cyber",
+          "reason": "Only 1 usable body-tier source (BBC); Guardian egress-blocked via Google News; failed 2-source minimum"
+        }
+      ]
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 14,
+      "sources_failed": 3,
+      "note": "The Hill and Axios direct hosts returned 403 at proxy; Google News RSS redirects not resolvable server-side; Guardian articles unreachable via direct guess and WebFetch. Substituted from PBS/BBC/NPR/CBS/AP direct where possible.",
+      "duration_sec": null
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 20,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "carney-details-sept-8-tariff-retort-no-new-us-canada-talks-planned",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 801,
+      "sources": 5
+    },
+    {
+      "slot": 2,
+      "slug": "beijing-robot-beats-bolt-100m-record-china-humanoid-push",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 602,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "zelenskyy-rules-out-wartime-elections-fedorov-corruption",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 615,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "iran-warns-neighbors-joining-us-sanctions-enemies",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 544,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "judge-vacates-trump-visa-ban-75-countries",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 431,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "thehill.com",
+    "axios.com",
+    "cbsnews.com"
+  ],
+  "errors": []
 }
