@@ -1,6 +1,95 @@
 {
   "date": "2026-08-24",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-08-24T12:31:34Z",
-  "stages": {}
+  "completed_at": "2026-08-24T13:00:00Z",
+  "stages": {
+    "ingest": {
+      "items": 968,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "duration_sec": null,
+      "failed": [
+        {"source": "Politico", "error": "HTTP 403 (egress-blocked)"},
+        {"source": "The Verge", "error": "HTTP 403 (egress-blocked)"},
+        {"source": "NPR Top", "error": "HTTP 403 (egress-blocked)"},
+        {"source": "NPR Business", "error": "HTTP 403 (egress-blocked)"},
+        {"source": "NPR Tech", "error": "HTTP 403 (egress-blocked)"},
+        {"source": "NPR World", "error": "HTTP 403 (egress-blocked)"},
+        {"source": "FT Home", "error": "HTTP 403 (egress-blocked)"}
+      ]
+    },
+    "cluster": {
+      "clusters": 8,
+      "body_tier_clusters": 8,
+      "duration_sec": null,
+      "note": "8 candidate clusters formed; all had 2+ body-tier sources so none were dropped at cluster stage"
+    },
+    "select": {
+      "chosen": [
+        {"slot": 1, "cluster": "US to unveil sweeping Iran sanctions Monday; Bessent calls it 'endgame,' Iran vows to resist", "category": "Politics", "score": 13.42, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0},
+        {"slot": 2, "cluster": "US-Canada trade war deepens as retaliatory tariffs approach; Trump reprises 51st-state threat and China cheers Ottawa's response", "category": "Business", "score": 8.8, "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0},
+        {"slot": 3, "cluster": "Bond yields climb ahead of Warsh's Jackson Hole debut as Bessent weighs Treasury General Account buybacks", "category": "Markets", "score": 8.3, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0},
+        {"slot": 4, "cluster": "Shein sets cut-price $27 billion valuation for long-awaited Hong Kong IPO", "category": "Business", "score": 6.17, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0},
+        {"slot": 5, "cluster": "Pro-Tokayev party wins landslide in Kazakhstan parliamentary election", "category": "World", "score": 5.36, "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.85}
+      ],
+      "core_beat_count": 4,
+      "considered_but_dropped": [
+        {"cluster_id": "new-zealand-social-media-ban-2026-08-24", "reason": "Tech/Culture cluster displaced by higher-scoring picks in greedy fill; only 1 mandate outlet and mono-perspective lean_mix penalty"},
+        {"cluster_id": "alibaba-10bn-share-sale-2026-08-24", "reason": "Markets cluster displaced; only 3 body sources (Reuters variants + CNBC) and mono-perspective lean_mix; overshadowed by Warsh/bond-yields cluster"},
+        {"cluster_id": "ukraine-independence-day-eu-aid-2026-08-24", "reason": "0.30 dedupe penalty (Ukraine coverage in each of last 3 editions) plus mono-perspective lean_mix dropped raw_score below Kazakh election"}
+      ]
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 13,
+      "sources_failed": 5,
+      "duration_sec": null,
+      "note": "Google News RSS shells not resolvable via curl/WebFetch server-side (JS redirect required). Substituted Reuters/AP/Guardian bodies from syndication mirrors (Globe & Mail, AOL, Investing.com, WSB Radio) fetched via WebFetch. BBC and CBS reached directly via curl+per-outlet extraction. CNBC returned 403 Access Denied via both WebFetch and curl for the two URLs attempted."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 30,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {"slot": 1, "slug": "bessent-to-unveil-economic-d-day-iran-sanctions-as-tehran-threatens-gulf-oil-cutoff", "category": "Politics", "needs_review": false, "word_count": 771, "sources": 3},
+    {"slot": 2, "slug": "trump-calls-canadians-foolish-carney-details-trade-deal-curbs", "category": "Business", "needs_review": false, "word_count": 625, "sources": 2},
+    {"slot": 3, "slug": "kashkari-canada-tariffs-inflation-warsh-jackson-hole", "category": "Markets", "needs_review": false, "word_count": 568, "sources": 3},
+    {"slot": 4, "slug": "shein-27-billion-hong-kong-ipo", "category": "Business", "needs_review": false, "word_count": 531, "sources": 3},
+    {"slot": 5, "slug": "tokayev-adilet-wins-71-percent-in-kazakhstan-vote", "category": "World", "needs_review": false, "word_count": 449, "sources": 2}
+  ],
+  "egress_blocked_hostnames": [
+    "cnbc.com",
+    "feeds.npr.org",
+    "ft.com",
+    "rss.politico.com",
+    "theverge.com"
+  ],
+  "errors": []
 }
