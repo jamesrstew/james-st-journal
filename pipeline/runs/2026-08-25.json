@@ -1,8 +1,209 @@
 {
   "date": "2026-08-25",
-  "status": "in_progress",
+  "status": "partial",
   "started_at": "2026-08-25T14:22:07Z",
   "retry_of_partial": true,
   "primary_partial_committed_sha": "63aba840f87ca0e2db41baf7fed74ddf29b86e26",
-  "stages": {}
+  "notes": "Retry fire after 5:03 AM PT primary partial (3/5). Preserved primary slots 1-3 unchanged; added slot 4 (Lockerbie trial postponement) with 3 direct-URL body-tier sources (BBC/Fox/CBS). No slot-5 candidate cluster cleared the 2.0 raw_score threshold given persistent proxy egress blocks on reuters.com, apnews.com, thehill.com, nytimes.com, and the empty WSJ and NYT (GN) feeds this run.",
+  "stages": {
+    "ingest": {
+      "items": 1190,
+      "feeds_ok": 26,
+      "feeds_fail": 14,
+      "duration_sec": 40,
+      "feeds_failed": [
+        "PBS NewsHour (202)",
+        "CNBC Top (403)",
+        "CNBC Markets (403)",
+        "NPR Top (403)",
+        "NPR Business (403)",
+        "NPR Tech (403)",
+        "NPR World (403)",
+        "WSJ World (empty)",
+        "WSJ Business (empty)",
+        "WSJ Markets (empty)",
+        "NYT World (GN) (empty)",
+        "NYT US (GN) (empty)",
+        "NYT Business (GN) (empty)",
+        "NYT Tech (GN) (empty)"
+      ]
+    },
+    "cluster": {
+      "clusters_scored": 12,
+      "body_tier_clusters": 12,
+      "duration_sec": 2,
+      "note": "Retry evaluated 12 candidate clusters against direct-URL body-tier reachability. Primary slots 1-3 (SCOTUS mail voting, Iran sanctions, Canada trade) remained the top three by raw_score and were preserved as-is."
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "scotus-mail-in-voting",
+          "category": "Politics",
+          "score": 18.87,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 1,
+          "dedupe_penalty": 0,
+          "source": "primary"
+        },
+        {
+          "slot": 2,
+          "cluster": "iran-sanctions-unveil",
+          "category": "Politics",
+          "score": 14.87,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 1,
+          "dedupe_penalty": 0.5,
+          "source": "primary"
+        },
+        {
+          "slot": 3,
+          "cluster": "canada-trade-auto-tariff",
+          "category": "Business",
+          "score": 11.01,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1,
+          "dedupe_penalty": 0.5,
+          "source": "primary"
+        },
+        {
+          "slot": 4,
+          "cluster": "lockerbie-trial-postponed",
+          "category": "Politics",
+          "score": 2.5,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1,
+          "dedupe_penalty": 0,
+          "source": "retry"
+        }
+      ],
+      "core_beat_count": 4,
+      "dropped_from_shortlist": [
+        {
+          "cluster": "mass-visa-revocation",
+          "reason": "Primary attempt confirmed — only The Hill (403), Washington Examiner (GN redirect target blocked), AP (GN blocked), DW (GN blocked) carry it. No reachable body-tier source."
+        },
+        {
+          "cluster": "h1b-100k-fee",
+          "reason": "Same as primary — The Hill 403, Reuters (GN) blocked at target, Washington Examiner (GN) blocked."
+        },
+        {
+          "cluster": "warsh-jackson-hole-fed",
+          "reason": "Reuters (GN) and The Hill only for body-tier; both blocked at the redirect target. Bloomberg mandate signal but no reachable body."
+        },
+        {
+          "cluster": "iran-china-retaliation",
+          "reason": "Would duplicate slot 2 which already covers Beijing warning and Tehran response."
+        },
+        {
+          "cluster": "ghislaine-maxwell-conviction",
+          "reason": "CBS + NBC direct only; both lean-left, mono-perspective → balance 0.75; raw_score 1.2 below 2.0 threshold."
+        },
+        {
+          "cluster": "nfl-cte-study",
+          "reason": "BBC + CBS direct; Health/Sports category weight 0.5-0.7 keeps raw_score below 2.0."
+        },
+        {
+          "cluster": "sc-senate-runoff",
+          "reason": "Politico + CBS direct; raw_score 1.5 below threshold."
+        }
+      ]
+    },
+    "research": {
+      "dossiers_built": 1,
+      "sources_fetched": 3,
+      "sources_failed": 0,
+      "duration_sec": 4,
+      "note": "Slot 4 only — slots 1-3 preserved from primary. All three Lockerbie fetches (BBC, Fox, CBS) returned direct-URL 200s with 4k-6.7k chars each."
+    },
+    "draft": {
+      "writers_spawned": 1,
+      "drafts_ok": 1,
+      "drafts_failed": 0,
+      "note": "Slot 4 only. Slots 1-3 preserved from primary."
+    },
+    "edit": {
+      "editors_spawned": 1,
+      "approved_first_pass": 1,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 1,
+      "articles_preserved": 3,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 1,
+      "articles_preserved": 3,
+      "images_failed": 0,
+      "duration_sec": 26,
+      "estimated_cost_usd": 0.016
+    },
+    "commit": {
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "supreme-court-lets-trump-mail-voting-order-take-effect",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 899,
+      "sources": 2,
+      "source": "primary"
+    },
+    {
+      "slot": 2,
+      "slug": "bessent-unveils-operation-economic-outcast-china-vows-retaliation",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 627,
+      "sources": 3,
+      "source": "primary"
+    },
+    {
+      "slot": 3,
+      "slug": "trump-vows-50-percent-tariff-canadian-autos-steel",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 661,
+      "sources": 3,
+      "source": "retry-preserved-from-primary"
+    },
+    {
+      "slot": 4,
+      "slug": "lockerbie-bombing-trial-postponed-to-january",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 551,
+      "sources": 3,
+      "source": "retry"
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "reuters.com",
+    "apnews.com",
+    "thehill.com",
+    "realclearpolitics.com",
+    "cnbc.com",
+    "npr.org",
+    "nytimes.com"
+  ],
+  "errors": [
+    {
+      "stage": "select",
+      "code": "insufficient_body_sources_slot_5",
+      "detail": "No candidate cluster for slot 5 cleared the raw_score >= 2.0 threshold given direct-URL body-tier reachability. The proxy still blocks reuters.com, apnews.com, thehill.com, and the reuters/apnews GN redirect targets. Ghislaine Maxwell (mono-perspective 1.2), NFL CTE (Health category 1.19), Warsh Jackson Hole (Reuters+The Hill only), SC Senate runoff (Politico+CBS 1.5) all fell below the threshold. Edition ships as 4/5 with gap banner — improvement over primary 3/5."
+    }
+  ]
 }
