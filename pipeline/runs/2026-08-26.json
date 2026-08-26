@@ -4,34 +4,120 @@
   "started_at": "2026-08-26T12:53:46Z",
   "finished_at": "2026-08-26T13:21:09Z",
   "stages": {
-    "ingest":   { "items": 1226, "feeds_ok": 33, "feeds_fail": 7, "failed_feeds": ["PBS NewsHour", "CNBC Top", "CNBC Markets", "NPR Top", "NPR Business", "NPR Tech", "NPR World"] },
-    "cluster":  { "clusters_considered": 10, "body_tier_clusters": 8 },
-    "select":   {
+    "ingest": {
+      "items": 1226,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "failed_feeds": [
+        "PBS NewsHour",
+        "CNBC Top",
+        "CNBC Markets",
+        "NPR Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World"
+      ]
+    },
+    "cluster": {
+      "clusters_considered": 10,
+      "body_tier_clusters": 8
+    },
+    "select": {
       "chosen": [
-        { "slot": 1, "cluster": "canada-retaliation-2026-08-26", "category": "Business", "mandate_count": 2, "signal_boost": 1.7, "category_weight": 1.0 },
-        { "slot": 3, "cluster": "ratcliffe-moscow-2026-08-26",   "category": "Politics", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 1.0 },
-        { "slot": 5, "cluster": "iran-oman-hormuz-2026-08-26",   "category": "World",    "mandate_count": 2, "signal_boost": 1.7,  "category_weight": 0.85 }
+        {
+          "slot": 1,
+          "cluster": "canada-retaliation-2026-08-26",
+          "category": "Business",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 3,
+          "cluster": "ratcliffe-moscow-2026-08-26",
+          "category": "Politics",
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 5,
+          "cluster": "iran-oman-hormuz-2026-08-26",
+          "category": "World",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        }
       ],
       "core_beat_count": 2,
       "composition_floor_ok": false,
       "gap_notes": [
-        "Attempted Slot 2 (Bessent/Druckenmiller bond-buyback fight, Markets, mandate_count=3) — dropped: all body-tier sources (Axios, Semafor, Guardian, The Hill) were egress-blocked or captcha-walled; FT/Bloomberg mandate coverage was headline-only.",
-        "Attempted Slot 4 (Bill Gates AI warning, Tech, mandate_count=1) — dropped: only 1 body-tier source (The Verge) reachable; Reuters/Axios wire coverage was Google News-redirected and egress-blocked.",
+        "Attempted Slot 2 (Bessent/Druckenmiller bond-buyback fight, Markets, mandate_count=3) \u2014 dropped: all body-tier sources (Axios, Semafor, Guardian, The Hill) were egress-blocked or captcha-walled; FT/Bloomberg mandate coverage was headline-only.",
+        "Attempted Slot 4 (Bill Gates AI warning, Tech, mandate_count=1) \u2014 dropped: only 1 body-tier source (The Verge) reachable; Reuters/Axios wire coverage was Google News-redirected and egress-blocked.",
         "Composition floor of 3 core beats missed by 1: shipped 2 core (Business, Politics) + 1 non-core (World). Per PIPELINE.md, publishing with fewer than 5 slots is permitted when core-beat sources cannot be fetched."
       ]
     },
-    "research": { "dossiers_built": 3, "sources_fetched": 7, "sources_failed_or_blocked": ">15 attempted", "duration_sec": 300 },
-    "draft":    { "writers_spawned": 3, "drafts_ok": 3, "drafts_failed": 0 },
-    "edit":     { "editors_spawned": 3, "approved_first_pass": 3, "revised": 0, "held": 0 },
-    "revise":   { "revisions_spawned": 0, "approved_after_revise": 0 },
-    "stage":    { "articles_written": 3, "validator_ok": true },
-    "illustrate": { "articles_illustrated": 3, "images_failed": 0, "duration_sec": 31, "estimated_cost_usd": 0.048 },
-    "commit":   { "pushed": false }
+    "research": {
+      "dossiers_built": 3,
+      "sources_fetched": 7,
+      "sources_failed_or_blocked": ">15 attempted",
+      "duration_sec": 300
+    },
+    "draft": {
+      "writers_spawned": 3,
+      "drafts_ok": 3,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 3,
+      "approved_first_pass": 3,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 3,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 3,
+      "images_failed": 0,
+      "duration_sec": 31,
+      "estimated_cost_usd": 0.048
+    },
+    "commit": {
+      "sha": "8b91d52d1db2a5e7abf76c4a0d9f8418633b6527",
+      "pushed": true
+    }
   },
   "articles": [
-    { "slot": 1, "slug": "canada-unveils-28-billion-tariff-retort-on-us-goods", "category": "Business", "needs_review": false, "word_count": 757, "sources": 3 },
-    { "slot": 3, "slug": "cia-chief-ratcliffe-held-moscow-talks-with-russian-intelligence", "category": "Politics", "needs_review": false, "word_count": 576, "sources": 2 },
-    { "slot": 5, "slug": "iran-oman-agree-seven-mile-hormuz-corridor-as-trump-declares-mines-cleared", "category": "World", "needs_review": false, "word_count": 457, "sources": 2 }
+    {
+      "slot": 1,
+      "slug": "canada-unveils-28-billion-tariff-retort-on-us-goods",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 757,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "cia-chief-ratcliffe-held-moscow-talks-with-russian-intelligence",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 576,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "iran-oman-agree-seven-mile-hormuz-corridor-as-trump-declares-mines-cleared",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 457,
+      "sources": 2
+    }
   ],
   "egress_blocked_hostnames": [
     "feeds.npr.org",
