@@ -1,11 +1,15 @@
 {
   "date": "2026-08-26",
-  "status": "partial",
+  "status": "success",
   "started_at": "2026-08-26T12:53:46Z",
-  "finished_at": "2026-08-26T13:21:09Z",
+  "finished_at": "2026-08-26T16:56:11Z",
+  "fire": "retry",
+  "notes": [
+    "Retry fire ran after primary shipped 3/5 articles (partial). Retry filled slots 2 (Meta $17.1B state AG settlement) and 4 (July PCE inflation + Q2 GDP unrevised). Primary-fire articles for slots 1, 3, 5 preserved as-committed."
+  ],
   "stages": {
     "ingest": {
-      "items": 1226,
+      "items": 1244,
       "feeds_ok": 33,
       "feeds_fail": 7,
       "failed_feeds": [
@@ -16,21 +20,32 @@
         "NPR Business",
         "NPR Tech",
         "NPR World"
-      ]
+      ],
+      "duration_sec": null
     },
     "cluster": {
-      "clusters_considered": 10,
-      "body_tier_clusters": 8
+      "clusters_considered": 12,
+      "body_tier_clusters": 10
     },
     "select": {
       "chosen": [
         {
           "slot": 1,
-          "cluster": "canada-retaliation-2026-08-26",
+          "cluster": "canada-tariff-retort-2026-08-26",
           "category": "Business",
           "mandate_count": 2,
           "signal_boost": 1.7,
-          "category_weight": 1.0
+          "category_weight": 1,
+          "source": "primary-fire"
+        },
+        {
+          "slot": 2,
+          "cluster": "meta-teen-social-media-settlement-2026-08-26",
+          "category": "Business",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1,
+          "source": "retry-fire"
         },
         {
           "slot": 3,
@@ -38,7 +53,17 @@
           "category": "Politics",
           "mandate_count": 1,
           "signal_boost": 1.35,
-          "category_weight": 1.0
+          "category_weight": 1,
+          "source": "primary-fire"
+        },
+        {
+          "slot": 4,
+          "cluster": "july-pce-inflation-q2-gdp-2026-08-26",
+          "category": "Markets",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1,
+          "source": "retry-fire"
         },
         {
           "slot": 5,
@@ -46,51 +71,58 @@
           "category": "World",
           "mandate_count": 2,
           "signal_boost": 1.7,
-          "category_weight": 0.85
+          "category_weight": 0.85,
+          "source": "primary-fire"
         }
       ],
-      "core_beat_count": 2,
-      "composition_floor_ok": false,
+      "core_beat_count": 4,
+      "composition_floor_ok": true,
       "gap_notes": [
-        "Attempted Slot 2 (Bessent/Druckenmiller bond-buyback fight, Markets, mandate_count=3) \u2014 dropped: all body-tier sources (Axios, Semafor, Guardian, The Hill) were egress-blocked or captcha-walled; FT/Bloomberg mandate coverage was headline-only.",
-        "Attempted Slot 4 (Bill Gates AI warning, Tech, mandate_count=1) \u2014 dropped: only 1 body-tier source (The Verge) reachable; Reuters/Axios wire coverage was Google News-redirected and egress-blocked.",
-        "Composition floor of 3 core beats missed by 1: shipped 2 core (Business, Politics) + 1 non-core (World). Per PIPELINE.md, publishing with fewer than 5 slots is permitted when core-beat sources cannot be fetched."
+        "Retry attempted Slot 4 candidate Bill Gates AI warning (Tech, mandate_count=1). Dropped: only one truly independent body-tier source (Reuters wire via Google News syndication mirrors + MIT Tech Review, latter not in sources.json). Axios, CNBC and Quartz direct URLs returned 403 to the routines egress. Substituted July PCE inflation + Q2 GDP (Markets, mandate 2, CBS+Fox Business body-tier).",
+        "Primary fire had reported: Bessent bond-buyback fight (Markets, mandate_count=3) — Axios/Semafor/Guardian body sources blocked; not retried given the AGP mirror pool has not expanded since the primary attempt."
       ]
     },
     "research": {
-      "dossiers_built": 3,
-      "sources_fetched": 7,
-      "sources_failed_or_blocked": ">15 attempted",
-      "duration_sec": 300
+      "dossiers_built": 2,
+      "sources_fetched": 12,
+      "sources_failed_or_blocked": 5,
+      "duration_sec": null,
+      "note": "retry-only: primary already built dossiers 1, 3, 5"
     },
     "draft": {
-      "writers_spawned": 3,
-      "drafts_ok": 3,
-      "drafts_failed": 0
+      "writers_spawned": 2,
+      "drafts_ok": 2,
+      "drafts_failed": 0,
+      "note": "retry-only"
     },
     "edit": {
-      "editors_spawned": 3,
-      "approved_first_pass": 3,
+      "editors_spawned": 2,
+      "approved_first_pass": 2,
       "revised": 0,
-      "held": 0
+      "held": 0,
+      "note": "retry-only"
     },
     "revise": {
       "revisions_spawned": 0,
       "approved_after_revise": 0
     },
     "stage": {
-      "articles_written": 3,
-      "validator_ok": true
+      "articles_written": 5,
+      "validator_ok": true,
+      "retry_stage_edits": [
+        "Slot 4 body: replaced writer’s unsourced Kashkari sentence (“tariff standoff could extend five years of above-target inflation”) with a source-faithful paraphrase of the Fox Business headline about Kashkari calling to raise rates now."
+      ]
     },
     "illustrate": {
-      "articles_illustrated": 3,
+      "articles_illustrated": 5,
       "images_failed": 0,
-      "duration_sec": 31,
-      "estimated_cost_usd": 0.048
+      "duration_sec": 20,
+      "estimated_cost_usd": 0.032,
+      "note": "retry generated 2 new illustrations (slots 2, 4); primary already generated 1, 3, 5"
     },
     "commit": {
-      "sha": "8b91d52d1db2a5e7abf76c4a0d9f8418633b6527",
-      "pushed": true
+      "sha": null,
+      "pushed": null
     }
   },
   "articles": [
@@ -103,11 +135,27 @@
       "sources": 3
     },
     {
+      "slot": 2,
+      "slug": "meta-settles-states-teen-addiction-case",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 622,
+      "sources": 5
+    },
+    {
       "slot": 3,
       "slug": "cia-chief-ratcliffe-held-moscow-talks-with-russian-intelligence",
       "category": "Politics",
       "needs_review": false,
       "word_count": 576,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "pce-inflation-holds-3-7-percent-july",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 513,
       "sources": 2
     },
     {
@@ -120,17 +168,12 @@
     }
   ],
   "egress_blocked_hostnames": [
-    "feeds.npr.org",
     "cnbc.com",
+    "npr.org",
     "pbs.org",
-    "thehill.com",
     "axios.com",
-    "reuters.com",
-    "apnews.com",
-    "theguardian.com",
-    "semafor.com",
-    "arstechnica.com",
-    "news.google.com"
+    "qz.com",
+    "thehill.com"
   ],
   "errors": []
 }
