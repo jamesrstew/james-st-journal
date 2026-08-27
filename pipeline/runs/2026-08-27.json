@@ -9,9 +9,18 @@
       "items": 1183,
       "feeds_ok": 32,
       "feeds_fail": 8,
-      "failed_feeds": ["PBS NewsHour", "CNBC Top", "CNBC Markets", "NPR Top", "NPR Business", "NPR Tech", "NPR World", "WSJ (stale)"],
+      "failed_feeds": [
+        "PBS NewsHour",
+        "CNBC Top",
+        "CNBC Markets",
+        "NPR Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World",
+        "WSJ (stale)"
+      ],
       "notes": [
-        "WSJ direct feeds returned HTTP 200 but items were dated Jan 2025 — the WSJ RSS URLs are serving stale content; no fresh WSJ items entered the item pool.",
+        "WSJ direct feeds returned HTTP 200 but items were dated Jan 2025 \u2014 the WSJ RSS URLs are serving stale content; no fresh WSJ items entered the item pool.",
         "NYT-GN and Axios-GN feeds returned empty channels (RSS 200, 0 items) for today's date."
       ]
     },
@@ -21,11 +30,47 @@
     },
     "select": {
       "chosen": [
-        { "slot": 1, "cluster": "nvidia-q2-earnings-2026-08-27", "category": "Markets", "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0, "note": "Editorial call: leads over Nepal flood cluster (higher raw_score) — Nvidia has higher mandate_count (Bloomberg + FT + Economist vs. Bloomberg + Economist), is a core beat, and is the money story of the day per WSJ house voice." },
-        { "slot": 2, "cluster": "nepal-tibet-glacial-collapse-flood-2026-08-27", "category": "World", "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85 },
-        { "slot": 3, "cluster": "ice-july-record-arrests-2026-08-27", "category": "Politics", "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 },
-        { "slot": 4, "cluster": "openai-hugging-face-postmortem-2026-08-27", "category": "Tech", "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 },
-        { "slot": 5, "cluster": "fda-daraxonrasib-pancreatic-cancer-2026-08-27", "category": "Health", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.7 }
+        {
+          "slot": 1,
+          "cluster": "nvidia-q2-earnings-2026-08-27",
+          "category": "Markets",
+          "mandate_count": 3,
+          "signal_boost": 2.0,
+          "category_weight": 1.0,
+          "note": "Editorial call: leads over Nepal flood cluster (higher raw_score) \u2014 Nvidia has higher mandate_count (Bloomberg + FT + Economist vs. Bloomberg + Economist), is a core beat, and is the money story of the day per WSJ house voice."
+        },
+        {
+          "slot": 2,
+          "cluster": "nepal-tibet-glacial-collapse-flood-2026-08-27",
+          "category": "World",
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "ice-july-record-arrests-2026-08-27",
+          "category": "Politics",
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 4,
+          "cluster": "openai-hugging-face-postmortem-2026-08-27",
+          "category": "Tech",
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 5,
+          "cluster": "fda-daraxonrasib-pancreatic-cancer-2026-08-27",
+          "category": "Health",
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.7
+        }
       ],
       "core_beat_count": 3,
       "composition_floor_ok": true,
@@ -70,15 +115,61 @@
       "images_failed": 0,
       "duration_sec": 33,
       "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "5277b18fa45423f50cc4401245100657a336648a",
+      "pushed": true
     }
   },
   "articles": [
-    { "slot": 1, "slug": "nvidia-96-billion-quarter-108-billion-guidance-ai-boom", "category": "Markets", "needs_review": false, "word_count": 687, "sources": 2 },
-    { "slot": 2, "slug": "himalayan-glacial-collapse-flood-kills-353-more-than-1300-missing", "category": "World", "needs_review": false, "word_count": 712, "sources": 5 },
-    { "slot": 3, "slug": "ice-july-arrests-record-non-criminals-majority", "category": "Politics", "needs_review": false, "word_count": 721, "sources": 2 },
-    { "slot": 4, "slug": "openai-report-hugging-face-hack-agent-collective", "category": "Tech", "needs_review": false, "word_count": 624, "sources": 3 },
-    { "slot": 5, "slug": "fda-approves-daraxonrasib-pancreatic-cancer-revolution-medicines", "category": "Health", "needs_review": false, "word_count": 607, "sources": 2 }
+    {
+      "slot": 1,
+      "slug": "nvidia-96-billion-quarter-108-billion-guidance-ai-boom",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 687,
+      "sources": 2
+    },
+    {
+      "slot": 2,
+      "slug": "himalayan-glacial-collapse-flood-kills-353-more-than-1300-missing",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 712,
+      "sources": 5
+    },
+    {
+      "slot": 3,
+      "slug": "ice-july-arrests-record-non-criminals-majority",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 721,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "openai-report-hugging-face-hack-agent-collective",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 624,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "fda-approves-daraxonrasib-pancreatic-cancer-revolution-medicines",
+      "category": "Health",
+      "needs_review": false,
+      "word_count": 607,
+      "sources": 2
+    }
   ],
-  "egress_blocked_hostnames": ["cnbc.com", "npr.org", "pbs.org", "thehill.com", "ft.com", "realclearpolitics.com"],
+  "egress_blocked_hostnames": [
+    "cnbc.com",
+    "npr.org",
+    "pbs.org",
+    "thehill.com",
+    "ft.com",
+    "realclearpolitics.com"
+  ],
   "errors": []
 }
