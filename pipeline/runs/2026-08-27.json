@@ -1,6 +1,84 @@
 {
   "date": "2026-08-27",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-08-27T12:44:53Z",
-  "stages": {}
+  "finished_at": "2026-08-27T13:12:03Z",
+  "fire": "primary",
+  "stages": {
+    "ingest": {
+      "items": 1183,
+      "feeds_ok": 32,
+      "feeds_fail": 8,
+      "failed_feeds": ["PBS NewsHour", "CNBC Top", "CNBC Markets", "NPR Top", "NPR Business", "NPR Tech", "NPR World", "WSJ (stale)"],
+      "notes": [
+        "WSJ direct feeds returned HTTP 200 but items were dated Jan 2025 — the WSJ RSS URLs are serving stale content; no fresh WSJ items entered the item pool.",
+        "NYT-GN and Axios-GN feeds returned empty channels (RSS 200, 0 items) for today's date."
+      ]
+    },
+    "cluster": {
+      "clusters_considered": 5,
+      "body_tier_clusters": 5
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "nvidia-q2-earnings-2026-08-27", "category": "Markets", "mandate_count": 3, "signal_boost": 2.0, "category_weight": 1.0, "note": "Editorial call: leads over Nepal flood cluster (higher raw_score) — Nvidia has higher mandate_count (Bloomberg + FT + Economist vs. Bloomberg + Economist), is a core beat, and is the money story of the day per WSJ house voice." },
+        { "slot": 2, "cluster": "nepal-tibet-glacial-collapse-flood-2026-08-27", "category": "World", "mandate_count": 2, "signal_boost": 1.7, "category_weight": 0.85 },
+        { "slot": 3, "cluster": "ice-july-record-arrests-2026-08-27", "category": "Politics", "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 },
+        { "slot": 4, "cluster": "openai-hugging-face-postmortem-2026-08-27", "category": "Tech", "mandate_count": 0, "signal_boost": 1.0, "category_weight": 1.0 },
+        { "slot": 5, "cluster": "fda-daraxonrasib-pancreatic-cancer-2026-08-27", "category": "Health", "mandate_count": 1, "signal_boost": 1.35, "category_weight": 0.7 }
+      ],
+      "core_beat_count": 3,
+      "composition_floor_ok": true,
+      "gap_notes": [
+        "Initial Slot 3 candidate (US halts immigrant visa applications) and Slot 4 candidate (Chinese hackers targeted federal agencies) were dropped because only The Hill carried them among body-tier outlets with direct URLs, and thehill.com is Perimeterx-blocked from the routines egress (same block as 2026-08-26). Substituted ICE July arrests (CBS + Guardian direct) for Slot 3 and OpenAI/Hugging Face post-mortem (BBC + Verge + Al Jazeera direct) for Slot 4.",
+        "FT Nvidia article and RCP ICE article both returned 403 (Perimeterx). FT was removed from Slot 1 sources; RCP was not used for Slot 3."
+      ]
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 14,
+      "sources_failed_or_blocked": 3,
+      "blocked_urls": [
+        "https://www.ft.com/content/72908915-5e4a-457c-8c3a-aee8917a664a",
+        "https://www.realclearpolitics.com/2026/08/27/ice_on_track_to_hit_goal_of_2000_daily_arrests_709241.html",
+        "https://thehill.com/policy/international/6052863-doj-disrupts-chinese-hacking-operation/"
+      ]
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0,
+      "note": "Drafting performed inline by the editor-in-chief model rather than delegated to sub-agents, because the pipeline's dossier-fetch stage exhausted several fallback source paths and the editor pass needed the same context. All drafts followed the writer.md prompt discipline."
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0,
+      "note": "Editor pass ran the pipeline's grep-based quote check against combined dossier bodies. Slot 1 removed one Financial Times attribution ('relentless AI boom') because the FT body was not fetched; Slot 5 restored CBS's own spelling 'its already metastatic' (no apostrophe) to match the source verbatim."
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 33,
+      "estimated_cost_usd": 0.08
+    }
+  },
+  "articles": [
+    { "slot": 1, "slug": "nvidia-96-billion-quarter-108-billion-guidance-ai-boom", "category": "Markets", "needs_review": false, "word_count": 687, "sources": 2 },
+    { "slot": 2, "slug": "himalayan-glacial-collapse-flood-kills-353-more-than-1300-missing", "category": "World", "needs_review": false, "word_count": 712, "sources": 5 },
+    { "slot": 3, "slug": "ice-july-arrests-record-non-criminals-majority", "category": "Politics", "needs_review": false, "word_count": 721, "sources": 2 },
+    { "slot": 4, "slug": "openai-report-hugging-face-hack-agent-collective", "category": "Tech", "needs_review": false, "word_count": 624, "sources": 3 },
+    { "slot": 5, "slug": "fda-approves-daraxonrasib-pancreatic-cancer-revolution-medicines", "category": "Health", "needs_review": false, "word_count": 607, "sources": 2 }
+  ],
+  "egress_blocked_hostnames": ["cnbc.com", "npr.org", "pbs.org", "thehill.com", "ft.com", "realclearpolitics.com"],
+  "errors": []
 }
