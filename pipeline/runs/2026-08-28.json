@@ -1,6 +1,144 @@
 {
   "date": "2026-08-28",
-  "status": "in_progress",
-  "started_at": "2026-08-28T12:03:00Z",
-  "stages": {}
+  "status": "success",
+  "stages": {
+    "ingest": {
+      "items": 1330,
+      "feeds_ok": 24,
+      "feeds_fail": 16,
+      "duration_sec": 1
+    },
+    "cluster": {
+      "clusters": 9,
+      "body_tier_clusters": 9,
+      "duration_sec": 1
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Fed chair Warsh's Jackson Hole debut",
+          "category": "Markets",
+          "mandate_count": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "Norway's King Harald V dies at 89; Haakon VIII succeeds",
+          "category": "World",
+          "mandate_count": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "Judge blocks Pentagon's Anthropic blacklist; retaliation ruling",
+          "category": "Tech",
+          "mandate_count": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Trump signs order renaming Lake Ontario to 'Lake America'",
+          "category": "Politics",
+          "mandate_count": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Nepal-Tibet flash floods; barrier lake overflow halts rescues",
+          "category": "World",
+          "mandate_count": 2
+        }
+      ],
+      "core_beat_count": 3
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 13,
+      "sources_failed": 7,
+      "duration_sec": 60,
+      "notes": "AP/Reuters/Axios/CNBC/The Hill all 403-blocked to Anthropic UA; slot 1 Warsh coverage sourced via Yahoo Finance republish plus direct NBC News fetch."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 26,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "PENDING",
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "warsh-faces-jackson-hole-debut-after-bond-market-rout-and-fomc-dissent",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 769,
+      "sources": 3
+    },
+    {
+      "slot": 2,
+      "slug": "haakon-viii-takes-norways-throne-as-scandals-test-a-modern-monarchy",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 611,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "judge-blocks-pentagon-anthropic-blacklist",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 619,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "trump-signs-order-renaming-lake-ontario-lake-america",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 526,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "barrier-lake-overflow-halts-nepal-flood-rescues-death-toll-tops-500",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 475,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "apnews.com",
+    "axios.com",
+    "centraljersey.com",
+    "cnbc.com",
+    "feeds.npr.org",
+    "ft.com",
+    "qz.com",
+    "reuters.com",
+    "rss.politico.com",
+    "thehill.com",
+    "theverge.com"
+  ],
+  "errors": []
 }
