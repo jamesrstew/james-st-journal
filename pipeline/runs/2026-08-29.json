@@ -1,6 +1,142 @@
 {
   "date": "2026-08-29",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-08-29T12:09:27Z",
-  "stages": {}
+  "finished_at": "2026-08-29T12:30:46.661Z",
+  "stages": {
+    "ingest": {
+      "items": 1184,
+      "feeds_ok": 26,
+      "feeds_fail": 14,
+      "duration_sec": 12
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 3
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Trump announces US takes control of 65B barrels of Venezuelan oil reserves",
+          "category": "Politics",
+          "mandate_count": 3
+        },
+        {
+          "slot": 2,
+          "cluster": "Fed Chair Warsh at Jackson Hole: inflation still high, rate hikes possible",
+          "category": "Markets",
+          "mandate_count": 2
+        },
+        {
+          "slot": 3,
+          "cluster": "Russian strike on Kyiv-area warehouse kills 37, sparks detonation",
+          "category": "World",
+          "mandate_count": 2
+        },
+        {
+          "slot": 4,
+          "cluster": "Judge blocks USPS mail-in voting curbs; Trump admin appeals",
+          "category": "Politics",
+          "mandate_count": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Iceland votes on whether to restart EU membership talks",
+          "category": "World",
+          "mandate_count": 1
+        }
+      ],
+      "core_beat_count": 3
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 21,
+      "sources_failed": 7,
+      "duration_sec": 45
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 90,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "pushed": true
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "trump-announces-deal-for-us-control-of-65-billion-barrels-of-venezuelan-oil",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 803,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "warsh-opens-door-to-rate-hikes-at-jackson-hole-debut",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 649,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "russian-strike-on-kyiv-area-warehouse-kills-37-after-secondary-detonation",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 583,
+      "sources": 4
+    },
+    {
+      "slot": 4,
+      "slug": "judge-blocks-usps-mail-ballot-rule-for-two-weeks-trump-appeals-to-first-circuit",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 504,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "iceland-holds-knife-edge-vote-on-restarting-eu-membership-talks",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 490,
+      "sources": 4
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "cnbc.com",
+    "feeds.npr.org",
+    "pbs.org"
+  ],
+  "errors": [],
+  "notes": [
+    "Reuters bodies returned 401 (paywall/anti-bot) on all four attempts; substitute body-tier sources supplied dossiers.",
+    "The Hill and Axios article pages returned 403 (Cloudflare/DataDome); dropped for those slots.",
+    "WSJ feeds returned stale items (last update Jan 2025); no fresh mandate signal from WSJ this run.",
+    "NYT Google-News-scoped section queries returned no items for the last 36h."
+  ]
 }
