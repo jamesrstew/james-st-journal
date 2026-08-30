@@ -1,6 +1,167 @@
 {
   "date": "2026-08-30",
-  "status": "in_progress",
-  "started_at": "2026-08-30T12:06:22Z",
-  "stages": {}
+  "status": "success",
+  "stages": {
+    "ingest": {
+      "items": 949,
+      "feeds_ok": 34,
+      "feeds_fail": 6,
+      "notes": "NPR and CNBC edge-denied (Akamai 403 HTML shell); parse errors trace to these. Added to egress_blocked_hostnames for longitudinal tracking."
+    },
+    "cluster": {
+      "note": "qualitative multi-source pass; body_tier_clusters retained per Step 4 rules"
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Iceland votes NO on restarting EU accession talks",
+          "category": "World",
+          "source_count": 10,
+          "mandate_count": 3,
+          "word_count": 803,
+          "sources": 4,
+          "draft_iterations": 1,
+          "needs_review": false,
+          "slug": "iceland-rejects-restart-of-eu-membership-talks"
+        },
+        {
+          "slot": 2,
+          "cluster": "Milo Yiannopoulos deported to UK after ICE arrest",
+          "category": "Politics",
+          "source_count": 9,
+          "mandate_count": 0,
+          "word_count": 621,
+          "sources": 4,
+          "draft_iterations": 2,
+          "needs_review": false,
+          "slug": "ice-deports-milo-yiannopoulos-to-uk-after-new-orleans-airport-arrest"
+        },
+        {
+          "slot": 3,
+          "cluster": "Nepal-Tibet flood death toll rises past 700, ~3,000 still missing",
+          "category": "World",
+          "source_count": 12,
+          "mandate_count": 2,
+          "word_count": 617,
+          "sources": 4,
+          "draft_iterations": 2,
+          "needs_review": false,
+          "slug": "nepal-flood-toll-passes-750-as-drills-reach-trapped-hydropower-workers"
+        },
+        {
+          "slot": 4,
+          "cluster": "Trump Venezuela oil deal draws pushback from both sides in Caracas",
+          "category": "Politics",
+          "source_count": 12,
+          "mandate_count": 3,
+          "word_count": 549,
+          "sources": 4,
+          "draft_iterations": 1,
+          "needs_review": false,
+          "slug": "rodriguez-details-25-year-venezuela-oil-pact"
+        },
+        {
+          "slot": 5,
+          "cluster": "Federal judge blocks Trump from deporting noncitizen students who criticize Israel",
+          "category": "Politics",
+          "source_count": 3,
+          "mandate_count": 0,
+          "word_count": 481,
+          "sources": 3,
+          "draft_iterations": 1,
+          "needs_review": false,
+          "slug": "judge-blocks-trump-push-to-deport-noncitizens-for-criticizing-israel"
+        }
+      ],
+      "core_beat_count": 3
+    },
+    "research": {
+      "dossiers_built": 5,
+      "note": "curl + WebFetch cascade; direct URLs preferred; Google News URLs cannot be unwrapped through either curl or WebFetch (JS shell), so unwrapped via WebFetch to wire reprints (ABC News AP wire, Fortune AP wire, PBS NewsHour AP wire, Fox Business) where needed."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 3,
+      "revised": 2,
+      "held": 0,
+      "revised_slots": [
+        2,
+        3
+      ]
+    },
+    "revise": {
+      "revisions_spawned": 2,
+      "approved_after_revise": 2
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "iceland-rejects-restart-of-eu-membership-talks",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 803,
+      "sources": 4,
+      "draft_iterations": 1
+    },
+    {
+      "slot": 2,
+      "slug": "ice-deports-milo-yiannopoulos-to-uk-after-new-orleans-airport-arrest",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 621,
+      "sources": 4,
+      "draft_iterations": 2
+    },
+    {
+      "slot": 3,
+      "slug": "nepal-flood-toll-passes-750-as-drills-reach-trapped-hydropower-workers",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 617,
+      "sources": 4,
+      "draft_iterations": 2
+    },
+    {
+      "slot": 4,
+      "slug": "rodriguez-details-25-year-venezuela-oil-pact",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 549,
+      "sources": 4,
+      "draft_iterations": 1
+    },
+    {
+      "slot": 5,
+      "slug": "judge-blocks-trump-push-to-deport-noncitizens-for-criticizing-israel",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 481,
+      "sources": 3,
+      "draft_iterations": 1
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "feeds.npr.org",
+    "www.cnbc.com"
+  ],
+  "errors": []
 }
