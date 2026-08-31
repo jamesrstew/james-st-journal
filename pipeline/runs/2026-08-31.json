@@ -1,6 +1,154 @@
 {
   "date": "2026-08-31",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-08-31T12:35:05Z",
-  "stages": {}
+  "stages": {
+    "ingest": {
+      "items": 1028,
+      "feeds_ok": 34,
+      "feeds_fail": 6,
+      "duration_sec": 40,
+      "note": "CNBC and NPR native RSS blocked at edge; NYT_*_GN returned zero items (Google News query yielded no results in 1d window)"
+    },
+    "cluster": {
+      "clusters_scored": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 5
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "US strikes Iranian rocket launchers on Larak Island; Iran retaliates against US bases in Jordan and UAE; oil, gold and yields react",
+          "category": "World",
+          "score": 8.8,
+          "mandate_count": 4,
+          "signal_boost": 2,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "Bond yields hit multi-year highs and Fed rate-hike bets rise after Warsh; Barclays pencils in two more hikes; Bessent pushes back on debt-market fears",
+          "category": "Markets",
+          "score": 4.2,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "US-Canada tariff talks collapse; Toyota, Honda face the tariff bill; Trump says he doesn't want 'Canadian anything'",
+          "category": "Business",
+          "score": 3.4,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Google Maps implements Trump's 'Lake America' rename on US phones; Ontario Premier Ford unveils giant Lake Ontario sign in response",
+          "category": "Politics",
+          "score": 2.9,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "Nepal flood death toll passes 900; missing count doubles to more than 4,200; rescue teams still drilling for trapped hydropower workers",
+          "category": "World",
+          "score": 2.5,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        }
+      ],
+      "core_beat_count": 3
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 14,
+      "sources_failed": 6,
+      "duration_sec": 210,
+      "note": "Google News link-unwrapping stopped working (JS-only redirect); shifted to direct-source URLs. The Hill blocks WebFetch (403). Reuters/AP/Guardian/Bloomberg/FT/Economist not usable for body text — used PBS AP relay, BBC, CBS, NBC, Al Jazeera, Fox News direct."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 30,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": "__SHA__",
+      "pushed": true
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "us-and-iran-trade-strikes-across-strait-of-hormuz",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 804,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "bessent-iran-bank-sanctions-financial-violence",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 676,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "us-tariff-rate-on-canadian-goods-nearly-doubles-to-5-7-percent",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 581,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "google-maps-rolls-out-lake-america-as-ontario-answers-with-roadside-sign",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 448,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "nepal-flood-toll-reaches-903-as-missing-count-more-than-doubles",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 497,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "cnbc.com",
+    "feeds.npr.org",
+    "thehill.com",
+    "news.google.com"
+  ],
+  "errors": []
 }
