@@ -1,6 +1,153 @@
 {
   "date": "2026-09-01",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-09-01T12:53:54Z",
-  "stages": {}
+  "finished_at": "2026-09-01T13:24:06Z",
+  "stages": {
+    "ingest": {
+      "items": 1179,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "duration_sec": 20
+    },
+    "cluster": {
+      "clusters": 60,
+      "body_tier_clusters": 60,
+      "duration_sec": 3
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Cook hands Apple to Ternus after 15 years, AI race in focus",
+          "category": "Tech",
+          "score": 3.59,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "FTC and 22 states sue Amazon, alleging $20 billion secret ad overcharges",
+          "category": "Business",
+          "score": 10.55,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        },
+        {
+          "slot": 3,
+          "cluster": "Supreme Court lets Trump keep building the $400 million White House ballroom",
+          "category": "Politics",
+          "score": 10.64,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Nepal-Tibet flood death toll passes 1,000; hundreds trapped in hydropower tunnels",
+          "category": "World",
+          "score": 0,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 5,
+          "cluster": "Army Secretary Dan Driscoll resigns after clash with Defense Secretary Hegseth",
+          "category": "Politics",
+          "score": 14.74,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 18,
+      "sources_failed": 0,
+      "duration_sec": 25
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 33,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "ternus-takes-apple-helm-as-ai-race-awaits",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 878,
+      "sources": 3
+    },
+    {
+      "slot": 2,
+      "slug": "ftc-and-22-states-sue-amazon-over-20-billion-ad-surcharge",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 632,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "supreme-court-clears-trump-ballroom-roberts-dissents",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 655,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "nepal-tibet-flood-toll-passes-1000-dna-burials-begin-in-chitwan",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 519,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "army-secretary-driscoll-resigns-after-clashes-with-hegseth",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 515,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "pbs.org",
+    "cnbc.com",
+    "npr.org",
+    "thehill.com"
+  ],
+  "errors": []
 }
