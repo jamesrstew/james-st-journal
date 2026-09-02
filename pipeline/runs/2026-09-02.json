@@ -1,1 +1,158 @@
-{"date":"2026-09-02","status":"in_progress","started_at":"2026-09-02T12:29:22Z","stages":{}}
+{
+  "date": "2026-09-02",
+  "status": "success",
+  "started_at": "2026-09-02T12:29:22Z",
+  "completed_at": "2026-09-02T13:10:07Z",
+  "stages": {
+    "ingest": {
+      "items": 1274,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "failed_feeds": [
+        "PBS NewsHour",
+        "CNBC Top",
+        "CNBC Markets",
+        "NPR Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World"
+      ]
+    },
+    "cluster": {
+      "clusters": 67,
+      "body_tier_clusters": 54
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "global-bond-selloff",
+          "category": "Markets",
+          "score": 17.3,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 1
+        },
+        {
+          "slot": 2,
+          "cluster": "us-iran-strikes-hormuz",
+          "category": "World",
+          "score": 13.8,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "venezuela-oil-deal-details",
+          "category": "Politics",
+          "score": 12.54,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "massachusetts-primary-markey",
+          "category": "Politics",
+          "score": 6.44,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1,
+          "refill_reason": "original slot 4 (government-shutdown-averted) had only 1 direct-URL body source (CBS News); GN redirects for Reuters/AP/Axios cannot be resolved via curl (JS required) or WebFetch. Refilled from massachusetts-primary-markey which has 6 direct-URL body sources (CBS, Fox, NBC, Al Jazeera etc.)."
+        },
+        {
+          "slot": 5,
+          "cluster": "charlie-kirk-suspect-death-penalty",
+          "category": "Politics",
+          "score": 9.13,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 16,
+      "sources_failed": 1,
+      "note": "Google News redirect URLs could not be resolved through curl (JS-only navigation) or WebFetch; pipeline switched to direct-URL body-tier sources only. This forced a slot 4 refill (see refill_reason under stages.select.chosen)."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 28,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {}
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "uk-30-year-yields-hit-28-year-high-as-global-bond-selloff-widens",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 748,
+      "sources": 3
+    },
+    {
+      "slot": 2,
+      "slug": "iran-hits-four-gulf-states-us-wedding-strike-alleged",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 698,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "wright-signs-venezuela-oil-pact-chevron-orinoco",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 661,
+      "sources": 4
+    },
+    {
+      "slot": 4,
+      "slug": "markey-routs-moulton-as-mass-democrats-keep-incumbents",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 407,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "utah-judge-sends-kirks-accused-killer-to-capital-trial",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 455,
+      "sources": 3
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "cnbc.com",
+    "npr.org",
+    "pbs.org",
+    "thehill.com"
+  ],
+  "errors": []
+}
