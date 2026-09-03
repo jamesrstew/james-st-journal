@@ -1,1 +1,152 @@
-{"date":"2026-09-03","status":"in_progress","started_at":"2026-09-03T12:24:59Z","stages":{}}
+{
+  "date": "2026-09-03",
+  "status": "success",
+  "stages": {
+    "ingest": {
+      "items": 781,
+      "feeds_ok": 20,
+      "feeds_fail": 20,
+      "duration_sec": 30
+    },
+    "cluster": {
+      "clusters": 18,
+      "body_tier_clusters": 12,
+      "duration_sec": 5
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "Iran-US strikes; oil to $97; Trump signals short campaign",
+          "category": "World",
+          "score": 8.2,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "House condemns socialism 220-192; eight Democrats defect",
+          "category": "Politics",
+          "score": 4.2,
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 3,
+          "cluster": "Federal judge blocks Trump's August birthright order",
+          "category": "Politics",
+          "score": 4.0,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 4,
+          "cluster": "UN warns 'supersized' El Ni\u00f1o; SE Asia haze worsens",
+          "category": "Science",
+          "score": 3.1,
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 0.7
+        },
+        {
+          "slot": 5,
+          "cluster": "Trump commits to 35 midterm races; Musk PAC opens",
+          "category": "Politics",
+          "score": 3.3,
+          "mandate_count": 0,
+          "signal_boost": 1.0,
+          "category_weight": 1.0
+        }
+      ],
+      "core_beat_count": 3
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 18,
+      "sources_failed": 12,
+      "duration_sec": 80
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 60,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "iran-us-oil-97-brent",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 895,
+      "sources": 4
+    },
+    {
+      "slot": 2,
+      "slug": "house-condemns-socialism",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 626,
+      "sources": 2
+    },
+    {
+      "slot": 3,
+      "slug": "birthright-citizenship-blocked",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 638,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "supersized-el-nino-warning",
+      "category": "Science",
+      "needs_review": false,
+      "word_count": 520,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "trump-35-races-midterm-push",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 534,
+      "sources": 4
+    }
+  ],
+  "egress_blocked_hostnames": [],
+  "errors": [
+    "The Hill (thehill.com) blocked by px-captcha across all article URLs during research",
+    "RealClearPolitics blocked by DataDome across data-center URLs",
+    "Politico blocked by Cloudflare",
+    "NPR, CNBC direct feeds returned Access Denied at ingest",
+    "Google News redirect URLs cannot be resolved by curl or WebFetch"
+  ]
+}
