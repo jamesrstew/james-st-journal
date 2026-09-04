@@ -1,6 +1,181 @@
 {
   "date": "2026-09-04",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-09-04T12:26:52Z",
-  "stages": {}
+  "finished_at": "2026-09-04T12:50:23Z",
+  "stages": {
+    "ingest": {
+      "items": 1394,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "feeds_failed_names": [
+        "CNBC Markets",
+        "CNBC Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR Top",
+        "NPR World",
+        "PBS NewsHour"
+      ],
+      "duration_sec": 2
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 1
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "US diesel prices hit $5.85 record as Iran war and Ukraine drone strikes squeeze global fuel supply; Vance denies it is a war",
+          "category": "Markets",
+          "score": 10.7,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1,
+          "lean_mix": [
+            "center",
+            "left",
+            "right"
+          ]
+        },
+        {
+          "slot": 2,
+          "cluster": "Nvidia agrees to acquire Hugging Face for $12.9 billion",
+          "category": "Tech",
+          "score": 6.88,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1,
+          "lean_mix": [
+            "center"
+          ]
+        },
+        {
+          "slot": 3,
+          "cluster": "OpenAI begins phased rollout of GPT-6 Astra",
+          "category": "Tech",
+          "score": 5.1,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1,
+          "lean_mix": [
+            "center",
+            "left"
+          ]
+        },
+        {
+          "slot": 4,
+          "cluster": "Missouri Supreme Court blocks GOP-drawn US House map",
+          "category": "Politics",
+          "score": 3.2,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1,
+          "lean_mix": [
+            "center",
+            "left",
+            "right"
+          ]
+        },
+        {
+          "slot": 5,
+          "cluster": "Gloria Steinem, defining public face of the modern US feminist movement, dies at 92",
+          "category": "Culture",
+          "score": 3,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.5,
+          "lean_mix": [
+            "center",
+            "left"
+          ]
+        }
+      ],
+      "core_beat_count": 4
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 17,
+      "sources_failed": 11,
+      "duration_sec": 10
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 28,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "pushed": true
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "us-diesel-hits-record-585-iran-war-ukraine-strikes",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 893,
+      "sources": 5
+    },
+    {
+      "slot": 2,
+      "slug": "nvidia-to-buy-hugging-face-for-12-9-billion-in-open-source-ai-bet",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 621,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "openai-rolls-out-gpt-6-astra-as-altman-apologizes-for-locked-out-subscribers",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 560,
+      "sources": 2
+    },
+    {
+      "slot": 4,
+      "slug": "missouri-high-court-voids-gop-house-map-and-sends-it-to-november-voters",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 534,
+      "sources": 3
+    },
+    {
+      "slot": 5,
+      "slug": "gloria-steinem-public-face-of-american-feminism-dies-at-92",
+      "category": "Culture",
+      "needs_review": false,
+      "word_count": 559,
+      "sources": 4
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "cnbc.com",
+    "feeds.npr.org",
+    "pbs.org"
+  ],
+  "errors": []
 }
