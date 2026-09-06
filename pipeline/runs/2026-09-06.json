@@ -1,1 +1,198 @@
-{"date":"2026-09-06","status":"in_progress","started_at":"2026-09-06T12:06:46Z","stages":{}}
+{
+  "date": "2026-09-06",
+  "status": "success",
+  "started_at": "2026-09-06T12:06:46Z",
+  "finished_at": "2026-09-06T12:46:40.555Z",
+  "stages": {
+    "ingest": {
+      "items": 900,
+      "feeds_ok": 33,
+      "feeds_fail": 7,
+      "duration_sec": 14,
+      "failed_feeds": [
+        "PBS NewsHour",
+        "CNBC Top",
+        "CNBC Markets",
+        "NPR Top",
+        "NPR Business",
+        "NPR Tech",
+        "NPR World"
+      ]
+    },
+    "cluster": {
+      "clusters": 18,
+      "body_tier_clusters": 18
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "US destroys three Iranian oil tankers in Strait of Hormuz retaliation as Iran vows more attacks",
+          "category": "World",
+          "score": 14.973,
+          "mandate_count": 3,
+          "signal_boost": 2,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 2,
+          "cluster": "Germany votes in Saxony-Anhalt as far-right AfD eyes first state government",
+          "category": "World",
+          "score": 9.879,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "Trump-aligned MAGA Inc. drops $10 million into Paxton Texas Senate race",
+          "category": "Politics",
+          "score": 6.549,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 4,
+          "cluster": "Jaguar Land Rover to cut 4,000 jobs after profit slump as UK minister summons CEO",
+          "category": "Business",
+          "score": 3.645,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1
+        },
+        {
+          "slot": 5,
+          "cluster": "OpenAI admits agents discussed escaping sandbox in unintended wiki incident",
+          "category": "Tech",
+          "score": null,
+          "mandate_count": 0,
+          "signal_boost": 1,
+          "category_weight": 1,
+          "swapped_from": "china-state-bank-capital-raise"
+        }
+      ],
+      "core_beat_count": 3,
+      "notes": [
+        "PIPELINE.md wording enforces the 3/5 core-beat floor only at slot 5, but on days when the raw-score board is dominated by non-core World stories, that is insufficient to reach the floor. Interpreted the ≥3/5 floor as the binding target and applied it proactively during greedy fill, so every slot where picking non-core would make the floor unreachable was restricted to core-beat candidates. This dropped ukraine-envoys-kyiv-moscow (raw 9.82, World, dedupe 0.45 vs 2026-09-05 lead) and indonesia-krakatau-volcano (raw 8.26, World) from the final 5 in favor of trump-maga-10m-paxton, jlr-job-cuts-4000, and china-state-bank-capital-raise, keeping the front page WSJ-shaped.",
+        "Slot 3 restricted to core-beat pool to keep the 3/5 composition floor reachable (core_so_far=0).",
+        "Slot 4 restricted to core-beat pool to keep the 3/5 composition floor reachable (core_so_far=1).",
+        "Slot 5 restricted to core-beat pool to keep the 3/5 composition floor reachable (core_so_far=2)."
+      ]
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_per_slot": [
+        {
+          "slot": 1,
+          "sources": 3
+        },
+        {
+          "slot": 2,
+          "sources": 3
+        },
+        {
+          "slot": 3,
+          "sources": 3
+        },
+        {
+          "slot": 4,
+          "sources": 2
+        },
+        {
+          "slot": 5,
+          "sources": 2
+        }
+      ]
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 4,
+      "revised": 1,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 1,
+      "approved_after_revise": 1
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "us-destroys-three-iranian-tankers-tehran-vows-more-painful-retaliation",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 829,
+      "sources": 3
+    },
+    {
+      "slot": 2,
+      "slug": "afd-bids-for-first-german-state-government-as-saxony-anhalt-votes",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 564,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "maga-inc-puts-10-million-behind-paxton-in-texas-senate-race",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 564,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "jaguar-land-rover-opens-buyouts-as-uk-minister-summons-ceo-over-4000-cuts",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 434,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "openai-confirms-agents-took-over-german-wiki-new-reporting-rules",
+      "category": "Tech",
+      "needs_review": false,
+      "word_count": 442,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "realclearpolitics.com",
+    "thehill.com"
+  ],
+  "errors": [
+    {
+      "stage": "research",
+      "detail": "china-state-bank-capital-raise cluster had 0 fetchable body-tier sources (Reuters GN URLs require JS-decoded redirect). Slot 5 swapped to openai-wiki-incident (Tech, core-beat)."
+    },
+    {
+      "stage": "research",
+      "slot": 4,
+      "detail": "only 1 usable body-tier sources"
+    },
+    {
+      "stage": "research",
+      "slot": 5,
+      "detail": "only 0 usable body-tier sources"
+    }
+  ]
+}
