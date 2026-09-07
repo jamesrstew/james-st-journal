@@ -16,6 +16,19 @@ export default function About() {
         <p className="small-caps text-muted">Colophon</p>
         <h1 className="headline mt-2 text-4xl">About this paper.</h1>
 
+        <p className="mt-6 border border-rule bg-paper px-4 py-3 text-sm text-muted">
+          <span className="small-caps text-accent-red">
+            Ceased publication &middot; September 8, 2026.
+          </span>{" "}
+          The James St. Journal published 146 daily editions between April 13
+          and September 7, 2026, and a closing edition on September 8. The
+          scheduled trigger is off. The archive stays online and does not
+          change. The closing edition is a work of fiction, labeled as such on
+          each of its pages; everything published before it is sourced
+          reporting, and the description below is written in the present tense
+          because it describes how those editions were made.
+        </p>
+
         <div className="article-body mt-8">
           <p>
             The James St. Journal is a one-person daily paper. Every morning at
@@ -84,9 +97,9 @@ export default function About() {
             <a href="https://github.com/jamesrstew/james-st-journal/issues">
               github.com/jamesrstew/james-st-journal
             </a>
-            . Corrections will be noted on the affected article and in a
-            standing corrections log once the paper&rsquo;s archive is large
-            enough to warrant one.
+            . The paper no longer publishes, but the archive is still
+            maintained: a factual error in any of the 146 reported editions
+            will be corrected on the affected article and noted there.
           </p>
         </div>
       </main>

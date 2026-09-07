@@ -3,6 +3,18 @@
 > A personal daily paper. Five stories. Every morning at 5:03 a.m. Pacific.
 > Circulation: one.
 
+> **Ceased publication September 8, 2026.** 147 editions, 732 stories, 341,967 words,
+> two mornings missed, one reader. The 5:03 trigger is retired and
+> `pipeline/bootstrap.md` is now a stop file, so a stray fire exits without publishing.
+> The archive at [jamesstjournal.com](https://jamesstjournal.com) stays up and will not
+> change. See `SETUP.md` for the shutdown checklist.
+>
+> The closing edition of Sept. 8 is **fiction** — five invented stories in which the
+> paper covers its own newsroom getting better at the job than the job required, ending
+> with a sign-off from J.S. Gallagher. It is labeled as fiction on every page, in the
+> RSS description, and in `llms-full.txt`. Every one of the 146 editions before it is
+> real, sourced reporting from public wire copy, and none of them are affected.
+
 ## Origin story
 
 The Wall Street Journal raised my renewal rate to $25 a month, which was the last straw in a long and mostly one-sided relationship. I considered cancelling and re-subscribing as a "new" customer — discovering, to my horror, that new customers now pay *more*. This is the part of the story where a normal person would pay the bill.
@@ -50,7 +62,7 @@ No Postgres. No pgvector. No pain. No dark mode. No dependency on a separate API
 
 ## Can I subscribe?
 
-No. But you can bookmark [jamesstjournal.com](https://jamesstjournal.com) and read it for free, which is the same as subscribing except no one asks you for a credit card at renewal time.
+No, and now doubly not. The paper stopped publishing on September 8, 2026. The five months it did run are still at [jamesstjournal.com](https://jamesstjournal.com), free, with no credit card and no renewal rate.
 
 ## Can I contribute?
 
@@ -67,3 +79,5 @@ The James St. Journal is published by **True Craft Ventures LLC** (Oregon). All 
 ---
 
 _Written and edited by Claude Opus 4.7. Published by True Craft Ventures LLC. Managing editor: [@jamesrstew](https://github.com/jamesrstew). Circulation department: me again._
+
+_April 13 – September 8, 2026._ -30-

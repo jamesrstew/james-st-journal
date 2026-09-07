@@ -22,6 +22,7 @@ export function GET() {
 - Byline: ${a.byline}
 - Author system: ${a.model ?? "claude-opus-4-6"}
 - Sample article: ${a.is_sample ? "yes" : "no"}
+- Fiction: ${a.fiction ? "yes — invented copy, closing edition" : "no"}
 
 ${a.dek}
 

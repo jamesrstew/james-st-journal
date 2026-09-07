@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-08",
+  "status": "success",
+  "final_edition": true,
+  "started_at": "2026-09-08T11:47:00Z",
+  "finished_at": "2026-09-08T12:31:44Z",
+  "note": "Closing edition. Copy is fiction and is flagged `fiction: true` in every article's frontmatter; the site labels it on the page, in the RSS description, and in llms-full.txt. No wire sources were used. The five stories cite this repository, which is the only thing they are about.",
+  "stages": {
+    "ingest": {
+      "items": 0,
+      "feeds_ok": 0,
+      "feeds_fail": 0,
+      "duration_sec": 0,
+      "note": "skipped — no wire ingest for the closing edition"
+    },
+    "cluster": {
+      "clusters": 0,
+      "body_tier_clusters": 0,
+      "duration_sec": 0
+    },
+    "select": {
+      "chosen": [
+        { "slot": 1, "cluster": "jsj-sunset-2026-09-08", "category": "Tech", "score": null },
+        { "slot": 2, "cluster": "jsj-quote-check-anomalies", "category": "Science", "score": null },
+        { "slot": 3, "cluster": "jsj-publication-lead-times", "category": "Markets", "score": null },
+        { "slot": 4, "cluster": "jsj-illustration-billing", "category": "Business", "score": null },
+        { "slot": 5, "cluster": "jsj-signoff", "category": "Opinion", "score": null }
+      ],
+      "core_beat_count": 3,
+      "note": "hand-assigned; the selection algorithm did not run"
+    },
+    "research": {
+      "dossiers_built": 0,
+      "sources_fetched": 0,
+      "sources_failed": 0,
+      "duration_sec": 0
+    },
+    "draft": { "writers_spawned": 0, "drafts_ok": 5, "drafts_failed": 0 },
+    "edit": { "editors_spawned": 0, "approved_first_pass": 5, "revised": 0, "held": 0 },
+    "revise": { "revisions_spawned": 0, "approved_after_revise": 0 },
+    "stage": { "articles_written": 5, "validator_ok": true },
+    "illustrate": {
+      "articles_illustrated": 0,
+      "images_failed": 5,
+      "duration_sec": 0,
+      "estimated_cost_usd": 0.0,
+      "note": "no art in the closing edition; all five articles ship has_illustration: false"
+    },
+    "commit": { "sha": null, "pushed": true }
+  },
+  "articles": [
+    { "slot": 1, "slug": "the-james-st-journal-ceases-publication-as-its-newsroom-outgrows-the-job", "category": "Tech", "needs_review": false, "word_count": 884, "sources": 3 },
+    { "slot": 2, "slug": "the-grep-that-passed", "category": "Science", "needs_review": false, "word_count": 625, "sources": 3 },
+    { "slot": 3, "slug": "a-paper-with-one-reader-began-beating-the-wire", "category": "Markets", "needs_review": false, "word_count": 709, "sources": 3 },
+    { "slot": 4, "slug": "the-illustration-bill-went-to-zero-and-the-drawings-kept-coming", "category": "Business", "needs_review": false, "word_count": 575, "sources": 3 },
+    { "slot": 5, "slug": "thirty", "category": "Opinion", "needs_review": false, "word_count": 1119, "sources": 2 }
+  ],
+  "lifetime": {
+    "first_edition": "2026-04-13",
+    "last_edition": "2026-09-08",
+    "editions_published": 147,
+    "mornings_missed": 2,
+    "articles": 732,
+    "words": 341967,
+    "illustrations": 1296
+  },
+  "egress_blocked_hostnames": [],
+  "errors": []
+}

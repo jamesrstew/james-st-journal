@@ -27,6 +27,8 @@ export const ArticleFrontmatterSchema = z.object({
   draft_iterations: z.number().int().min(0).optional(),
   needs_review: z.boolean().default(false),
   is_sample: z.boolean().default(false),
+  /** Marks the closing edition: invented copy, labeled as such on the page. */
+  fiction: z.boolean().default(false),
   has_illustration: z.boolean().default(true),
 });
 

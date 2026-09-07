@@ -33,7 +33,7 @@ export function GET() {
       <pubDate>${new Date(a.published_at).toUTCString()}</pubDate>
       <category>${escapeXml(a.category)}</category>
       <author>${escapeXml(a.byline)}</author>
-      <description>${escapeXml(a.dek)}</description>
+      <description>${escapeXml(a.fiction ? `[Fiction — closing edition] ${a.dek}` : a.dek)}</description>
     </item>`;
     })
     .join("\n");

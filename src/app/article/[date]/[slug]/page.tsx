@@ -77,6 +77,12 @@ export default async function ArticlePage({
           </p>
         )}
 
+        {article.fiction && (
+          <p className="mb-6 border border-accent-red bg-paper px-3 py-2 text-center text-xs small-caps text-accent-red">
+            {brand.fictionNotice}
+          </p>
+        )}
+
         <article itemScope itemType="https://schema.org/NewsArticle">
           <header>
             <p

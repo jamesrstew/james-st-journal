@@ -1,6 +1,31 @@
 # Setup & operations — James St. Journal
 
-This is the operational runbook for the live pipeline. Keep it short. For the trigger's static config (IDs, cron expression, env), see `pipeline/SCHEDULE.md`.
+> ## CEASED PUBLICATION — 2026-09-08
+>
+> The paper is done. Last edition: `content/articles/2026-09-08/`. Nothing below is
+> live any more; it is kept as the record of how the paper ran and as the recipe if it
+> is ever revived.
+>
+> **Shutdown checklist**
+>
+> | Lever | State | Where |
+> |---|---|---|
+> | `pipeline/bootstrap.md` | Replaced with a hard stop. Any fire exits without publishing. | this repo |
+> | `pipeline/archive-bootstrap.md`, `pipeline/archive-bootstrap-retry.md` | The old working instructions, preserved verbatim. | this repo |
+> | `.github/workflows/edition-health-check.yml` | Schedule removed; `workflow_dispatch` only. It would otherwise page Telegram every morning forever. | this repo |
+> | `jsj-edition` (`trig_01XWayYkU3ZRzgqotgeHviSy`) | **Disable by hand** | claude.ai/code → Routines |
+> | `jsj-edition-retry-a` (`trig_01PVSDeMgC4uFTeRu7JtUvwt`) | **Disable by hand** | claude.ai/code → Routines |
+> | `jsj-edition-retry-b` (`trig_01DPcHN8m342aiWTAad18bQd`) | **Disable by hand** | claude.ai/code → Routines |
+>
+> The three routines were created through the HTTP API, and the Routines API refuses
+> agent-initiated updates to those ("Agents can only update routines they created").
+> They have to be switched off in the web UI. Until that happens the repo-side stop in
+> `pipeline/bootstrap.md` is what prevents a new edition: a fire still spins up a
+> container and burns a few minutes of Max quota, but it reads the stop file and exits
+> before touching `content/` or `pipeline/runs/`.
+>
+> Vercel can stay connected. With no new commits there are no new deploys, and the
+> archive keeps serving.
 
 ## The live cron
 
@@ -10,7 +35,7 @@ This is the operational runbook for the live pipeline. Keep it short. For the tr
 - **Cron:** `3 12 * * *` UTC (= 5:03 AM PDT / 4:03 AM PST — edit in the routine's web config in March/November if you care about the one-hour DST drift)
 - **Model:** `claude-opus-4-7`
 - **Repo source:** `https://github.com/jamesrstew/james-st-journal` with `allow_unrestricted_git_push: true` (toggled in the routine's web UI; default would limit pushes to `claude/*` branches)
-- **Bootstrap prompt:** reads `pipeline/bootstrap.md` from the repo, which delegates to `pipeline/PIPELINE.md`. Prompt iteration happens in-repo — commit and push to main, next run picks it up.
+- **Bootstrap prompt:** reads `pipeline/bootstrap.md` from the repo, which delegated to `pipeline/PIPELINE.md`. Prompt iteration happened in-repo — commit and push to main, next run picks it up. (As of the sunset, `pipeline/bootstrap.md` is a stop file; the publishing version is `pipeline/archive-bootstrap.md`.)
 - **Cost:** billed to the Claude Max subscription (no separate API bill).
 
 ## How the daily run works

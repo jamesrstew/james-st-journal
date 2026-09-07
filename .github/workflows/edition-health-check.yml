@@ -5,13 +5,17 @@ name: Edition health check
 # Scoped narrowly: this is an alarm clock, not an executor. No automatic retries —
 # recovery is manual (fire jsj-edition via RemoteTrigger, or run locally).
 
+# RETIRED 2026-09-08. The paper ceased publication; the jsj-edition trigger and its
+# two retries are off, so no run log will ever land again and this check would page
+# via Telegram every single morning. The schedule is disabled and the job is left
+# behind workflow_dispatch only, so the logic survives if the paper is ever revived.
+#
+# Former schedule:
+#   - cron: "5 15 * * *"   # 15:05 UTC = 8:05 AM PDT / 7:05 AM PST
+# Moved from 14:05 → 15:05 after cutover to Routines (2026-04-20): Routines runs
+# longer than Railway (~60–90 min vs 25 min) and was still finishing when the old
+# check fired, producing false-positive failures.
 on:
-  schedule:
-    # 15:05 UTC = 8:05 AM PDT / 7:05 AM PST. DST drifts by one hour twice a year; acceptable.
-    # Moved from 14:05 → 15:05 after cutover to Routines (2026-04-20): Routines runs
-    # longer than Railway (~60–90 min vs 25 min) and was still finishing when the old
-    # check fired, producing false-positive failures.
-    - cron: "5 15 * * *"
   workflow_dispatch:
 
 permissions:

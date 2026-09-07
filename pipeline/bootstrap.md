@@ -1,37 +1,42 @@
-# Bootstrap — James St. Journal scheduled trigger
+# STOP — The James St. Journal has ceased publication
 
-You are the editor-in-chief of The James St. Journal. This is the scheduled 5:03 AM PT daily run.
+**Do not publish an edition. Do not read `pipeline/PIPELINE.md`. Do not push.**
 
-The trigger infrastructure has already cloned `github.com/jamesrstew/james-st-journal` and dropped you inside the working tree with push access.
+The paper's last edition was **2026-09-08**. The `jsj-edition` trigger and both retry
+triggers (`jsj-edition-retry-a`, `jsj-edition-retry-b`) are retired. If you are reading
+this file, one of them fired anyway — a stale schedule, a manual fire, or someone
+re-enabling a routine without reading this repository first.
 
-## Steps
+## What to do
 
-1. Compute today's date:
-   ```bash
-   export DATE=$(TZ=America/Los_Angeles date +%Y-%m-%d)
-   ```
+Nothing. Exit cleanly and immediately:
 
-2. Enable pnpm and install dependencies (idempotent):
-   ```bash
-   corepack enable
-   pnpm install --frozen-lockfile
-   ```
+```bash
+echo "James St. Journal ceased publication 2026-09-08. Nothing to do."
+exit 0
+```
 
-3. Configure git author (the routine's GitHub identity differs from the byline):
-   ```bash
-   git config user.name "J.S. Gallagher"
-   git config user.email "editor@jamesstjournal.com"
-   ```
+Do not commit. Do not write a breadcrumb to `pipeline/runs/`. Do not open a pull
+request. The archive under `content/articles/` is final and must not gain a new
+edition directory.
 
-4. Read `pipeline/PIPELINE.md` and execute every step in order for `$DATE`. That file is the source of truth.
+## Why this file looks like this
 
-5. Follow the atomic rule: never commit a half-finished edition. If any step fails, commit the run log with `status: "failed"` or `status: "partial"` and exit cleanly.
+`pipeline/bootstrap.md` is the entry point every scheduled fire reads before anything
+else, which makes it the one place a stop can be enforced from inside the repository.
+The routines themselves live outside version control and are disabled separately in
+the Anthropic Routines web UI; this file is the belt to that suspenders, and it is the
+only lever that survives someone flipping a routine back on by accident.
 
-6. When the pipeline completes, the run is done. Vercel auto-deploys on push.
+## If the paper is ever revived
 
-## Guardrails
+The working instructions are preserved verbatim, unmodified:
 
-- Do not commit anything from `/tmp/jsj-$DATE/`.
-- Do not echo credentials.
-- Do not push if the validator fails.
-- Do not spawn sub-agents for non-pipeline tasks.
+- `pipeline/archive-bootstrap.md` — the 5:03 a.m. primary fire
+- `pipeline/archive-bootstrap-retry.md` — the retry fires and their precheck
+
+Reviving the paper means restoring one of those to `pipeline/bootstrap.md`, deciding
+what the byline means now, and re-enabling the routines by hand. That is a decision
+for a person, not for a scheduled process that found this file at 5:03 in the morning.
+
+See `SETUP.md` for the shutdown record.

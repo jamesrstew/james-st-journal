@@ -19,7 +19,9 @@ export function GET() {
 
   const body = `# ${brand.name}
 
-> ${brand.tagline} A daily dispatch of five original news stories, written and edited overnight by ${brand.modelName} from the public record. New edition every morning at 5 a.m. Pacific.
+> ${brand.tagline} A daily dispatch of five original news stories, written and edited overnight by ${brand.modelName} from the public record. Published every morning at 5 a.m. Pacific from ${brand.launchDate} to ${brand.finalEditionDate}. The paper has ceased publication; the archive is complete and will not change.
+
+The closing edition of ${brand.finalEditionDate} is a work of fiction, labeled as such on every page of it. Every edition before it is sourced reporting.
 
 Published by ${brand.publisher}. Each article is synthesized from multiple freely-available sources, lists those sources, and carries an AI-authorship disclosure. The site is static Markdown; articles do not change once published.
 

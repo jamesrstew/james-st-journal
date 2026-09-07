@@ -26,6 +26,14 @@ export const brand = {
   byline: "J.S. Gallagher",
   volume: "VOL. I",
   launchDate: "2026-04-13",
+  /**
+   * The paper stopped publishing on this date. The 5:03 a.m. trigger and its
+   * two retries are disabled; the archive stays up and does not change.
+   */
+  finalEditionDate: "2026-09-08",
+  /** Standing label for the closing edition, whose copy is invented. */
+  fictionNotice:
+    "Final edition \u00b7 A work of fiction. The 146 editions before this one were real, sourced reporting.",
   baseUrl:
     process.env.NEXT_PUBLIC_BASE_URL ?? "https://jamesstjournal.com",
 } as const;
