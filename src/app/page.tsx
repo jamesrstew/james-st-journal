@@ -43,15 +43,13 @@ export default function Home() {
       <Masthead editionDate={edition.date} />
       {hasCeased ? (
         <div className="bg-paper border-b border-rule">
-          <div className="mx-auto max-w-[1200px] px-6 py-3 text-center">
-            <p className="text-xs small-caps text-accent-red">
-              Final edition &middot; The James St. Journal has ceased publication
+          <div className="mx-auto max-w-[1200px] px-6 py-2 text-center">
+            <p className="text-xs small-caps text-muted">
+              Final edition &middot; Published April 13 &ndash; September 8, 2026
             </p>
-            <p className="mt-1 text-xs text-muted">
-              Published every morning from April 13 to September 8, 2026. The
-              archive stays up and does not change. The closing edition is a
-              work of fiction and is labeled as such; every edition before it
-              is sourced reporting.
+            <p className="mt-1 text-xs italic text-muted">
+              The archive stays up and does not change. The closing edition is
+              fiction; every edition before it is sourced reporting.
             </p>
           </div>
         </div>

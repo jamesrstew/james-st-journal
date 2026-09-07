@@ -33,7 +33,7 @@ export const brand = {
   finalEditionDate: "2026-09-08",
   /** Standing label for the closing edition, whose copy is invented. */
   fictionNotice:
-    "Final edition \u00b7 A work of fiction. The 146 editions before this one were real, sourced reporting.",
+    "Final edition. This story is fiction; the 146 editions before it are sourced reporting.",
   baseUrl:
     process.env.NEXT_PUBLIC_BASE_URL ?? "https://jamesstjournal.com",
 } as const;

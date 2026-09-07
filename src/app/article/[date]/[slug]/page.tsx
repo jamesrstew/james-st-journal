@@ -78,7 +78,7 @@ export default async function ArticlePage({
         )}
 
         {article.fiction && (
-          <p className="mb-6 border border-accent-red bg-paper px-3 py-2 text-center text-xs small-caps text-accent-red">
+          <p className="mb-8 text-xs italic text-muted">
             {brand.fictionNotice}
           </p>
         )}

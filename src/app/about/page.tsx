@@ -17,7 +17,7 @@ export default function About() {
         <h1 className="headline mt-2 text-4xl">About this paper.</h1>
 
         <p className="mt-6 border border-rule bg-paper px-4 py-3 text-sm text-muted">
-          <span className="small-caps text-accent-red">
+          <span className="small-caps">
             Ceased publication &middot; September 8, 2026.
           </span>{" "}
           The James St. Journal published 146 daily editions between April 13
