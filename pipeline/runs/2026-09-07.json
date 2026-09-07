@@ -1,6 +1,155 @@
 {
   "date": "2026-09-07",
-  "status": "in_progress",
+  "status": "success",
   "started_at": "2026-09-07T12:25:06Z",
-  "stages": {}
+  "finished_at": "2026-09-07T12:50:58Z",
+  "stages": {
+    "ingest": {
+      "items": 797,
+      "feeds_ok": 25,
+      "feeds_fail": 7,
+      "duration_sec": 15
+    },
+    "cluster": {
+      "clusters": 5,
+      "body_tier_clusters": 5,
+      "duration_sec": 2
+    },
+    "select": {
+      "chosen": [
+        {
+          "slot": 1,
+          "cluster": "iran-hormuz-oil-2026-09-07",
+          "category": "Markets",
+          "score": 17.51,
+          "mandate_count": 3,
+          "signal_boost": 2.0,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 2,
+          "cluster": "afd-wins-saxony-anhalt-2026-09-07",
+          "category": "World",
+          "score": 14.24,
+          "mandate_count": 3,
+          "signal_boost": 2.0,
+          "category_weight": 0.85
+        },
+        {
+          "slot": 3,
+          "cluster": "amazon-miami-crash-2026-09-07",
+          "category": "Business",
+          "score": 11.63,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 4,
+          "cluster": "republicans-trail-2026-09-07",
+          "category": "Politics",
+          "score": 9.73,
+          "mandate_count": 2,
+          "signal_boost": 1.7,
+          "category_weight": 1.0
+        },
+        {
+          "slot": 5,
+          "cluster": "north-korea-destroyer-2026-09-07",
+          "category": "World",
+          "score": 2.58,
+          "mandate_count": 1,
+          "signal_boost": 1.35,
+          "category_weight": 0.85
+        }
+      ],
+      "core_beat_count": 3
+    },
+    "research": {
+      "dossiers_built": 5,
+      "sources_fetched": 13,
+      "sources_failed": 14,
+      "duration_sec": 180,
+      "note": "The Hill and RealClearPolitics returned 403 (egress-blocked); Google News redirect URLs did not resolve via curl or WebFetch. Recovered Reuters bodies via yahoo.com and arabnews.com mirrors after WebSearch."
+    },
+    "draft": {
+      "writers_spawned": 5,
+      "drafts_ok": 5,
+      "drafts_failed": 0
+    },
+    "edit": {
+      "editors_spawned": 5,
+      "approved_first_pass": 5,
+      "revised": 0,
+      "held": 0
+    },
+    "revise": {
+      "revisions_spawned": 0,
+      "approved_after_revise": 0
+    },
+    "stage": {
+      "articles_written": 5,
+      "validator_ok": true
+    },
+    "illustrate": {
+      "articles_illustrated": 5,
+      "images_failed": 0,
+      "duration_sec": 33,
+      "estimated_cost_usd": 0.08
+    },
+    "commit": {
+      "sha": null,
+      "pushed": false
+    }
+  },
+  "articles": [
+    {
+      "slot": 1,
+      "slug": "hormuz-ship-traffic-falls-to-may-low-as-iran-plans-new-exclusion-zone",
+      "category": "Markets",
+      "needs_review": false,
+      "word_count": 720,
+      "sources": 3
+    },
+    {
+      "slot": 2,
+      "slug": "afd-wins-saxony-anhalt-three-seats-short-of-majority",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 633,
+      "sources": 3
+    },
+    {
+      "slot": 3,
+      "slug": "amazon-air-boeing-767-overruns-miami-runway-killing-five",
+      "category": "Business",
+      "needs_review": false,
+      "word_count": 540,
+      "sources": 3
+    },
+    {
+      "slot": 4,
+      "slug": "republicans-open-midterm-sprint-tethered-to-an-unpopular-president",
+      "category": "Politics",
+      "needs_review": false,
+      "word_count": 488,
+      "sources": 2
+    },
+    {
+      "slot": 5,
+      "slug": "kim-commissions-second-nuclear-response-destroyer-as-freedom-edge-opens",
+      "category": "World",
+      "needs_review": false,
+      "word_count": 433,
+      "sources": 2
+    }
+  ],
+  "egress_blocked_hostnames": [
+    "cnbc.com",
+    "feeds.npr.org",
+    "pbs.org",
+    "realclearpolitics.com",
+    "thehill.com"
+  ],
+  "errors": []
 }
